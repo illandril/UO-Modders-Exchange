@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Interface xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../Interface.xsd">
+	<Assets>
+        <Texture name="DefaultTextNumbersIconPack_0" file="Icons/0.dds" />
+        <Texture name="DefaultTextNumbersIconPack_1" file="Icons/1.dds" />
+        <Texture name="DefaultTextNumbersIconPack_2" file="Icons/2.dds" />
+        <Texture name="DefaultTextNumbersIconPack_3" file="Icons/3.dds" />
+        <Texture name="DefaultTextNumbersIconPack_4" file="Icons/4.dds" />
+        <Texture name="DefaultTextNumbersIconPack_5" file="Icons/5.dds" />
+        <Texture name="DefaultTextNumbersIconPack_6" file="Icons/6.dds" />
+        <Texture name="DefaultTextNumbersIconPack_7" file="Icons/7.dds" />
+        <Texture name="DefaultTextNumbersIconPack_8" file="Icons/8.dds" />
+        <Texture name="DefaultTextNumbersIconPack_9" file="Icons/9.dds" />
+	</Assets>
+</Interface>

@@ -1,0 +1,245 @@
+<Interface xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../Interface.xsd">
+  <Scripts>
+    <Script file="Source/PetWindow.lua" />
+  </Scripts>
+  <Windows>
+    <Window name="PetHealthBarTemplate" movable="false">
+      <Size>
+        <AbsPoint x="156" y="41" />
+      </Size>
+      <EventHandlers>
+        <EventHandler event="OnLButtonDown" function="PetWindow.OnItemClicked" />
+        <EventHandler event="OnLButtonDblClk" function="PetWindow.OnDblClick" />
+        <EventHandler event="OnRButtonDown" function="PetWindow.OnRClick" />
+      </EventHandlers>
+      <Windows>
+        <DynamicImage name="$parentImage" texture="hud_image2" handleinput="false" layer="background" poppable="false" texturescale=".82">
+          <Size>
+            <AbsPoint x="194" y="36" />
+          </Size>
+          <TexCoords x="0" y="462"/>
+        </DynamicImage>
+
+        <StatusBar name="$parentHealthBar" inherits="PetStatusBar">
+          <Size>
+            <AbsPoint x="125" y="3" />
+          </Size>
+          <Anchors>
+            <Anchor point="topleft" relativePoint="topleft" relativeTo="$parentImage">
+              <AbsPoint x="17" y="7" />
+            </Anchor>
+          </Anchors>
+        </StatusBar>
+
+        <Label name="$parentLabelName" font="UO_Chat_Helvetica_15pt" maxchars="60" textalign="center" handleinput="false" wordwrap="false" linespacing="18" poppable="false">
+          <Size>
+            <AbsPoint x="158" y="28" />
+          </Size>
+          <Anchors>
+            <Anchor point="topleft" relativePoint="topleft" relativeTo="$parent">
+              <AbsPoint x="-35" y="8" />
+            </Anchor>
+          </Anchors>
+          <TextColor r="255" g="255" b="255" a="255" />
+        </Label>
+        
+        <!-- The large size heal button -->
+        <Button name="$parentGroupHeal" backgroundtexture="hud_image2" highlighttexture="hud_image2" texturescale=".85">
+          <Size>
+            <AbsPoint x="18" y="16" />
+          </Size>
+          <Anchors>
+            <Anchor point="center" relativePoint="center" relativeTo="$parentImage">
+              <AbsPoint x="10" y="10" />
+            </Anchor>
+          </Anchors>
+          <TexCoords>
+            <Normal  x="0" y="287" />
+            <NormalHighlit x="36" y="287" />
+            <Pressed x="36" y="287" />
+            <PressedHighlit x="36" y="287" />
+          </TexCoords>
+          <EventHandlers>
+            <EventHandler event="OnLButtonUp" function="PetWindow.HealMember" />
+			<EventHandler event="OnMouseOver" function="PetWindow.ViewHealButtonMouseOver" />
+			<EventHandler event="OnMouseOverEnd" function="ItemProperties.ClearMouseOverItem" />
+			
+          </EventHandlers>
+        </Button>
+        <!-- The large size cure button -->
+        <Button name="$parentGroupCure" backgroundtexture="hud_image2" highlighttexture="hud_image2" texturescale=".85">
+          <Size>
+            <AbsPoint x="18" y="16" />
+          </Size>
+          <Anchors>
+            <Anchor point="right" relativePoint="left" relativeTo="$parentGroupHeal" >
+              <AbsPoint x="4" y="0" />
+            </Anchor>
+          </Anchors>
+          <TexCoords>
+            <Normal  x="18" y="287" />
+            <NormalHighlit x="54" y="287" />
+            <Pressed x="54" y="287" />
+            <PressedHighlit x="54" y="287" />
+          </TexCoords>
+          <EventHandlers>
+            <EventHandler event="OnLButtonUp" function="PetWindow.CureMember" />
+			<EventHandler event="OnMouseOver" function="PetWindow.ViewCureButtonMouseOver" />
+			<EventHandler event="OnMouseOverEnd" function="ItemProperties.ClearMouseOverItem" />			
+          </EventHandlers>
+        </Button>
+		        <Button name="$parentGroupCurse" backgroundtexture="hud_image2" highlighttexture="hud_image2" texturescale=".85">
+          <Size>
+            <AbsPoint x="18" y="16" />
+          </Size>
+          <Anchors>
+            <Anchor point="right" relativePoint="left" relativeTo="$parentGroupCure" >
+              <AbsPoint x="4" y="0" />
+            </Anchor>
+          </Anchors>
+          <TexCoords>
+            <Normal  x="72" y="287" />
+            <NormalHighlit x="90" y="287" />
+            <Pressed x="90" y="287" />
+            <PressedHighlit x="90" y="287" />
+          </TexCoords>
+          <EventHandlers>
+            <EventHandler event="OnLButtonUp" function="PetWindow.CurseMember" />
+			<EventHandler event="OnMouseOver" function="PetWindow.ViewCurseButtonMouseOver" />
+			<EventHandler event="OnMouseOverEnd" function="ItemProperties.ClearMouseOverItem" />			
+          </EventHandlers>
+        </Button>
+      </Windows>
+    </Window>
+
+    <Button name="ShowButtonTemplate" backgroundtexture="hud_image" highlighttexture="hud_image">
+      <Size>
+        <AbsPoint x="40" y="40" />
+      </Size>
+      <TexCoords>
+        <Normal  x="179" y="857" />
+        <NormalHighlit x="179" y="857" />
+        <Pressed x="179" y="857" />
+        <PressedHighlit x="179" y="857" />
+        <Disabled x="179" y="857" />
+      </TexCoords>
+      <EventHandlers>
+        <EventHandler event="OnLButtonUp" function="PetWindow.ShowPet" />
+      </EventHandlers>
+    </Button>
+
+    <Button name="HideButtonTemplate" backgroundtexture="hud_image" highlighttexture="hud_image">
+      <Size>
+        <AbsPoint x="36" y="36" />
+      </Size>
+      <TexCoords>
+        <Normal  x="142" y="857" />
+        <NormalHighlit x="142" y="857" />
+        <Pressed x="142" y="857" />
+        <PressedHighlit x="142" y="857" />
+        <Disabled x="142" y="857" />
+      </TexCoords>
+      <EventHandlers>
+        <EventHandler event="OnLButtonUp" function="PetWindow.HidePet" />
+      </EventHandlers>
+    </Button>
+
+    <Window name="PetWindow" layer="background" movable="true">
+		<Size>
+			<AbsPoint x="175" y="60" />
+		</Size>
+		<Anchors>
+			<Anchor point="topleft" relativePoint="topleft">
+				<AbsPoint x="0" y="0" />
+			</Anchor>
+		</Anchors>
+		<EventHandlers>
+			<EventHandler event="OnInitialize" function="PetWindow.Initialize" />
+			<EventHandler event="OnShutdown" function="PetWindow.Shutdown" />
+			<EventHandler event="OnLButtonDown" function="PetWindow.OnMouseDrag" />
+		</EventHandlers>
+		<Windows>
+			<Window name="$parentHideView" movable="false">
+          <Size>
+            <AbsPoint x="40" y="40" />
+          </Size>
+          <Anchors>
+            <Anchor point="topleft" relativePoint="topleft">
+              <AbsPoint x="0" y="0" />
+            </Anchor>
+          </Anchors>
+
+          <Windows>
+            <Button name="$parentShowButton" inherits="ShowButtonTemplate">
+              <Anchors>
+                <Anchor point="topleft" relativePoint="topleft">
+                  <AbsPoint x="0" y="0" />
+                </Anchor>
+              </Anchors>
+            </Button>
+          </Windows>
+        </Window>
+
+        <Window name="$parentShowView" movable="false">
+          <Size>
+            <AbsPoint x="175" y="60" />
+          </Size>
+          <Anchors>
+            <Anchor point="topleft" relativePoint="topleft">
+              <AbsPoint x="0" y="0" />
+            </Anchor>
+          </Anchors>
+
+          <Windows>
+            <!--Default Black background texture -->
+            <FullResizeImage name="$parentBackground" inherits="UO_Simple_Black_Background" layer="background">
+              <Anchors>
+                <Anchor point="topleft" relativePoint="topleft">
+                  <AbsPoint x="2" y="20" />
+                </Anchor>
+                <Anchor point="bottomright" relativePoint="bottomright" />
+              </Anchors>
+            </FullResizeImage>
+
+            <!-- Gold title bar -->
+            <DynamicImage name="$parentTitleBar" texture="hud_image" layer="background">
+              <Size>
+                <AbsPoint x="179" y="61" />
+              </Size>
+              <TexCoords x="0" y="856" />
+              <Anchors>
+                <Anchor point="topleft" relativePoint="topleft">
+                  <AbsPoint x="0" y="0" />
+                </Anchor>
+              </Anchors>
+            </DynamicImage>
+
+            <Label name="$parentName" font="UO_18" maxchars="16" textalign="center" handleinput="false" wordwrap="true" linespacing="18">
+              <Size>
+                <AbsPoint x="155" y="10" />
+              </Size>
+              <Anchors>
+                <Anchor point="top" relativePoint="top" relativeTo="$parentTitleBar">
+                  <AbsPoint x="-12" y="12" />
+                </Anchor>
+              </Anchors>
+            </Label>
+
+            <!-- Left arrow circle button -->
+            <Button name="$parentHideButton" inherits="HideButtonTemplate" >
+              <Anchors>
+                <Anchor point="topright" relativePoint="topleft" relativeTo="$parentTitleBar">
+                  <AbsPoint x="-37" y="1" />
+                </Anchor>
+              </Anchors>
+            </Button>
+
+          </Windows>
+        </Window>
+
+      </Windows>
+    </Window>
+    <!--End of PetWindow -->
+
+  </Windows>
+</Interface>

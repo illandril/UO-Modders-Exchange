@@ -1,0 +1,217 @@
+<Interface xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../Interface.xsd">
+	<Scripts>
+		<Script file="Source/BookTemplate.lua" />
+	</Scripts>
+	<Windows>
+
+      <Label name="TitlePageLabelTemplate" font="nol_UOCR_15" maxchars="64" textalign="center" wordwrap="true" autoresize="true">
+        <Size>
+          <AbsPoint x="170" y="20"/>
+        </Size>
+        <Color r="50" g="50" b="0" a="255" />
+      </Label>
+
+      <Label name="PageTextLabelTemplate" font="nol_UOCR_15" maxchars="2000" textalign="left" wordwrap="true" autoresize="true">
+        <Size>
+          <AbsPoint x="170" y="20"/>
+        </Size>
+        <Color r="0" g="0" b="0" a="255" />
+      </Label>
+
+      <EditBox name="EditTitleTemplate" font="nol_UOCR_15" maxchars="64" textalign="center" wordwrap="true" autoresize="true" history="true">
+        <Size>
+          <AbsPoint x="170" y="20"/>
+        </Size>
+        <TextColor r="75" g="0" b="0" a="255" />
+        <EventHandlers>
+          <EventHandler event="OnKeyEnter" function="BookTemplate.EnterTitle" />
+        </EventHandlers>
+        <TextOffset x="5" y="5"/>
+        <Windows>
+          <!--<FullResizeImage name="$parentFrame" inherits="UO_Default_Inner_Window_Frame" >
+            <Anchors>
+              <Anchor point="topleft" relativePoint="topleft" />
+              <Anchor point="bottomright" relativePoint="bottomright" />
+            </Anchors>
+          </FullResizeImage>-->
+        </Windows>
+      </EditBox>
+
+      <EditBox name="EditPageTextTemplate" font="nol_UOCR_15" maxchars="500" textalign="left" wordwrap="false" autoresize="true" scrolling="vert" history="true">
+        <Size>
+          <AbsPoint x="175" y="170"/>
+        </Size>
+        <TextColor r="148" g="49" b="49" a="255" />
+        <!--<EventHandlers>
+          <EventHandler event="OnKeyEnter" function="BookTemplate.StoreText" />
+        </EventHandlers>
+        -->
+        <TextOffset x="0" y="0"/>
+        <!-- <Windows>
+          <FullResizeImage name="$parentFrame" inherits="UO_Default_Inner_Window_Frame" >
+            <Anchors>
+              <Anchor point="topleft" relativePoint="topleft" />
+              <Anchor point="bottomright" relativePoint="bottomright" />
+            </Anchors>
+          </FullResizeImage>
+        </Windows> -->
+      </EditBox>
+
+<!-- Generic Book Page Template -->
+      <Window name="PageTemplate" movable="false" layer="popup">
+        <Size>
+            <AbsPoint x="170" y="170" />
+        </Size>
+        <Windows>
+
+<!--          <FullResizeImage name="$parentFrame" inherits="UO_Default_Inner_Window_Frame" >
+            <Anchors>
+              <Anchor point="topleft" relativePoint="topleft" />
+              <Anchor point="bottomright" relativePoint="bottomright" />
+            </Anchors>
+          </FullResizeImage>
+-->
+           <EditBox name="$parentEditText" inherits="EditPageTextTemplate" relativeTo="$parent">  
+            <Anchors>
+              <Anchor point="topleft" relativePoint="topleft">
+                <AbsPoint x="3" y="3" />
+              </Anchor>
+            </Anchors>
+          </EditBox>
+
+          <Label name="$parentText" inherits="PageTextLabelTemplate" relativeTo="$parent">  
+            <Anchors>
+              <Anchor point="topleft" relativePoint="topleft">
+                <AbsPoint x="3" y="3" />
+              </Anchor>
+            </Anchors>
+          </Label>
+<!-- page numbers -->
+          <Label name="$parentNumber" inherits="PageTextLabelTemplate">  
+            <Anchors>
+              <Anchor point="bottomleft" relativePoint="bottomleft">
+                <AbsPoint x="80" y="27" />
+              </Anchor>
+            </Anchors>
+          </Label>
+
+        </Windows>
+      </Window>
+
+<!-- Generic Book Title Page Template -->
+      <Window name="TitlePageTemplate" inherits="PageTemplate" movable="false" layer="popup">
+        <Windows>
+
+           <EditBox name="$parentEditTitle" inherits="EditTitleTemplate" relativeTo="$parent">  
+            <Anchors>
+              <Anchor point="center" relativePoint="center">
+                <AbsPoint x="10" y="-30" />
+              </Anchor>
+            </Anchors>
+          </EditBox>
+
+          <Label name="$parentTitle" inherits="TitlePageLabelTemplate" relativeTo="$parent">  
+            <Anchors>
+              <Anchor point="center" relativePoint="center">
+                <AbsPoint x="10" y="-30" />
+              </Anchor>
+            </Anchors>
+          </Label>
+
+          <Label name="$parentAuthor" inherits="TitlePageLabelTemplate" >
+            <Anchors>
+              <Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentTitle">
+                <AbsPoint x="0" y="70" />
+              </Anchor>
+            </Anchors>
+          </Label>
+        </Windows>
+      </Window>
+
+<!-- Generic Book Template -->
+      <Window name="BookTemplate" movable="true">
+        <Size>
+            <AbsPoint x="417" y="250" />
+        </Size>
+        <Anchors>
+          <Anchor point="center" relativePoint="center"/>
+        </Anchors>          
+        <EventHandlers>
+            <EventHandler event="OnInitialize" function="BookTemplate.Initialize" />
+            <EventHandler event="OnShutdown" function="BookTemplate.Shutdown" />
+        </EventHandlers>
+        <Windows>
+
+          <!-- Default chrome. Alter this at your own peril. -->
+          <Window name="$parentChrome" inherits="Legacy_BlankWindow">
+            <Anchors>
+              <Anchor point="topleft" relativePoint="topleft"/>
+              <Anchor point="bottomright" relativePoint="bottomright"/>
+            </Anchors>
+          </Window>			
+          <!-- End of default chrome boilerplate code -->
+
+<!-- Legacy book image -->
+				<HorizontalResizeImage name="$parentLegacyBookImage" texture="Legacy_Gumps_01" handleinput="false" layer="background" sticky="false">
+					<Size>
+						<AbsPoint x="417" y="250" />
+					</Size>
+  					<Anchors>
+  						<Anchor point="topleft" relativePoint="topleft" >
+  							<AbsPoint x="-1" y="0" />
+  						</Anchor>
+  					</Anchors>
+					<Sizes left="417" middle="0" right="0" />
+					<TexCoords>
+						<Left x="356" y="690" />
+						<Middle x="560" y="690" />
+						<Right x="773" y="690" />
+					</TexCoords>
+				</HorizontalResizeImage>
+
+<!-- Left Page -->
+          <Window name="$parentPage1" inherits="PageTemplate">
+            <Anchors>
+              <Anchor point="topleft" relativePoint="topleft">
+                <AbsPoint x="30" y="23" />
+              </Anchor>
+            </Anchors>
+          </Window>
+
+<!-- Right Page -->
+          <Window name="$parentPage2" inherits="PageTemplate">
+            <Anchors>
+              <Anchor point="right" relativePoint="left" relativeTo="$parentPage1">
+                <AbsPoint x="18" y="0" />
+              </Anchor>
+            </Anchors>
+          </Window>
+
+<!-- Paging Buttons -->
+          <Button name="$parentPageDownButton" inherits="Legacy_BookPreviousButton">
+            <Anchors>
+              <Anchor point="topleft" relativePoint="topleft">
+                <AbsPoint x="0" y="0" />
+              </Anchor>
+            </Anchors>  
+            <EventHandlers>
+              <EventHandler event="OnLButtonUp" function="BookTemplate.PageDown" />
+            </EventHandlers>
+          </Button>
+
+           <Button name="$parentPageUpButton" inherits="Legacy_BookNextButton">
+            <Anchors>
+              <Anchor point="topright" relativePoint="topright">
+                <AbsPoint x="-2" y="0" />
+              </Anchor>
+            </Anchors>  
+            <EventHandlers>
+              <EventHandler event="OnLButtonUp" function="BookTemplate.PageUp" />
+            </EventHandlers>
+          </Button>
+
+        </Windows>
+      </Window>
+
+    </Windows>
+</Interface>

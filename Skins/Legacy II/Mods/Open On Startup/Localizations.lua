@@ -1,0 +1,5 @@
+CustomLocalization.AddLocalization( SystemData.Settings.Language.LANGUAGE_ENU, "StartupSettings", L"Startup" )
+CustomLocalization.AddLocalization( SystemData.Settings.Language.LANGUAGE_ENU, "OpenPaperdollOnStartup", L"Open Paperdoll on Startup" )
+CustomLocalization.AddLocalization( SystemData.Settings.Language.LANGUAGE_ENU, "OpenInventoryOnStartup", L"Open Backpack on Startup" )
+CustomLocalization.AddLocalization( SystemData.Settings.Language.LANGUAGE_ENU, "OpenAtlasOnStartup", L"Open Atlas on Startup" )
+CustomLocalization.AddLocalization( SystemData.Settings.Language.LANGUAGE_ENU, "OpenSkillTrackerOnStartup", L"Open Skill Tracker on Startup" )

@@ -1,0 +1,437 @@
+<Interface xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../Interface.xsd">
+	<Windows>
+<!-- Title Bar -->
+        <HorizontalResizeImage name="Legacy_Default_Title_Bar" texture="Legacy_Buttons">
+            <Size>
+                <AbsPoint x="1" y="335" />
+            </Size>
+            <Sizes left="1" middle="1" right="1" />
+            <TexCoords>
+                <Left x="192" y="279" />
+                <Middle x="192" y="279" />
+                <Right x="192" y="279" />
+            </TexCoords>
+        </HorizontalResizeImage>
+
+<!--Default Close Button 
+        <Button name="UO_Default_Close_Button" backgroundtexture="UO_Core" highlighttexture="UO_Core" layer="popup">
+            <Size>
+                <AbsPoint x="21" y="21" />
+            </Size>
+
+            <EventHandlers>
+                <EventHandler event="OnLButtonUp" function="UO_DefaultWindow.CloseDialog" />
+            </EventHandlers>
+
+            <TexCoords>
+                <Normal x="184" y="0" />
+                <NormalHighlit x="226" y="0" />
+                <Pressed x="205" y="0"  />
+                <PressedHighlit x="205" y="0" />
+                <Disabled x="163" y="0" />
+            </TexCoords>
+        </Button>
+
+<!-- Default Black Background 
+        <FullResizeImage name="UO_Default_Black_Background" layer="background" handleinput="false" texture="UO_Background">
+            <Sizes>
+                <TopLeft x="61" y="52" />
+                <Middle x="78" y="78" />
+                <BottomRight x="61" y="66" />
+            </Sizes>
+            <TexCoords>
+                <TopLeft x="0" y="0" />
+                <TopCenter x="68" y="0" />
+                <TopRight x="163" y="0" />
+                <MiddleLeft x="0" y="68" />
+                <MiddleCenter x="68" y="68" />
+                <MiddleRight x="163" y="68" />
+                <BottomLeft x="0" y="158" />
+                <BottomCenter x="68" y="158" />
+                <BottomRight x="163" y="158" />
+            </TexCoords>
+        </FullResizeImage>
+
+<!-- Plain black background, used for e.g. context menus & tooltips 
+        <FullResizeImage name="UO_Simple_Black_Background" layer="background" handleinput="false" texture="UO_Core">
+            <Sizes>
+                <TopLeft x="0" y="0" />
+                <Middle x="33" y="33" />
+                <BottomRight x="0" y="0" />
+            </Sizes>
+            <TexCoords>
+                <TopLeft x="160" y="242" />
+                <TopCenter x="160" y="242" />
+                <TopRight x="160" y="242" />
+                <MiddleLeft x="160" y="242" />
+                <MiddleCenter x="160" y="242" />
+                <MiddleRight x="160" y="242" />
+                <BottomLeft x="160" y="242" />
+                <BottomCenter x="160" y="242" />
+                <BottomRight x="160" y="242" />
+            </TexCoords>
+        </FullResizeImage>
+
+<!-- Buttons -->
+        <Button name="Legacy_Add_Button" sticky="false" backgroundtexture="Legacy_Buttons" highlighttexture="Legacy_Buttons">
+            <Size>
+                <AbsPoint x="64" y="21" />
+            </Size>
+            <TexCoords>
+                <Normal x="0" y="696" />
+                <NormalHighlit x="64" y="696" />
+                <Pressed x="128" y="696" />
+                <PressedHighlit x="128" y="696" />            
+            </TexCoords>
+            <TextColors>
+                <Normal r="220" g="220" b="220" a="255" />
+                <NormalHighlit r="255" g="255" b="255" a="255" />
+                <Pressed r="255" g="255" b="255" a="255" />
+                <PressedHighlit r="255" g="255" b="255" a="255" />
+                <Disabled r="92" g="92" b="92" a="255" />
+            </TextColors>
+        </Button>
+        <Button name="Legacy_Del_Button" sticky="false" backgroundtexture="Legacy_Buttons" highlighttexture="Legacy_Buttons">
+            <Size>
+                <AbsPoint x="64" y="21" />
+            </Size>
+            <TexCoords>
+                <Normal x="0" y="652" />
+                <NormalHighlit x="64" y="652" />
+                <Pressed x="128" y="652" />
+                <PressedHighlit x="128" y="652" />            
+            </TexCoords>
+            <TextColors>
+                <Normal r="220" g="220" b="220" a="255" />
+                <NormalHighlit r="255" g="255" b="255" a="255" />
+                <Pressed r="255" g="255" b="255" a="255" />
+                <PressedHighlit r="255" g="255" b="255" a="255" />
+                <Disabled r="92" g="92" b="92" a="255" />
+            </TextColors>
+        </Button>
+        <Button name="Legacy_Tell_Button" sticky="false" backgroundtexture="Legacy_Buttons" highlighttexture="Legacy_Buttons">
+            <Size>
+                <AbsPoint x="64" y="21" />
+            </Size>
+            <TexCoords>
+                <Normal x="0" y="718" />
+                <NormalHighlit x="64" y="718" />
+                <Pressed x="128" y="718" />
+                <PressedHighlit x="128" y="718" />            
+            </TexCoords>
+            <TextColors>
+                <Normal r="220" g="220" b="220" a="255" />
+                <NormalHighlit r="255" g="255" b="255" a="255" />
+                <Pressed r="255" g="255" b="255" a="255" />
+                <PressedHighlit r="255" g="255" b="255" a="255" />
+                <Disabled r="92" g="92" b="92" a="255" />
+            </TextColors>
+        </Button>
+<!-- text button -->
+        <Button name="Legacy_GumpButton" sticky="false" backgroundtexture="" highlighttexture="" textalign="center"  font="UO_GoldButtonText">
+            <Size>
+                <AbsPoint x="83" y="20" />
+            </Size>
+            <TextColors>
+                <Normal  r="50" g="50" b="0" a="255" />
+                <NormalHighlit r="255" g="255" b="255" a="255" />
+                <Pressed r="50" g="50" b="0" a="255" />
+                <PressedHighlit r="255" g="255" b="255" a="255" />
+                <Disabled r="100" g="100" b="100" a="255" />
+            </TextColors>
+            <TexCoords>
+                <Normal x="0" y="215" />
+                <NormalHighlit x="84" y="215" />
+                <Pressed x="84" y="215" />
+                <PressedHighlit x="84" y="215" />
+                <Disabled x="168" y="215" />
+            </TexCoords>
+        </Button>
+<!-- Check Buttons -->
+<!-- scroll check button -->
+        <Button name="Legacy_Scroll_Check_Button" backgroundtexture="Legacy_Buttons" highlighttexture="Legacy_Buttons" >
+            <Size>
+                <AbsPoint x="14" y="14" />
+            </Size>
+            <TexCoords>
+                <Normal x="498" y="334" />
+                <Pressed x="483" y="334" />
+            </TexCoords>
+        </Button>        
+        
+        <Window name="LabelLegacyScrollCheckButton">
+            <Size>
+                <AbsPoint x="350" y="29" />
+            </Size>
+            <Windows>
+                <Button name="$parentButton" inherits="Legacy_Scroll_Check_Button">
+                    <Anchors>
+                        <Anchor point="left" relativePoint="left">
+                            <AbsPoint x="5" y="0"/>
+                        </Anchor>
+                    </Anchors>
+                </Button>
+                <Label name="$parentLabel" inherits="ItemTitle">
+                    <Size>
+                        <AbsPoint x="700" y="16" />
+                        <!-- 325 = x -->
+                    </Size>
+                    <Anchors>
+                        <Anchor point="right" relativePoint="left" relativeTo="$parentButton">
+                            <AbsPoint x="5" y="3" />
+                        </Anchor>
+                    </Anchors>
+                    <Color r="25" g="25" b="0" a="255" />
+                </Label>
+            </Windows>
+        </Window>
+
+
+        <Button name="Legacy_Check_Button" backgroundtexture="Legacy_Buttons" highlighttexture="Legacy_Buttons" >
+            <Size>
+                <AbsPoint x="29" y="29" />
+            </Size>
+            <TexCoords>
+                <Normal x="30" y="25" />
+                <Pressed x="0" y="25" />
+            </TexCoords>
+        </Button>        
+        
+        <Window name="LabelLegacyCheckButton">
+            <Size>
+                <AbsPoint x="150" y="29" />
+            </Size>
+            <Windows>
+                <Button name="$parentButton" inherits="Legacy_Check_Button">
+                    <Anchors>
+                        <Anchor point="left" relativePoint="left">
+                            <AbsPoint x="5" y="0"/>
+                        </Anchor>
+                    </Anchors>
+                </Button>
+                <Label name="$parentLabel" inherits="LegacyItemTitle">
+                    <Size>
+                        <AbsPoint x="300" y="16" />
+                        <!-- 325 = x -->
+                    </Size>
+                    <Anchors>
+                        <Anchor point="right" relativePoint="left" relativeTo="$parentButton">
+                            <AbsPoint x="5" y="3" />
+                        </Anchor>
+                    </Anchors>
+                    <Color r="5" g="5" b="5" a="255" />
+                </Label>
+            </Windows>
+        </Window>
+
+<!-- Combo Box -->
+        <Button name="Legacy_ComboBoxSelectedButton" texturescale="1.0" backgroundtexture="Legacy_Buttons" highlighttexture="Legacy_Buttons" font="nol_Arial_Narrow_14" textalign="left">
+            <Size>
+                <AbsPoint x="150" y="25" />
+            </Size>
+            <TexCoords>
+                <Normal x="362" y="0" />
+                <NormalHighlit x="362" y="26" />
+                <Pressed x="362" y="0" />
+                <PressedHighlit x="362" y="26" />
+                <Disabled x="362" y="52" />
+            </TexCoords>
+            <TextColors>
+                <Normal r="255" g="255" b="255" a="255" />
+                <NormalHighlit r="250" g="213" b="63" a="255" />
+                <Pressed r="250" g="213" b="63" a="255" />
+                <PressedHighlit r="250" g="213" b="63" a="255" />
+                <Disabled r="92" g="92" b="92" a="255" />
+            </TextColors>
+            <TextOffset x="7" y="3" />
+        </Button>
+
+        <Button name="Legacy_ComboBoxMenuItemButton" font="nol_Arial_Narrow_14" textalign="left" wordwrap="false" >
+            <Size>
+                <AbsPoint x="130" y="19" />
+            </Size>
+            <TextColors>
+                <Normal r="255" g="255" b="255" a="255" />
+                <NormalHighlit r="250" g="213" b="63" a="255" />
+                <Pressed r="250" g="213" b="63" a="255" />
+                <PressedHighlit r="250" g="213" b="63" a="255" />
+                <Disabled r="92" g="92" b="92" a="255" />
+            </TextColors>
+            <TextOffset x="3" y="5" />
+        </Button>
+
+        <ComboBox name="Legacy_ComboBox" selectedbutton="Legacy_ComboBoxSelectedButton" menubackground="UO_Simple_Black_Background" menuitembutton="Legacy_ComboBoxMenuItemButton">
+            <Size>
+                <AbsPoint x="150" y="25" />
+            </Size>
+            <MenuButtonOffset x="0" y="10" />
+        </ComboBox>
+        
+<!-- STANDARD SCROLL BAR !!! -->
+        <VerticalScrollbar name="LegacyStandardVertScroll" up="LegacyStandardVertScrollUpBtn" down="LegacyStandardVertScrollDownBtn" thumb="LegacyStandardVertScrollThumb" gutter="LegacyStandardVertScrollGutter" >
+            <Anchors>
+                <Anchor point="topright" relativePoint="topleft">
+                    <AbsPoint x="-25" y="5"/>
+                </Anchor>
+                <Anchor point="bottomright" relativePoint="bottomright">
+                    <AbsPoint x="-5" y="-5"/>
+                </Anchor>
+            </Anchors>
+            <ActiveZoneOffset x="500" y="500" />
+            <ThumbOffset x="1" y="1" />
+        </VerticalScrollbar>
+
+        <Button name="LegacyStandardVertScrollUpBtn" backgroundtexture="Legacy_Buttons" highlighttexture="Legacy_Buttons">
+            <Size>
+                <AbsPoint x="20" y="15" />
+            </Size>
+            <Anchors>
+                <Anchor point="topleft" relativePoint="topleft">
+                    <AbsPoint x="-5" y="0"/>
+                </Anchor>
+            </Anchors>
+            <TexCoords>
+                <Normal x="455" y="310" />
+                <NormalHighlit x="455" y="310" />
+                <Pressed x="455" y="310" />
+                <PressedHighlit x="455" y="310" />
+            </TexCoords>
+        </Button>
+        <Button name="LegacyStandardVertScrollDownBtn" backgroundtexture="Legacy_Buttons" highlighttexture="Legacy_Buttons">
+            <Size>
+                <AbsPoint x="22" y="15" />
+            </Size>
+            <Anchors>
+                <Anchor point="bottomleft" relativePoint="bottomleft">
+                    <AbsPoint x="-5" y="-15"/>
+                </Anchor>
+            </Anchors>
+            <TexCoords>
+                <Normal 				x="455" y="326" />
+                <NormalHighlit	x="455" y="326" />
+                <Pressed 				x="455" y="326" />
+                <PressedHighlit x="455" y="326" />
+            </TexCoords>
+        </Button>
+        <VerticalResizeImage name="LegacyStandardVertScrollThumb" texture="Legacy_Buttons">
+            <Size>
+                <AbsPoint x="30" y="34" />
+            </Size>
+            <Sizes top="15" middle="0" bottom="15" />
+            <TexCoords>
+            		<Top 		x="415" y="310" />
+                <Middle x="415" y="325" />
+                <Bottom x="415" y="325" />
+            </TexCoords>
+        </VerticalResizeImage>
+        <VerticalResizeImage name="LegacyStandardVertScrollGutter" texture="Legacy_Gumps_01">
+            <Size>
+                <AbsPoint x="30" y="36" />
+            </Size>
+            <Sizes top="10" middle="16" bottom="10"/>
+            <TexCoords>
+                <Top 		x="1000" y="42" />
+                <Middle x="1000" y="51" />
+                <Bottom x="1000" y="68" />
+            </TexCoords>
+        </VerticalResizeImage>
+
+        <Label name="LegacyItemTitle" font="nol_Avatar_15" linespacing="20" autoresize="true" wordwrap="true" maxchars="64" textalign="left">
+            <Color r="255" g="255" b="255" a="255" />
+        </Label>   
+
+<!-- Tabs -->
+		<Button name="LegacySkillsWindowTabButton" drawchildrenfirst="true" font="nol_Avatar_14" >
+			<Size>
+				<AbsPoint x="85" y="25" />
+			</Size>
+			<TextColors>
+        <Normal r="50" g="50" b="0" a="255"/>
+        <Disabled r="110" g="0" b="0" a="255"/>
+			</TextColors>
+			<TextOffset x="0" y="0"/><!-- This used to have a y="3" here... If you want to know why I took it out, look at the skills window in Japanese! -->
+			<Windows>	
+				<HorizontalResizeImage name="$parentTab" texture="" inherits="" texturescale="1.0" handleinput="false">
+					<Size>
+						<AbsPoint x="1" y="24" />
+					</Size>
+					<Anchors>
+						<Anchor point="topleft" relativePoint="topleft"/>
+						<Anchor point="bottomright" relativePoint="bottomright" />
+					</Anchors>			        
+					<Sizes left="28" middle="20" right="28" />
+					<TexCoords>
+						<Left x="183" y="411" />
+						<Middle x="212" y="411" />
+						<Right x="233" y="411" />
+					</TexCoords>
+				</HorizontalResizeImage>
+				<HorizontalResizeImage name="$parentTabSelected" texture="" inherits="" texturescale="1.0" handleinput="false">
+					<Size>
+						<AbsPoint x="1" y="24" />
+					</Size>
+					<Anchors>
+						<Anchor point="topleft" relativePoint="topleft"/>
+						<Anchor point="bottomright" relativePoint="bottomright" />
+					</Anchors>			        
+					<Sizes left="28" middle="20" right="28" />
+					<TexCoords>
+						<Left x="183" y="385" />
+						<Middle x="212" y="385" />
+						<Right x="233" y="385" />
+					</TexCoords>
+				</HorizontalResizeImage>
+			</Windows>
+			<EventHandlers>
+				<EventHandler event="OnLButtonUp" function="SkillsWindow.ToggleTab" />
+			</EventHandlers>
+		</Button>
+
+		<Button name="LegacySettingsWindowTabButton" drawchildrenfirst="true" font="nol_Avatar_15" >
+			<Size>
+				<AbsPoint x="85" y="24" />
+			</Size>
+			<TextColors>
+        <Normal 	r="200" g="188" b="148" a="255"/>
+        <Disabled r="50" g="50" b="0" a="255"/>
+			</TextColors>
+			<TextOffset x="0" y="2"/><!-- This used to have a y="3" here... If you want to know why I took it out, look at the skills window in Japanese! -->
+			<Windows>	
+				<HorizontalResizeImage name="$parentTab" inherits="UO_Legacy_Gray_Scroll_Tab_Enabled" texturescale="1.0" handleinput="false">
+					<Size>
+						<AbsPoint x="1" y="24" />
+					</Size>
+					<Anchors>
+						<Anchor point="topleft" relativePoint="topleft"/>
+						<Anchor point="bottomright" relativePoint="bottomright" />
+					</Anchors>			        
+					<Sizes left="28" middle="20" right="28" />
+<!--					<TexCoords>
+						<Left x="183" y="411" />
+						<Middle x="212" y="411" />
+						<Right x="233" y="411" />
+					</TexCoords>				-->	
+				</HorizontalResizeImage>
+				<HorizontalResizeImage name="$parentTabSelected" inherits="UO_Legacy_Gray_Scroll_Tab_Disabled" texturescale="1.0" handleinput="false">
+					<Size>
+						<AbsPoint x="1" y="24" />
+					</Size>
+					<Anchors>
+						<Anchor point="topleft" relativePoint="topleft"/>
+						<Anchor point="bottomright" relativePoint="bottomright" />
+					</Anchors>			        
+					<Sizes left="28" middle="20" right="28" />
+<!--					<TexCoords>
+						<Left x="183" y="385" />
+						<Middle x="212" y="385" />
+						<Right x="233" y="385" />
+					</TexCoords>					-->
+				</HorizontalResizeImage>
+			</Windows>
+			<EventHandlers>
+				<EventHandler event="OnLButtonUp" function="SkillsWindow.ToggleTab" />
+			</EventHandlers>
+		</Button>
+
+	</Windows>
+</Interface>

@@ -1,0 +1,1620 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Interface xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../Interface.xsd">
+  <Scripts>
+    <Script file="Source/SettingsWindow.lua" />
+  </Scripts>
+  <Windows>
+    <Label name="SectionTitle" font="UO_DefaultText" maxchars="64" textalign="left">
+      <Color r="255" g="255" b="255" a="255" />
+    </Label>
+    <Window name="CircleSelectionButtonLabel">
+      <Size>
+        <AbsPoint x="400" y="23" />
+      </Size>
+      <Windows>
+        <Button name="$parentIcon" inherits="CircleSelectionButton">
+          <Size>
+            <AbsPoint x="23" y="23" />
+          </Size>
+          <Anchors>
+            <Anchor point="topleft" relativePoint="topleft">
+              <AbsPoint x="0" y="0" />
+            </Anchor>
+          </Anchors>
+          <EventHandlers>
+            <EventHandler event="OnLButtonDown" function="SettingsWindow.OnDefaultKeyPressed" />
+          </EventHandlers>
+        </Button>
+        <Label name="$parentName" font="UO_DefaultText" maxchars="64" textalign="left">
+          <Size>
+            <AbsPoint x="167" y="23" />
+          </Size>
+          <Anchors>
+            <Anchor point="topright" relativePoint="topleft" relativeTo="$parentIcon">
+              <AbsPoint x="10" y="5" />
+            </Anchor>
+          </Anchors>
+        </Label>
+      </Windows>
+    </Window>
+    <Window name="LabelEditBox">
+      <Size>
+        <AbsPoint x="230" y="32" />
+      </Size>
+      <Windows>
+        <EditBox name="$parentEdit" font="UO_DefaultText" taborder="1" maxchars="24" scrolling="horz" input="text">
+          <Size>
+            <AbsPoint x="50" y="40" />
+          </Size>
+          <Anchors>
+            <Anchor point="left" relativePoint="left" relativeTo="">
+              <AbsPoint x="0" y="0" />
+            </Anchor>
+          </Anchors>
+        </EditBox>
+        <Label name="$parentLabel" font="UO_DefaultText" maxchars="64" textalign="left" layer="background">
+          <Size>
+            <AbsPoint x="175" y="16" />
+          </Size>
+          <Anchors>
+            <Anchor point="right" relativePoint="left" relativeTo="$parentEdit">
+              <AbsPoint x="5" y="3" />
+            </Anchor>
+          </Anchors>
+          <Color r="255" g="255" b="255" a="255" />
+        </Label>
+      </Windows>
+    </Window>
+    <Window name="VolumeSliderItemTemplate">
+      <Size>
+        <AbsPoint x="600" y="61" />
+      </Size>
+      <Windows>
+        <Window name="$parentToggle" inherits="LabelCheckButton">
+          <Anchors>
+            <Anchor point="topleft" relativePoint="topleft" />
+          </Anchors>
+        </Window>
+        <Label name="$parentText" font="UO_DefaultText" maxchars="64" textalign="left">
+          <Size>
+            <AbsPoint x="140" y="10" />
+          </Size>
+          <Anchors>
+            <Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentToggle">
+              <AbsPoint x="26" y="9" />
+            </Anchor>
+          </Anchors>
+          <Color r="255" g="255" b="255" a="255" />
+        </Label>
+        <SliderBar name="$parentSliderBar" inherits="UO_Default_Horizontal_SliderBar">
+          <Anchors>
+            <Anchor point="topright" relativePoint="topleft" relativeTo="$parentText">
+              <AbsPoint x="160" y="0" />
+            </Anchor>
+          </Anchors>
+          <EventHandlers>
+            <EventHandler event="OnSlide" function="SettingsWindow.UpdateSoundSettings" />
+          </EventHandlers>
+        </SliderBar>
+        <Label name="$parentVal" font="UO_DefaultText" maxchars="64" textalign="right">
+          <Size>
+            <AbsPoint x="40" y="20" />
+          </Size>
+          <Anchors>
+            <Anchor point="topright" relativePoint="topleft" relativeTo="$parentSliderBar">
+              <AbsPoint x="20" y="0" />
+            </Anchor>
+          </Anchors>
+          <Color r="255" g="255" b="255" a="255" />
+        </Label>
+      </Windows>
+    </Window>
+    <Window name="SubSectionLabelTemplate">
+      <Size>
+        <AbsPoint />
+      </Size>
+      <Windows>
+        <Label name="$parentLabel" font="UO_DefaultText">
+          <Size>
+            <AbsPoint x="650" y="20" />
+          </Size>
+          <Anchors>
+            <Anchor point="topleft" relativePoint="topleft" />
+          </Anchors>
+          <Color r="255" g="231" b="132" a="255" />
+        </Label>
+        <FullResizeImage name="$parentGoldLine" inherits="UO_Default_Horizontal_Gold_Line">
+          <Size>
+            <AbsPoint x="650" y="2" />
+          </Size>
+          <Anchors>
+            <Anchor point="topleft" relativePoint="bottomleft" relativeTo="$parentLabel">
+              <AbsPoint x="0" y="30" />
+            </Anchor>
+          </Anchors>
+        </FullResizeImage>
+      </Windows>
+    </Window>
+    <Button name="SettingsWindowTabButton" inherits="UO_Default_PaperDollTabButton">
+      <Size>
+        <AbsPoint x="117" y="23" />
+      </Size>
+      <Windows>
+        <HorizontalResizeImage name="$parentTab" inherits="UO_Default_Medium_Tab_Disabled">
+          <Size>
+            <AbsPoint x="120" y="30" />
+          </Size>
+        </HorizontalResizeImage>
+        <HorizontalResizeImage name="$parentTabSelected" inherits="UO_Default_Medium_Tab_Enabled">
+          <Size>
+            <AbsPoint x="120" y="30" />
+          </Size>
+        </HorizontalResizeImage>
+      </Windows>
+    </Button>
+    <Window name="KeyPicker">
+      <Size>
+        <AbsPoint x="500" y="32" />
+      </Size>
+      <EventHandlers>
+        <EventHandler event="OnLButtonUp" function="SettingsWindow.OnKeyPicked" />
+      </EventHandlers>
+      <Windows>
+        <Label name="$parentAction" inherits="ItemTitle">
+          <Size>
+            <AbsPoint x="300" y="32" />
+          </Size>
+          <Anchors>
+            <Anchor point="left" relativePoint="left" relativeTo="">
+              <AbsPoint x="0" y="0" />
+            </Anchor>
+          </Anchors>
+          <Color r="255" g="255" b="255" a="255" />
+        </Label>
+        <Label name="$parentActionValue" inherits="ItemTitle">
+          <Size>
+            <AbsPoint x="200" y="32" />
+          </Size>
+          <Anchors>
+            <Anchor point="topright" relativePoint="topleft" relativeTo="$parentAction">
+              <AbsPoint x="5" y="0" />
+            </Anchor>
+          </Anchors>
+          <Color r="255" g="255" b="255" a="255" />
+        </Label>
+      </Windows>
+    </Window>
+    <Label name="BadWord" inherits="ItemTitle">
+      <Size>
+        <AbsPoint x="300" y="32" />
+      </Size>
+      <Color r="255" g="255" b="255" a="255" />
+      <EventHandlers>
+        <EventHandler event="OnLButtonUp" function="SettingsWindow.OnBadWordClicked" />
+      </EventHandlers>
+    </Label>
+    <Label name="IgnoreListItem" inherits="ItemTitle">
+      <Size>
+        <AbsPoint x="400" y="32" />
+      </Size>
+      <Color r="255" g="255" b="255" a="255" />
+      <EventHandlers>
+        <EventHandler event="OnLButtonUp" function="SettingsWindow.OnIgnoreListItemClicked" />
+      </EventHandlers>
+    </Label>
+    <!-- Settings Window -->
+    <Window name="SettingsWindow" movable="true">
+      <Size>
+        <AbsPoint x="740" y="600" />
+      </Size>
+      <Anchors>
+        <Anchor point="center" relativePoint="center" />
+      </Anchors>
+      <EventHandlers>
+        <EventHandler event="OnInitialize" function="SettingsWindow.Initialize" />
+        <EventHandler event="OnKeyEnter" function="SettingsWindow.Cancel" />
+      </EventHandlers>
+      <Windows>
+        <!-- Default chrome. Alter this at your own peril. -->
+        <Window name="$parentChrome" inherits="UO_DefaultWindow">
+          <Anchors>
+            <Anchor point="topleft" relativePoint="topleft" />
+            <Anchor point="bottomright" relativePoint="bottomright" />
+          </Anchors>
+        </Window>
+        <!-- End of default chrome boilerplate code -->
+        <!-- Buttons -->
+        <Button name="$parentOkayButton" inherits="UO_Default_Medium_Select_Button">
+          <Anchors>
+            <Anchor point="bottomleft" relativePoint="bottomleft" relativeTo="SettingsWindow">
+              <AbsPoint x="19" y="-18" />
+            </Anchor>
+          </Anchors>
+          <EventHandlers>
+            <EventHandler event="OnLButtonUp" function="SettingsWindow.OnOkayButton" />
+          </EventHandlers>
+        </Button>
+        <Button name="$parentApplyButton" inherits="UO_Default_Medium_Select_Button">
+          <Anchors>
+            <Anchor point="right" relativePoint="left" relativeTo="$parentOkayButton">
+              <AbsPoint x="10" y="0" />
+            </Anchor>
+          </Anchors>
+          <EventHandlers>
+            <EventHandler event="OnLButtonUp" function="SettingsWindow.OnApplyButton" />
+          </EventHandlers>
+        </Button>
+        <Button name="$parentResetButton" inherits="UO_Default_Medium_Select_Button">
+          <Anchors>
+            <Anchor point="right" relativePoint="left" relativeTo="$parentApplyButton">
+              <AbsPoint x="10" y="0" />
+            </Anchor>
+          </Anchors>
+          <EventHandlers>
+            <EventHandler event="OnLButtonUp" function="SettingsWindow.OnResetButton" />
+          </EventHandlers>
+        </Button>
+        <Button name="$parentCancelButton" inherits="UO_Default_Medium_Select_Button">
+          <Anchors>
+            <Anchor point="right" relativePoint="left" relativeTo="$parentResetButton">
+              <AbsPoint x="10" y="0" />
+            </Anchor>
+          </Anchors>
+          <EventHandlers>
+            <EventHandler event="OnLButtonUp" function="SettingsWindow.OnCancelButton" />
+          </EventHandlers>
+        </Button>
+        <!-- Tab Buttons -->
+        <Button name="$parentGraphicsTabButton" inherits="SettingsWindowTabButton">
+          <Anchors>
+            <Anchor point="topleft" relativePoint="topleft">
+              <AbsPoint x="16" y="42" />
+            </Anchor>
+          </Anchors>
+          <EventHandlers>
+            <EventHandler event="OnLButtonUp" function="SettingsWindow.OpenGraphicsTab" />
+          </EventHandlers>
+        </Button>
+        <Button name="$parentKeyBindingsTabButton" inherits="SettingsWindowTabButton">
+          <Anchors>
+            <Anchor point="right" relativePoint="left" relativeTo="$parentGraphicsTabButton">
+              <AbsPoint x="0" y="0" />
+            </Anchor>
+          </Anchors>
+          <EventHandlers>
+            <EventHandler event="OnLButtonUp" function="SettingsWindow.OpenKeyBindingsTab" />
+          </EventHandlers>
+        </Button>
+        <Button name="$parentSoundTabButton" inherits="SettingsWindowTabButton">
+          <Anchors>
+            <Anchor point="right" relativePoint="left" relativeTo="$parentKeyBindingsTabButton">
+              <AbsPoint x="0" y="0" />
+            </Anchor>
+          </Anchors>
+          <EventHandlers>
+            <EventHandler event="OnLButtonUp" function="SettingsWindow.OpenSoundTab" />
+          </EventHandlers>
+        </Button>
+        <Button name="$parentOptionsTabButton" inherits="SettingsWindowTabButton">
+          <Anchors>
+            <Anchor point="right" relativePoint="left" relativeTo="$parentSoundTabButton">
+              <AbsPoint x="0" y="0" />
+            </Anchor>
+          </Anchors>
+          <EventHandlers>
+            <EventHandler event="OnLButtonUp" function="SettingsWindow.OpenOptionsTab" />
+          </EventHandlers>
+        </Button>
+        <Button name="$parentLegacyTabButton" inherits="SettingsWindowTabButton">
+          <Anchors>
+            <Anchor point="right" relativePoint="left" relativeTo="$parentOptionsTabButton">
+              <AbsPoint x="0" y="0" />
+            </Anchor>
+          </Anchors>
+          <EventHandlers>
+            <EventHandler event="OnLButtonUp" function="SettingsWindow.OpenLegacyTab" />
+          </EventHandlers>
+        </Button>
+        <Button name="$parentProfanityTabButton" inherits="SettingsWindowTabButton">
+          <Anchors>
+            <Anchor point="right" relativePoint="left" relativeTo="$parentLegacyTabButton">
+              <AbsPoint x="0" y="0" />
+            </Anchor>
+          </Anchors>
+          <EventHandlers>
+            <EventHandler event="OnLButtonUp" function="SettingsWindow.OpenProfanityTab" />
+          </EventHandlers>
+        </Button>
+        <!-- Gold lines -->
+        <FullResizeImage name="$parentGoldLine1" inherits="UO_Default_Horizontal_Gold_Line">
+          <Size>
+            <AbsPoint x="2" y="2" />
+          </Size>
+          <Anchors>
+            <Anchor point="topleft" relativePoint="topleft">
+              <AbsPoint x="10" y="72" />
+            </Anchor>
+            <Anchor point="topright" relativePoint="topright">
+              <AbsPoint x="-10" y="72" />
+            </Anchor>
+          </Anchors>
+        </FullResizeImage>
+        <FullResizeImage name="$parentGoldLine2" inherits="UO_Default_Horizontal_Gold_Line">
+          <Size>
+            <AbsPoint x="2" y="2" />
+          </Size>
+          <Anchors>
+            <Anchor point="bottomleft" relativePoint="bottomleft">
+              <AbsPoint x="10" y="-68" />
+            </Anchor>
+            <Anchor point="bottomright" relativePoint="bottomright">
+              <AbsPoint x="-10" y="-68" />
+            </Anchor>
+          </Anchors>
+        </FullResizeImage>
+        <!-- End of Gold Lines -->
+        <!-- Graphics Settings -->
+        <ScrollWindow name="SettingsGraphicsWindow" childscrollwindow="SettingsGraphicsWindowScrollChild" scrollbar="SettingsGraphicsWindowScrollbar" lineheight="18" autoHideScrollBar="true">
+          <Size>
+            <AbsPoint x="710" y="456" />
+          </Size>
+          <Anchors>
+            <Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentGraphicsTabButton">
+              <AbsPoint x="0" y="10" />
+            </Anchor>
+          </Anchors>
+          <Windows>
+            <VerticalScrollbar name="$parentScrollbar" inherits="StandardVertScroll" />
+            <Window name="$parentScrollChild">
+              <Size>
+                <AbsPoint x="695" y="456" />
+              </Size>
+              <Windows>
+                <!-- Graphics -->
+                <Window name="SettingsGraphics">
+                  <Size>
+                    <AbsPoint x="695" y="700" />
+                  </Size>
+                  <Windows>
+                    <Window name="$parentDisplaySubSection" inherits="SubSectionLabelTemplate">
+                      <Anchors>
+                        <Anchor point="topleft" relativePoint="topleft">
+                          <AbsPoint x="35" y="30" />
+                        </Anchor>
+                      </Anchors>
+                    </Window>
+                    <!-- Use Fullscreen -->
+                    <Window name="$parentUseFullscreen" inherits="LabelCheckButton">
+                      <Anchors>
+                        <Anchor point="topleft" relativePoint="topleft" relativeTo="$parentDisplaySubSection">
+                          <AbsPoint x="0" y="32" />
+                        </Anchor>
+                      </Anchors>
+                    </Window>
+                    <!-- Full Screen Resolution -->
+                    <Label name="$parentFullScreenResLabel" inherits="ItemTitle">
+                      <Size>
+                        <AbsPoint x="275" y="20" />
+                      </Size>
+                      <Anchors>
+                        <Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentUseFullscreen">
+                          <AbsPoint x="26" y="15" />
+                        </Anchor>
+                      </Anchors>
+                      <Color r="255" g="255" b="255" a="255" />
+                    </Label>
+                    <ComboBox name="$parentFullScreenResCombo" inherits="UO_Default_ComboBox">
+                      <Anchors>
+                        <Anchor point="topright" relativePoint="topleft" relativeTo="$parentFullScreenResLabel">
+                          <AbsPoint x="20" y="-10" />
+                        </Anchor>
+                      </Anchors>
+                    </ComboBox>
+                    <!-- Full Screen Resolution -->
+                    <Label name="$parentFramerateMaxLabel" inherits="ItemTitle">
+                      <Size>
+                        <AbsPoint x="275" y="20" />
+                      </Size>
+                      <Anchors>
+                        <Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentFullScreenResLabel">
+                          <AbsPoint x="0" y="20" />
+                        </Anchor>
+                      </Anchors>
+                      <Color r="255" g="255" b="255" a="255" />
+                    </Label>
+                    <ComboBox name="$parentFramerateMaxCombo" inherits="UO_Default_ComboBox">
+                      <Anchors>
+                        <Anchor point="topright" relativePoint="topleft" relativeTo="$parentFramerateMaxLabel">
+                          <AbsPoint x="20" y="-10" />
+                        </Anchor>
+                      </Anchors>
+                    </ComboBox>
+                    <!-- Show Window Frame -->
+                    <Window name="$parentShowFrame" inherits="LabelCheckButton">
+                      <Anchors>
+                        <Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentFramerateMaxLabel">
+                          <AbsPoint x="-26" y="15" />
+                        </Anchor>
+                      </Anchors>
+                    </Window>
+                    <!-- Brightness -->
+                    <Window name="Gamma">
+                      <Size>
+                        <AbsPoint x="500" y="40" />
+                      </Size>
+                      <Anchors>
+                        <Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentShowFrame">
+                          <AbsPoint x="26" y="15" />
+                        </Anchor>
+                      </Anchors>
+                      <Windows>
+                        <Label name="$parentText" font="UO_DefaultText" maxchars="64" textalign="left">
+                          <Size>
+                            <AbsPoint x="240" y="10" />
+                          </Size>
+                          <Anchors>
+                            <Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentToggle">
+                              <AbsPoint x="26" y="10" />
+                            </Anchor>
+                          </Anchors>
+                          <Color r="255" g="255" b="255" a="255" />
+                        </Label>
+                        <SliderBar name="$parentSliderBar" inherits="UO_Default_Horizontal_SliderBar">
+                          <Anchors>
+                            <Anchor point="topright" relativePoint="topleft" relativeTo="$parentText">
+                              <AbsPoint x="60" y="0" />
+                            </Anchor>
+                          </Anchors>
+                          <EventHandlers>
+                            <EventHandler event="OnSlide" function="SettingsWindow.UpdateGammaVal" />
+                          </EventHandlers>
+                        </SliderBar>
+                        <Label name="$parentVal" font="UO_DefaultText" maxchars="64" textalign="right">
+                          <Size>
+                            <AbsPoint x="40" y="20" />
+                          </Size>
+                          <Anchors>
+                            <Anchor point="topright" relativePoint="topleft" relativeTo="$parentSliderBar">
+                              <AbsPoint x="20" y="0" />
+                            </Anchor>
+                          </Anchors>
+                          <Color r="255" g="255" b="255" a="255" />
+                        </Label>
+                      </Windows>
+                    </Window>
+                    <Window name="$parentEnvironmentSubSection" inherits="SubSectionLabelTemplate">
+                      <Anchors>
+                        <Anchor point="bottomleft" relativePoint="topleft" relativeTo="Gamma">
+                          <AbsPoint x="-26" y="20" />
+                        </Anchor>
+                      </Anchors>
+                    </Window>
+                    <!-- Show Foliage -->
+                    <Window name="$parentShowFoliage" inherits="LabelCheckButton">
+                      <Anchors>
+                        <Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentEnvironmentSubSection">
+                          <AbsPoint x="0" y="32" />
+                        </Anchor>
+                      </Anchors>
+                    </Window>
+                    <Window name="$parentShowShadows" inherits="LabelCheckButton">
+                      <Anchors>
+                        <Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentShowFoliage">
+                          <AbsPoint x="0" y="9" />
+                        </Anchor>
+                      </Anchors>
+                    </Window>
+                    <Window name="$parentEnableVSync" inherits="LabelCheckButton">
+                      <Anchors>
+                        <Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentShowShadows">
+                          <AbsPoint x="0" y="9" />
+                        </Anchor>
+                      </Anchors>
+                    </Window>
+                    <Window name="$parentCircleOfTransparency" inherits="LabelCheckButton">
+                      <Anchors>
+                        <Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentEnableVSync">
+                          <AbsPoint x="0" y="9" />
+                        </Anchor>
+                      </Anchors>
+                    </Window>
+                    <!-- Particle Detail Selection -->
+                    <Label name="$parentParticleLODLabel" inherits="ItemTitle">
+                      <Size>
+                        <AbsPoint x="275" y="10" />
+                      </Size>
+                      <Anchors>
+                        <Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentCircleOfTransparency">
+                          <AbsPoint x="26" y="15" />
+                        </Anchor>
+                      </Anchors>
+                      <Color r="255" g="255" b="255" a="255" />
+                    </Label>
+                    <ComboBox name="$parentParticleLODCombo" inherits="UO_Default_ComboBox">
+                      <Anchors>
+                        <Anchor point="topright" relativePoint="topleft" relativeTo="$parentParticleLODLabel">
+                          <AbsPoint x="20" y="-10" />
+                        </Anchor>
+                      </Anchors>
+                    </ComboBox>
+                    <!-- Particle Filter Selection -->
+                    <Label name="$parentParticleFilterLabel" inherits="ItemTitle">
+                      <Size>
+                        <AbsPoint x="275" y="10" />
+                      </Size>
+                      <Anchors>
+                        <Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentParticleLODLabel">
+                          <AbsPoint x="0" y="20" />
+                        </Anchor>
+                      </Anchors>
+                      <Color r="255" g="255" b="255" a="255" />
+                    </Label>
+                    <ComboBox name="$parentParticleFilterCombo" inherits="UO_Default_ComboBox">
+                      <Anchors>
+                        <Anchor point="topright" relativePoint="topleft" relativeTo="$parentParticleFilterLabel">
+                          <AbsPoint x="20" y="-10" />
+                        </Anchor>
+                      </Anchors>
+                    </ComboBox>
+                    <Window name="$parentPlayIdleAnimation" inherits="LabelCheckButton">
+                      <Anchors>
+                        <Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentParticleFilterLabel">
+                          <AbsPoint x="-26" y="15" />
+                        </Anchor>
+                      </Anchors>
+                    </Window>
+                    <Label name="$parentAnimationLabel" inherits="ItemTitle">
+                      <Size>
+                        <AbsPoint x="275" y="20" />
+                      </Size>
+                      <Anchors>
+                        <Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentPlayIdleAnimation">
+                          <AbsPoint x="26" y="15" />
+                        </Anchor>
+                      </Anchors>
+                      <Color r="255" g="255" b="255" a="255" />
+                    </Label>
+                    <ComboBox name="$parentAnimationCombo" inherits="UO_Default_ComboBox">
+                      <Anchors>
+                        <Anchor point="topright" relativePoint="topleft" relativeTo="$parentAnimationLabel">
+                          <AbsPoint x="20" y="-10" />
+                        </Anchor>
+                      </Anchors>
+                    </ComboBox>
+                  </Windows>
+                </Window>
+              </Windows>
+            </Window>
+          </Windows>
+        </ScrollWindow>
+        <!-- Bindings Scrolling Window -->
+        <ScrollWindow name="SettingsKeyBindingsWindow" childscrollwindow="SettingsKeyBindingsWindowScrollChild" scrollbar="SettingsKeyBindingsWindowScrollbar" lineheight="18" autoHideScrollBar="true">
+          <Size>
+            <AbsPoint x="710" y="456" />
+          </Size>
+          <Anchors>
+            <Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentGraphicsTabButton">
+              <AbsPoint x="0" y="10" />
+            </Anchor>
+          </Anchors>
+          <Windows>
+            <VerticalScrollbar name="$parentScrollbar" inherits="StandardVertScroll" />
+            <Window name="$parentScrollChild">
+              <Size>
+                <AbsPoint x="695" y="456" />
+              </Size>
+              <Windows>
+                <Window name="SettingsKeyBindings">
+                  <Size>
+                    <AbsPoint x="695" y="3000" />
+                  </Size>
+                  <Windows>
+                    <Window name="$parentMouseSubSection" inherits="SubSectionLabelTemplate">
+                      <Anchors>
+                        <Anchor point="topleft" relativePoint="topleft">
+                          <AbsPoint x="35" y="30" />
+                        </Anchor>
+                      </Anchors>
+                    </Window>
+                    <Window name="$parentScrollWheelUp">
+                      <Size>
+                        <AbsPoint x="555" y="27" />
+                      </Size>
+                      <Anchors>
+                        <Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentMouseSubSection">
+                          <AbsPoint x="26" y="50" />
+                        </Anchor>
+                      </Anchors>
+                      <Windows>
+                        <Label name="$parentLabel" inherits="ItemTitle">
+                          <Size>
+                            <AbsPoint x="275" y="20" />
+                          </Size>
+                          <Anchors>
+                            <Anchor point="left" relativePoint="left" relativeTo="$parent">
+                              <AbsPoint x="0" y="0" />
+                            </Anchor>
+                          </Anchors>
+                          <Color r="255" g="255" b="255" a="255" />
+                        </Label>
+                        <ComboBox name="$parentCombo" inherits="UO_Default_LongComboBox">
+                          <Anchors>
+                            <Anchor point="topright" relativePoint="topleft" relativeTo="$parentLabel">
+                              <AbsPoint x="20" y="-10" />
+                            </Anchor>
+                          </Anchors>
+                        </ComboBox>
+                      </Windows>
+                    </Window>
+                    <Window name="$parentScrollWheelDown">
+                      <Size>
+                        <AbsPoint x="555" y="27" />
+                      </Size>
+                      <Anchors>
+                        <Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentScrollWheelUp">
+                          <AbsPoint x="0" y="10" />
+                        </Anchor>
+                      </Anchors>
+                      <Windows>
+                        <Label name="$parentLabel" inherits="ItemTitle">
+                          <Size>
+                            <AbsPoint x="275" y="20" />
+                          </Size>
+                          <Anchors>
+                            <Anchor point="left" relativePoint="left" relativeTo="$parent">
+                              <AbsPoint x="0" y="0" />
+                            </Anchor>
+                          </Anchors>
+                          <Color r="255" g="255" b="255" a="255" />
+                        </Label>
+                        <ComboBox name="$parentCombo" inherits="UO_Default_LongComboBox">
+                          <Anchors>
+                            <Anchor point="topright" relativePoint="topleft" relativeTo="$parentLabel">
+                              <AbsPoint x="20" y="-10" />
+                            </Anchor>
+                          </Anchors>
+                        </ComboBox>
+                      </Windows>
+                    </Window>
+                    <Window name="$parentKeyboardSubSection" inherits="SubSectionLabelTemplate">
+                      <Anchors>
+                        <Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentScrollWheelDown">
+                          <AbsPoint x="-26" y="50" />
+                        </Anchor>
+                      </Anchors>
+                    </Window>
+                    <Window name="SettingsKeyDefaultWindow">
+                      <Size>
+                        <AbsPoint x="710" y="59" />
+                      </Size>
+                      <Anchors>
+                        <Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentKeyboardSubSection">
+                          <AbsPoint x="0" y="20" />
+                        </Anchor>
+                      </Anchors>
+                      <Windows>
+                        <Window name="$parentLegacyKeys" inherits="CircleSelectionButtonLabel" id="1">
+                          <Size>
+                            <AbsPoint x="200" y="23" />
+                          </Size>
+                          <Anchors>
+                            <Anchor point="topleft" relativePoint="topleft" relativeTo="SettingsKeyDefaultWindow">
+                              <AbsPoint x="60" y="20" />
+                            </Anchor>
+                          </Anchors>
+                        </Window>
+                        <Window name="$parentMMOKeys" inherits="CircleSelectionButtonLabel" id="2">
+                          <Size>
+                            <AbsPoint x="200" y="23" />
+                          </Size>
+                          <Anchors>
+                            <Anchor point="topleft" relativePoint="topleft" relativeTo="$parentLegacyKeys">
+                              <AbsPoint x="260" y="0" />
+                            </Anchor>
+                          </Anchors>
+                        </Window>
+                      </Windows>
+                    </Window>
+                    <Window name="$parentMoveUp" inherits="KeyPicker">
+                      <Anchors>
+                        <Anchor point="bottomleft" relativePoint="topleft" relativeTo="SettingsKeyDefaultWindow">
+                          <AbsPoint x="26" y="0" />
+                        </Anchor>
+                      </Anchors>
+                    </Window>
+                    <Window name="$parentMoveDown" inherits="KeyPicker">
+                      <Anchors>
+                        <Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentMoveUp">
+                          <AbsPoint x="0" y="5" />
+                        </Anchor>
+                      </Anchors>
+                    </Window>
+                    <Window name="$parentMoveLeft" inherits="KeyPicker">
+                      <Anchors>
+                        <Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentMoveDown">
+                          <AbsPoint x="0" y="5" />
+                        </Anchor>
+                      </Anchors>
+                    </Window>
+                    <Window name="$parentMoveRight" inherits="KeyPicker">
+                      <Anchors>
+                        <Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentMoveLeft">
+                          <AbsPoint x="0" y="5" />
+                        </Anchor>
+                      </Anchors>
+                    </Window>
+                    <Window name="$parentAttackMode" inherits="KeyPicker">
+                      <Anchors>
+                        <Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentMoveRight">
+                          <AbsPoint x="0" y="15" />
+                        </Anchor>
+                      </Anchors>
+                    </Window>
+                    <Window name="$parentPrimaryAttack" inherits="KeyPicker">
+                      <Anchors>
+                        <Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentAttackMode">
+                          <AbsPoint x="0" y="5" />
+                        </Anchor>
+                      </Anchors>
+                    </Window>
+                    <Window name="$parentSecondaryAttack" inherits="KeyPicker">
+                      <Anchors>
+                        <Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentPrimaryAttack">
+                          <AbsPoint x="0" y="5" />
+                        </Anchor>
+                      </Anchors>
+                    </Window>
+                    <Window name="$parentNextGroupTarget" inherits="KeyPicker">
+                      <Anchors>
+                        <Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentSecondaryAttack">
+                          <AbsPoint x="0" y="15" />
+                        </Anchor>
+                      </Anchors>
+                    </Window>
+                    <Window name="$parentNextEnemy" inherits="KeyPicker">
+                      <Anchors>
+                        <Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentNextGroupTarget">
+                          <AbsPoint x="0" y="5" />
+                        </Anchor>
+                      </Anchors>
+                    </Window>
+                    <Window name="$parentNextFriend" inherits="KeyPicker">
+                      <Anchors>
+                        <Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentNextEnemy">
+                          <AbsPoint x="0" y="5" />
+                        </Anchor>
+                      </Anchors>
+                    </Window>
+                    <Window name="$parentNextFollower" inherits="KeyPicker">
+                      <Anchors>
+                        <Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentNextFriend">
+                          <AbsPoint x="0" y="5" />
+                        </Anchor>
+                      </Anchors>
+                    </Window>
+                    <Window name="$parentNextObject" inherits="KeyPicker">
+                      <Anchors>
+                        <Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentNextFollower">
+                          <AbsPoint x="0" y="5" />
+                        </Anchor>
+                      </Anchors>
+                    </Window>
+                    <Window name="$parentNextTarget" inherits="KeyPicker">
+                      <Anchors>
+                        <Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentNextObject">
+                          <AbsPoint x="0" y="5" />
+                        </Anchor>
+                      </Anchors>
+                    </Window>
+                    <Window name="$parentPreviousGroupTarget" inherits="KeyPicker">
+                      <Anchors>
+                        <Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentNextTarget">
+                          <AbsPoint x="0" y="5" />
+                        </Anchor>
+                      </Anchors>
+                    </Window>
+                    <Window name="$parentPreviousEnemy" inherits="KeyPicker">
+                      <Anchors>
+                        <Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentPreviousGroupTarget">
+                          <AbsPoint x="0" y="5" />
+                        </Anchor>
+                      </Anchors>
+                    </Window>
+                    <Window name="$parentPreviousFriend" inherits="KeyPicker">
+                      <Anchors>
+                        <Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentPreviousEnemy">
+                          <AbsPoint x="0" y="5" />
+                        </Anchor>
+                      </Anchors>
+                    </Window>
+                    <Window name="$parentPreviousFollower" inherits="KeyPicker">
+                      <Anchors>
+                        <Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentPreviousFriend">
+                          <AbsPoint x="0" y="5" />
+                        </Anchor>
+                      </Anchors>
+                    </Window>
+                    <Window name="$parentPreviousObject" inherits="KeyPicker">
+                      <Anchors>
+                        <Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentPreviousFollower">
+                          <AbsPoint x="0" y="5" />
+                        </Anchor>
+                      </Anchors>
+                    </Window>
+                    <Window name="$parentPreviousTarget" inherits="KeyPicker">
+                      <Anchors>
+                        <Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentPreviousObject">
+                          <AbsPoint x="0" y="5" />
+                        </Anchor>
+                      </Anchors>
+                    </Window>
+                    <Window name="$parentNearestGroup" inherits="KeyPicker">
+                      <Anchors>
+                        <Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentPreviousTarget">
+                          <AbsPoint x="0" y="5" />
+                        </Anchor>
+                      </Anchors>
+                    </Window>
+                    <Window name="$parentNearestEnemy" inherits="KeyPicker">
+                      <Anchors>
+                        <Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentNearestGroup">
+                          <AbsPoint x="0" y="5" />
+                        </Anchor>
+                      </Anchors>
+                    </Window>
+                    <Window name="$parentNearestFriend" inherits="KeyPicker">
+                      <Anchors>
+                        <Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentNearestEnemy">
+                          <AbsPoint x="0" y="5" />
+                        </Anchor>
+                      </Anchors>
+                    </Window>
+                    <Window name="$parentNearestFollower" inherits="KeyPicker">
+                      <Anchors>
+                        <Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentNearestFriend">
+                          <AbsPoint x="0" y="5" />
+                        </Anchor>
+                      </Anchors>
+                    </Window>
+                    <Window name="$parentNearestObject" inherits="KeyPicker">
+                      <Anchors>
+                        <Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentNearestFollower">
+                          <AbsPoint x="0" y="5" />
+                        </Anchor>
+                      </Anchors>
+                    </Window>
+                    <Window name="$parentNearestTarget" inherits="KeyPicker">
+                      <Anchors>
+                        <Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentNearestObject">
+                          <AbsPoint x="0" y="5" />
+                        </Anchor>
+                      </Anchors>
+                    </Window>
+                    <Window name="$parentTargetSelf" inherits="KeyPicker">
+                      <Anchors>
+                        <Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentNearestTarget">
+                          <AbsPoint x="0" y="5" />
+                        </Anchor>
+                      </Anchors>
+                    </Window>
+                    <Window name="$parentTargetG1" inherits="KeyPicker">
+                      <Anchors>
+                        <Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentTargetSelf">
+                          <AbsPoint x="0" y="5" />
+                        </Anchor>
+                      </Anchors>
+                    </Window>
+                    <Window name="$parentTargetG2" inherits="KeyPicker">
+                      <Anchors>
+                        <Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentTargetG1">
+                          <AbsPoint x="0" y="5" />
+                        </Anchor>
+                      </Anchors>
+                    </Window>
+                    <Window name="$parentTargetG3" inherits="KeyPicker">
+                      <Anchors>
+                        <Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentTargetG2">
+                          <AbsPoint x="0" y="5" />
+                        </Anchor>
+                      </Anchors>
+                    </Window>
+                    <Window name="$parentTargetG4" inherits="KeyPicker">
+                      <Anchors>
+                        <Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentTargetG3">
+                          <AbsPoint x="0" y="5" />
+                        </Anchor>
+                      </Anchors>
+                    </Window>
+                    <Window name="$parentTargetG5" inherits="KeyPicker">
+                      <Anchors>
+                        <Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentTargetG4">
+                          <AbsPoint x="0" y="5" />
+                        </Anchor>
+                      </Anchors>
+                    </Window>
+                    <Window name="$parentTargetG6" inherits="KeyPicker">
+                      <Anchors>
+                        <Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentTargetG5">
+                          <AbsPoint x="0" y="5" />
+                        </Anchor>
+                      </Anchors>
+                    </Window>
+                    <Window name="$parentTargetG7" inherits="KeyPicker">
+                      <Anchors>
+                        <Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentTargetG6">
+                          <AbsPoint x="0" y="5" />
+                        </Anchor>
+                      </Anchors>
+                    </Window>
+                    <Window name="$parentTargetG8" inherits="KeyPicker">
+                      <Anchors>
+                        <Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentTargetG7">
+                          <AbsPoint x="0" y="5" />
+                        </Anchor>
+                      </Anchors>
+                    </Window>
+                    <Window name="$parentTargetG9" inherits="KeyPicker">
+                      <Anchors>
+                        <Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentTargetG8">
+                          <AbsPoint x="0" y="5" />
+                        </Anchor>
+                      </Anchors>
+                    </Window>
+                    <Window name="$parentCharacterWin" inherits="KeyPicker">
+                      <Anchors>
+                        <Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentTargetG9">
+                          <AbsPoint x="0" y="15" />
+                        </Anchor>
+                      </Anchors>
+                    </Window>
+                    <Window name="$parentBackpackWin" inherits="KeyPicker">
+                      <Anchors>
+                        <Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentCharacterWin">
+                          <AbsPoint x="0" y="5" />
+                        </Anchor>
+                      </Anchors>
+                    </Window>
+                    <Window name="$parentSkillsWin" inherits="KeyPicker">
+                      <Anchors>
+                        <Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentBackpackWin">
+                          <AbsPoint x="0" y="5" />
+                        </Anchor>
+                      </Anchors>
+                    </Window>
+                    <Window name="$parentToggleMap" inherits="KeyPicker">
+                      <Anchors>
+                        <Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentSkillsWin">
+                          <AbsPoint x="0" y="5" />
+                        </Anchor>
+                      </Anchors>
+                    </Window>
+                    <Window name="$parentQuestLogWin" inherits="KeyPicker">
+                      <Anchors>
+                        <Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentToggleMap">
+                          <AbsPoint x="0" y="5" />
+                        </Anchor>
+                      </Anchors>
+                    </Window>
+                    <Window name="$parentToggleAlwaysRun" inherits="KeyPicker">
+                      <Anchors>
+                        <Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentQuestLogWin">
+                          <AbsPoint x="0" y="5" />
+                        </Anchor>
+                      </Anchors>
+                    </Window>
+                    <Window name="$parentZoomIn" inherits="KeyPicker">
+                      <Anchors>
+                        <Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentToggleAlwaysRun">
+                          <AbsPoint x="0" y="15" />
+                        </Anchor>
+                      </Anchors>
+                    </Window>
+                    <Window name="$parentZoomOut" inherits="KeyPicker">
+                      <Anchors>
+                        <Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentZoomIn">
+                          <AbsPoint x="0" y="5" />
+                        </Anchor>
+                      </Anchors>
+                    </Window>
+                    <Window name="$parentZoomReset" inherits="KeyPicker">
+                      <Anchors>
+                        <Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentZoomOut">
+                          <AbsPoint x="0" y="5" />
+                        </Anchor>
+                      </Anchors>
+                    </Window>
+                    <Window name="$parentScreenshot" inherits="KeyPicker">
+                      <Anchors>
+                        <Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentZoomReset">
+                          <AbsPoint x="0" y="15" />
+                        </Anchor>
+                      </Anchors>
+                    </Window>
+                    <Window name="$parentToggleInterface" inherits="KeyPicker">
+                      <Anchors>
+                        <Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentScreenshot">
+                          <AbsPoint x="0" y="5" />
+                        </Anchor>
+                      </Anchors>
+                    </Window>
+                    <Window name="$parentReloadInterface" inherits="KeyPicker">
+                      <Anchors>
+                        <Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentToggleInterface">
+                          <AbsPoint x="0" y="5" />
+                        </Anchor>
+                      </Anchors>
+                    </Window>
+                    <Window name="$parentToggleCoT" inherits="KeyPicker">
+                      <Anchors>
+                        <Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentReloadInterface">
+                          <AbsPoint x="0" y="5" />
+                        </Anchor>
+                      </Anchors>
+                    </Window>
+                  </Windows>
+                </Window>
+              </Windows>
+            </Window>
+          </Windows>
+        </ScrollWindow>
+        <!-- Sound Scrolling Window-->
+        <ScrollWindow name="SettingsSoundWindow" childscrollwindow="SettingsSoundWindowScrollChild" scrollbar="SettingsSoundWindowScrollbar" lineheight="18" autoHideScrollBar="true">
+          <Size>
+            <AbsPoint x="710" y="456" />
+          </Size>
+          <Anchors>
+            <Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentGraphicsTabButton">
+              <AbsPoint x="0" y="10" />
+            </Anchor>
+          </Anchors>
+          <Windows>
+            <VerticalScrollbar name="$parentScrollbar" inherits="StandardVertScroll" />
+            <Window name="$parentScrollChild">
+              <Size>
+                <AbsPoint x="695" y="456" />
+              </Size>
+              <Anchors>
+                <Anchor point="topleft" relativePoint="topleft" />
+              </Anchors>
+              <Windows>
+                <!--Sound -->
+                <Window name="SettingsSound">
+                  <Size>
+                    <AbsPoint x="695" y="300" />
+                  </Size>
+                  <Windows>
+                    <Window name="$parentSoundSubSection" inherits="SubSectionLabelTemplate">
+                      <Anchors>
+                        <Anchor point="topleft" relativePoint="topleft">
+                          <AbsPoint x="35" y="30" />
+                        </Anchor>
+                      </Anchors>
+                    </Window>
+                    <Window name="MasterVolume" inherits="VolumeSliderItemTemplate">
+                      <Anchors>
+                        <Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentSoundSubSection">
+                          <AbsPoint x="0" y="32" />
+                        </Anchor>
+                      </Anchors>
+                    </Window>
+                    <Window name="EffectsVolume" inherits="VolumeSliderItemTemplate">
+                      <Anchors>
+                        <Anchor point="bottomleft" relativePoint="topleft" relativeTo="MasterVolume">
+                          <AbsPoint x="0" y="12" />
+                        </Anchor>
+                      </Anchors>
+                    </Window>
+                    <Window name="MusicVolume" inherits="VolumeSliderItemTemplate">
+                      <Anchors>
+                        <Anchor point="bottomleft" relativePoint="topleft" relativeTo="EffectsVolume">
+                          <AbsPoint x="0" y="12" />
+                        </Anchor>
+                      </Anchors>
+                    </Window>
+                    <Window name="PlayFootstepsToggle" inherits="LabelCheckButton">
+                      <Anchors>
+                        <Anchor point="bottomleft" relativePoint="topleft" relativeTo="MusicVolume">
+                          <AbsPoint x="0" y="12" />
+                        </Anchor>
+                      </Anchors>
+                    </Window>
+                  </Windows>
+                </Window>
+              </Windows>
+            </Window>
+          </Windows>
+        </ScrollWindow>
+        <!-- Options Scrolling Window-->
+        <ScrollWindow name="SettingsOptionsWindow" childscrollwindow="SettingsOptionsWindowScrollChild" scrollbar="SettingsOptionsWindowScrollbar" lineheight="18" autoHideScrollBar="true">
+          <Size>
+            <AbsPoint x="710" y="456" />
+          </Size>
+          <Anchors>
+            <Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentGraphicsTabButton">
+              <AbsPoint x="0" y="10" />
+            </Anchor>
+          </Anchors>
+          <Windows>
+            <VerticalScrollbar name="$parentScrollbar" inherits="StandardVertScroll" />
+            <Window name="$parentScrollChild">
+              <Size>
+                <AbsPoint x="695" y="456" />
+              </Size>
+              <Anchors>
+                <Anchor point="topleft" relativePoint="topleft" />
+              </Anchors>
+              <Windows>
+                <!--Options -->
+                <Window name="SettingsOptions">
+                  <Size>
+                    <AbsPoint x="695" y="1075" />
+                  </Size>
+                  <Windows>
+                    <Window name="$parentGameOptionsSubSection" inherits="SubSectionLabelTemplate">
+                      <Anchors>
+                        <Anchor point="topleft" relativePoint="topleft">
+                          <AbsPoint x="35" y="30" />
+                        </Anchor>
+                      </Anchors>
+                    </Window>
+                    <Window name="AlwaysRun" inherits="LabelCheckButton">
+                      <Anchors>
+                        <Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentGameOptionsSubSection">
+                          <AbsPoint x="0" y="32" />
+                        </Anchor>
+                      </Anchors>
+                    </Window>
+                    <Window name="AlwaysAttack" inherits="LabelCheckButton">
+                      <Anchors>
+                        <Anchor point="bottomleft" relativePoint="topleft" relativeTo="AlwaysRun">
+                          <AbsPoint x="0" y="10" />
+                        </Anchor>
+                      </Anchors>
+                    </Window>
+                    <Window name="QueryBeforeCriminalActions" inherits="LabelCheckButton">
+                      <Anchors>
+                        <Anchor point="bottomleft" relativePoint="topleft" relativeTo="AlwaysAttack">
+                          <AbsPoint x="0" y="9" />
+                        </Anchor>
+                      </Anchors>
+                    </Window>
+                    <Window name="HoldShiftToUnstack" inherits="LabelCheckButton">
+                      <Anchors>
+                        <Anchor point="bottomleft" relativePoint="topleft" relativeTo="QueryBeforeCriminalActions">
+                          <AbsPoint x="0" y="9" />
+                        </Anchor>
+                      </Anchors>
+                    </Window>
+                    <Window name="$parentInterfaceSubSection" inherits="SubSectionLabelTemplate">
+                      <Anchors>
+                        <Anchor point="bottomleft" relativePoint="topleft" relativeTo="HoldShiftToUnstack">
+                          <AbsPoint x="0" y="30" />
+                        </Anchor>
+                      </Anchors>
+                    </Window>
+                    <Label name="CustomSkinsLabel" inherits="ItemTitle">
+                      <Size>
+                        <AbsPoint x="275" y="20" />
+                      </Size>
+                      <Anchors>
+                        <Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentInterfaceSubSection">
+                          <AbsPoint x="26" y="52" />
+                        </Anchor>
+                      </Anchors>
+                      <Color r="255" g="255" b="255" a="255" />
+                    </Label>
+                    <ComboBox name="CustomSkinsCombo" inherits="UO_Default_ComboBox">
+                      <Anchors>
+                        <Anchor point="topright" relativePoint="topleft" relativeTo="CustomSkinsLabel">
+                          <AbsPoint x="20" y="-10" />
+                        </Anchor>
+                      </Anchors>
+                    </ComboBox>
+                    <Window name="UiScale">
+                      <Size>
+                        <AbsPoint x="600" y="90" />
+                      </Size>
+                      <Anchors>
+                        <Anchor point="topleft" relativePoint="topleft" relativeTo="CustomSkinsLabel">
+                          <AbsPoint x="-26" y="50" />
+                        </Anchor>
+                      </Anchors>
+                      <Windows>
+                        <Window name="$parentToggle" inherits="LabelCheckButton">
+                          <Anchors>
+                            <Anchor point="topleft" relativePoint="topleft" />
+                          </Anchors>
+                        </Window>
+                        <Label name="$parentText" font="UO_DefaultText" maxchars="64" textalign="left">
+                          <Size>
+                            <AbsPoint x="140" y="10" />
+                          </Size>
+                          <Anchors>
+                            <Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentToggle">
+                              <AbsPoint x="26" y="9" />
+                            </Anchor>
+                          </Anchors>
+                          <Color r="255" g="255" b="255" a="255" />
+                        </Label>
+                        <SliderBar name="$parentSliderBar" inherits="UO_Default_Horizontal_SliderBar">
+                          <Anchors>
+                            <Anchor point="topright" relativePoint="topleft" relativeTo="$parentText">
+                              <AbsPoint x="160" y="0" />
+                            </Anchor>
+                          </Anchors>
+                          <EventHandlers>
+                            <EventHandler event="OnSlide" function="SettingsWindow.UpdateSoundSettings" />
+                          </EventHandlers>
+                        </SliderBar>
+                        <Label name="$parentVal" font="UO_DefaultText" maxchars="64" textalign="right">
+                          <Size>
+                            <AbsPoint x="40" y="20" />
+                          </Size>
+                          <Anchors>
+                            <Anchor point="topright" relativePoint="topleft" relativeTo="$parentSliderBar">
+                              <AbsPoint x="20" y="-3" />
+                            </Anchor>
+                          </Anchors>
+                          <Color r="255" g="255" b="255" a="255" />
+                        </Label>
+                        <Label name="$parentPDText" font="UO_DefaultText" maxchars="128" textalign="right" wordwrap="false">
+                          <Size>
+                            <AbsPoint x="140" y="10" />
+                          </Size>
+                          <Anchors>
+                            <Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentText">
+                              <AbsPoint x="-10" y="15" />
+                            </Anchor>
+                          </Anchors>
+                          <Color r="255" g="255" b="255" a="255"></Color>
+                        </Label>
+                        <SliderBar name="$parentPDSliderBar" inherits="UO_Default_Horizontal_SliderBar">
+                          <Anchors>
+                            <Anchor point="bottom" relativePoint="top" relativeTo="$parentSliderBar">
+                              <AbsPoint x="0" y="15" />
+                            </Anchor>
+                          </Anchors>
+                          <EventHandlers>
+                            <EventHandler event="OnSlide" function="SettingsWindow.UpdateSoundSettings" />
+                          </EventHandlers>
+                        </SliderBar>
+                        <Label name="$parentPDVal" font="UO_DefaultText" maxchars="128" textalign="right" wordwrap="false">
+                          <Size>
+                            <AbsPoint x="40" y="20" />
+                          </Size>
+                          <Anchors>
+                            <Anchor point="bottom" relativePoint="top" relativeTo="$parentVal">
+                              <AbsPoint x="0" y="12" />
+                            </Anchor>
+                          </Anchors>
+                          <Color r="255" g="255" b="255" a="255" />
+                        </Label>
+                      </Windows>
+                    </Window>
+                    <Label name="ContainerViewLabel" inherits="ItemTitle">
+                      <Size>
+                        <AbsPoint x="275" y="20" />
+                      </Size>
+                      <Anchors>
+                        <Anchor point="bottomleft" relativePoint="topleft" relativeTo="UiScale">
+                          <AbsPoint x="26" y="36" />
+                        </Anchor>
+                      </Anchors>
+                      <Color r="255" g="255" b="255" a="255" />
+                    </Label>
+                    <ComboBox name="ContainerViewCombo" inherits="UO_Default_ComboBox">
+                      <Anchors>
+                        <Anchor point="topright" relativePoint="topleft" relativeTo="ContainerViewLabel">
+                          <AbsPoint x="20" y="-10" />
+                        </Anchor>
+                      </Anchors>
+                    </ComboBox>
+                    <Label name="CorpseViewLabel" inherits="ItemTitle">
+                      <Size>
+                        <AbsPoint x="275" y="20" />
+                      </Size>
+                      <Anchors>
+                        <Anchor point="bottomleft" relativePoint="topleft" relativeTo="ContainerViewLabel">
+                          <AbsPoint x="0" y="23" />
+                        </Anchor>
+                      </Anchors>
+                      <Color r="255" g="255" b="255" a="255" />
+                    </Label>
+                    <ComboBox name="CorpseViewCombo" inherits="UO_Default_ComboBox">
+                      <Anchors>
+                        <Anchor point="topright" relativePoint="topleft" relativeTo="CorpseViewLabel">
+                          <AbsPoint x="20" y="-10" />
+                        </Anchor>
+                      </Anchors>
+                    </ComboBox>
+                    <!-- Object Handles Selection -->
+                    <Label name="$parentObjHandleFilterLabel" inherits="ItemTitle">
+                      <Size>
+                        <AbsPoint x="275" y="20" />
+                      </Size>
+                      <Anchors>
+                        <Anchor point="bottomleft" relativePoint="topleft" relativeTo="CorpseViewLabel">
+                          <AbsPoint x="0" y="23" />
+                        </Anchor>
+                      </Anchors>
+                      <Color r="255" g="255" b="255" a="255" />
+                    </Label>
+                    <ComboBox name="$parentObjHandleFilterCombo" inherits="UO_Default_ComboBox">
+                      <Anchors>
+                        <Anchor point="topright" relativePoint="topleft" relativeTo="$parentObjHandleFilterLabel">
+                          <AbsPoint x="20" y="-10" />
+                        </Anchor>
+                      </Anchors>
+                    </ComboBox>
+                    <!-- Object Handles Selection -->
+                    <Label name="$parentObjHandleSizeLabel" inherits="ItemTitle">
+                      <Size>
+                        <AbsPoint x="275" y="20" />
+                      </Size>
+                      <Anchors>
+                        <Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentObjHandleFilterLabel">
+                          <AbsPoint x="0" y="23" />
+                        </Anchor>
+                      </Anchors>
+                      <Color r="255" g="255" b="255" a="255" />
+                    </Label>
+                    <ComboBox name="$parentObjHandleSizeCombo" inherits="UO_Default_ComboBox">
+                      <Anchors>
+                        <Anchor point="topright" relativePoint="topleft" relativeTo="$parentObjHandleSizeLabel">
+                          <AbsPoint x="20" y="-10" />
+                        </Anchor>
+                      </Anchors>
+                    </ComboBox>
+                    <!-- Show Names Selection -->
+                    <Label name="$parentShowNamesLabel" inherits="ItemTitle">
+                      <Size>
+                        <AbsPoint x="275" y="20" />
+                      </Size>
+                      <Anchors>
+                        <Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentObjHandleSizeLabel">
+                          <AbsPoint x="0" y="23" />
+                        </Anchor>
+                      </Anchors>
+                      <Color r="255" g="255" b="255" a="255" />
+                    </Label>
+                    <ComboBox name="$parentShowNamesCombo" inherits="UO_Default_ComboBox">
+                      <Anchors>
+                        <Anchor point="topright" relativePoint="topleft" relativeTo="$parentShowNamesLabel">
+                          <AbsPoint x="20" y="-10" />
+                        </Anchor>
+                      </Anchors>
+                    </ComboBox>
+                    <Window name="ShowStrLabel" inherits="LabelCheckButton">
+                      <Anchors>
+                        <Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentShowNamesLabel">
+                          <AbsPoint x="-26" y="15" />
+                        </Anchor>
+                      </Anchors>
+                    </Window>
+                    <Window name="Tooltips" inherits="LabelCheckButton">
+                      <Anchors>
+                        <Anchor point="bottomleft" relativePoint="topleft" relativeTo="ShowStrLabel">
+                          <AbsPoint x="0" y="9" />
+                        </Anchor>
+                      </Anchors>
+                    </Window>
+                    <Window name="TipoftheDay" inherits="LabelCheckButton">
+                      <Anchors>
+                        <Anchor point="bottomleft" relativePoint="topleft" relativeTo="Tooltips">
+                          <AbsPoint x="0" y="9" />
+                        </Anchor>
+                      </Anchors>
+                    </Window>
+                    <Window name="$parentSystemSubSection" inherits="SubSectionLabelTemplate">
+                      <Anchors>
+                        <Anchor point="bottomleft" relativePoint="topleft" relativeTo="TipoftheDay">
+                          <AbsPoint x="0" y="30" />
+                        </Anchor>
+                      </Anchors>
+                    </Window>
+                    <!-- Language Selection -->
+                    <Label name="$parentLanguageLabel" inherits="ItemTitle">
+                      <Size>
+                        <AbsPoint x="275" y="20" />
+                      </Size>
+                      <Anchors>
+                        <Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentSystemSubSection">
+                          <AbsPoint x="26" y="52" />
+                        </Anchor>
+                      </Anchors>
+                      <Color r="255" g="255" b="255" a="255" />
+                    </Label>
+                    <ComboBox name="$parentLanguageCombo" inherits="UO_Default_ComboBox">
+                      <Anchors>
+                        <Anchor point="topright" relativePoint="topleft" relativeTo="$parentLanguageLabel">
+                          <AbsPoint x="20" y="-10" />
+                        </Anchor>
+                      </Anchors>
+                    </ComboBox>
+                    <Window name="$parentChatSubSection" inherits="SubSectionLabelTemplate">
+                      <Anchors>
+                        <Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentLanguageLabel">
+                          <AbsPoint x="-26" y="30" />
+                        </Anchor>
+                      </Anchors>
+                    </Window>
+                    <Window name="ShowChatWindow" inherits="LabelCheckButton">
+                      <Anchors>
+                        <Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentChatSubSection">
+                          <AbsPoint x="0" y="32" />
+                        </Anchor>
+                      </Anchors>
+                    </Window>
+                    <Window name="OverheadChat" inherits="LabelCheckButton">
+                      <Anchors>
+                        <Anchor point="bottomleft" relativePoint="topleft" relativeTo="ShowChatWindow">
+                          <AbsPoint x="0" y="9" />
+                        </Anchor>
+                      </Anchors>
+                    </Window>
+                    <!-- Overhead Chat Window Fade Delay UI -->
+                    <Label name="OverheadChatFadeDelayLabel" inherits="ItemTitle">
+                      <Size>
+                        <AbsPoint x="275" y="20" />
+                      </Size>
+                      <Anchors>
+                        <Anchor point="bottomleft" relativePoint="topleft" relativeTo="OverheadChat">
+                          <AbsPoint x="26" y="15" />
+                        </Anchor>
+                      </Anchors>
+                      <Color r="255" g="255" b="255" a="255" />
+                    </Label>
+                    <ComboBox name="OverheadChatFadeDelayCombo" inherits="UO_Default_ComboBox">
+                      <Anchors>
+                        <Anchor point="topright" relativePoint="topleft" relativeTo="OverheadChatFadeDelayLabel">
+                          <AbsPoint x="20" y="-10" />
+                        </Anchor>
+                      </Anchors>
+                    </ComboBox>
+                  </Windows>
+                </Window>
+              </Windows>
+            </Window>
+          </Windows>
+        </ScrollWindow>
+        <!-- Legacy Window -->
+        <ScrollWindow name="SettingsLegacyWindow" childscrollwindow="SettingsLegacyWindowScrollChild" scrollbar="SettingsLegacyWindowScrollbar" lineheight="18" autoHideScrollBar="true">
+          <Size>
+            <AbsPoint x="710" y="456" />
+          </Size>
+          <Anchors>
+            <Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentGraphicsTabButton">
+              <AbsPoint x="0" y="10" />
+            </Anchor>
+          </Anchors>
+          <Windows>
+            <VerticalScrollbar name="$parentScrollbar" inherits="StandardVertScroll" />
+            <Window name="$parentScrollChild">
+              <Size>
+                <AbsPoint x="695" y="456" />
+              </Size>
+              <Windows>
+                <Window name="SettingsLegacy">
+                  <Size>
+                    <AbsPoint x="695" y="300" />
+                  </Size>
+                  <Windows>
+                    <Window name="$parentLegacySubSection" inherits="SubSectionLabelTemplate">
+                      <Anchors>
+                        <Anchor point="topleft" relativePoint="topleft">
+                          <AbsPoint x="35" y="30" />
+                        </Anchor>
+                      </Anchors>
+                    </Window>
+                    <!-- Legacy Chat -->
+                    <Window name="LegacyChat" inherits="LabelCheckButton">
+                      <Anchors>
+                        <Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentLegacySubSection">
+                          <AbsPoint x="0" y="32" />
+                        </Anchor>
+                      </Anchors>
+                      <EventHandlers>
+                        <EventHandler event="OnLButtonUp" function="SettingsWindow.OnShowResetLegacyDialog" />
+                      </EventHandlers>
+                    </Window>
+                    <!-- Use Legacy Container Art -->
+                    <Window name="$parentUseLegacyContainers" inherits="LabelCheckButton">
+                      <Anchors>
+                        <Anchor point="bottomleft" relativePoint="topleft" relativeTo="LegacyChat">
+                          <AbsPoint x="0" y="9" />
+                        </Anchor>
+                      </Anchors>
+                    </Window>
+                    <!-- Use Legacy Targeting -->
+                    <Window name="$parentLegacyTargeting" inherits="LabelCheckButton">
+                      <Anchors>
+                        <Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentUseLegacyContainers">
+                          <AbsPoint x="0" y="9" />
+                        </Anchor>
+                      </Anchors>
+                      <EventHandlers>
+                        <EventHandler event="OnLButtonUp" function="SettingsWindow.LegacyTargetingButtonOnLButtonUp" />
+                      </EventHandlers>
+                    </Window>
+                  </Windows>
+                </Window>
+              </Windows>
+            </Window>
+          </Windows>
+        </ScrollWindow>
+        <!-- Filters Scrolling Window -->
+        <ScrollWindow name="SettingsProfanityWindow" childscrollwindow="SettingsProfanityWindowScrollChild" scrollbar="SettingsProfanityWindowScrollbar" lineheight="18" autoHideScrollBar="true">
+          <Size>
+            <AbsPoint x="710" y="456" />
+          </Size>
+          <Anchors>
+            <Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentGraphicsTabButton">
+              <AbsPoint x="0" y="10" />
+            </Anchor>
+          </Anchors>
+          <Windows>
+            <VerticalScrollbar name="$parentScrollbar" inherits="StandardVertScroll" />
+            <Window name="$parentScrollChild">
+              <Size>
+                <AbsPoint x="695" y="456" />
+              </Size>
+              <Windows>
+                <Window name="SettingsBadWordFilter">
+                  <Size>
+                    <AbsPoint x="695" y="2000" />
+                    <!-- TODO = FIX THIS so it doesn't always scroll but makes space on the fly -->
+                  </Size>
+                  <Windows>
+                    <Window name="$parentFilterSubSection" inherits="SubSectionLabelTemplate">
+                      <Anchors>
+                        <Anchor point="topleft" relativePoint="topleft">
+                          <AbsPoint x="35" y="30" />
+                        </Anchor>
+                      </Anchors>
+                    </Window>
+                    <!--bad words filtering-->
+                    <Window name="BadWordFilterOption" inherits="LabelCheckButton">
+                      <Anchors>
+                        <Anchor point="topleft" relativePoint="topleft" relativeTo="$parentFilterSubSection">
+                          <AbsPoint x="0" y="32" />
+                        </Anchor>
+                      </Anchors>
+                    </Window>
+                    <!--ignore player list-->
+                    <Window name="IgnoreListOption" inherits="LabelCheckButton">
+                      <Anchors>
+                        <Anchor point="bottomleft" relativePoint="topleft" relativeTo="BadWordFilterOption">
+                          <AbsPoint x="0" y="9" />
+                        </Anchor>
+                      </Anchors>
+                    </Window>
+                    <Button name="IgnoreListAddButton" inherits="UO_Default_Medium_Select_Button">
+                      <Anchors>
+                        <Anchor point="bottomleft" relativePoint="topleft" relativeTo="IgnoreListOption">
+                          <AbsPoint x="26" y="10" />
+                        </Anchor>
+                      </Anchors>
+                      <EventHandlers>
+                        <EventHandler event="OnLButtonUp" function="SettingsWindow.OnIgnoreListAddButton" />
+                      </EventHandlers>
+                    </Button>
+                    <Button name="IgnoreListDeleteButton" inherits="UO_Default_Medium_Select_Button">
+                      <Anchors>
+                        <Anchor point="topright" relativePoint="topleft" relativeTo="IgnoreListAddButton">
+                          <AbsPoint x="10" y="0" />
+                        </Anchor>
+                      </Anchors>
+                      <EventHandlers>
+                        <EventHandler event="OnLButtonUp" function="SettingsWindow.OnIgnoreListDeleteButton" />
+                      </EventHandlers>
+                    </Button>
+                  </Windows>
+                </Window>
+              </Windows>
+            </Window>
+          </Windows>
+        </ScrollWindow>
+      </Windows>
+    </Window>
+  </Windows>
+</Interface>

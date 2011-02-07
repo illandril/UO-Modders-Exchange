@@ -1,0 +1,623 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Interface xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../Interface.xsd">
+  <Assets>
+
+    <!-- Misc Icons 0-99 -->
+    <Icon id="00000" texture="Icons/NoIcon.dds" name="No Icon Set"/>
+
+    <!-- Spell Icons -->
+    <Icon id="00001" texture="Icons/Spells/Clumsy.dds" name="Clumsy" />
+    <Icon id="00002" texture="Icons/Spells/Create Food.dds" name="Create Food" />
+    <Icon id="00003" texture="Icons/Spells/Feeblemind.dds" name="Feeblemind" />
+    <Icon id="00004" texture="Icons/Spells/Heal.dds" name="Heal" />
+    <Icon id="00005" texture="Icons/Spells/Magic Arrow.dds" name="Magic Arrow" />
+    <Icon id="00006" texture="Icons/Spells/Night Sight.dds" name="Night Sight" />
+    <Icon id="00007" texture="Icons/Spells/Reactive Armor.dds" name="Reactive Armor" />
+    <Icon id="00008" texture="Icons/Spells/Weaken.dds" name="Weaken" />
+    <Icon id="00009" texture="Icons/Spells/Agility.dds" name="Agility" />
+    <Icon id="00010" texture="Icons/Spells/Cunning.dds" name="Cunning" />
+    <Icon id="00011" texture="Icons/Spells/Cure.dds" name="Cure" />
+    <Icon id="00012" texture="Icons/Spells/Harm.dds" name="Harm" />
+    <Icon id="00013" texture="Icons/Spells/Magic Trap.dds" name="Magic Trap" />
+    <Icon id="00014" texture="Icons/Spells/Magic Untrap.dds" name="Magic Untrap" />
+    <Icon id="00015" texture="Icons/Spells/Protection.dds" name="Protection" />
+    <Icon id="00016" texture="Icons/Spells/Strength.dds" name="Strength" />
+    <Icon id="00017" texture="Icons/Spells/Bless.dds" name="Bless" />
+    <Icon id="00018" texture="Icons/Spells/Fireball.dds" name="Fireball" />
+    <Icon id="00019" texture="Icons/Spells/Magic Lock.dds" name="Magic Lock" />
+    <Icon id="00020" texture="Icons/Spells/Poison.dds" name="Poison" />
+    <Icon id="00021" texture="Icons/Spells/Telekinesis.dds" name="Telekinesis" />
+    <Icon id="00022" texture="Icons/Spells/Teleport.dds" name="Teleport" />
+    <Icon id="00023" texture="Icons/Spells/Unlock.dds" name="Unlock" />
+    <Icon id="00024" texture="Icons/Spells/Wall of Stone.dds" name="Wall of Stone" />
+    <Icon id="00025" texture="Icons/Spells/Archcure.dds" name="Arch Cure" />
+    <Icon id="00026" texture="Icons/Spells/Archprotection.dds" name="Arch Protection" />
+    <Icon id="00027" texture="Icons/Spells/Curse.dds" name="Curse" />
+    <Icon id="00028" texture="Icons/Spells/Fire Field.dds" name="Fire Field" />
+    <Icon id="00029" texture="Icons/Spells/Greater Heal.dds" name="Greater Heal" />
+    <Icon id="00030" texture="Icons/Spells/Lightning.dds" name="Lightning" />
+    <Icon id="00031" texture="Icons/Spells/Mana Drain.dds" name="Mana Drain" />
+    <Icon id="00032" texture="Icons/Spells/Recall.dds" name="Recall" />
+    <Icon id="00033" texture="Icons/Spells/Blade Spirits.dds" name="Blade Spirits" />
+    <Icon id="00034" texture="Icons/Spells/Dispel Field.dds" name="Dispel Field" />
+    <Icon id="00035" texture="Icons/Spells/Incognito.dds" name="Incognito" />
+    <Icon id="00036" texture="Icons/Spells/Magic Reflection.dds" name="Magic Reflection" />
+    <Icon id="00037" texture="Icons/Spells/Mind Blast.dds" name="Mind Blast" />
+    <Icon id="00038" texture="Icons/Spells/Paralyze.dds" name="Paralyze" />
+    <Icon id="00039" texture="Icons/Spells/Poison Field.dds" name="Poison Field" />
+    <Icon id="00040" texture="Icons/Spells/Summon Creature.dds" name="Summon Creature" />
+    <Icon id="00041" texture="Icons/Spells/Dispel.dds" name="Dispel" />
+    <Icon id="00042" texture="Icons/Spells/Energy Bolt.dds" name="Energy Bolt" />
+    <Icon id="00043" texture="Icons/Spells/Explosion.dds" name="Explosion" />
+    <Icon id="00044" texture="Icons/Spells/Invisibility.dds" name="Invisibility" />
+    <Icon id="00045" texture="Icons/Spells/Mark.dds" name="Mark" />
+    <Icon id="00046" texture="Icons/Spells/Mass Curse.dds" name="Mass Curse" />
+    <Icon id="00047" texture="Icons/Spells/Paralyze Field.dds" name="Paralyze Field" />
+    <Icon id="00048" texture="Icons/Spells/Reveal.dds" name="Reveal" />
+    <Icon id="00049" texture="Icons/Spells/Chain Lightning.dds" name="Chain Lightning" />
+    <Icon id="00050" texture="Icons/Spells/Energy Field.dds" name="Energy Field" />
+    <Icon id="00051" texture="Icons/Spells/Flamestrike.dds" name="Flame Strike" />
+    <Icon id="00052" texture="Icons/Spells/Gate Travel.dds" name="Gate Travel" />
+    <Icon id="00053" texture="Icons/Spells/Mana Vampire.dds" name="Mana Vampire" />
+    <Icon id="00054" texture="Icons/Spells/Mass Dispel.dds" name="Mass Dispel" />
+    <Icon id="00055" texture="Icons/Spells/Meteor Swarm.dds" name="Meteor Swarm" />
+    <Icon id="00056" texture="Icons/Spells/Polymorph.dds" name="Polymorph" />
+    <Icon id="00057" texture="Icons/Spells/Earthquake.dds" name="Earthquake" />
+    <Icon id="00058" texture="Icons/Spells/Energy Vortex.dds" name="Energy Vortex" />
+    <Icon id="00059" texture="Icons/Spells/Resurrection.dds" name="Resurrection" />
+    <Icon id="00060" texture="Icons/Spells/Air Elemental.dds" name="Air Elemental" />
+    <Icon id="00061" texture="Icons/Spells/Summon Daemon.dds" name="Summon Daemon" />
+    <Icon id="00062" texture="Icons/Spells/Earth Elemental.dds" name="Earth Elemental" />
+    <Icon id="00063" texture="Icons/Spells/Fire Elemental.dds" name="Fire Elemental" />
+    <Icon id="00064" texture="Icons/Spells/Water Elemental.dds" name="Water Elemental" />
+    <Icon id="00101" texture="Icons/Spells/animatedead.dds" name="Animate Dead" />
+    <Icon id="00102" texture="Icons/Spells/bloodoath.dds" name="Blood Oath" />
+    <Icon id="00103" texture="Icons/Spells/corpseskin.dds" name="Corpse Skin" />
+    <Icon id="00104" texture="Icons/Spells/curseweapon.dds" name="Curse Weapon" />
+    <Icon id="00105" texture="Icons/Spells/evilomen.dds" name="Evil Omen" />
+    <Icon id="00106" texture="Icons/Spells/horrificbeast.dds" name="Horrific Beast" />
+    <Icon id="00107" texture="Icons/Spells/lichform.dds" name="Lich Form" />
+    <Icon id="00108" texture="Icons/Spells/mindrot.dds" name="Mind Rot" />
+    <Icon id="00109" texture="Icons/Spells/painspike.dds" name="Pain Spike" />
+    <Icon id="00110" texture="Icons/Spells/poisonstrike.dds" name="Poison Strike" />
+    <Icon id="00111" texture="Icons/Spells/strangle.dds" name="Strangle" />
+    <Icon id="00112" texture="Icons/Spells/summonfamiliar.dds" name="Summon Familiar" />
+    <Icon id="00113" texture="Icons/Spells/vampiricembrace.dds" name="Vampiric Embrace" />
+    <Icon id="00114" texture="Icons/Spells/vengefulspirit.dds" name="Vengeful Spirit" />
+    <Icon id="00115" texture="Icons/Spells/wither.dds" name="Wither" />
+    <Icon id="00116" texture="Icons/Spells/wraithform.dds" name="Wraith Form" />
+    <Icon id="00117" texture="Icons/Spells/exorcism.dds" name="Exorcism" />
+    <Icon id="00201" texture="Icons/Spells/cleansebyfire.dds" name="Cleanse By Fire" />
+    <Icon id="00202" texture="Icons/Spells/closewounds.dds" name="Close Wounds" />
+    <Icon id="00203" texture="Icons/Spells/consecrateweapon.dds" name="Consecrate Weapon" />
+    <Icon id="00204" texture="Icons/Spells/dispelevil.dds" name="Dispel Evil" />
+    <Icon id="00205" texture="Icons/Spells/divinefury.dds" name="Divine Fury" />
+    <Icon id="00206" texture="Icons/Spells/enemyofone.dds" name="Enemy of One" />
+    <Icon id="00207" texture="Icons/Spells/holylight.dds" name="Holy Light" />
+    <Icon id="00208" texture="Icons/Spells/noblesacrifice.dds" name="Noble Sacrifice" />
+    <Icon id="00209" texture="Icons/Spells/removecurse.dds" name="Remove Curse" />
+    <Icon id="00210" texture="Icons/Spells/sacredjourney.dds" name="Sacred Journey" />
+    <Icon id="00401" texture="Icons/Spells/honorable execution.dds" name="Honorable Execution" />
+    <Icon id="00402" texture="Icons/Spells/confidence.dds" name="Confidence" />
+    <Icon id="00403" texture="Icons/Spells/evasion.dds" name="Evasion" />
+    <Icon id="00404" texture="Icons/Spells/counter attack.dds" name="Counter Attack" />
+    <Icon id="00405" texture="Icons/Spells/lightning strike.dds" name="Lightning Strike" />
+    <Icon id="00406" texture="Icons/Spells/momentum strike.dds" name="Momentum Strike" />
+    <Icon id="00501" texture="Icons/Spells/focus attack.dds" name="Focus Attack" />
+    <Icon id="00502" texture="Icons/Spells/death strike.dds" name="Death Strike" />
+    <Icon id="00503" texture="Icons/Spells/animal form.dds" name="Animal Form" />
+    <Icon id="00504" texture="Icons/Spells/ki attack.dds" name="Ki Attack" />
+    <Icon id="00505" texture="Icons/Spells/surprise attack.dds" name="Surprise Attack" />
+    <Icon id="00506" texture="Icons/Spells/backstab.dds" name="Backstab" />
+    <Icon id="00507" texture="Icons/Spells/shadowjump.dds" name="Shadowjump" />
+    <Icon id="00508" texture="Icons/Spells/mirror image.dds" name="Mirror Image" />
+    <Icon id="00601" texture="Icons/Spells/arcanecircle.dds" name="Arcane Circle" />
+    <Icon id="00602" texture="Icons/Spells/GiftofRenewal.dds" name="Gift of Renewal" />
+    <Icon id="00603" texture="Icons/Spells/ImmolatingWeapon.dds" name="Immolating Weapon" />
+    <Icon id="00604" texture="Icons/Spells/attuneweapon.dds" name="Attune Weapon" />
+    <Icon id="00605" texture="Icons/Spells/thunderstorm.dds" name="Thunderstorm" />
+    <Icon id="00606" texture="Icons/Spells/naturesFury.dds" name="Nature's Fury" />
+    <Icon id="00607" texture="Icons/Spells/SummonFey.dds" name="Summon Fey" />
+    <Icon id="00608" texture="Icons/Spells/Summon_fiend.dds" name="Summon Fiend" />
+    <Icon id="00609" texture="Icons/Spells/reaperform.dds" name="Reaper Form" />
+    <Icon id="00610" texture="Icons/Spells/wildfire.dds" name="Wildfire" />
+    <Icon id="00611" texture="Icons/Spells/essenceofwind.dds" name="Essence of Wind" />
+    <Icon id="00612" texture="Icons/Spells/dryadallure.dds" name="Dryad Allure" />
+    <Icon id="00613" texture="Icons/Spells/etherealvoyage.dds" name="Ethereal Voyage" />
+    <Icon id="00614" texture="Icons/Spells/wordofdeath.dds" name="Word of Death" />
+    <Icon id="00615" texture="Icons/Spells/giftoflife.dds" name="Gift of Life" />
+    <Icon id="00616" texture="Icons/Spells/arcaneempowerment.dds" name="Arcane Empowerment" />
+    <Icon id="00678" texture="Icons/Spells/Nether_Bolt.dds" name="Nether Bolt" />
+    <Icon id="00679" texture="Icons/Spells/Healing_Stone.dds" name="Healing Stone" />
+    <Icon id="00680" texture="Icons/Spells/Purge_Magic.dds" name="Purge Magic" />
+    <Icon id="00681" texture="Icons/Spells/Enchant.dds" name="Enchant" />
+    <Icon id="00682" texture="Icons/Spells/Sleep.dds" name="Sleep" />
+    <Icon id="00683" texture="Icons/Spells/Eagle_Strike.dds" name="Eagle Strike" />
+    <Icon id="00684" texture="Icons/Spells/Animated_Weapon.dds" name="Animated Weapon" />
+    <Icon id="00685" texture="Icons/Spells/Stone_Form.dds" name="Stone Form" />
+    <Icon id="00686" texture="Icons/Spells/Spell_Trigger.dds" name="Spell Trigger" />
+    <Icon id="00687" texture="Icons/Spells/Mass_Sleep.dds" name="Mass Sleep" />
+    <Icon id="00688" texture="Icons/Spells/Cleansing_Winds.dds" name="Cleansing Winds" />
+    <Icon id="00689" texture="Icons/Spells/Bombard.dds" name="Bombard" />
+    <Icon id="00690" texture="Icons/Spells/Spell_Plague.dds" name="Spell Plague" />
+    <Icon id="00691" texture="Icons/Spells/Hail_Storm.dds" name="Hail Storm" />
+    <Icon id="00692" texture="Icons/Spells/Nether_Cyclone.dds" name="Nether Cyclone" />
+    <Icon id="00693" texture="Icons/Spells/Rising_Colossus.dds" name="Rising Colossus" />
+
+
+
+
+
+
+    <!-- Action Icons -->
+    <Icon id="00617" texture="Icons/actions/Lastskill.dds" name="Last Skill" />
+    <Icon id="00618" texture="Icons/actions/WaitTarget.dds" name="Wait Target" />
+    <Icon id="00619" texture="Icons/actions/allnames.dds" name="All Names" />
+    <Icon id="00620" texture="Icons/actions/blank1.dds" name="Blank 1" />
+    <Icon id="00621" texture="Icons/actions/blank2.dds" name="Blank 2" />
+    <Icon id="00622" texture="Icons/actions/bow.dds" name="Last Skill" />
+    <Icon id="00623" texture="Icons/actions/delay.dds" name="Delay" />
+    <Icon id="00624" texture="Icons/actions/emote.dds" name="Emote" />
+    <Icon id="00625" texture="Icons/actions/equip.dds" name="Equip" />
+    <Icon id="00626" texture="Icons/actions/fiveaction.dds" name="Five Action" />
+    <Icon id="00627" texture="Icons/actions/fouraction.dds" name="Last Skill" />
+    <Icon id="00628" texture="Icons/actions/invoke_virtue.dds" name="Invoke Virtue" />
+    <Icon id="00629" texture="Icons/actions/lastobject.dds" name="Last Object" />
+    <Icon id="00630" texture="Icons/actions/oneaction.dds" name="One Action" />
+    <Icon id="00631" texture="Icons/actions/salute.dds" name="Salute" />
+    <Icon id="00632" texture="Icons/actions/say.dds" name="Say" />
+    <Icon id="00633" texture="Icons/actions/target.dds" name="Target" />
+    <Icon id="00634" texture="Icons/actions/threeaction.dds" name="Three Action" />
+    <Icon id="00635" texture="Icons/actions/togglewar.dds" name="Toggle War" />
+    <Icon id="00636" texture="Icons/actions/twoaction.dds" name="Two Action" />
+    <Icon id="00637" texture="Icons/actions/unequip.dds" name="Unequip" />
+    <Icon id="00638" texture="Icons/actions/whisper.dds" name="Whisper" />
+    <Icon id="00639" texture="Icons/actions/yell.dds" name="Yell" />
+    <Icon id="00640" texture="Icons/actions/lastspell.dds" name="Last Spell" />
+    <Icon id="00641" texture="Icons/actions/door.dds" name="Open Door" />
+    <Icon id="00642" texture="Icons/actions/nextobject.dds" name="Next Object" />
+    <Icon id="00643" texture="Icons/actions/targetcurrent.dds" name="Target Current" />
+    <Icon id="00644" texture="Icons/actions/targetlast.dds" name="Target Last" />
+    <Icon id="00645" texture="Icons/actions/targetself.dds" name="Target Self" />
+    <Icon id="00646" texture="Icons/actions/useselected.dds" name="Use Selected" />
+    <Icon id="00647" texture="Icons/actions/nextfriendly.dds" name="Target Next Friendly" />
+    <Icon id="00648" texture="Icons/actions/nextenemy.dds" name="Target Next Enemy" />
+    <Icon id="00649" texture="Icons/actions/nextgroup.dds" name="Target Next Party Member" />
+    <Icon id="00650" texture="Icons/actions/allkill.dds" name="All Kill" />
+    <Icon id="00651" texture="Icons/actions/come.dds" name="Come" />
+    <Icon id="00652" texture="Icons/actions/back.dds" name="Back" />
+    <Icon id="00653" texture="Icons/actions/backleft.dds" name="Back Left" />
+    <Icon id="00654" texture="Icons/actions/backright.dds" name="Back Right" />
+    <Icon id="00655" texture="Icons/actions/follow.dds" name="Follow" />
+    <Icon id="00656" texture="Icons/actions/followme.dds" name="Folow Me" />
+    <Icon id="00657" texture="Icons/actions/guard.dds" name="Guard" />
+    <Icon id="00658" texture="Icons/actions/guardme.dds" name="Guard Me" />
+    <Icon id="00659" texture="Icons/actions/kill.dds" name="Kill" />
+    <Icon id="00660" texture="Icons/actions/stay.dds" name="Stay" />
+    <Icon id="00661" texture="Icons/actions/stop.dds" name="Stop" />
+    <Icon id="00662" texture="Icons/actions/comeaboard.dds" name="Come About" />
+    <Icon id="00663" texture="Icons/actions/doracron.dds" name="Doracron" />
+    <Icon id="00664" texture="Icons/actions/driftleft.dds" name="Drift Left" />
+    <Icon id="00665" texture="Icons/actions/driftright.dds" name="Drift Right" />
+    <Icon id="00666" texture="Icons/actions/dropanchor.dds" name="Drop Anchor" />
+    <Icon id="00667" texture="Icons/actions/forward.dds" name="Forward" />
+    <Icon id="00668" texture="Icons/actions/forwardleft.dds" name="Forward Left" />
+    <Icon id="00669" texture="Icons/actions/forwardright.dds" name="Forward Right" />
+    <Icon id="00670" texture="Icons/actions/port.dds" name="Port" />
+    <Icon id="00671" texture="Icons/actions/raiseanchor.dds" name="Raise Anchor" />
+    <Icon id="00672" texture="Icons/actions/starboard.dds" name="Starboard" />
+    <Icon id="00673" texture="Icons/actions/stop02.dds" name="STOP" />
+    <Icon id="00674" texture="Icons/actions/sueacron.dds" name="Sueacron" />
+    <Icon id="00675" texture="Icons/actions/war.dds" name="WAR" />
+    <Icon id="00676" texture="Icons/actions/peace.dds" name="Peace" />
+    <Icon id="00677" texture="Icons/actions/armdisarm.dds" name="Arm Disarm" />
+    <Icon id="00694" texture="Icons/actions/start.dds" name="Start" />
+    <Icon id="00695" texture="Icons/actions/continue.dds" name="Continue" />
+    <Icon id="00696" texture="Icons/actions/potion.dds" name="Potion" />
+    <Icon id="00708" texture="Icons/actions/targetnext.dds" name="Target Next" />
+    <Icon id="00709" texture="Icons/actions/forwardslow.dds" name="Forward Slow" />
+    <Icon id="00710" texture="Icons/actions/backwardslow.dds" name="Backwards Slow" />
+    <Icon id="00711" texture="Icons/actions/forwardone.dds" name="Forward One" />
+    <Icon id="00712" texture="Icons/actions/backwardsone.dds" name="Backwards One" />
+    <Icon id="00713" texture="Icons/actions/secure.dds" name="Secure This Item" />
+    <Icon id="00714" texture="Icons/actions/releaseitem.dds" name="Release This Item" />
+    <Icon id="00715" texture="Icons/actions/lockitem.dds" name="Lock Down This Item" />
+    <Icon id="00716" texture="Icons/actions/dance.dds" name="Dance" />
+    <Icon id="00717" texture="Icons/actions/laydown.dds" name="Lay Down" />
+    <Icon id="00718" texture="Icons/actions/uselast.dds" name="Use Last Generic" />
+    <Icon id="00719" texture="Icons/actions/whistle.dds" name="Whistle & Yell" />
+    <Icon id="00720" texture="Icons/actions/menu.dds" name="Activate Options" />
+    <Icon id="00721" texture="Icons/actions/transparancy.dds" name="Circle of Transparancy" />
+    <Icon id="00722" texture="Icons/actions/shadowtoggle.dds" name="Shadows On & Off" />
+    <Icon id="00723" texture="Icons/actions/AlwaysRun.dds" name="Alwasy Run" />
+    <Icon id="00724" texture="Icons/actions/Foliage.dds" name="Toggle Foliage" />
+    <Icon id="00725" texture="Icons/actions/particlesLow.dds" name="Particle Setting Low" />
+    <Icon id="00726" texture="Icons/actions/particlesMed.dds" name="Particle Setting Med" />
+    <Icon id="00727" texture="Icons/actions/ParticlesHigh.dds" name="Particle Setting High" />
+    <Icon id="00728" texture="Icons/actions/toolbartoggle.dds" name="Show Toolbar" />
+    <Icon id="00729" texture="Icons/actions/Sound.dds" name="Sound On Off" />
+    <Icon id="00730" texture="Icons/actions/music.dds" name="Music On Off" />
+    <Icon id="00731" texture="Icons/actions/SoundEffects.dds" name="Sound Effects On Off" />
+    <Icon id="00732" texture="Icons/actions/Footsteps.dds" name="Footsteps On Off" />
+    <Icon id="00733" texture="Icons/actions/EmoteEffects.dds" name="Emote Effects On Off" />
+    <Icon id="00734" texture="Icons/actions/EmoteSounds.dds" name="Emote Sounds On Off" />
+    
+    <Icon id="00735" texture="Icons/Stats/Cold.dds" name="Cold Resist" />
+    <Icon id="00736" texture="Icons/Stats/Damage.dds" name="Damage" />
+    <Icon id="00737" texture="Icons/Stats/Damage_Increase.dds" name="Danamge Chance Increase" />
+    <Icon id="00738" texture="Icons/Stats/Dex.dds" name="Dexterity" />
+    <Icon id="00739" texture="Icons/Stats/Energy.dds" name="Energy Resist" />
+    <Icon id="00740" texture="Icons/Stats/Fire.dds" name="Fire Resist" />
+    <Icon id="00741" texture="Icons/Stats/Gold.dds" name="Gold" />
+    <Icon id="00742" texture="Icons/Stats/Health.dds" name="Health" />
+    <Icon id="00743" texture="Icons/Stats/Hit_Chance_Increase.dds" name="Hit Chance Increase" />
+    <Icon id="00744" texture="Icons/Stats/Int.dds" name="Intelligence" />
+    <Icon id="00745" texture="Icons/Stats/Luck.dds" name="Luck" />
+    <Icon id="00746" texture="Icons/Stats/Mana.dds" name="Mana" />
+    <Icon id="00747" texture="Icons/Stats/Pets.dds" name="Followers" />
+    <Icon id="00748" texture="Icons/Stats/Physical.dds" name="Physical Resist" />
+    <Icon id="00749" texture="Icons/Stats/Poison.dds" name="Poison Resist" />
+    <Icon id="00750" texture="Icons/Stats/Stamina.dds" name="Stamina" />
+    <Icon id="00751" texture="Icons/Stats/Strength.dds" name="Strength" />
+    <Icon id="00752" texture="Icons/Stats/Swing_Speed.dds" name="Swing Speed Increase" />
+    <Icon id="00753" texture="Icons/Stats/Tot_stats.dds" name="Stat Cap" />
+    <Icon id="00754" texture="Icons/Stats/Weight.dds" name="Weight" />
+    <Icon id="00755" texture="Icons/Stats/Defense_Chance_Increase.dds" name="Defense Chance Increase" />
+    <Icon id="00756" texture="Icons/Stats/Enhance_Potion.dds" name="Enache Potions" />
+    <Icon id="00757" texture="Icons/Stats/Faster_Cast.dds" name="Faster Cast" />
+    <Icon id="00758" texture="Icons/Stats/Faster_Cast_Recovery.dds" name="Faster Cast Recovery" />
+    <Icon id="00759" texture="Icons/Stats/Hit_points_Regeneration.dds" name="Hit point regeneration" />
+    <Icon id="00760" texture="Icons/Stats/Lower_Mana_cost.dds" name="Lower Mana Cost" />
+    <Icon id="00761" texture="Icons/Stats/Lower_Reagent_cost.dds" name="Lower Reagent Cost" />
+    <Icon id="00762" texture="Icons/Stats/Mana_regen.dds" name="mana regeneration" />
+    <Icon id="00763" texture="Icons/Stats/Reflect_Damage.dds" name="Reflect Physical Damage" />
+    <Icon id="00764" texture="Icons/Stats/Spell_Damage_Increase.dds" name="Spell Damage Increase" />
+    <Icon id="00765" texture="Icons/Stats/Stamina_regen.dds" name="Stamina Regeneration" />
+    <Icon id="00766" texture="Icons/Stats/Health_warning.dds" name="Health warning" />
+    <Icon id="00767" texture="Icons/Stats/Mana_warning.dds" name="Mana warning" />
+    <Icon id="00768" texture="Icons/Stats/Stamina_warning.dds" name="Stamina warning" />
+    <Icon id="00769" texture="Icons/Stats/Weight_warning.dds" name="Weight warning" />
+
+    <Icon id="00770" texture="Icons/actions/targetresource.dds" name="Target by Resource" />
+    <Icon id="00771" texture="Icons/actions/targetstored.dds" name="Cursor Target Stored" />
+    <Icon id="00772" texture="Icons/actions/cyclecursor.dds" name="Cycle Last Cursor Target" />
+    <Icon id="00773" texture="Icons/actions/attackcurrent.dds" name="Attack Current Target" />
+    <Icon id="00774" texture="Icons/actions/attacklastcursor.dds" name="Attack Last Cursor Target" />
+    <Icon id="00775" texture="Icons/actions/targetnextfollower.dds" name="Target Next Follower" />
+    <Icon id="00776" texture="Icons/actions/targetnextobject.dds" name="Target Next Object" />
+    <Icon id="00777" texture="Icons/actions/targetpreviousfriendly.dds" name="Target Previous Friendly" />
+    <Icon id="00778" texture="Icons/actions/targetpreviousenemy.dds" name="Target Previous Enemy" />
+    <Icon id="00779" texture="Icons/actions/targetpreviousgroup.dds" name="Target Previous Party Member" />
+    <Icon id="00780" texture="Icons/actions/targetpreviousfollower.dds" name="Target Previous Follower" />
+    <Icon id="00781" texture="Icons/actions/targetpreviousobject.dds" name="Target Previous Object" />
+    <Icon id="00782" texture="Icons/actions/targetprevious.dds" name="Target Previous" />
+    <Icon id="00783" texture="Icons/actions/targetnearestfriendly.dds" name="Target Nearest Friendly" />
+    <Icon id="00784" texture="Icons/actions/targetnearestenemy.dds" name="Target Nearest Enemy" />
+    <Icon id="00785" texture="Icons/actions/targetnearestgroup.dds" name="Target Nearest Party Member" />
+    <Icon id="00786" texture="Icons/actions/targetnearestfollower.dds" name="Target Nearest Follower" />
+    <Icon id="00787" texture="Icons/actions/targetnearestobject.dds" name="Target Nearest Object" />
+    <Icon id="00788" texture="Icons/actions/targetnearest.dds" name="Target Nearest" />
+
+	<Icon id="00789" texture="Icons/actions/togglealwaysrun.dds" name="Toggle Always Run" />
+    <Icon id="00790" texture="Icons/actions/command.dds" name="Command" />
+    <Icon id="00791" texture="Icons/actions/togglecircletrans.dds" name="Toggle Circle of Transparency" />
+
+	  <!-- Virtue icons -->
+    <Icon id="00700" texture="Icons/actions/virtue1.dds" name="" />
+    <Icon id="00701" texture="Icons/actions/virtue2.dds" name="" />
+    <Icon id="00702" texture="Icons/actions/virtue3.dds" name="" />
+    <Icon id="00703" texture="Icons/actions/virtue4.dds" name="" />
+    <Icon id="00704" texture="Icons/actions/virtue5.dds" name="" />
+    <Icon id="00705" texture="Icons/actions/virtue6.dds" name="" />
+    <Icon id="00706" texture="Icons/actions/virtue7.dds" name="" />
+    <Icon id="00707" texture="Icons/actions/virtue8.dds" name="" />
+
+
+    <!-- Weapon special abilities -->
+    <Icon id="01001" texture="Icons/WeaponSpecials/armorignore.dds" name="Armor Ignore" />
+    <Icon id="01002" texture="Icons/WeaponSpecials/bleedattack.dds" name="Bleed Attack" />
+    <Icon id="01003" texture="Icons/WeaponSpecials/concussionblow.dds" name="Concussion Blow" />
+    <Icon id="01004" texture="Icons/WeaponSpecials/crushingblow.dds" name="Crushing Blow" />
+    <Icon id="01005" texture="Icons/WeaponSpecials/disarm.dds" name="Disarm" />
+    <Icon id="01006" texture="Icons/WeaponSpecials/dismount.dds" name="Dismount" />
+    <Icon id="01007" texture="Icons/WeaponSpecials/doublestrike.dds" name="Doublestrike" />
+    <Icon id="01008" texture="Icons/WeaponSpecials/infectiousstrike.dds" name="Infectious Strike" />
+    <Icon id="01009" texture="Icons/WeaponSpecials/mortalstrike.dds" name="Mortal Strike" />
+    <Icon id="01010" texture="Icons/WeaponSpecials/movingshot.dds" name="Moving Shot" />
+    <Icon id="01011" texture="Icons/WeaponSpecials/paralyzingblow.dds" name="Paralyzing Blow" />
+    <Icon id="01012" texture="Icons/WeaponSpecials/shadowstrike.dds" name="Shadowstrike" />
+    <Icon id="01013" texture="Icons/WeaponSpecials/whirlwind.dds" name="Whirlwind" />
+    <Icon id="01014" texture="Icons/WeaponSpecials/ridingswipe.dds" name="Riding Swipe" />
+    <Icon id="01015" texture="Icons/WeaponSpecials/frenziedWhirlwind.dds" name="Frenzied Whirlwind" />
+    <Icon id="01016" texture="Icons/WeaponSpecials/block.dds" name="Block" />
+    <Icon id="01017" texture="Icons/WeaponSpecials/defenseMastery.dds" name="Defense Mastery" />
+    <Icon id="01018" texture="Icons/WeaponSpecials/NerveStrike.dds" name="Nerve Strike" />
+    <Icon id="01019" texture="Icons/WeaponSpecials/talonstrike.dds" name="Talon Strike" />
+    <Icon id="01020" texture="Icons/WeaponSpecials/feint.dds" name="Feint" />
+    <Icon id="01021" texture="Icons/WeaponSpecials/dualwield.dds" name="Dual Wield" />
+    <Icon id="01022" texture="Icons/WeaponSpecials/doubleshot.dds" name="Double Shot" />
+    <Icon id="01023" texture="Icons/WeaponSpecials/armor_pierce.dds" name="Armor Pierce" />
+    <Icon id="01024" texture="Icons/WeaponSpecials/bladeweave.dds" name="Bladeweave" />
+    <Icon id="01025" texture="Icons/WeaponSpecials/forcearrow.dds" name="Force Arrow" />
+    <Icon id="01026" texture="Icons/WeaponSpecials/lightningarrow.dds" name="Lightning Arrow" />
+    <Icon id="01027" texture="Icons/WeaponSpecials/PsychicAttack.dds" name="Psychic Attack" />
+    <Icon id="01028" texture="Icons/WeaponSpecials/serpentarrow.dds" name="Serpent Arrow" />
+    <Icon id="01029" texture="Icons/WeaponSpecials/ForceofNature.dds" name="Force of Nature" />
+    <Icon id="01030" texture="Icons/WeaponSpecials/concussionblow.dds" name="Infused Throw" />
+    <Icon id="01031" texture="Icons/WeaponSpecials/doublestrike.dds" name="Mystic Arc" />
+
+    <!-- Skill Icons -->
+    <Icon id="02001" texture="Icons/Skills/Alchemy.dds" name="Alchemy" />
+    <Icon id="02002" texture="Icons/Skills/Anatomy.dds" name="Anatomy" />
+    <Icon id="02003" texture="Icons/Skills/AnimalLore.dds" name="Animal Lore" />
+    <Icon id="02004" texture="Icons/Skills/AnimalTaming.dds" name="Animal Taming" />
+    <Icon id="02005" texture="Icons/Skills/Archery.dds" name="Archery" />
+    <Icon id="02006" texture="Icons/Skills/ArmsLore.dds" name="Arms Lore" />
+    <Icon id="02007" texture="Icons/Skills/Begging.dds" name="Begging" />
+    <Icon id="02008" texture="Icons/Skills/Blacksmithy.dds" name="Blacksmithy" />
+    <Icon id="02009" texture="Icons/Skills/Bushido.dds" name="Bushido" />
+    <Icon id="02010" texture="Icons/Skills/Camping.dds" name="Camping" />
+    <Icon id="02011" texture="Icons/Skills/Carpentry.dds" name="Carpentry" />
+    <Icon id="02012" texture="Icons/Skills/Cartography.dds" name="Cartography" />
+    <Icon id="02013" texture="Icons/Skills/Chivalry.dds" name="Chivalry" />
+    <Icon id="02014" texture="Icons/Skills/Cooking.dds" name="Cooking" />
+    <Icon id="02015" texture="Icons/Skills/DetectingHidden.dds" name="Detecting Hidden" />
+    <Icon id="02016" texture="Icons/Skills/Discordance.dds" name="Discordance" />
+    <Icon id="02017" texture="Icons/Skills/EvaluatingIntelligence.dds" name="Evaluating Intelligence" />
+    <Icon id="02018" texture="Icons/Skills/Fencing.dds" name="Fencing" />
+    <Icon id="02019" texture="Icons/Skills/Fishing.dds" name="Fishing" />
+    <Icon id="02020" texture="Icons/Skills/Bowcraft.dds" name="Fletching" />
+    <Icon id="02021" texture="Icons/Skills/focus.dds" name="Focus" />
+    <Icon id="02022" texture="Icons/Skills/ForensicEvaluation.dds" name="Forensic Evaluation" />
+    <Icon id="02023" texture="Icons/Skills/Healing.dds" name="Healing" />
+    <Icon id="02024" texture="Icons/Skills/Herding.dds" name="Herding" />
+    <Icon id="02025" texture="Icons/Skills/Hiding.dds" name="Hiding" />
+    <Icon id="02026" texture="Icons/Skills/Inscription.dds" name="Inscription" />
+    <Icon id="02027" texture="Icons/Skills/ItemIdentification.dds" name="Item Identification" />
+    <Icon id="02028" texture="Icons/Skills/Lockpicking.dds" name="Lockpicking" />
+    <Icon id="02029" texture="Icons/Skills/Lumberjack.dds" name="Lumberjacking" />
+    <Icon id="02030" texture="Icons/Skills/MaceFighting.dds" name="Mace Fighting" />
+    <Icon id="02031" texture="Icons/Skills/Magery.dds" name="Magery" />
+    <Icon id="02032" texture="Icons/Skills/ResistingSpells.dds" name="Magic Resistance" />
+    <Icon id="02033" texture="Icons/Skills/meditation.dds" name="Meditation" />
+    <Icon id="02034" texture="Icons/Skills/Mining.dds" name="Mining" />
+    <Icon id="02035" texture="Icons/Skills/Musicianship.dds" name="Musicianship" />
+    <Icon id="02036" texture="Icons/Skills/Necromancy.dds" name="Necromancy" />
+    <Icon id="02037" texture="Icons/Skills/Ninjitsu.dds" name="Ninjitsu" />
+    <Icon id="02038" texture="Icons/Skills/Parrying.dds" name="Parrying" />
+    <Icon id="02039" texture="Icons/Skills/Peacemaking.dds" name="Peacemaking" />
+    <Icon id="02040" texture="Icons/Skills/Poisoning.dds" name="Poisoning" />
+    <Icon id="02041" texture="Icons/Skills/Provocation.dds" name="Provocation" />
+    <Icon id="02042" texture="Icons/Skills/RemoveTrap.dds" name="Remove Trap" />
+    <Icon id="02043" texture="Icons/Skills/Snooping.dds" name="Snooping" />
+    <Icon id="02044" texture="Icons/Skills/Spellweaving.dds" name="Spellweaving" />
+    <Icon id="02045" texture="Icons/Skills/SpiritSpeak.dds" name="Spirit Speak" />
+    <Icon id="02046" texture="Icons/Skills/Stealing.dds" name="Stealing" />
+    <Icon id="02047" texture="Icons/Skills/Stealth.dds" name="Stealth" />
+    <Icon id="02048" texture="Icons/Skills/Swordsmanship.dds" name="Swordsmanship" />
+    <Icon id="02049" texture="Icons/Skills/Tactics.dds" name="Tactics" />
+    <Icon id="02050" texture="Icons/Skills/Tailoring.dds" name="Tailoring" />
+    <Icon id="02051" texture="Icons/Skills/TasteIdentification.dds" name="Taste Identification" />
+    <Icon id="02052" texture="Icons/Skills/Tinkering.dds" name="Tinkering" />
+    <Icon id="02053" texture="Icons/Skills/Tracking.dds" name="Tracking" />
+    <Icon id="02054" texture="Icons/Skills/Veterinary.dds" name="Veterinary" />
+    <Icon id="02055" texture="Icons/Skills/Wrestling.dds" name="Wrestling" />
+    <Icon id="02056" texture="Icons/Skills/Mysticism.dds" name="Mysticism" />
+    <Icon id="02057" texture="Icons/Skills/Imbuing.dds" name="Imbuing" />
+    <Icon id="02058" texture="Icons/Skills/Throwing.dds" name="Throwing" />
+
+    <!-- Racial Abilities Icons -->
+    <!-- Humans -->
+    <Icon id="03001" texture="Icons/RacialAbilities/Strong_Back.dds" name="Strong Back" />
+    <Icon id="03002" texture="Icons/RacialAbilities/Tough.dds" name="Tough" />
+    <Icon id="03003" texture="Icons/RacialAbilities/Workhorse.dds" name="Workhorse" />
+    <Icon id="03004" texture="Icons/RacialAbilities/Jack_of_All_Trades.dds" name="Jack of All Trades" />
+    <!-- Elves -->
+    <Icon id="03011" texture="Icons/RacialAbilities/Night_Sight.dds" name="Night Sight" />
+    <Icon id="03012" texture="Icons/RacialAbilities/Infused_with_Magic.dds" name="Infused with Magic" />
+    <Icon id="03013" texture="Icons/RacialAbilities/Knowledge_of_Nature.dds" name="Knowledge_of_Nature" />
+    <Icon id="03014" texture="Icons/RacialAbilities/Difficult_to_Track.dds" name="Difficult to Track" />
+    <Icon id="03015" texture="Icons/RacialAbilities/Perception.dds" name="Perception" />
+    <Icon id="03016" texture="Icons/RacialAbilities/Wisdom.dds" name="Wisdom" />
+    <!-- Gargoyles -->
+    <Icon id="03021" texture="Icons/RacialAbilities/Fly.dds" name="Fly" />
+    <Icon id="03022" texture="Icons/RacialAbilities/Berserk.dds" name="Berserk" />
+    <Icon id="03023" texture="Icons/RacialAbilities/Master_Artisan.dds" name="Master Artisan" />
+    <Icon id="03024" texture="Icons/RacialAbilities/Deadly_Aim.dds" name="Deadly Aim" />
+    <Icon id="03025" texture="Icons/RacialAbilities/Mystic_Insight.dds" name="Mystic Insight" />
+    
+    <!-- Buff Debuff Icons -->
+    <Icon id="30011" texture="Icons/Buffs_Debuffs/blue/30011_Active_Meditation.dds" name="Meditation" />
+    <Icon id="30027" texture="Icons/Buffs_Debuffs/blue/30027_Disguised.dds" name="Disguised" />
+    <Icon id="30039" texture="Icons/Buffs_Debuffs/blue/30039_Incognito.dds" name="Incognito" />
+    <Icon id="30053" texture="Icons/Buffs_Debuffs/blue/30053_Stealth.dds" name="Stealth" />
+    <Icon id="30072" texture="Icons/Buffs_Debuffs/blue/30072_Default_Blue.dds" name="Default Blue" />
+    <Icon id="30094" texture="Icons/Buffs_Debuffs/blue/30094_Gargoyle_fly.dds" name="Gargoyle Fly" />
+    <Icon id="30012" texture="Icons/Buffs_Debuffs/green/30012_Agility.dds" name="Agility" />
+    <Icon id="30013" texture="Icons/Buffs_Debuffs/green/30013_Animal_Form.dds" name="Animal Form" />
+    <Icon id="30014" texture="Icons/Buffs_Debuffs/green/30014_Arcane_Empowerment.dds" name="Arcane Empowerment" />
+    <Icon id="30015" texture="Icons/Buffs_Debuffs/green/30015_Arch_protection.dds" name="Arch protection" />
+    <Icon id="30016" texture="Icons/Buffs_Debuffs/green/30016_Attune_Weapon.dds" name="Attune_Weapon" />
+    <Icon id="30018" texture="Icons/Buffs_Debuffs/green/30018_Bless.dds" name="Bless" />
+    <Icon id="30019" texture="Icons/Buffs_Debuffs/green/30019_Blood_Oath_caster.dds" name="Blood Oath cast" />
+    <Icon id="30023" texture="Icons/Buffs_Debuffs/green/30023_Cunning.dds" name="Cunning" />
+    <Icon id="30029" texture="Icons/Buffs_Debuffs/green/30029_Divine_Fury.dds" name="Divine Fury" />
+    <Icon id="30030" texture="Icons/Buffs_Debuffs/green/30030_Enemy_Of_One.dds" name="Enemy of One" />
+    <Icon id="30032" texture="Icons/Buffs_Debuffs/green/30032_Ethereal_Voyage.dds" name="Ethereal Voyage" />
+    <Icon id="30035" texture="Icons/Buffs_Debuffs/green/30035_Gift_Of_Life.dds" name="Gift of Life" />
+    <Icon id="30036" texture="Icons/Buffs_Debuffs/green/30036_Gift_Of_Renewal.dds" name="Gift of Renewal" />
+    <Icon id="30040" texture="Icons/Buffs_Debuffs/green/30040_Invisibility.dds" name="Invisibility" />
+    <Icon id="30041" texture="Icons/Buffs_Debuffs/green/30041_Magic_Reflection.dds" name="Magic Reflection" />
+    <Icon id="30046" texture="Icons/Buffs_Debuffs/green/30046_Night_Sight.dds" name="Night Sight" />
+    <Icon id="30049" texture="Icons/Buffs_Debuffs/green/30049_Polymorph.dds" name="Polymorph" />
+    <Icon id="30050" texture="Icons/Buffs_Debuffs/green/30050_Protection.dds" name="Protection" />
+    <Icon id="30051" texture="Icons/Buffs_Debuffs/green/30051_Reactive_Armor.dds" name="Reactive Armor" />
+    <Icon id="30055" texture="Icons/Buffs_Debuffs/green/30055_Strength.dds" name="Strength" />
+    <Icon id="30073" texture="Icons/Buffs_Debuffs/green/30073_Default_Green.dds" name="Default Green" />
+    <Icon id="30075" texture="Icons/Buffs_Debuffs/green/30075_Grapes_Of_Wrath.dds" name="Grapes Of Wrath" />
+    <Icon id="30091" texture="Icons/Buffs_Debuffs/green/30091_Stone_Form.dds" name="Stone Form" />
+    <Icon id="30093" texture="Icons/Buffs_Debuffs/green/30093_Gargoyle_Berserk.dds" name="Gargoyle Berserk" />
+    <Icon id="30010" texture="Icons/Buffs_Debuffs/red/30010_Achieve_Perfection.dds" name="Achieve Perfection" />
+    <Icon id="30017" texture="Icons/Buffs_Debuffs/red/30017_Bleed.dds" name="Bleed" />
+    <Icon id="30020" texture="Icons/Buffs_Debuffs/red/30020_Blood_Oath_curse.dds" name="Blood Oath curse" />
+    <Icon id="30021" texture="Icons/Buffs_Debuffs/red/30021_Clumsy.dds" name="Clumsy" />
+    <Icon id="30022" texture="Icons/Buffs_Debuffs/red/30022_Corpse_Skin.dds" name="Corpse Skin" />
+    <Icon id="30024" texture="Icons/Buffs_Debuffs/red/30024_Curse.dds" name="Curse" />
+    <Icon id="30025" texture="Icons/Buffs_Debuffs/red/30025_Death_Strike.dds" name="Death Strike" />
+    <Icon id="30026" texture="Icons/Buffs_Debuffs/red/30026_Disarm.dds" name="Disarm" />
+    <Icon id="30028" texture="Icons/Buffs_Debuffs/red/30028_Dismount.dds" name="Dismount" />
+    <Icon id="30031" texture="Icons/Buffs_Debuffs/red/30031_Essence_of_Wind.dds" name="Essence of Wind" />
+    <Icon id="30033" texture="Icons/Buffs_Debuffs/red/30033_Evil_Omen.dds" name="Evil Omen" />
+    <Icon id="30034" texture="Icons/Buffs_Debuffs/red/30034_Feeble_Minded.dds" name="Feeble Minded" />
+    <Icon id="30037" texture="Icons/Buffs_Debuffs/red/30037_Heal.dds" name="Heal" />
+    <Icon id="30038" texture="Icons/Buffs_Debuffs/red/30038_Honored.dds" name="Honored" />
+    <Icon id="30042" texture="Icons/Buffs_Debuffs/red/30042_Mass_Curse.dds" name="Mass curse" />
+    <Icon id="30043" texture="Icons/Buffs_Debuffs/red/30043_Paralyze.dds" name="Paralyze" />
+    <Icon id="30044" texture="Icons/Buffs_Debuffs/red/30044_Mindrot.dds" name="Mindrot" />
+    <Icon id="30045" texture="Icons/Buffs_Debuffs/red/30045_Mortal_Strike.dds" name="Mortal Strike" />
+    <Icon id="30047" texture="Icons/Buffs_Debuffs/red/30047_Pain_Spike.dds" name="Pain Spike" />
+    <Icon id="30048" texture="Icons/Buffs_Debuffs/red/30048_Poison.dds" name="Poison" />
+    <Icon id="30052" texture="Icons/Buffs_Debuffs/red/30052_Stamina.dds" name="Stamina" />
+    <Icon id="30054" texture="Icons/Buffs_Debuffs/red/30054_Strangle.dds" name="Strangle" />
+    <Icon id="30056" texture="Icons/Buffs_Debuffs/red/30056_Thunderstorm.dds" name="Thunderstorm" />
+    <Icon id="30057" texture="Icons/Buffs_Debuffs/red/30057_Weaken.dds" name="Weaken" />
+    <Icon id="30074" texture="Icons/Buffs_Debuffs/red/30074_Default_Red.dds" name="Default red" />
+    <Icon id="30090" texture="Icons/Buffs_Debuffs/red/30090_Sleep.dds" name="Sleep" />
+    <Icon id="30092" texture="Icons/Buffs_Debuffs/red/30092_Spell_Plague.dds" name="Spell Plague" />
+    <Icon id="30095" texture="Icons/Buffs_Debuffs/red/30095_Mass_Sleep.dds" name="Mass Sleep" />
+    
+    <!-- Dar Added for Bandage Buff Timer-->
+    <Icon id="99999" texture="Icons/Buffs_Debuffs/blue/99999_Bandages.dds" name="Bandage" />
+
+    <!-- Waypoint Icons -->
+    <Icon id="100000" texture="Icons/Waypoints/POI_01_large.dds" name="POI_01_large" />
+    <Icon id="100001" texture="Icons/Waypoints/POI_01_med.dds" name="POI_01_med" />
+    <Icon id="100002" texture="Icons/Waypoints/POI_01_small.dds" name="POI_01_small" />
+    <Icon id="100003" texture="Icons/Waypoints/cities_01_large.dds" name="cities_01_large" />
+    <Icon id="100004" texture="Icons/Waypoints/cities_01_med.dds" name="cities_01_med" />
+    <Icon id="100005" texture="Icons/Waypoints/cities_01_small.dds" name="cities_01_small" />
+    <Icon id="100006" texture="Icons/Waypoints/corpse_01_large.dds" name="corpse_01_large" />
+    <Icon id="100007" texture="Icons/Waypoints/corpse_01_med.dds" name="corpse_01_med" />
+    <Icon id="100008" texture="Icons/Waypoints/corpse_01_small.dds" name="corpse_01_small" />
+    <Icon id="100009" texture="Icons/Waypoints/custom_01_large.dds" name="custom_01_large" />
+    <Icon id="100010" texture="Icons/Waypoints/custom_01_med.dds" name="custom_01_med" />
+    <Icon id="100011" texture="Icons/Waypoints/custom_01_small.dds" name="custom_01_small" />
+    <Icon id="100012" texture="Icons/Waypoints/healer_01_large.dds" name="healer_01_large" />
+    <Icon id="100013" texture="Icons/Waypoints/healer_01_med.dds" name="healer_01_med" />
+    <Icon id="100014" texture="Icons/Waypoints/healer_01_small.dds" name="healer_01_small" />
+    <Icon id="100015" texture="Icons/Waypoints/moongate_01_large.dds" name="moongate_01_large" />
+    <Icon id="100016" texture="Icons/Waypoints/moongate_01_med.dds" name="moongate_01_med" />
+    <Icon id="100017" texture="Icons/Waypoints/moongate_01_small.dds" name="moongate_01_small" />
+    <Icon id="100018" texture="Icons/Waypoints/party_01_large.dds" name="party_01_large" />
+    <Icon id="100019" texture="Icons/Waypoints/party_01_med.dds" name="party_01_med" />
+    <Icon id="100020" texture="Icons/Waypoints/party_01_small.dds" name="party_01_small" />
+    <Icon id="100021" texture="Icons/Waypoints/player_01_large.dds" name="player_01_large" />
+    <Icon id="100022" texture="Icons/Waypoints/player_01_med.dds" name="player_01_med" />
+    <Icon id="100023" texture="Icons/Waypoints/player_01_small.dds" name="player_01_small" />
+    <Icon id="100024" texture="Icons/Waypoints/shops_01_large.dds" name="shops_01_large" />
+    <Icon id="100025" texture="Icons/Waypoints/shops_01_med.dds" name="shops_01_med" />
+    <Icon id="100026" texture="Icons/Waypoints/shops_01_small.dds" name="shops_01_small" />
+    <Icon id="100027" texture="Icons/Waypoints/shrine_01_large.dds" name="shrine_01_large" />
+    <Icon id="100028" texture="Icons/Waypoints/shrine_01_med.dds" name="shrine_01_med" />
+    <Icon id="100029" texture="Icons/Waypoints/shrine_01_small.dds" name="shrine_01_small" />
+    <Icon id="100030" texture="Icons/Waypoints/special_01_large.dds" name="special_01_large" />
+    <Icon id="100031" texture="Icons/Waypoints/special_01_med.dds" name="special_01_med" />
+    <Icon id="100032" texture="Icons/Waypoints/special_01_small.dds" name="special_01_small" />
+    <Icon id="100033" texture="Icons/Waypoints/alchemy_01_large.dds" name="alchemy_01_large" />
+    <Icon id="100034" texture="Icons/Waypoints/baker_01_large.dds" name="baker_01_large" />
+    <Icon id="100035" texture="Icons/Waypoints/bank_01_large.dds" name="bank_01_large" />
+    <Icon id="100036" texture="Icons/Waypoints/barber_01_large.dds" name="barber_01_large" />
+    <Icon id="100037" texture="Icons/Waypoints/bard_01_large.dds" name="bard_01_large" />
+    <Icon id="100038" texture="Icons/Waypoints/blacksmith_01_large.dds" name="blacksmith_01_large" />
+    <Icon id="100039" texture="Icons/Waypoints/bowyer_01_large.dds" name="bowyer_01_large" />
+    <Icon id="100040" texture="Icons/Waypoints/butcher_01_large.dds" name="butcher_01_large" />
+    <Icon id="100041" texture="Icons/Waypoints/carpenter_01_large.dds" name="carpenter_01_large" />
+    <Icon id="100042" texture="Icons/Waypoints/cities_02_large.dds" name="cities_02_large" />
+    <Icon id="100043" texture="Icons/Waypoints/corpse_02_large.dds" name="corpse_02_large" />
+    <Icon id="100044" texture="Icons/Waypoints/custom_02_large.dds" name="custom_02_large" />
+    <Icon id="100045" texture="Icons/Waypoints/dungeon_02_large.dds" name="dungeon_02_large" />
+    <Icon id="100046" texture="Icons/Waypoints/fletcher_01_large.dds" name="fletcher_01_large" />
+    <Icon id="100047" texture="Icons/Waypoints/guilds_01_large.dds" name="guilds_01_large" />
+    <Icon id="100048" texture="Icons/Waypoints/healer_02_large.dds" name="healer_02_large" />
+    <Icon id="100049" texture="Icons/Waypoints/inn_01_large.dds" name="inn_02_large" />
+    <Icon id="100050" texture="Icons/Waypoints/jeweler_01_large.dds" name="jeweler_01_large" />
+    <Icon id="100051" texture="Icons/Waypoints/landmark_01_large.dds" name="landmark_01_large" />
+    <Icon id="100052" texture="Icons/Waypoints/mage_01_large.dds" name="mage_01_large" />
+    <Icon id="100053" texture="Icons/Waypoints/moongate_02_large.dds" name="moongate_02_large" />
+    <Icon id="100054" texture="Icons/Waypoints/painter_01_large.dds" name="painter_01_large" />
+    <Icon id="100055" texture="Icons/Waypoints/POI_02_large.dds" name="POI_02_large" />
+    <Icon id="100056" texture="Icons/Waypoints/provisioner_01_large.dds" name="provisioner_01_large" />
+    <Icon id="100057" texture="Icons/Waypoints/reagents_01_large.dds" name="reagents_01_large" />
+    <Icon id="100058" texture="Icons/Waypoints/shipwright_01_large.dds" name="shipwright_01_large" />
+    <Icon id="100059" texture="Icons/Waypoints/shops_02_large.dds" name="shops_02_large" />
+    <Icon id="100060" texture="Icons/Waypoints/shrine_02_large.dds" name="shrine_02_large" />
+    <Icon id="100061" texture="Icons/Waypoints/stables_01_large.dds" name="stables_01_large" />
+    <Icon id="100062" texture="Icons/Waypoints/tailor_01_large.dds" name="tailor_01_large" />
+    <Icon id="100063" texture="Icons/Waypoints/tavern_01_large.dds" name="tavern_01_large" />
+    <Icon id="100064" texture="Icons/Waypoints/theater_01_large.dds" name="theater_01_large" />
+    <Icon id="100065" texture="Icons/Waypoints/tinker_01_large.dds" name="tinker_01_large" />
+    <Icon id="100066" texture="Icons/Waypoints/alchemy_01_small.dds" name="alchemy_01_small" />
+    <Icon id="100067" texture="Icons/Waypoints/baker_01_small.dds" name="baker_01_small" />
+    <Icon id="100068" texture="Icons/Waypoints/bank_01_small.dds" name="bank_01_small" />
+    <Icon id="100069" texture="Icons/Waypoints/bard_01_small.dds" name="bard_01_small" />
+    <Icon id="100070" texture="Icons/Waypoints/blacksmith_01_small.dds" name="blacksmith_01_small" />
+    <Icon id="100071" texture="Icons/Waypoints/bowyer_01_small.dds" name="bowyer_01_small" />
+    <Icon id="100072" texture="Icons/Waypoints/carpenter_01_small.dds" name="carpenter_01_small" />
+    <Icon id="100073" texture="Icons/Waypoints/fletcher_01_small.dds" name="fletcher_01_small" />
+    <Icon id="100074" texture="Icons/Waypoints/healer_02_small.dds" name="healer_02_small" />
+    <Icon id="100075" texture="Icons/Waypoints/inn_01_small.dds" name="inn_01_small" />
+    <Icon id="100076" texture="Icons/Waypoints/jeweler_01_small.dds" name="jeweler_01_small" />
+    <Icon id="100077" texture="Icons/Waypoints/painter_01_small.dds" name="painter_01_small" />
+    <Icon id="100078" texture="Icons/Waypoints/provisioner_01_small.dds" name="provisioner_01_small" />
+    <Icon id="100079" texture="Icons/Waypoints/reagents_01_small.dds" name="reagents_01_small" />
+    <Icon id="100080" texture="Icons/Waypoints/shipwright_01_small.dds" name="shipwright_01_small" />
+    <Icon id="100081" texture="Icons/Waypoints/theater_01_small.dds" name="theater_01_small" />
+    <Icon id="100082" texture="Icons/Waypoints/tinker_01_small.dds" name="tinker_01_small" />
+    <Icon id="100083" texture="Icons/Waypoints/pin_01_black.dds" name="pin_01_black" />
+    <Icon id="100084" texture="Icons/Waypoints/pin_01_blue.dds" name="pin_01_blue" />
+    <Icon id="100085" texture="Icons/Waypoints/pin_01_goldskull.dds" name="pin_01_goldskull" />
+    <Icon id="100086" texture="Icons/Waypoints/pin_01_green.dds" name="pin_01_green" />
+    <Icon id="100087" texture="Icons/Waypoints/pin_01_pink.dds" name="pin_01_pink" />
+    <Icon id="100088" texture="Icons/Waypoints/pin_01_purple.dds" name="pin_01_purple" />
+    <Icon id="100089" texture="Icons/Waypoints/pin_01_red.dds" name="pin_01_red" />
+    <Icon id="100090" texture="Icons/Waypoints/pin_01_yellow.dds" name="pin_01_yellow" />
+    <Icon id="100091" texture="Icons/Waypoints/special_01_small.dds" name="special_01_small" />
+    <Icon id="100092" texture="Icons/Waypoints/pin_02_black.dds" name="pin_02_black" />
+    <Icon id="100093" texture="Icons/Waypoints/pin_02_blue.dds" name="pin_02_blue" />
+    <Icon id="100094" texture="Icons/Waypoints/pin_02_green.dds" name="pin_02_green" />
+    <Icon id="100095" texture="Icons/Waypoints/pin_02_purple.dds" name="pin_02_purple" />
+    <Icon id="100096" texture="Icons/Waypoints/pin_02_red.dds" name="pin_02_red" />
+    <Icon id="100097" texture="Icons/Waypoints/pin_02_yellow.dds" name="pin_02_yellow" />
+    <Icon id="100098" texture="Icons/Waypoints/special_02_small.dds" name="special_02_small" />
+    <Icon id="100099" texture="Icons/Waypoints/pin_03_blue.dds" name="pin_03_blue" />
+    <Icon id="100100" texture="Icons/Waypoints/pin_03_green.dds" name="pin_03_green" />
+    <Icon id="100101" texture="Icons/Waypoints/pin_03_pink.dds" name="pin_03_pink" />
+    <Icon id="100102" texture="Icons/Waypoints/pin_03_purple.dds" name="pin_03_purple" />
+    <Icon id="100103" texture="Icons/Waypoints/pin_03_red.dds" name="pin_03_red" />
+    <Icon id="100104" texture="Icons/Waypoints/pin_coingold.dds" name="pin_coingold" />
+    <Icon id="100105" texture="Icons/Waypoints/pin_coinsilver.dds" name="pin_coinsilver" />
+
+    <!-- Tarot Card Icons -->
+    <Icon id="2230501" texture="Icons/Tarot/Tarot_Death.dds" name="Death" />
+    <Icon id="2230511" texture="Icons/Tarot/Tarot_Death_Inverted.dds" name="Death Inverted" />
+    <Icon id="2230503" texture="Icons/Tarot/Tarot_Justice.dds" name="Justice" />
+    <Icon id="2230513" texture="Icons/Tarot/Tarot_Justice_Inverted.dds" name="Inverted Justice" />
+    <Icon id="2230506" texture="Icons/Tarot/Tarot_Priestess.dds" name="The High Priestess" />
+    <Icon id="2230516" texture="Icons/Tarot/Tarot_Priestess_Inverted.dds" name="The Inverted High Priestess" />
+    <Icon id="2230504" texture="Icons/Tarot/Tarot_TheFool.dds" name="The Fool" />
+    <Icon id="2230514" texture="Icons/Tarot/Tarot_TheFool_Inverted.dds" name="The Inverted Fool" />
+    <Icon id="2230505" texture="Icons/Tarot/Tarot_TheHangedMan.dds" name="The Hanged Man" />
+    <Icon id="2230515" texture="Icons/Tarot/Tarot_TheHangedMan_Inverted.dds" name="The Inverted Hanged Man" />
+    <Icon id="2230507" texture="Icons/Tarot/Tarot_TheMage.dds" name="The Magus" />
+    <Icon id="2230517" texture="Icons/Tarot/Tarot_TheMage_Inverted.dds" name="The Inverted Magus" />
+    <Icon id="2230508" texture="Icons/Tarot/Tarot_TheStar.dds" name="The Star" />
+    <Icon id="2230518" texture="Icons/Tarot/Tarot_TheStar_Inverted.dds" name="The Inverted Star" />
+    <Icon id="2230509" texture="Icons/Tarot/Tarot_TheTower.dds" name="The Tower" />
+    <Icon id="2230519" texture="Icons/Tarot/Tarot_TheTower_Inverted.dds" name="The Inverted Tower" />
+    <Icon id="2230510" texture="Icons/Tarot/Tarot_TheWorld.dds" name="The World" />
+    <Icon id="2230520" texture="Icons/Tarot/Tarot_TheWorld_Inverted.dds" name="The Inverted World" />
+    <Icon id="2230502" texture="Icons/Tarot/Tarot_WheelOfFortune.dds" name="The Wheel Of Fortune" />
+    <Icon id="2230512" texture="Icons/Tarot/Tarot_WheelOfFortune_Inverted.dds" name="The Inverted Wheel" />
+
+  </Assets>
+</Interface>

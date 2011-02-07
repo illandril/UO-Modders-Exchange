@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Interface xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../Interface.xsd">
+<!-- This file is used to include custom files -->
+<!-- UI Window Script Files should be included in the UI Window file -->
+	<Include file="Icons/custom-icons.xml" />
+	<Include file="LegacyFiles/Source/legacy-ui-templates.xml" />
+	<Include file="LegacyFiles/Source/LegacyCoreWindowTemplates.xml" />
+	
+	<!-- Script Files 
+	<Scripts>
+	</Scripts> -->
+
+  <Assets>
+   <Texture name="Legacy_Buttons" file="LegacyFiles/Textures/legacy-buttons.dds" />
+   <Texture name="Legacy_Gumps_Runebook" file="LegacyFiles/Textures/legacy-gumps-runebook.dds" />
+   <Texture name="Legacy_Gumps_01" file="LegacyFiles/Textures/legacy-gumps-01.dds" />
+   <Texture name="Legacy_Gumps_02" file="LegacyFiles/Textures/legacy-gumps-02.dds" />
+   <Texture name="Legacy_Gumps_03" file="LegacyFiles/Textures/legacy-gumps-03.dds" />
+	</Assets>
+
+</Interface>

@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Interface xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../Interface.xsd">
+  <Scripts>
+    <Script file="ObjectHandleToggleWindow.lua" />
+  </Scripts>
+  <Windows>
+    <Window name="ObjectHandleToggleWindow" movable="true" layer="default">
+      <Size>
+        <AbsPoint x="150" y="22" />
+      </Size>
+      <Anchors>
+        <Anchor point="topleft" relativePoint="topleft">
+          <AbsPoint x="200" y="200" />
+        </Anchor>
+      </Anchors>
+      <EventHandlers>
+        <EventHandler event="OnInitialize" function="ObjectHandleToggleWindow.Initialize" />
+        <EventHandler event="OnShutdown" function="ObjectHandleToggleWindow.Shutdown" />
+        <EventHandler event="OnRButtonUp" function="ObjectHandleToggleWindow.ShowContextMenu" />
+        <EventHandler event="OnLButtonDown" function="ObjectHandleToggleWindow.OnLButtonDown" />
+      </EventHandlers>
+      <Windows>
+        <Label name="$parentType" font="UO_Default_Outline_Text" maxchars="50" textalign="center" autoresize="true" layer="popup" handleinput="false">
+          <Size>
+           <AbsPoint x="150" y="25" />
+          </Size>
+          <Anchors>
+            <Anchor point="center" relativePoint="center" relativeTo="$parent" />
+          </Anchors>
+          <Color r="255" g="255" b="255"/>
+        </Label>
+        <DynamicImage name="$parentImage" texture="hud_image" layer="background" handleinput="false">
+          <Size>
+            <AbsPoint x="153" y="22" />
+          </Size>
+          <TexCoords x="51" y="230" />
+        </DynamicImage>
+      </Windows>
+    </Window>
+  </Windows>
+</Interface>

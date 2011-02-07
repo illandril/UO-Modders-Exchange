@@ -1,0 +1,324 @@
+<Interface xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../Interface.xsd">
+	<Scripts>
+		<Script file="Source/BugReportWindow.lua" />
+	</Scripts>
+	<Windows>
+
+		<Window name="BugReportTypeButton" >
+			<Size>
+				<AbsPoint x="125" y="15" />
+			</Size>			
+			<Windows>
+				<Button name="$parentButton" inherits="Legacy_Scroll_Check_Button">
+					<Anchors>
+						<Anchor point="topleft" relativePoint="topleft" >
+							<AbsPoint x="0" y="0" />
+						</Anchor>
+					</Anchors>
+				</Button>
+	
+				<Label name="$parentLabel" font="nol_Arial_Narrow_13" maxchars="64" textalign="left" >
+					<Size>
+						<AbsPoint x="125" y="15" />
+					</Size>
+					<Anchors>
+						<Anchor point="topright" relativePoint="topleft" relativeTo="$parentButton">
+							<AbsPoint x="5" y="0" />
+						</Anchor>
+					</Anchors>
+					<Color r="50" g="50" b="0" a="255" />
+				</Label>
+			</Windows>
+			<EventHandlers>
+				<EventHandler event="OnLButtonUp" function="BugReportWindow.OnSelectBugType" />
+			</EventHandlers>
+		</Window>
+
+		<!-- Bug Report Window -->
+		<Window name="BugReportWindow" movable="true" >
+			<Size>
+				<AbsPoint x="340" y="340" />
+			</Size>
+			<Anchors>
+          <Anchor point="top" relativePoint="top">
+					<AbsPoint x="0" y="212" />
+				</Anchor>
+			</Anchors>
+			<EventHandlers>
+				<EventHandler event="OnInitialize" function="BugReportWindow.Initialize" />
+				<EventHandler event="OnUpdate" function="BugReportWindow.Update" />
+				<EventHandler event="OnShutdown" function="BugReportWindow.Shutdown" />
+			</EventHandlers>
+			<Windows>
+			
+				<!-- Default chrome. Alter this at your own peril. --> 
+				<Window name="$parentChrome" inherits="Legacy_BlankWindow"> 
+					<Anchors> 
+						<Anchor point="topleft" relativePoint="topleft" /> 
+						<Anchor point="bottomright" relativePoint="bottomright"/> 
+					</Anchors> 
+				</Window>                        
+				<!-- End of default chrome boilerplate code -->
+				<HorizontalResizeImage name="$parentBook" texture="Legacy_Gumps_01" handleinput="false" layer="background" sticky="false">
+					<Size>
+						<AbsPoint x="351" y="343" />
+					</Size>
+  					<Anchors>
+  						<Anchor point="topleft" relativePoint="topleft" >
+  							<AbsPoint x="0" y="-2" />
+  						</Anchor>
+  					</Anchors>
+					<Sizes left="351" middle="0" right="0" />
+					<TexCoords>
+						<Left x="0" y="340" />
+						<Middle x="89" y="340" />
+						<Right x="351" y="340" />
+					</TexCoords>
+				</HorizontalResizeImage>
+<!-- Bug Image -->
+        <DynamicImage name="$parentBug" texture="Legacy_Gumps_01" handleinput="false" >
+          <Size>
+        		<AbsPoint x="68" y="84" />
+      		</Size>
+      		<Anchors>
+						<Anchor point="topleft" relativePoint="topleft">
+							<AbsPoint x="85" y="235" />
+						</Anchor>
+					</Anchors>
+      		<TexCoords x="0" y="936"/>
+        </DynamicImage>
+
+				<Window name="$parentBugTypes" >
+					<Size>
+						<AbsPoint x="150" y="340" />
+					</Size>
+					<Anchors>
+						<Anchor point="topleft" relativePoint="topleft">
+							<AbsPoint x="28" y="0" />
+						</Anchor>
+					</Anchors>
+					<Windows>
+						<Label name="BugReportTypesLabel" font="nol_Avatar_16" maxchars="256" textalign="left">
+							<Size>
+								<AbsPoint x="130" y="15" />
+							</Size>
+							<Anchors>
+								<Anchor point="topleft" relativePoint="topleft">
+									<AbsPoint x="0" y="15" />
+								</Anchor>
+							</Anchors>
+							<Color r="50" g="50" b="0" a="255" />
+						</Label>
+						
+						<Window name="BugReportType1" inherits="BugReportTypeButton" id="1">
+							<Anchors>
+								<Anchor point="topleft" relativePoint="topleft" >
+									<AbsPoint x="0" y="45" />
+								</Anchor>
+							</Anchors>
+						</Window>
+						<Window name="BugReportType2" inherits="BugReportTypeButton" id="2">
+							<Anchors>
+								<Anchor point="bottomleft" relativePoint="topleft" relativeTo="BugReportType1" >
+									<AbsPoint x="0" y="0" />
+								</Anchor>
+							</Anchors>
+						</Window>
+						<Window name="BugReportType3" inherits="BugReportTypeButton" id="3">
+							<Anchors>
+								<Anchor point="bottomleft" relativePoint="topleft" relativeTo="BugReportType2" >
+									<AbsPoint x="0" y="0" />
+								</Anchor>
+							</Anchors>
+						</Window>
+						<Window name="BugReportType4" inherits="BugReportTypeButton" id="4">
+							<Anchors>
+								<Anchor point="bottomleft" relativePoint="topleft" relativeTo="BugReportType3" >
+									<AbsPoint x="0" y="0" />
+								</Anchor>
+							</Anchors>
+						</Window>
+						<Window name="BugReportType5" inherits="BugReportTypeButton" id="5">
+							<Anchors>
+								<Anchor point="bottomleft" relativePoint="topleft" relativeTo="BugReportType4" >
+									<AbsPoint x="0" y="0" />
+								</Anchor>
+							</Anchors>
+						</Window>
+						<Window name="BugReportType6" inherits="BugReportTypeButton" id="6">
+							<Anchors>
+								<Anchor point="bottomleft" relativePoint="topleft" relativeTo="BugReportType5" >
+									<AbsPoint x="0" y="0" />
+								</Anchor>
+							</Anchors>
+						</Window>
+						<Window name="BugReportType7" inherits="BugReportTypeButton" id="7">
+							<Anchors>
+								<Anchor point="bottomleft" relativePoint="topleft" relativeTo="BugReportType6" >
+									<AbsPoint x="0" y="0" />
+								</Anchor>
+							</Anchors>
+						</Window>
+						<Window name="BugReportType8" inherits="BugReportTypeButton" id="8">
+							<Anchors>
+								<Anchor point="bottomleft" relativePoint="topleft" relativeTo="BugReportType7" >
+									<AbsPoint x="0" y="0" />
+								</Anchor>
+							</Anchors>
+						</Window>
+						<Window name="BugReportType9" inherits="BugReportTypeButton" id="9">
+							<Anchors>
+								<Anchor point="bottomleft" relativePoint="topleft" relativeTo="BugReportType8" >
+									<AbsPoint x="0" y="0" />
+								</Anchor>
+							</Anchors>
+						</Window>
+						<Window name="BugReportType10" inherits="BugReportTypeButton" id="10">
+							<Anchors>
+								<Anchor point="bottomleft" relativePoint="topleft" relativeTo="BugReportType9" >
+									<AbsPoint x="0" y="0" />
+								</Anchor>
+							</Anchors>
+						</Window>
+						<Window name="BugReportType11" inherits="BugReportTypeButton" id="11">
+							<Anchors>
+								<Anchor point="bottomleft" relativePoint="topleft" relativeTo="BugReportType10" >
+									<AbsPoint x="0" y="0" />
+								</Anchor>
+							</Anchors>
+						</Window>
+						<Window name="BugReportType12" inherits="BugReportTypeButton" id="12">
+							<Anchors>
+								<Anchor point="bottomleft" relativePoint="topleft" relativeTo="BugReportType11" >
+									<AbsPoint x="0" y="0" />
+								</Anchor>
+							</Anchors>
+						</Window>
+						<Window name="BugReportType13" inherits="BugReportTypeButton" id="13">
+							<Anchors>
+								<Anchor point="bottomleft" relativePoint="topleft" relativeTo="BugReportType12" >
+									<AbsPoint x="0" y="0" />
+								</Anchor>
+							</Anchors>
+						</Window>
+						<Window name="BugReportType14" inherits="BugReportTypeButton" id="14">
+							<Anchors>
+								<Anchor point="bottomleft" relativePoint="topleft" relativeTo="BugReportType13" >
+									<AbsPoint x="0" y="0" />
+								</Anchor>
+							</Anchors>
+						</Window>
+						<Window name="BugReportType15" inherits="BugReportTypeButton" id="15">
+							<Anchors>
+								<Anchor point="bottomleft" relativePoint="topleft" relativeTo="BugReportType14" >
+									<AbsPoint x="0" y="0" />
+								</Anchor>
+							</Anchors>
+						</Window>
+					</Windows>
+					
+				</Window>
+				
+				<Label name="$parentLabel"  font="nol_Arial_Narrow_14" maxchars="256" textalign="center" wordwrap="true">
+					<Size>
+						<AbsPoint x="140" y="25" />
+					</Size>
+					<Anchors>
+						<Anchor point="topleft" relativePoint="topleft">
+							<AbsPoint x="185" y="15" />
+						</Anchor>
+					</Anchors>
+					<Color r="50" g="50" b="0" a="255" />
+				</Label>
+						
+						
+				<Window name="$parentReportBox" >
+					<Size>
+						<AbsPoint x="140" y="240" />
+					</Size>
+					<Anchors>
+						<Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentLabel">
+							<AbsPoint x="0" y="10" />
+						</Anchor>
+					</Anchors>
+					<Windows>
+						<!-- Inner Frame Boilerplate -->
+						<FullResizeImage name="$parentFrame" inherits="UO_Default_Inner_Window_Frame" >
+							<Anchors>
+								<Anchor point="topleft" relativePoint="topleft" />
+								<Anchor point="bottomright" relativePoint="bottomright" />
+							</Anchors>
+						</FullResizeImage>
+						<!-- End of Inner Frame Boilerplate -->
+<!-- Bug Splat image -->
+                <DynamicImage name="$parentBugSplat" texture="Legacy_Gumps_01" handleinput="false" >
+                  <Size>
+        						<AbsPoint x="90" y="84" />
+      						</Size>
+      						<Anchors>
+										<Anchor point="topleft" relativePoint="topleft">
+											<AbsPoint x="50" y="165" />
+										</Anchor>
+									</Anchors>
+      						<TexCoords x="67" y="936"/>
+                </DynamicImage>
+						<EditBox name="$parentText" font="nol_Arial_Narrow_13" maxchars="1000" scrolling="vert" history="false" taborder="2">
+							<Size>
+								<AbsPoint x="140" y="390" />
+							</Size>
+							<Anchors>
+								<Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentLabel" >
+									<AbsPoint x="0" y="0" />
+								</Anchor>
+							</Anchors>
+							<EventHandlers>
+								<EventHandler event="OnKeyEnter" function="" />
+								<EventHandler event="OnKeyEscape" function="" />
+							</EventHandlers>
+							<TextOffset x="5" y="5" />
+							<TextColor r="50" g="50" b="0" a="255" />
+						</EditBox>
+					</Windows>
+				</Window>
+				
+				<Window name="$parentReport" >
+					<Size>
+						<AbsPoint x="140" y="15" />
+					</Size>
+					<Anchors>
+						<Anchor point="bottomleft" relativePoint="topleft"  relativeTo="$parentReportBox">
+							<AbsPoint x="0" y="10" />
+						</Anchor>
+					</Anchors>
+					<Windows>
+<!-- Submit Button -->						
+						<Button name="$parentSubmit" inherits="Legacy_Small_Select_Button" textalign="center" text="Save">
+							<Anchors>
+								<Anchor point="topleft" relativePoint="topleft" relativeTo="$parentReport">
+									<AbsPoint x="-10" y="10" />
+								</Anchor>
+							</Anchors>
+							<EventHandlers>
+								<EventHandler event="OnLButtonUp" function="BugReportWindow.OnSubmit"/>
+							</EventHandlers>
+						</Button>
+<!-- Clear Button -->
+						<Button name="$parentClear" inherits="Legacy_Small_Select_Button" textalign="center" text="Save">
+							<Anchors>
+								<Anchor point="right" relativePoint="left" relativeTo="$parentSubmit">
+									<AbsPoint x="3" y="0" />
+								</Anchor>
+							</Anchors>
+							<EventHandlers>
+								<EventHandler event="OnLButtonUp" function="BugReportWindow.OnClear"/>
+							</EventHandlers>
+						</Button>
+
+					</Windows>
+				</Window>
+
+						
+			</Windows>
+		</Window>
+	</Windows>
+</Interface>

@@ -1,0 +1,236 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Interface xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../Interface.xsd">
+  <Scripts>
+    <Script file="Source/MacroEditWindow.lua" />
+  </Scripts>
+  <Windows>
+    <Button name="MacroActionDef" inherits="ActionButtonDef">
+      <EventHandlers>
+        <EventHandler event="OnLButtonDown" function="MacroEditWindow.MacroActionLButtonDown" />
+        <EventHandler event="OnLButtonUp" function="MacroEditWindow.MacroActionLButtonUp" />
+        <EventHandler event="OnRButtonUp" function="MacroEditWindow.MacroActionRButtonUp" />
+        <EventHandler event="OnMouseOver" function="MacroEditWindow.MacroActionMouseOver" />
+        <EventHandler event="OnMouseOverEnd" function="MacroEditWindow.MacroActionMouseOverEnd" />
+      </EventHandlers>
+    </Button>
+    <Button name="EmptyActionButtonDef" draganddrop="true" id="0">
+      <Size>
+        <AbsPoint x="50" y="50" />
+      </Size>
+      <TexCoords>
+        <Normal texture="hud_image" x="0" y="704" />
+        <NormalHighlit texture="hud_image" x="50" y="704" />
+        <Disabled texture="hud_image" x="0" y="704" />
+        <Pressed texture="hud_image" x="50" y="704" />
+        <PressedHighlit texture="hud_image" x="50" y="704" />
+      </TexCoords>
+      <EventHandlers>
+        <EventHandler event="OnLButtonUp" function="MacroEditWindow.MacroActionLButtonUp" />
+        <EventHandler event="OnMouseOver" function="MacroEditWindow.EmptyButtonMouseOver" />
+      </EventHandlers>
+    </Button>
+    <Window name="ActionEditMacro" movable="true" layer="default">
+      <Size>
+        <AbsPoint x="510" y="260" />
+      </Size>
+      <Anchors>
+        <Anchor point="topleft" relativePoint="topleft">
+          <AbsPoint x="410" y="300" />
+        </Anchor>
+      </Anchors>
+      <EventHandlers>
+        <EventHandler event="OnInitialize" function="MacroEditWindow.Initialize" />
+        <EventHandler event="OnShutdown" function="MacroEditWindow.Shutdown" />
+      </EventHandlers>
+      <Windows>
+        <!-- Default chrome. Alter this at your own peril. -->
+        <Window name="$parentChrome" inherits="UO_DefaultWindow">
+          <Anchors>
+            <Anchor point="topleft" relativePoint="topleft" />
+            <Anchor point="bottomright" relativePoint="bottomright" />
+          </Anchors>
+        </Window>
+        <!-- End of default chrome boilerplate code -->
+        <!--
+        <Label name="$parentParamInfo" font="UO_DefaultText" linespacing="20" maxchars="512" textalign="left" autoresize="true" handleinput="false" wordwrap="true" >
+          <Size>
+            <AbsPoint x="200" y="20" />
+          </Size>
+          <Anchors>
+            <Anchor point="topleft" relativePoint="topleft" relativeTo="$parent">
+              <AbsPoint x="20" y="40" />
+            </Anchor>
+          </Anchors>
+          <Color r="255" g="255" b="255" a="255" />
+        </Label>
+        -->
+        <Window name="$parentName">
+          <Size>
+            <AbsPoint x="430" y="50" />
+          </Size>
+          <Anchors>
+            <Anchor point="topleft" relativePoint="topleft" relativeTo="$parent">
+              <AbsPoint x="5" y="37" />
+            </Anchor>
+          </Anchors>
+          <Windows>
+            <DynamicImage name="$parentIcon" texturescale="0.78" layer="default">
+              <EventHandlers>
+                <EventHandler event="OnLButtonUp" function="MacroEditWindow.EditMacroIcon" />
+              </EventHandlers>
+              <Size>
+                <AbsPoint x="50" y="50" />
+              </Size>
+              <Anchors>
+                <Anchor point="topleft" relativePoint="topleft" relativeTo="">
+                  <AbsPoint x="0" y="0" />
+                </Anchor>
+              </Anchors>
+              <EventHandlers>
+                <EventHandler event="OnLButtonUp" function="MacroEditWindow.MacroEditIcon" />
+                <EventHandler event="OnMouseOver" function="MacroEditWindow.MacroIconMouseOver" />
+              </EventHandlers>
+            </DynamicImage>
+            <Window name="$parentBG" handleinput="false">
+              <Size>
+                <AbsPoint x="355" y="30" />
+              </Size>
+              <Anchors>
+                <Anchor point="topright" relativePoint="topleft" relativeTo="$parentIcon">
+                  <AbsPoint x="10" y="15" />
+                </Anchor>
+              </Anchors>
+              <Windows>
+                <!-- Inner Frame Boilerplate -->
+                <FullResizeImage name="$parentFrame" inherits="UO_Default_Inner_Window_Frame">
+                  <Anchors>
+                    <Anchor point="topleft" relativePoint="topleft" />
+                    <Anchor point="bottomright" relativePoint="bottomright" />
+                  </Anchors>
+                </FullResizeImage>
+                <!-- End of Inner Frame Boilerplate -->
+              </Windows>
+            </Window>
+            <EditBox name="$parentEntry" font="UO_DefaultText" maxchars="20">
+              <Size>
+                <AbsPoint x="340" y="20" />
+              </Size>
+              <Anchors>
+                <Anchor point="topleft" relativePoint="topleft" relativeTo="$parentBG">
+                  <AbsPoint x="10" y="5" />
+                </Anchor>
+              </Anchors>
+              <EventHandlers>
+                <EventHandler event="OnKeyEnter" function="MacroEditWindow.MacroEditOK" />
+              </EventHandlers>
+            </EditBox>
+          </Windows>
+        </Window>
+        <HorizontalScrollWindow name="$parentActions" childscrollwindow="$parentScrollChild" scrollbar="$parentScrollbar" linewidth="50" draganddrop="true" autoHideScrollBar="true">
+          <Size>
+            <AbsPoint x="500" y="80" />
+          </Size>
+          <Anchors>
+            <Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentName">
+              <AbsPoint x="0" y="10" />
+            </Anchor>
+          </Anchors>
+          <Windows>
+            <HorizontalScrollbar name="$parentScrollbar" inherits="StandardHorizScroll" />
+            <Window name="$parentScrollChild">
+              <Size>
+                <AbsPoint x="360" y="50" />
+              </Size>
+              <Windows>
+                <Button name="$parentEmptyButton" inherits="EmptyActionButtonDef" />
+              </Windows>
+            </Window>
+          </Windows>
+        </HorizontalScrollWindow>
+        <Window name="$parentRepeat">
+          <Size>
+            <AbsPoint x="490" y="50" />
+          </Size>
+          <Anchors>
+            <Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentActions">
+              <AbsPoint x="0" y="-5" />
+            </Anchor>
+          </Anchors>
+          <Windows>
+            <Window name="$parentToggle">
+              <Size>
+                <AbsPoint x="150" y="32" />
+              </Size>
+              <Windows>
+                <Button name="$parentButton" inherits="UO_Default_Check_Button">
+                  <Anchors>
+                    <Anchor point="left" relativePoint="left">
+                      <AbsPoint x="5" y="0" />
+                    </Anchor>
+                  </Anchors>
+                </Button>
+                <Label name="$parentLabel" font="UO_DefaultText" linespacing="20" autoresize="true" wordwrap="true" maxchars="64" textalign="left">
+                  <Size>
+                    <AbsPoint x="700" y="16" />
+                    <!-- 325 = x -->
+                  </Size>
+                  <Anchors>
+                    <Anchor point="right" relativePoint="left" relativeTo="$parentButton">
+                      <AbsPoint x="5" y="0" />
+                    </Anchor>
+                  </Anchors>
+                  <Color r="192" g="162" b="117" a="255" />
+                </Label>
+              </Windows>
+            </Window>
+            <Label name="$parentText" font="UO_DefaultText" maxchars="128" textalign="left">
+              <Size>
+                <AbsPoint x="200" y="10" />
+              </Size>
+              <Anchors>
+                <Anchor point="topright" relativePoint="topleft" relativeTo="$parentToggle">
+                  <AbsPoint x="10" y="0" />
+                </Anchor>
+              </Anchors>
+              <Color r="192" g="162" b="117" a="255" />
+            </Label>
+            <SliderBar name="$parentSliderBar" inherits="UO_Default_Horizontal_SliderBar">
+              <Size>
+                <AbsPoint x="320" y="10" />
+              </Size>
+              <Anchors>
+                <Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentText">
+                  <AbsPoint x="0" y="20" />
+                </Anchor>
+              </Anchors>
+              <EventHandlers>
+                <EventHandler event="OnSlide" function="MacroEditWindow.UpdateSliderBar" />
+              </EventHandlers>
+            </SliderBar>
+            <Label name="$parentVal" font="UO_DefaultText" maxchars="64" textalign="left">
+              <Size>
+                <AbsPoint x="20" y="20" />
+              </Size>
+              <Anchors>
+                <Anchor point="right" relativePoint="left" relativeTo="$parentText">
+                  <AbsPoint x="0" y="6" />
+                </Anchor>
+              </Anchors>
+              <Color r="255" g="255" b="255" a="255" />
+            </Label>
+          </Windows>
+        </Window>
+        <Button name="$parentOKButton" inherits="UO_Default_Medium_Select_Button">
+          <Anchors>
+            <Anchor point="bottom" relativePoint="bottom" relativeTo="$parent">
+              <AbsPoint x="0" y="0" />
+            </Anchor>
+          </Anchors>
+          <EventHandlers>
+            <EventHandler event="OnLButtonUp" function="MacroEditWindow.MacroEditOK" />
+          </EventHandlers>
+        </Button>
+      </Windows>
+    </Window>
+  </Windows>
+</Interface>

@@ -1,0 +1,262 @@
+<Interface xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../Interface.xsd">
+	<Assets>
+		<Texture name="bars" file="Source/bars.dds"/>
+	</Assets>
+	<Scripts>
+		<Script file="Source/StatusWindow.lua" />
+	</Scripts>
+	<Windows>
+		<HorizontalResizeImage name="RedBar" texture="bars">
+			<Size>
+				<AbsPoint x="162" y="6" />
+			</Size>
+			<Sizes left="162" middle="0" right="0" />
+			<TexCoords>
+				<Left x="0" y="0" />
+				<Middle x="81" y="0" />
+				<Right x="162" y="0" />
+			</TexCoords>
+		</HorizontalResizeImage>
+		<HorizontalResizeImage name="BlueBar" texture="bars">
+			<Size>
+				<AbsPoint x="153" y="6" />
+			</Size>
+			<Sizes left="153" middle="0" right="0" />
+			<TexCoords>
+				<Left x="9" y="11" />
+				<Middle x="85.5" y="11" />
+				<Right x="162" y="11" />
+			</TexCoords>
+		</HorizontalResizeImage>
+		<HorizontalResizeImage name="YellowBar" texture="bars">
+			<Size>
+				<AbsPoint x="147" y="6" />
+			</Size>
+			<Sizes left="147" middle="0" right="0" />
+			<TexCoords>
+				<Left x="15" y="23" />
+				<Middle x="88.5" y="23" />
+				<Right x="162" y="23" />
+			</TexCoords>
+		</HorizontalResizeImage>
+		<Window name="StatusWindow" movable="false" layer="default">
+			<Size>
+				<!--<AbsPoint x="290" y="133" /> -->
+				<AbsPoint x="258" y="94" />
+			</Size>
+			<Anchors>
+				<Anchor point="topleft" relativePoint="topleft" relativeTo="">
+					<AbsPoint x="5" y="5" />
+				</Anchor>
+			</Anchors>
+			<EventHandlers>
+				<EventHandler event="OnInitialize" function="StatusWindow.Initialize" />
+				<EventHandler event="OnShutdown" function="StatusWindow.Shutdown" />
+				<EventHandler event="OnUpdate" function="StatusWindow.Update"  />
+				<EventHandler event="OnMouseWheel" function="EnhancePack.Scale" />
+			</EventHandlers>
+			<Windows>
+
+				<Window name="BuffDebuff" layer="default" popable="true">
+					<Size>
+						<AbsPoint x="0" y="0" />
+					</Size>
+					<Anchors>
+						<Anchor point="topleft" relativePoint="topleft" relativeTo="StatusWindow">
+							<!--<AbsPoint x="135" y="55" />-->
+							<AbsPoint x="91" y="57" />
+						</Anchor>
+					</Anchors>
+					<EventHandlers>
+						<EventHandler event="OnInitialize" function="BuffDebuff.Initialize" />
+						<EventHandler event="OnShutdown" function="BuffDebuff.Shutdown" />
+					</EventHandlers>
+				</Window>
+
+				<Window name="$parentClickableRegion1" layer="default" draganddrop="true" popable="false">
+					<Size>
+						<AbsPoint x="90" y="90" />
+					</Size>
+					<Anchors>
+						<Anchor point="topleft" relativePoint="topleft" relativeTo="$parent">
+							<AbsPoint x="0" y="0" />
+						</Anchor>
+					</Anchors>
+					<EventHandlers>
+						<EventHandler event="OnLButtonUp" function="StatusWindow.OnLButtonUp" />
+						<EventHandler event="OnLButtonDown" function="StatusWindow.OnLButtonDown" />
+						<EventHandler event="OnRButtonUp" function="StatusWindow.OnRButtonUp" />
+						<EventHandler event="OnLButtonDblClk" function="StatusWindow.OnMouseDlbClk" />
+						<EventHandler event="OnMouseOver" function="StatusWindow.OnMouseOver" />
+						<EventHandler event="OnMouseOverEnd" function="StatusWindow.OnMouseOverEnd" />
+					</EventHandlers>
+				</Window>
+
+				<Window name="$parentClickableRegion2" layer="default" popable="false">
+					<Size>
+						<AbsPoint x="165" y="55" />
+					</Size>
+					<Anchors>
+						<Anchor point="topright" relativePoint="topleft" relativeTo="$parentClickableRegion1">
+							<AbsPoint x="0" y="0" />
+						</Anchor>
+					</Anchors>
+					<EventHandlers>
+						<EventHandler event="OnMouseOver" function="StatusWindow.OnMouseOver" />
+						<EventHandler event="OnMouseOverEnd" function="StatusWindow.OnMouseOverEnd" />
+						<EventHandler event="OnLButtonUp" function="StatusWindow.OnLButtonUp" />
+						<EventHandler event="OnLButtonDown" function="StatusWindow.OnLButtonDown" />
+						<EventHandler event="OnRButtonUp" function="StatusWindow.OnRButtonUp" />
+						<EventHandler event="OnLButtonDblClk" function="StatusWindow.OnMouseDlbClk" />
+					</EventHandlers>
+				</Window>
+
+				<Button name="StatusWindowLock" layer="popup">
+					<Size>
+						<AbsPoint x="25" y="25" />
+					</Size>
+					<EventHandlers>
+						<EventHandler event="OnLButtonUp" function="StatusWindow.Lock" />
+						<EventHandler event="OnMouseOver" function="StatusWindow.LockTooltip" />
+					</EventHandlers>
+					<Anchors>
+						<Anchor point="topright" relativePoint="topright">
+							<AbsPoint x="0" y="-15" />
+						</Anchor>
+					</Anchors>
+				</Button>
+
+				<Button name="StatusWindowMenu" layer="popup">
+					<Size>
+						<AbsPoint x="25" y="25" />
+					</Size>
+					<EventHandlers>
+						<EventHandler event="OnLButtonUp" function="StatusWindow.Menu" />
+						<EventHandler event="OnMouseOver" function="StatusWindow.MenuTooltip" />
+					</EventHandlers>
+					<Anchors>
+						<Anchor point="topright" relativePoint="topright">
+							<AbsPoint x="-20" y="-15" />
+						</Anchor>
+					</Anchors>
+				</Button>
+
+				<CircleImage name="$parentPortraitBg" texture="hud_image" numsegments="16" texturescale="1.95" layer="background" popable="false" handleinput="false">
+					<Size>
+						<AbsPoint x="75" y="75" />
+					</Size>
+					<Anchors>
+						<Anchor point="topleft" relativePoint="topleft">
+							<AbsPoint x="10" y="10" />
+						</Anchor>
+					</Anchors>
+					<TexCoords x="398" y="50" />
+				</CircleImage>
+
+				<CircleImage name="$parentPortrait" numsegments="16" texturescale="0.55" layer="background" popable="false" handleinput="false">
+					<Size>
+						<AbsPoint x="75" y="75" />
+					</Size>
+					<Anchors>
+						<Anchor point="center" relativePoint="center" relativeTo="$parentPortraitBg">
+							<AbsPoint x="0" y="0" />
+						</Anchor>
+					</Anchors>
+				</CircleImage>
+
+				<DynamicImage name="$parentImage" texture="hud_image" layer="background" popable="false" handleinput="false">
+					<Size>
+						<!--<AbsPoint x="290" y="133" />-->
+						<AbsPoint x="258" y="94" />
+					</Size>
+				</DynamicImage>
+
+				<!-- TODO THIS NEEDS TO HAVE ART GENERATED AND IMPLEMENTED BY ENGINEERING
+        <Button name="HidePaperDollImageToggle" inherits="UO_Default_Spring_Button" textalign="center" layer="overlay">
+					<Anchors>
+						<Anchor point="top" relativePoint="top" relativeTo="">
+							<AbsPoint x="-60" y="0" />
+						</Anchor>
+					</Anchors>
+					<EventHandlers>
+					</EventHandlers>
+				</Button>
+        -->
+
+
+				<StatusBar name="$parentHealthBar" foreground="RedBar" handleinput="false">
+					<Size>
+						<AbsPoint x="163" y="7" />
+					</Size>
+					<Anchors>
+						<Anchor point="topleft" relativePoint="topleft">
+							<AbsPoint x="84" y="11" />
+						</Anchor>
+					</Anchors>
+				</StatusBar>
+
+				<StatusBar name="$parentManaBar" foreground="BlueBar" handleinput="false">
+					<Size>
+						<AbsPoint x="153" y="7" />
+					</Size>
+					<Anchors>
+						<Anchor point="topleft" relativePoint="topleft" relativeTo="$parentHealthBar" handleinput="false">
+							<AbsPoint x="9" y="12" />
+						</Anchor>
+					</Anchors>
+				</StatusBar>
+
+				<StatusBar name="$parentStaminaBar" foreground="YellowBar" handleinput="false">
+					<Size>
+						<AbsPoint x="147" y="7" />
+					</Size>
+					<Anchors>
+						<Anchor point="topleft" relativePoint="topleft" relativeTo="$parentManaBar">
+							<AbsPoint x="6" y="12" />
+						</Anchor>
+					</Anchors>
+				</StatusBar>
+
+				<Label name="StatusWindowWhite" handleinput="false">
+					<Color r="255" g="255" b="255"/>
+				</Label>
+
+				<Label name="$parentHealthTooltip" inherits="StatusWindowWhite" font="font_verdana_bold_shadow_small" maxchars="100" textalign="center" autoresize="true" wordwrap="true" layer="secondary" handleinput="false">
+					<Size>
+						<AbsPoint x="100" y="60" />
+					</Size>
+					<Anchors>
+						<Anchor point="topright" relativePoint="topright" relativeTo="$parentHealthBar">
+							<AbsPoint x="-20" y="-7" />
+						</Anchor>
+					</Anchors>
+				</Label>
+
+				<Label name="$parentManaTooltip" inherits="StatusWindowWhite" font="font_verdana_bold_shadow_small" maxchars="100" textalign="center" autoresize="true" wordwrap="true" layer="secondary" handleinput="false">
+					<Size>
+						<AbsPoint x="100" y="60" />
+					</Size>
+					<Anchors>
+						<Anchor point="topright" relativePoint="topright" relativeTo="$parentManaBar">
+							<AbsPoint x="-20" y="-6" />
+						</Anchor>
+					</Anchors>
+				</Label>
+
+				<Label name="$parentStaminaTooltip" inherits="StatusWindowWhite" font="font_verdana_bold_shadow_small" maxchars="100" textalign="center" autoresize="true" wordwrap="true" layer="secondary" handleinput="false">
+					<Size>
+						<AbsPoint x="100" y="60" />
+					</Size>
+					<Anchors>
+						<Anchor point="topright" relativePoint="topright" relativeTo="$parentStaminaBar">
+							<AbsPoint x="-20" y="-5" />
+						</Anchor>
+					</Anchors>
+				</Label>
+
+
+			</Windows>
+		</Window>
+
+	</Windows>
+</Interface>

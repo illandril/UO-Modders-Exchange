@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Interface xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../Interface.xsd">
+  <Windows>
+<!-- Title Bar -->
+        <HorizontalResizeImage name="Legacy_Default_Title_Bar" texture="Legacy_Buttons">
+            <Size>
+                <AbsPoint x="1" y="410" />
+            </Size>
+            <Sizes left="1" middle="1" right="1" />
+            <TexCoords>
+                <Left x="192" y="279" />
+                <Middle x="192" y="279" />
+                <Right x="192" y="279" />
+            </TexCoords>
+        </HorizontalResizeImage>
+<!--
+  	 <DynamicImage name="Legacy_Profile_Scroll" texture="Legacy_Gumps_01" handleinput="false">
+  	   <Size>
+  	     <AbsPoint x="275" y="300" />
+  	   </Size>
+  	   <TexCoords x="0" y="0"/>
+  	 </DynamicImage>
+  	
+<!-- Template for Legacy Paperdoll tab disabled -->
+<!--		<HorizontalResizeImage name="UO_Legacy_Paperdoll_Tab_Disabled" texture="Paperdoll_Textures" highlighttexture="Paperdoll_Textures" textalign="center" font="Avatar_14">
+			<Size>
+				<AbsPoint x="76" y="24" />
+			</Size>	        
+			<Sizes left="28" middle="20" right="28" />
+			<TexCoords>
+				<Left x="400" y="100" />
+				<Middle x="429" y="100" />
+				<Right x="450" y="100" />
+			</TexCoords>	
+			<TextColors>
+				<Normal r="100" g="100" b="100" a="255" />
+				<NormalHighlit  r="100" g="100" b="100" a="255" />
+				<Pressed r="100" g="100" b="100" a="255" />
+				<PressedHighlit r="100" g="100" b="100" a="255" />
+				<Disabled r="100" g="100" b="100" a="255" />
+			</TextColors>		
+		</HorizontalResizeImage>
+  	
+<!-- Template for Legacy Paperdoll new tab enabled -->
+<!--		<HorizontalResizeImage name="UO_Legacy_Paperdoll_Tab_Enabled" texture="Paperdoll_Textures" highlighttexture="Paperdoll_Textures" textalign="center" font="Avatar_14">
+			<Size>
+				<AbsPoint x="76" y="24" />
+			</Size>	        
+			<Sizes left="28" middle="20" right="28" />
+			<TexCoords>
+				<Left x="400" y="126" />
+				<Middle x="429" y="126" />
+				<Right x="450" y="126" />
+			</TexCoords>	
+			<TextColors>
+				<Normal r="243" g="227" b="49" a="255"/>
+				<NormalHighlit r="33" g="20" b="0" a="255"/>
+				<Pressed r="243" g="227" b="49" a="255" />
+				<PressedHighlit r="33" g="20" b="0" a="255" />
+				<Disabled r="243" g="227" b="49" a="255" />	
+  	  </TextColors>				
+		</HorizontalResizeImage>
+  	
+<!-- Template for Legacy Gray Scroll tab disabled -->
+<!--		<HorizontalResizeImage name="UO_Legacy_Gray_Scroll_Tab_Disabled" texture="Legacy_Gumps_01" highlighttexture="Legacy_Gumps_01" textalign="center" font="Avatar_14">
+			<Size>
+				<AbsPoint x="78" y="24" />
+			</Size>	        
+			<Sizes left="29" middle="20" right="29" />
+			<TexCoords>
+				<Left x="310" y="310" />
+				<Middle x="339" y="310" />
+				<Right x="359" y="310" />
+			</TexCoords>	
+			<TextColors>
+				<Normal 				r="104" g="88" b="48" a="255" />
+				<NormalHighlit  r="104" g="88" b="48" a="255" />
+				<Pressed 				r="104" g="88" b="48" a="255" />
+				<PressedHighlit r="104" g="88" b="48" a="255" />
+				<Disabled 			r="104" g="88" b="48" a="255" />
+			</TextColors>		
+		</HorizontalResizeImage>
+  	
+<!-- Template for Legacy Gray Scroll new tab enabled -->
+<!--		<HorizontalResizeImage name="UO_Legacy_Gray_Scroll_Tab_Enabled" texture="Legacy_Gumps_01" highlighttexture="Legacy_Gumps_01" textalign="center" font="Avatar_14">
+			<Size>
+				<AbsPoint x="78" y="24" />
+			</Size>	        
+			<Sizes left="29" middle="20" right="29" />
+			<TexCoords>
+				<Left x="390" y="310" />
+				<Middle x="419" y="310" />
+				<Right x="439" y="310" />
+			</TexCoords>	
+			<TextColors>
+				<Normal	 				r="243" g="227" b="49" a="255"/>
+				<NormalHighlit 	r="33" 	g="20" 	b="0" a="255"/>
+				<Pressed 				r="243" g="227" b="49" a="255" />
+				<PressedHighlit r="33" 	g="20" 	b="0" a="255" />
+				<Disabled 			r="243" g="227" b="49" a="255" />	
+  	  </TextColors>				
+		</HorizontalResizeImage>
+
+    <Button name="Legacy_BookPreviousButton" backgroundtexture="Legacy_Gumps_01" highlighttexture="Legacy_Gumps_01">
+        <Size>
+            <AbsPoint x="62" y="36" />
+        </Size>
+        <TexCoords>
+            <Normal x="356" y="945" />
+            <NormalHighlit x="356" y="945" />
+            <Pressed x="356" y="945" />
+            <PressedHighlit x="356" y="945" />
+            <Disabled x="356" y="945" />
+        </TexCoords>
+    </Button>
+
+    <Button name="Legacy_BookNextButton" backgroundtexture="Legacy_Gumps_01" highlighttexture="Legacy_Gumps_01">
+        <Size>
+            <AbsPoint x="62" y="36" />
+        </Size>
+        <TexCoords>
+            <Normal x="424" y="945" />
+            <NormalHighlit x="424" y="945" />
+            <Pressed x="424" y="945" />
+            <PressedHighlit x="424" y="945" />
+            <Disabled x="424" y="945" />
+        </TexCoords>
+    </Button>
+
+<!-- Left and right arrow buttons for books and scrolls -->
+<!--        <Button name="Legacy_Scroll_SmallPreviousButton" backgroundtexture="Legacy_Buttons" highlighttexture="Legacy_Buttons">
+            <Size>
+                <AbsPoint x="16" y="21" />
+            </Size>
+            <TexCoords>
+                <Normal x="480" y="310" />
+                <NormalHighlit x="480" y="310" />
+                <Pressed x="480" y="310" />
+                <PressedHighlit x="480" y="310" />
+                <Disabled x="480" y="310" />
+            </TexCoords>
+        </Button>
+
+        <Button name="Legacy_Scroll_SmallNextButton" backgroundtexture="Legacy_Buttons" highlighttexture="Legacy_Buttons">
+            <Size>
+                <AbsPoint x="15" y="19" />
+            </Size>
+            <TexCoords>
+                <Normal x="496" y="310" />
+                <NormalHighlit x="496" y="310" />
+                <Pressed x="496" y="310" />
+                <PressedHighlit x="496" y="310" />
+                <Disabled x="496" y="310" />
+            </TexCoords>
+        </Button>
+
+<!-- "Diamonds" for the runebook -->
+    <Button name="LegacyDefaultDiamond" texture="Legacy_Buttons">
+      <Size>
+        <AbsPoint x="17" y="17" />
+      </Size>
+      <TexCoords>
+        <Normal texture="Legacy_Buttons" x="426" y="113" />
+        <NormalHighlit texture="Legacy_Buttons" x="455" y="113" />
+        <Pressed texture="Legacy_Buttons" x="455" y="113" />
+        <Disabled texture="Legacy_Buttons" x="486" y="113" />
+      </TexCoords>
+    </Button>
+    <Button name="LegacyPurpleDiamond" texture="Legacy_Buttons">
+      <Size>
+        <AbsPoint x="17" y="17" />
+      </Size>
+      <TexCoords>
+        <Normal texture="Legacy_Buttons" x="426" y="141" />
+        <NormalHighlit texture="Legacy_Buttons" x="455" y="141" />
+        <Pressed texture="Legacy_Buttons" x="455" y="141" />
+        <Disabled texture="Legacy_Buttons" x="486" y="141" />
+      </TexCoords>
+    </Button>
+    <Button name="LegacyYellowDiamond" texture="Legacy_Buttons">
+      <Size>
+        <AbsPoint x="17" y="17" />
+      </Size>
+      <TexCoords>
+        <Normal texture="Legacy_Buttons" x="426" y="169" />
+        <NormalHighlit texture="Legacy_Buttons" x="455" y="169" />
+        <Pressed texture="Legacy_Buttons" x="455" y="169" />
+        <Disabled texture="Legacy_Buttons" x="486" y="169" />
+      </TexCoords>
+    </Button>
+    <Button name="LegacyTorquoiseDiamond" texture="Legacy_Buttons">
+      <Size>
+        <AbsPoint x="17" y="17" />
+      </Size>
+      <TexCoords>
+        <Normal texture="Legacy_Buttons" x="426" y="199" />
+        <NormalHighlit texture="Legacy_Buttons" x="455" y="199" />        
+        <Pressed texture="Legacy_Buttons" x="455" y="199" />
+        <Disabled texture="Legacy_Buttons" x="486" y="199" />
+      </TexCoords>
+    </Button>
+    <Button name="LegacyGrayDiamond" texture="Legacy_Buttons">
+      <Size>
+        <AbsPoint x="17" y="17" />
+      </Size>
+      <TexCoords>
+        <Normal texture="Legacy_Buttons" x="426" y="227" />
+        <NormalHighlit texture="Legacy_Buttons" x="455" y="227" />
+        <Pressed texture="Legacy_Buttons" x="455" y="227" />
+        <Disabled texture="Legacy_Buttons" x="486" y="227" />
+      </TexCoords>
+    </Button>
+    <Button name="LegacyGreenDiamond" texture="Legacy_Buttons">
+      <Size>
+        <AbsPoint x="17" y="17" />
+      </Size>
+      <TexCoords>
+        <Normal texture="Legacy_Buttons" x="426" y="256" />
+        <NormalHighlit texture="Legacy_Buttons" x="455" y="256" />
+        <Pressed texture="Legacy_Buttons" x="455" y="256" />
+        <Disabled texture="Legacy_Buttons" x="486" y="256" />
+      </TexCoords>
+    </Button>
+    <Button name="LegacyBrownDiamond" texture="Legacy_Buttons">
+      <Size>
+        <AbsPoint x="17" y="17" />
+      </Size>
+      <TexCoords>
+        <Normal texture="Legacy_Buttons" x="426" y="283" />
+        <NormalHighlit texture="Legacy_Buttons" x="455" y="283" />
+        <Pressed texture="Legacy_Buttons" x="455" y="283" />
+        <Disabled texture="Legacy_Buttons" x="486" y="283" />
+      </TexCoords>
+    </Button>
+  </Windows>
+</Interface>

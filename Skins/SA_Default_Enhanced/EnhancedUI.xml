@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Interface xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../Interface.xsd">
+
+	<Assets>
+<!-- Hopefully EA won't add any CustomIcons in the 90k range -->
+	<Icon id="90000" texture="EnhancedUI/CustomIcons/arachnid.dds" name="Arachnid Slayer" />
+	<Icon id="90001" texture="EnhancedUI/CustomIcons/bank.dds" name="bank" />
+	<Icon id="90002" texture="EnhancedUI/CustomIcons/claim.dds" name="claim" />
+	<Icon id="90003" texture="EnhancedUI/CustomIcons/demon.dds" name="Demon Slayer" />
+	<Icon id="90004" texture="EnhancedUI/CustomIcons/elemental.dds" name="Elemental Slayer" />
+	<Icon id="90005" texture="EnhancedUI/CustomIcons/fey.dds" name="Fey Slayer" />
+	<Icon id="90006" texture="EnhancedUI/CustomIcons/guards.dds" name="Guards" />
+	<Icon id="90007" texture="EnhancedUI/CustomIcons/normal.dds" name="Normal" />
+	<Icon id="90008" texture="EnhancedUI/CustomIcons/repond.dds" name="Repond Slayer" />
+	<Icon id="90009" texture="EnhancedUI/CustomIcons/reptile.dds" name="Reptile Slayer" />
+	<Icon id="90010" texture="EnhancedUI/CustomIcons/shuriken.dds" name="Throw Shuriken" />
+	<Icon id="90011" texture="EnhancedUI/CustomIcons/stable.dds" name="stable" />
+	<Icon id="90012" texture="EnhancedUI/CustomIcons/undead.dds" name="Undead Slayer" />
+	<Icon id="90013" texture="EnhancedUI/CustomIcons/dispel.dds" name="Dispel Weapon" />
+	<Icon id="90014" texture="EnhancedUI/CustomIcons/dismount.dds" name="Dismount" />
+	<Icon id="90015" texture="EnhancedUI/CustomIcons/mount.dds" name="Mount" />
+	<Icon id="90016" texture="EnhancedUI/CustomIcons/voice.dds" name="Voice Mode" />
+	<Icon id="90017" texture="EnhancedUI/CustomIcons/quiet.dds" name="Quiet Mode" />
+	<Icon id="90018" texture="EnhancedUI/CustomIcons/silence.dds" name="Silent Mode" />
+	<Icon id="90019" texture="EnhancedUI/CustomIcons/FilterDyn.dds" name="Dynamic Filter" />
+	<Icon id="90020" texture="EnhancedUI/CustomIcons/FilterCorpse.dds" name="Corpse Filter" />		
+	<Icon id="90021" texture="EnhancedUI/CustomIcons/FilterNPC.dds" name="NPC Filter" />
+	<Icon id="90022" texture="EnhancedUI/CustomIcons/FilterVendor.dds" name="Vendor Filter" />
+	<Icon id="90023" texture="EnhancedUI/CustomIcons/FilterMobile.dds" name="Mobile Filter" />
+	<Icon id="90024" texture="EnhancedUI/CustomIcons/dress.dds" name="Get Dressed" />
+<!-- Waypoint CustomIcons start at 100000, so we need to be careful not to go that high -->
+	</Assets>
+</Interface>

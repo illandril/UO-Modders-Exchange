@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Interface xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../Interface.xsd">
+  <Assets>
+
+<!-- Custom Icons -->
+		<!-- Tithing -->
+		<Icon id="899999" texture="Icons/Stats/tithe.dds" name="Tithe" />
+		    
+  </Assets>
+</Interface>

@@ -1,0 +1,244 @@
+<Interface xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../Interface.xsd">
+	<Scripts>
+		<Script file="Source/ContainerWindow.lua" />
+	</Scripts>
+
+	<Windows>
+		<!-- For list view -->
+		<Window name="ContainerItemTemplate"  draganddrop="true">
+			<Size>
+				<AbsPoint x="250" y="60" />
+			</Size>
+			<EventHandlers>
+				<EventHandler event="OnLButtonDown" function="ContainerWindow.OnItemClicked" />
+				<EventHandler event="OnLButtonDblClk" function="ContainerWindow.OnItemDblClicked" />
+				<EventHandler event="OnLButtonUp" function="ContainerWindow.OnItemRelease" />
+				<EventHandler event="OnRButtonDown" function="ContainerWindow.OnItemGet" />
+				<EventHandler event="OnRButtonUp" function="ContainerWindow.OnItemRButtonUp" />
+      </EventHandlers>
+      <Windows>
+        <DynamicImage name="$parentIcon" texture="UO_Common"  texturescale="2.0" draganddrop="true">
+          <Size>
+            <AbsPoint x="45" y="45" />
+          </Size>
+          <TexCoords x="399" y="32"/>
+          <Anchors>
+            <Anchor point="topleft" relativePoint="topleft">
+              <AbsPoint x="15" y="0" />
+            </Anchor>
+          </Anchors>
+          <EventHandlers>
+            <EventHandler event="OnMouseOver" function="ContainerWindow.ItemMouseOver"/>
+            <EventHandler event="OnMouseOverEnd" function="ItemProperties.ClearMouseOverItem"/>
+          </EventHandlers>
+        </DynamicImage>
+
+        <Label name="$parentName" font="UO_DefaultText" maxchars="64" textalign="left" draganddrop="true">
+          <Size>
+            <AbsPoint x="190" y="16" />
+          </Size>
+          <Anchors>
+            <Anchor point="topleft" relativePoint="topleft">
+              <AbsPoint x="70" y="20" />
+            </Anchor>
+            <Anchor point="topright" relativePoint="topright" relativeTo="$parent">
+              <AbsPoint x="0" y="0" />
+            </Anchor>
+          </Anchors>
+          <Color r="255" g="255" b="255" a="255" />
+        </Label>
+      </Windows>
+    </Window>
+
+    <!-- For grid view -->
+	
+    <Button name="GridViewSocketBaseTemplate" texturescale="1.125">
+		<Size>
+			<AbsPoint x="56" y="56" /> <!-- if changed, ContainerWindow.lua must be updated -->
+		</Size>
+		<TexCoords>
+			<Normal texture="hud_image" x="0" y="754" />
+			<Disabled texture="hud_image" x="0" y="754" />
+			<Pressed texture="hud_image" x="0" y="754" />
+		</TexCoords>
+	</Button>
+	
+    <Button name="GridViewSocketTemplate" inherits="GridViewSocketBaseTemplate" draganddrop="true">
+		<Windows>
+			<DynamicImage name="$parentIcon" texturescale="1.125" handleinput="false" layer="default">
+				<Size>
+					<AbsPoint x="48" y="48" />
+				</Size>
+				<Anchors>
+					<Anchor point="center" relativePoint="center" relativeTo="">
+						<AbsPoint x="0" y="0" />
+					</Anchor>
+				</Anchors>
+			</DynamicImage>
+			<Label name="$parentQuantity" font="UO_DefaultText_15pt" maxchars="6" textalign="left" autoresize="true" wordwrap="false" layer="popup" handleinput="false">
+				<Size>
+					<AbsPoint x="50" y="15" />
+				</Size>
+				<Anchors>
+					<Anchor point="bottomleft" relativePoint="bottomleft">
+						<AbsPoint x="2" y="-2" />
+					</Anchor>
+				</Anchors>
+				<Color r="255" g="255" b="255" a="255" />
+			</Label>
+		</Windows>
+		<TexCoords>
+			<Normal texture="hud_image" x="0" y="754" />
+			<NormalHighlit texture="hud_image" x="50" y="754" />
+			<Disabled texture="hud_image" x="0" y="754" />
+			<Pressed texture="hud_image" x="0" y="754" />
+			<PressedHighlit texture="hud_image" x="50" y="754" />
+		</TexCoords>
+		<EventHandlers>
+			<EventHandler event="OnLButtonDown" function="ContainerWindow.OnItemClicked" />
+			<EventHandler event="OnLButtonDblClk" function="ContainerWindow.OnItemDblClicked" />
+			<EventHandler event="OnLButtonUp" function="ContainerWindow.OnItemRelease" />
+			<EventHandler event="OnMouseOver" function="ContainerWindow.ItemMouseOver" />
+			<EventHandler event="OnMouseOverEnd" function="ItemProperties.ClearMouseOverItem" />
+			<EventHandler event="OnRButtonDown" function="ContainerWindow.OnItemGet" />
+			<EventHandler event="OnRButtonUp" function="ContainerWindow.OnItemRButtonUp" />
+		</EventHandlers>
+	</Button>
+
+    <Button name="GridViewSocketLegacyTemplate" inherits="GridViewSocketTemplate">
+        <TexCoords>
+            <Normal texture="hud_image" x="461" y="866" />
+            <NormalHighlit texture="hud_image" x="344" y="531" />
+            <Disabled texture="hud_image" x="461" y="866" />
+            <Pressed texture="hud_image" x="461" y="866" />
+            <PressedHighlit texture="hud_image" x="344" y="531" />
+        </TexCoords>
+    </Button>
+
+		<!-- Main container window -->
+		<Window name="ContainerWindow" movable="true"  >
+			<Size>
+				<AbsPoint x="313" y="313" />
+			</Size>
+			<Anchors>
+				<Anchor point="bottomright" relativePoint="bottomright" >
+					<AbsPoint x="0" y="-60"/>
+				</Anchor>
+			</Anchors>
+			<EventHandlers>
+				<EventHandler event="OnInitialize" function="ContainerWindow.Initialize" />
+				<EventHandler event="OnShutdown" function="ContainerWindow.Shutdown" />
+				<EventHandler event="OnSetMoving" function="ContainerWindow.OnSetMoving" />
+				<EventHandler event="OnRButtonUp" function="UO_DefaultWindow.CloseDialog" />
+			</EventHandlers>
+			<Windows>
+				<!-- Default chrome. Alter this at your own peril. -->
+				<Window name="$parentChrome" inherits="UO_DefaultWindow">
+					<Anchors>
+						<Anchor point="topleft" relativePoint="topleft"/>
+						<Anchor point="bottomright" relativePoint="bottomright"/>
+					</Anchors>
+				</Window>
+				<!-- End of default chrome boilerplate code -->
+
+				<DynamicImage name="$parentLegacyContainerArt" layer="default" popable="false" />
+
+				<Button name="$parentViewButton" inherits="UO_Default_Spring_Button">
+					<Anchors>
+						<Anchor point="topleft" relativePoint="topleft" relativeTo="$parent">
+							<AbsPoint x="5" y="5" />
+						</Anchor>
+					</Anchors>
+					<EventHandlers>
+						<EventHandler event="OnLButtonUp" function="ContainerWindow.ToggleView" />
+						<EventHandler event="OnMouseOver" function="ContainerWindow.ViewButtonMouseOver" />
+						<EventHandler event="OnMouseOverEnd" function="ItemProperties.ClearMouseOverItem" />
+					</EventHandlers>
+				</Button>
+
+				<Label name="$parentTitle" inherits="UO_Default_Label_Color" font="UO_22" maxchars="256" textalign="center" handleinput="false" layer="popup" autoresizewidth="false">
+					<Size>
+						<AbsPoint x="215" y="30"/>
+					</Size>
+					<Anchors>
+						<Anchor point="top" relativePoint="top">
+							<AbsPoint x="0" y="-5" />
+						</Anchor>
+					</Anchors>
+				</Label>
+
+				<!-- LIST VIEW -->
+				<ScrollWindow name="$parentListView" childscrollwindow="$parentScrollChild" scrollbar="$parentScrollbar" lineheight="60"  draganddrop="true" autoHideScrollBar="true" popable="false">
+					<Size>
+						<AbsPoint x="299" y="250" />
+					</Size>
+					<Anchors>
+						<Anchor point="topleft" relativePoint="topleft">
+							<AbsPoint x="0" y="50" />
+						</Anchor>
+					</Anchors>
+					<EventHandlers>
+						<EventHandler event="OnLButtonUp" function="ContainerWindow.OnContainerRelease" />
+					</EventHandlers>
+					<Windows>
+						<Window name ="$parentScrollChild" popable="false">
+							<Size>
+								<AbsPoint x="285" y="60"/>
+							</Size>
+						</Window>
+						<VerticalScrollbar name="$parentScrollbar" inherits="StandardVertScroll" />
+					</Windows>
+				</ScrollWindow>
+
+				<!-- Grid view -->
+				<ScrollWindow name="$parentGridView" childscrollwindow="$parentScrollChild" scrollbar="$parentScrollbar" lineheight="60"  draganddrop="true" autoHideScrollBar="true" popable="false">
+					<Size>
+						<AbsPoint x="289" y="250" />
+					</Size>
+					<Anchors>
+						<Anchor point="topleft" relativePoint="topleft">
+							<AbsPoint x="12" y="50" />
+						</Anchor>
+					</Anchors>
+					<EventHandlers>
+						<EventHandler event="OnLButtonUp" function="ContainerWindow.OnContainerRelease" />
+					</EventHandlers>
+					<Windows>						
+						<Window name ="$parentScrollChild" popable="false">
+							<Size>
+								<AbsPoint x="270" y="0"/>
+							</Size>
+						</Window>
+						<VerticalScrollbar name="$parentScrollbar" inherits="StandardVertScroll" />
+					</Windows>
+					
+				</ScrollWindow>
+
+				<!-- Legacy view -->
+				<DynamicImage name="$parentFreeformView" layer="popup">
+					<Size>
+						<AbsPoint x="280" y="280" />
+					</Size>
+					<TexCoords x="0" y="0"/>
+					<Anchors>
+						<Anchor point="topleft" relativePoint="topleft">
+							<AbsPoint x="0" y="0" />
+						</Anchor>
+					</Anchors>
+				</DynamicImage>
+				
+				<Button name="$parentResizeButton" inherits="CoreWindowResizeButtonBottomRight" layer="popup" >
+					<Anchors>
+						<Anchor point="bottomright" relativePoint="bottomright" relativeTo="" >
+							<AbsPoint x="0" y="0" />
+						</Anchor>
+					</Anchors>
+					<EventHandlers>
+						<EventHandler event="OnLButtonDown" function="ContainerWindow.OnResizeBegin" />
+					</EventHandlers>
+				</Button>
+
+			</Windows>
+		</Window>
+	</Windows>
+</Interface>

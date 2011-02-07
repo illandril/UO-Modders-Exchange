@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Interface xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../Interface.xsd">
+  <Scripts>
+    <Script file="Enhancements/QuicklinksWindow.lua" />
+  </Scripts>
+  <Windows>
+    <Button name="QuicklinksWindow" inherits="CoreWindowResizeButtonBottomRight" handleinput="true" >
+      <Anchors>
+        <Anchor point="topleft" relativePoint="topleft" relativeTo="" />
+      </Anchors>
+      <EventHandlers>
+        <EventHandler event="OnInitialize" function="QuicklinksWindow.Initialize" />
+        <EventHandler event="OnShutdown" function="QuicklinksWindow.Shutdown" />
+        <EventHandler event="OnLButtonUp" function="QuicklinksWindow.ShowContextMenu" />
+      </EventHandlers>
+    </Button>
+    <Label name="VersionInfoLabel" font="UO_Default_Outline_Text" textalign="left" autoresize="true" handleinput="false" layer="background">
+      <Size>
+        <AbsPoint x="800" y="18"/>
+      </Size>
+      <Anchors>
+        <Anchor point="topright" relativePoint="topleft" relativeTo="QuicklinksWindow">
+          <AbsPoint x="10" y="2"/>
+        </Anchor>
+      </Anchors>
+      <Color r="155" g="155" b="155" a="255" />
+    </Label>
+  </Windows>
+</Interface>

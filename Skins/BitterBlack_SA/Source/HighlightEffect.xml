@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Interface xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../Interface.xsd">
+  <Scripts>
+    <Script file="Source/HighlightEffect.lua" />
+  </Scripts>
+  <Windows>
+    <Window name="HighlightEffectWindow" movable="false" handleinput="false" layer="popup" poppable="false">
+      <Size>
+        <AbsPoint x="10" y="10" />
+        <!-- You can adjust the total gump size if you need to -->
+      </Size>
+      <Anchors>
+        <Anchor point="center" relativePoint="center" relativeTo="">
+          <AbsPoint x="0" y="0" />
+        </Anchor>
+      </Anchors>
+      <EventHandlers>
+        <EventHandler event="OnInitialize" function="HighlightEffect.Initialize" />
+        <EventHandler event="OnShutdown" function="HighlightEffect.OnShutdown" />
+        <EventHandler event="OnUpdate" function="HighlightEffect.Update" />
+      </EventHandlers>
+      <Windows>
+        <AnimatedImage name="$parentGlowAnim" fps="10" texture="anim_highlight_glow" layer="background" handleinput="false" sticky="false">
+          <Size>
+            <AbsPoint x="128" y="128" />
+          </Size>
+          <Anchors>
+            <Anchor point="center" relativePoint="center">
+              <AbsPoint x="0" y="-2" />
+            </Anchor>
+          </Anchors>
+          <AnimFrames>
+            <AnimFrame id="1" x="0" y="0" />
+            <AnimFrame id="2" x="128" y="0" />
+            <AnimFrame id="3" x="256" y="0" />
+            <AnimFrame id="4" x="384" y="0" />
+            <AnimFrame id="5" x="0" y="128" />
+            <AnimFrame id="6" x="128" y="128" />
+            <AnimFrame id="7" x="256" y="128" />
+            <AnimFrame id="8" x="384" y="128" />
+            <AnimFrame id="9" x="0" y="256" />
+            <AnimFrame id="10" x="128" y="256" />
+            <AnimFrame id="11" x="256" y="256" />
+            <AnimFrame id="12" x="384" y="256" />
+            <AnimFrame id="13" x="0" y="384" />
+            <AnimFrame id="14" x="128" y="384" />
+            <AnimFrame id="15" x="256" y="384" />
+            <AnimFrame id="16" x="384" y="384" />
+          </AnimFrames>
+        </AnimatedImage>
+      </Windows>
+    </Window>
+  </Windows>
+</Interface>

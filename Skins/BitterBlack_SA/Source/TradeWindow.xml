@@ -1,0 +1,282 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Interface xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../Interface.xsd">
+  <Scripts>
+    <Script file="Source/TradeWindow.lua" />
+  </Scripts>
+  <Windows>
+    <Window name="TradeItemTemplate" draganddrop="true">
+      <Size>
+        <AbsPoint x="300" y="45" />
+      </Size>
+      <EventHandlers>
+        <EventHandler event="OnLButtonUp" function="TradeWindow.OnItemRelease" />
+        <EventHandler event="OnLButtonDblClk" function="TradeWindow.OnItemDblClicked" />
+        <EventHandler event="OnMouseOver" function="TradeWindow.ItemMouseOver" />
+        <EventHandler event="OnMouseOverEnd" function="ItemProperties.ClearMouseOverItem" />
+      </EventHandlers>
+      <Windows>
+        <FullResizeImage name="$parentSlotNormal" inherits="UO_Default_Slot_Normal" handleinput="false">
+          <Size>
+            <AbsPoint x="300" y="45" />
+          </Size>
+          <Anchors>
+            <Anchor point="topleft" relativePoint="topleft" />
+            <Anchor point="bottomright" relativePoint="bottomright" />
+          </Anchors>
+        </FullResizeImage>
+        <DynamicImage name="$parentIcon" texture="UO_Common" handleinput="false">
+          <Size>
+            <AbsPoint x="45" y="45" />
+          </Size>
+          <TexCoords x="399" y="32" />
+          <Anchors>
+            <Anchor point="topleft" relativePoint="topleft">
+              <AbsPoint x="10" y="0" />
+            </Anchor>
+          </Anchors>
+        </DynamicImage>
+        <Label name="$parentName" font="UO_DefaultText" maxchars="64" linespacing="20" textalign="left" handleinput="false" wordwrap="true">
+          <Size>
+            <AbsPoint x="250" y="30" />
+          </Size>
+          <Anchors>
+            <Anchor point="topright" relativePoint="topleft" relativeTo="$parentIcon">
+              <AbsPoint x="10" y="0" />
+            </Anchor>
+          </Anchors>
+          <Color r="255" g="255" b="255" a="255" />
+        </Label>
+      </Windows>
+    </Window>
+    <Window name="TradeAcceptTemplate">
+      <Size>
+        <AbsPoint x="325" y="40" />
+      </Size>
+      <Windows>
+        <FullResizeImage name="$parentFrame" inherits="UO_Default_Inner_Window_Frame">
+          <Anchors>
+            <Anchor point="topleft" relativePoint="topleft" />
+            <Anchor point="bottomright" relativePoint="bottomright" />
+          </Anchors>
+        </FullResizeImage>
+        <Button name="$parentCheck" inherits="UO_Default_Check_Button" handleinput="false">
+          <Anchors>
+            <Anchor point="bottomright" relativePoint="bottomright" relativeTo="$parentFrame">
+              <AbsPoint x="-10" y="-10" />
+            </Anchor>
+          </Anchors>
+        </Button>
+        <Button name="$parentButton" inherits="UO_Default_Small_Accept_Button">
+          <Anchors>
+            <Anchor point="bottomleft" relativePoint="bottomright" relativeTo="$parentCheck">
+              <AbsPoint x="-10" y="4" />
+            </Anchor>
+          </Anchors>
+          <EventHandlers>
+            <EventHandler event="OnLButtonDown" function="TradeWindow.OnAccept" />
+          </EventHandlers>
+        </Button>
+        <Label name="$parentName" font="UO_DefaultText" maxchars="64" textalign="left">
+          <Size>
+            <AbsPoint x="100" y="16" />
+          </Size>
+          <Anchors>
+            <Anchor point="topleft" relativePoint="topleft" relativeTo="$parentFrame">
+              <AbsPoint x="15" y="15" />
+            </Anchor>
+          </Anchors>
+          <Color r="128" g="200" b="255" a="255" />
+        </Label>
+      </Windows>
+    </Window>
+    <Window name="TradeWaitTemplate">
+      <Size>
+        <AbsPoint x="325" y="40" />
+      </Size>
+      <Windows>
+        <FullResizeImage name="$parentFrame" inherits="UO_Default_Inner_Window_Frame">
+          <Anchors>
+            <Anchor point="topleft" relativePoint="topleft" />
+            <Anchor point="bottomright" relativePoint="bottomright" />
+          </Anchors>
+        </FullResizeImage>
+        <Button name="$parentCheck" inherits="UO_Default_Check_Button" handleinput="false">
+          <Anchors>
+            <Anchor point="bottomright" relativePoint="bottomright" relativeTo="$parentFrame">
+              <AbsPoint x="-10" y="-10" />
+            </Anchor>
+          </Anchors>
+        </Button>
+        <Label name="$parentLabel" font="UO_DefaultText" maxchars="64" textalign="center">
+          <Size>
+            <AbsPoint x="100" y="16" />
+          </Size>
+          <Anchors>
+            <Anchor point="bottomleft" relativePoint="bottomright" relativeTo="$parentCheck">
+              <AbsPoint x="-10" y="0" />
+            </Anchor>
+          </Anchors>
+          <Color r="192" g="162" b="117" a="255" />
+        </Label>
+        <Label name="$parentName" font="UO_DefaultText" maxchars="64" textalign="left">
+          <Size>
+            <AbsPoint x="100" y="16" />
+          </Size>
+          <Anchors>
+            <Anchor point="topleft" relativePoint="topleft" relativeTo="$parentFrame">
+              <AbsPoint x="15" y="15" />
+            </Anchor>
+          </Anchors>
+          <Color r="128" g="200" b="255" a="255" />
+        </Label>
+      </Windows>
+    </Window>
+    <!--Start of our Trade Window -->
+    <Window name="TradeItemList" draganddrop="true">
+      <Size>
+        <AbsPoint x="335" y="285" />
+      </Size>
+      <EventHandlers>
+        <EventHandler event="OnLButtonUp" function="TradeWindow.OnContainerRelease" />
+      </EventHandlers>
+      <Windows>
+        <FullResizeImage name="$parentFrame" inherits="UO_Default_Inner_Window_Frame">
+          <Anchors>
+            <Anchor point="topleft" relativePoint="topleft" />
+            <Anchor point="bottomright" relativePoint="bottomright" />
+          </Anchors>
+        </FullResizeImage>
+        <ScrollWindow name="$parentScrollWindow" childscrollwindow="$parentScrollChild" scrollbar="$parentScrollbar" lineheight="60" autoHideScrollBar="true">
+          <Size>
+            <AbsPoint x="315" y="275" />
+          </Size>
+          <Anchors>
+            <Anchor point="topleft" relativePoint="topleft">
+              <AbsPoint x="5" y="5" />
+            </Anchor>
+          </Anchors>
+          <Windows>
+            <Window name="$parentScrollChild">
+              <Size>
+                <AbsPoint x="305" y="275" />
+              </Size>
+            </Window>
+            <VerticalScrollbar name="$parentScrollbar" inherits="StandardVertScroll" />
+          </Windows>
+        </ScrollWindow>
+      </Windows>
+    </Window>
+    <!-- Main container window -->
+    <Window name="TradeWindow" movable="true">
+      <Size>
+        <AbsPoint x="660" y="395" />
+      </Size>
+      <Anchors>
+        <Anchor point="center" relativePoint="center">
+          <AbsPoint x="0" y="0" />
+        </Anchor>
+      </Anchors>
+      <EventHandlers>
+        <EventHandler event="OnInitialize" function="TradeWindow.Initialize" />
+        <EventHandler event="OnShutdown" function="TradeWindow.Shutdown" />
+      </EventHandlers>
+      <Windows>
+        <!-- Default chrome. Alter this at your own peril. -->
+        <Window name="$parentChrome" inherits="UO_DefaultWindow">
+          <Anchors>
+            <Anchor point="topleft" relativePoint="topleft" />
+            <Anchor point="bottomright" relativePoint="bottomright" />
+          </Anchors>
+        </Window>
+        <!-- End of default chrome boilerplate code -->
+        <!--Header display window -->
+        <Window name="$parentItemDesc">
+          <Size>
+            <AbsPoint x="650" y="26" />
+          </Size>
+          <Anchors>
+            <Anchor point="topleft" relativePoint="topleft" relativeTo="$parent">
+              <AbsPoint x="5" y="35" />
+            </Anchor>
+          </Anchors>
+          <Windows>
+            <FullResizeImage name="$parentFrame" inherits="UO_Default_Inner_Window_Frame">
+              <Anchors>
+                <Anchor point="topleft" relativePoint="topleft" />
+                <Anchor point="bottomright" relativePoint="bottomright" />
+              </Anchors>
+            </FullResizeImage>
+            <Label name="$parentMyOffer" font="UO_GoldButtonText" maxchars="64" textalign="center">
+              <Size>
+                <AbsPoint x="324" y="24" />
+              </Size>
+              <Anchors>
+                <Anchor point="topleft" relativePoint="topleft" relativeTo="$parentFrame">
+                  <AbsPoint x="0" y="-3" />
+                </Anchor>
+              </Anchors>
+              <Color r="192" g="162" b="117" a="255" />
+            </Label>
+            <Label name="$parentTradeOffer" font="UO_GoldButtonText" maxchars="64" textalign="center">
+              <Size>
+                <AbsPoint x="324" y="24" />
+              </Size>
+              <Anchors>
+                <Anchor point="topleft" relativePoint="topleft" relativeTo="$parentFrame">
+                  <AbsPoint x="340" y="-3" />
+                </Anchor>
+              </Anchors>
+              <Color r="192" g="162" b="117" a="255" />
+            </Label>
+          </Windows>
+        </Window>
+        <!--End of Header display window -->
+        <!--Shows the players trading item list -->
+        <Window name="$parentPlayerList" inherits="TradeItemList">
+          <Size>
+            <AbsPoint x="325" y="285" />
+          </Size>
+          <Anchors>
+            <Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentItemDesc">
+              <AbsPoint x="0" y="0" />
+            </Anchor>
+          </Anchors>
+        </Window>
+        <!--Shows the players trading with you item list -->
+        <Window name="$parentTraderList" inherits="TradeItemList">
+          <Size>
+            <AbsPoint x="325" y="285" />
+          </Size>
+          <Anchors>
+            <Anchor point="topright" relativePoint="topleft" relativeTo="$parentPlayerList">
+              <AbsPoint x="0" y="0" />
+            </Anchor>
+          </Anchors>
+        </Window>
+        <!--Shows the players accept window -->
+        <Window name="$parentPlayerAccept" inherits="TradeAcceptTemplate">
+          <Size>
+            <AbsPoint x="325" y="40" />
+          </Size>
+          <Anchors>
+            <Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentPlayerList">
+              <AbsPoint x="0" y="0" />
+            </Anchor>
+          </Anchors>
+        </Window>
+        <!--Shows the trader accept window -->
+        <Window name="$parentTradeAccept" inherits="TradeWaitTemplate">
+          <Size>
+            <AbsPoint x="325" y="40" />
+          </Size>
+          <Anchors>
+            <Anchor point="topright" relativePoint="topleft" relativeTo="$parentPlayerAccept">
+              <AbsPoint x="0" y="0" />
+            </Anchor>
+          </Anchors>
+        </Window>
+      </Windows>
+    </Window>
+    <!--End of Trade Window -->
+  </Windows>
+</Interface>

@@ -1,0 +1,1 @@
+LoadResources( "./UserInterface/"..SystemData.Settings.Interface.customUiName.."/Icons/Custom/LegacyII-InGameGraphics-SuperSlayers-2", "LegacyIISuperSlayer2IconPack.xml", "LegacyIISuperSlayer2IconPack.xml" )

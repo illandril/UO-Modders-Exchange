@@ -1,0 +1,381 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Interface xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../Interface.xsd">
+  <Scripts>
+    <Script file="Source/Hotbar.lua" />
+  </Scripts>
+  <Windows>
+    <Window name="AssignHotkeyInfo" layer="overlay">
+      <Size>
+        <AbsPoint x="400" y="64" />
+      </Size>
+      <Anchors>
+        <Anchor point="center" relativePoint="center" />
+      </Anchors>
+      <Windows>
+        <FullResizeImage name="$parentBackground" inherits="UO_Simple_Black_Background">
+          <Size>
+            <AbsPoint x="0" y="0" />
+          </Size>
+          <Anchors>
+            <Anchor point="topleft" relativePoint="topleft" />
+            <Anchor point="bottomright" relativePoint="bottomright" />
+          </Anchors>
+          <Windows>
+            <FullResizeImage name="$parentFrame" inherits="UO_Default_Inner_Window_Frame">
+              <Size>
+                <AbsPoint x="10" y="10" />
+              </Size>
+              <Anchors>
+                <Anchor point="topleft" relativePoint="topleft" />
+                <Anchor point="bottomright" relativePoint="bottomright" />
+              </Anchors>
+            </FullResizeImage>
+          </Windows>
+        </FullResizeImage>
+        <Label name="$parentText" font="UO_DefaultText" maxchars="256" textalign="topcenter" autoresize="true" wordwrap="true">
+          <Size>
+            <AbsPoint x="250" y="0" />
+          </Size>
+          <Anchors>
+            <Anchor point="topleft" relativePoint="topleft">
+              <AbsPoint x="8" y="8" />
+            </Anchor>
+          </Anchors>
+          <Color r="255" g="255" b="255" a="255" />
+        </Label>
+      </Windows>
+    </Window>
+    <Window name="RequestTargetIdInfo" layer="overlay">
+      <Size>
+        <AbsPoint x="400" y="64" />
+      </Size>
+      <Anchors>
+        <Anchor point="center" relativePoint="center" />
+      </Anchors>
+      <Windows>
+        <FullResizeImage name="$parentBackground" inherits="UO_Simple_Black_Background">
+          <Size>
+            <AbsPoint x="0" y="0" />
+          </Size>
+          <Anchors>
+            <Anchor point="topleft" relativePoint="topleft" />
+            <Anchor point="bottomright" relativePoint="bottomright" />
+          </Anchors>
+          <Windows>
+            <FullResizeImage name="$parentFrame" inherits="UO_Default_Inner_Window_Frame">
+              <Size>
+                <AbsPoint x="10" y="10" />
+              </Size>
+              <Anchors>
+                <Anchor point="topleft" relativePoint="topleft" />
+                <Anchor point="bottomright" relativePoint="bottomright" />
+              </Anchors>
+            </FullResizeImage>
+          </Windows>
+        </FullResizeImage>
+        <Label name="$parentText" font="UO_DefaultText" maxchars="256" textalign="topcenter" autoresize="true" wordwrap="true">
+          <Size>
+            <AbsPoint x="250" y="0" />
+          </Size>
+          <Anchors>
+            <Anchor point="topleft" relativePoint="topleft">
+              <AbsPoint x="8" y="8" />
+            </Anchor>
+          </Anchors>
+          <Color r="255" g="255" b="255" a="255" />
+        </Label>
+      </Windows>
+    </Window>
+    <!--
+    <Button name="HotbarButtonDef"  inherits="ActionButtonDef">
+			<EventHandlers>
+				<EventHandler event="OnLButtonDown" function="Hotbar.ItemLButtonDown" />
+				<EventHandler event="OnLButtonUp" function="Hotbar.ItemLButtonUp" />
+				<EventHandler event="OnRButtonUp" function="Hotbar.ItemRButtonUp" />
+				<EventHandler event="OnMouseOver" function="Hotbar.ItemMouseOver" />
+				<EventHandler event="OnMouseOverEnd" function="ItemProperties.ClearMouseOverItem" />
+			</EventHandlers>				
+		</Button>
+    -->
+    <!-- THIS IS THE BUTTON TEMPLATE THAT ALL BUTTONS WILL BE USING -->
+    <Button name="HotbarButtonDef" inherits="ActionButtonDef" sticky="false" backgroundtexture="hud_image" highlighttexture="hud_image" overlaytexture="hud_image" overlayhighlighttexture="hud_image">
+      <Size>
+        <AbsPoint x="50" y="50" />
+      </Size>
+      <Anchors>
+        <Anchor point="middle" relativePoint="middle" relativeTo="$parentHorizHandle">
+          <AbsPoint x="20" y="0" />
+        </Anchor>
+      </Anchors>
+      <TexCoords>
+        <Normal x="0" y="704" />
+        <NormalHighlit x="50" y="704" />
+        <Pressed x="50" y="704" />
+        <PressedHighlit x="50" y="704" />
+        <Disabled x="0" y="704" />
+      </TexCoords>
+      <OverlayTexCoords>
+        <Normal x="0" y="704" />
+        <NormalHighlit x="50" y="704" />
+        <Pressed x="50" y="704" />
+        <PressedHighlit x="50" y="704" />
+        <Disabled x="0" y="704" />
+      </OverlayTexCoords>
+      <EventHandlers>
+        <EventHandler event="OnLButtonDown" function="Hotbar.ItemLButtonDown" />
+        <EventHandler event="OnLButtonUp" function="Hotbar.ItemLButtonUp" />
+        <EventHandler event="OnRButtonUp" function="Hotbar.ItemRButtonUp" />
+        <EventHandler event="OnMouseOver" function="Hotbar.ItemMouseOver" />
+        <EventHandler event="OnMouseOverEnd" function="ItemProperties.ClearMouseOverItem" />
+      </EventHandlers>
+    </Button>
+    <Window name="Hotbar" movable="false" layer="default" id="1" sticky="false">
+      <Size>
+        <AbsPoint x="624" y="50" />
+      </Size>
+      <Anchors>
+        <Anchor point="bottomleft" relativePoint="bottomleft">
+          <AbsPoint x="10" y="-10" />
+        </Anchor>
+      </Anchors>
+      <EventHandlers>
+        <EventHandler event="OnInitialize" function="Hotbar.Initialize" />
+        <EventHandler event="OnShutdown" function="Hotbar.Shutdown" />
+      </EventHandlers>
+      <Windows>
+        <DynamicImage name="$parentHorizHandle" texturescale="1.13" texture="UO_Core">
+          <Size>
+            <AbsPoint x="12" y="50" />
+          </Size>
+          <Anchors>
+            <Anchor point="topleft" relativePoint="topleft">
+              <AbsPoint x="0" y="0" />
+            </Anchor>
+          </Anchors>
+          <TexCoords x="177" y="221" />
+          <EventHandlers>
+            <EventHandler event="OnLButtonDown" function="Hotbar.OnHandleLButtonDown" />
+          </EventHandlers>
+        </DynamicImage>
+        <DynamicImage name="$parentVertHandle" textureScale="1.13" texture="UO_Core">
+          <Size>
+            <AbsPoint x="50" y="12" />
+          </Size>
+          <Anchors>
+            <Anchor point="topleft" relativePoint="topleft">
+              <AbsPoint x="0" y="0" />
+            </Anchor>
+          </Anchors>
+          <TexCoords x="257" y="228" />
+          <EventHandlers>
+            <EventHandler event="OnLButtonDown" function="Hotbar.OnHandleLButtonDown" />
+          </EventHandlers>
+        </DynamicImage>
+        <Button name="$parentButton1" inherits="HotbarButtonDef" id="1">
+          <Anchors>
+            <Anchor point="topright" relativePoint="topleft" relativeTo="$parentHorizHandle">
+              <AbsPoint x="0" y="0" />
+            </Anchor>
+          </Anchors>
+        </Button>
+        <Button name="$parentButton2" inherits="HotbarButtonDef" id="2">
+          <Anchors>
+            <Anchor point="topright" relativePoint="topleft" relativeTo="$parentButton1" />
+          </Anchors>
+        </Button>
+        <Button name="$parentButton3" inherits="HotbarButtonDef" id="3">
+          <Anchors>
+            <Anchor point="topright" relativePoint="topleft" relativeTo="$parentButton2" />
+          </Anchors>
+        </Button>
+        <Button name="$parentButton4" inherits="HotbarButtonDef" id="4">
+          <Anchors>
+            <Anchor point="topright" relativePoint="topleft" relativeTo="$parentButton3" />
+          </Anchors>
+        </Button>
+        <Button name="$parentButton5" inherits="HotbarButtonDef" id="5">
+          <Anchors>
+            <Anchor point="topright" relativePoint="topleft" relativeTo="$parentButton4" />
+          </Anchors>
+        </Button>
+        <Button name="$parentButton6" inherits="HotbarButtonDef" id="6">
+          <Anchors>
+            <Anchor point="topright" relativePoint="topleft" relativeTo="$parentButton5" />
+          </Anchors>
+        </Button>
+        <Button name="$parentButton7" inherits="HotbarButtonDef" id="7">
+          <Anchors>
+            <Anchor point="topright" relativePoint="topleft" relativeTo="$parentButton6" />
+          </Anchors>
+        </Button>
+        <Button name="$parentButton8" inherits="HotbarButtonDef" id="8">
+          <Anchors>
+            <Anchor point="topright" relativePoint="topleft" relativeTo="$parentButton7" />
+          </Anchors>
+        </Button>
+        <Button name="$parentButton9" inherits="HotbarButtonDef" id="9">
+          <Anchors>
+            <Anchor point="topright" relativePoint="topleft" relativeTo="$parentButton8" />
+          </Anchors>
+        </Button>
+        <Button name="$parentButton10" inherits="HotbarButtonDef" id="10">
+          <Anchors>
+            <Anchor point="topright" relativePoint="topleft" relativeTo="$parentButton9" />
+          </Anchors>
+        </Button>
+        <Button name="$parentButton11" inherits="HotbarButtonDef" id="11">
+          <Anchors>
+            <Anchor point="topright" relativePoint="topleft" relativeTo="$parentButton10" />
+          </Anchors>
+        </Button>
+        <Button name="$parentButton12" inherits="HotbarButtonDef" id="12">
+          <Anchors>
+            <Anchor point="topright" relativePoint="topleft" relativeTo="$parentButton11" />
+          </Anchors>
+        </Button>
+        <!--BitterBlack Extra Slot-->
+        <Button name="$parentButton13" inherits="HotbarButtonDef" id="13">
+          <Anchors>
+            <Anchor point="topright" relativePoint="topleft" relativeTo="$parentButton12" />
+          </Anchors>
+        </Button>
+        <Button name="$parentButton14" inherits="HotbarButtonDef" id="14">
+          <Anchors>
+            <Anchor point="topright" relativePoint="topleft" relativeTo="$parentButton13" />
+          </Anchors>
+        </Button>
+        <Button name="$parentButton15" inherits="HotbarButtonDef" id="15">
+          <Anchors>
+            <Anchor point="topright" relativePoint="topleft" relativeTo="$parentButton14" />
+          </Anchors>
+        </Button>
+        <Button name="$parentButton16" inherits="HotbarButtonDef" id="16">
+          <Anchors>
+            <Anchor point="topright" relativePoint="topleft" relativeTo="$parentButton15" />
+          </Anchors>
+        </Button>
+        <Button name="$parentButton17" inherits="HotbarButtonDef" id="17">
+          <Anchors>
+            <Anchor point="topright" relativePoint="topleft" relativeTo="$parentButton16" />
+          </Anchors>
+        </Button>
+        <Button name="$parentButton18" inherits="HotbarButtonDef" id="18">
+          <Anchors>
+            <Anchor point="topright" relativePoint="topleft" relativeTo="$parentButton17" />
+          </Anchors>
+        </Button>
+        <Button name="$parentButton19" inherits="HotbarButtonDef" id="19">
+          <Anchors>
+            <Anchor point="topright" relativePoint="topleft" relativeTo="$parentButton18" />
+          </Anchors>
+        </Button>
+        <Button name="$parentButton20" inherits="HotbarButtonDef" id="20">
+          <Anchors>
+            <Anchor point="topright" relativePoint="topleft" relativeTo="$parentButton19" />
+          </Anchors>
+        </Button>
+        <Button name="$parentButton21" inherits="HotbarButtonDef" id="21">
+          <Anchors>
+            <Anchor point="topright" relativePoint="topleft" relativeTo="$parentButton20" />
+          </Anchors>
+        </Button>
+        <Button name="$parentButton22" inherits="HotbarButtonDef" id="22">
+          <Anchors>
+            <Anchor point="topright" relativePoint="topleft" relativeTo="$parentButton21" />
+          </Anchors>
+        </Button>
+        <Button name="$parentButton23" inherits="HotbarButtonDef" id="23">
+          <Anchors>
+            <Anchor point="topright" relativePoint="topleft" relativeTo="$parentButton22" />
+          </Anchors>
+        </Button>
+        <Button name="$parentButton24" inherits="HotbarButtonDef" id="24">
+          <Anchors>
+            <Anchor point="topright" relativePoint="topleft" relativeTo="$parentButton23" />
+          </Anchors>
+        </Button>
+        <Button name="$parentButton25" inherits="HotbarButtonDef" id="25">
+          <Anchors>
+            <Anchor point="topright" relativePoint="topleft" relativeTo="$parentButton24" />
+          </Anchors>
+        </Button>
+        <Button name="$parentButton26" inherits="HotbarButtonDef" id="26">
+          <Anchors>
+            <Anchor point="topright" relativePoint="topleft" relativeTo="$parentButton25" />
+          </Anchors>
+        </Button>
+        <Button name="$parentButton27" inherits="HotbarButtonDef" id="27">
+          <Anchors>
+            <Anchor point="topright" relativePoint="topleft" relativeTo="$parentButton26" />
+          </Anchors>
+        </Button>
+        <Button name="$parentButton28" inherits="HotbarButtonDef" id="28">
+          <Anchors>
+            <Anchor point="topright" relativePoint="topleft" relativeTo="$parentButton27" />
+          </Anchors>
+        </Button>
+        <Button name="$parentButton29" inherits="HotbarButtonDef" id="29">
+          <Anchors>
+            <Anchor point="topright" relativePoint="topleft" relativeTo="$parentButton28" />
+          </Anchors>
+        </Button>
+        <Button name="$parentButton30" inherits="HotbarButtonDef" id="30">
+          <Anchors>
+            <Anchor point="topright" relativePoint="topleft" relativeTo="$parentButton29" />
+          </Anchors>
+        </Button>
+        <Button name="$parentButton31" inherits="HotbarButtonDef" id="31">
+          <Anchors>
+            <Anchor point="topright" relativePoint="topleft" relativeTo="$parentButton30" />
+          </Anchors>
+        </Button>
+        <Button name="$parentButton32" inherits="HotbarButtonDef" id="32">
+          <Anchors>
+            <Anchor point="topright" relativePoint="topleft" relativeTo="$parentButton31" />
+          </Anchors>
+        </Button>
+        <Button name="$parentButton33" inherits="HotbarButtonDef" id="33">
+          <Anchors>
+            <Anchor point="topright" relativePoint="topleft" relativeTo="$parentButton32" />
+          </Anchors>
+        </Button>
+        <Button name="$parentButton34" inherits="HotbarButtonDef" id="34">
+          <Anchors>
+            <Anchor point="topright" relativePoint="topleft" relativeTo="$parentButton33" />
+          </Anchors>
+        </Button>
+        <Button name="$parentButton35" inherits="HotbarButtonDef" id="35">
+          <Anchors>
+            <Anchor point="topright" relativePoint="topleft" relativeTo="$parentButton34" />
+          </Anchors>
+        </Button>
+        <Button name="$parentButton36" inherits="HotbarButtonDef" id="36">
+          <Anchors>
+            <Anchor point="topright" relativePoint="topleft" relativeTo="$parentButton35" />
+          </Anchors>
+        </Button>
+        <Button name="$parentButton37" inherits="HotbarButtonDef" id="37">
+          <Anchors>
+            <Anchor point="topright" relativePoint="topleft" relativeTo="$parentButton36" />
+          </Anchors>
+        </Button>
+        <Button name="$parentButton38" inherits="HotbarButtonDef" id="38">
+          <Anchors>
+            <Anchor point="topright" relativePoint="topleft" relativeTo="$parentButton37" />
+          </Anchors>
+        </Button>
+        <!--BitterBlack Extra Slot end-->
+        <Button name="$parentResizeButton" inherits="CoreWindowHotbarResizeButton" layer="popup">
+          <Anchors>
+            <Anchor point="bottomright" relativePoint="bottomright" relativeTo="">
+              <AbsPoint x="0" y="-1" />
+            </Anchor>
+          </Anchors>
+          <EventHandlers>
+            <EventHandler event="OnLButtonDown" function="Hotbar.OnResizeBegin" />
+          </EventHandlers>
+        </Button>
+      </Windows>
+    </Window>
+  </Windows>
+</Interface>

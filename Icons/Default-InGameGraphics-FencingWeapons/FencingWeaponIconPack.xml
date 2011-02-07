@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Interface xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../Interface.xsd">
+	<Assets>
+        <Texture name="DefaultInGameFencingWeaponIconPack_assassinspike" file="Icons/fencing_assassinspike.dds" />
+        <Texture name="DefaultInGameFencingWeaponIconPack_dagger" file="Icons/fencing_dagger.dds" />
+        <Texture name="DefaultInGameFencingWeaponIconPack_doublebladedstaff" file="Icons/fencing_doublebladedstaff.dds" />
+        <Texture name="DefaultInGameFencingWeaponIconPack_elvenspellblade" file="Icons/fencing_elvenspellblade.dds" />
+        <Texture name="DefaultInGameFencingWeaponIconPack_kama" file="Icons/fencing_kama.dds" />
+        <Texture name="DefaultInGameFencingWeaponIconPack_kryss" file="Icons/fencing_kryss.dds" />
+        <Texture name="DefaultInGameFencingWeaponIconPack_lajatang" file="Icons/fencing_lajatang.dds" />
+        <Texture name="DefaultInGameFencingWeaponIconPack_leafblade" file="Icons/fencing_leafblade.dds" />
+        <Texture name="DefaultInGameFencingWeaponIconPack_pike" file="Icons/fencing_pike.dds" />
+        <Texture name="DefaultInGameFencingWeaponIconPack_sai" file="Icons/fencing_sai.dds" />
+        <Texture name="DefaultInGameFencingWeaponIconPack_shortspear" file="Icons/fencing_shortspear.dds" />
+        <Texture name="DefaultInGameFencingWeaponIconPack_spear" file="Icons/fencing_spear.dds" />
+        <Texture name="DefaultInGameFencingWeaponIconPack_tekagi" file="Icons/fencing_tekagi.dds" />
+        <Texture name="DefaultInGameFencingWeaponIconPack_warcleaver" file="Icons/fencing_warcleaver.dds" />
+        <Texture name="DefaultInGameFencingWeaponIconPack_warfork" file="Icons/fencing_warfork.dds" />
+	</Assets>
+</Interface>

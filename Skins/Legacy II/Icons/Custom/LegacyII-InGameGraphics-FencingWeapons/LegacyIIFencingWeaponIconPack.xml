@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Interface xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../Interface.xsd">
+	<Assets>
+        <Texture name="LegacyIIInGameFencingWeaponIconPack_assassinspike" file="Icons/fencing_assassinspike.dds" />
+        <Texture name="LegacyIIInGameFencingWeaponIconPack_bloodblade" file="Icons/fencing_bloodblade.dds" />
+        <Texture name="LegacyIIInGameFencingWeaponIconPack_dagger" file="Icons/fencing_dagger.dds" />
+        <Texture name="LegacyIIInGameFencingWeaponIconPack_doublebladedstaff" file="Icons/fencing_doublebladedstaff.dds" />
+        <Texture name="LegacyIIInGameFencingWeaponIconPack_dualpointedspear" file="Icons/fencing_dualpointedspear.dds" />
+        <Texture name="LegacyIIInGameFencingWeaponIconPack_elvenspellblade" file="Icons/fencing_elvenspellblade.dds" />
+        <Texture name="LegacyIIInGameFencingWeaponIconPack_gargishdagger" file="Icons/fencing_gargishdagger.dds" />
+        <Texture name="LegacyIIInGameFencingWeaponIconPack_kama" file="Icons/fencing_kama.dds" />
+        <Texture name="LegacyIIInGameFencingWeaponIconPack_kryss" file="Icons/fencing_kryss.dds" />
+        <Texture name="LegacyIIInGameFencingWeaponIconPack_lajatang" file="Icons/fencing_lajatang.dds" />
+        <Texture name="LegacyIIInGameFencingWeaponIconPack_lance" file="Icons/fencing_lance.dds" />
+        <Texture name="LegacyIIInGameFencingWeaponIconPack_leafblade" file="Icons/fencing_leafblade.dds" />
+        <Texture name="LegacyIIInGameFencingWeaponIconPack_pike" file="Icons/fencing_pike.dds" />
+        <Texture name="LegacyIIInGameFencingWeaponIconPack_pitchfork" file="Icons/fencing_pitchfork.dds" />
+        <Texture name="LegacyIIInGameFencingWeaponIconPack_sai" file="Icons/fencing_sai.dds" />
+        <Texture name="LegacyIIInGameFencingWeaponIconPack_shortblade" file="Icons/fencing_shortblade.dds" />
+        <Texture name="LegacyIIInGameFencingWeaponIconPack_shortspear" file="Icons/fencing_shortspear.dds" />
+        <Texture name="LegacyIIInGameFencingWeaponIconPack_spear" file="Icons/fencing_spear.dds" />
+        <Texture name="LegacyIIInGameFencingWeaponIconPack_tekagi" file="Icons/fencing_tekagi.dds" />
+        <Texture name="LegacyIIInGameFencingWeaponIconPack_warcleaver" file="Icons/fencing_warcleaver.dds" />
+        <Texture name="LegacyIIInGameFencingWeaponIconPack_warfork" file="Icons/fencing_warfork.dds" />
+	</Assets>
+</Interface>

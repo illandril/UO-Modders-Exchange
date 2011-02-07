@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Interface xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../Interface.xsd">
+	<Assets>
+		<Font name="font_verdana_bold" face="Verdana" file="fonts/verdanab.ttf" height="15" texsize="256" antialias="true" hinting="false" autohinting="true" outline="false" shadow="false" bold="true"/>
+		<Font name="font_verdana" face="Verdana" file="fonts/verdana.ttf" height="15" texsize="256" antialias="true" hinting="false" autohinting="true" outline="false" shadow="false" bold="false"/>
+		<Font name="font_verdana_italic_small" face="Verdana" file="fonts/verdanai.ttf" height="12" texsize="256" antialias="true" hinting="false" autohinting="true" outline="false" shadow="false"/>
+		<Font name="font_verdana_BIG" face="Verdana" file="fonts/verdanab.ttf" height="40" texsize="256" antialias="true" hinting="false" autohinting="true" outline="true" shadow="true" bold="true"/>
+		<Font name="font_verdana_bold_shadow" face="Verdana" file="fonts/verdanab.ttf" height="20" texsize="256" antialias="true" hinting="false" autohinting="true" outline="false" shadow="true" bold="true"/>
+		<Font name="font_verdana_bold_med" face="Verdana" file="fonts/verdanab.ttf" height="15" texsize="256" antialias="true" hinting="false" autohinting="true" outline="false" shadow="false" bold="true"/>
+		<Font name="font_verdana_bold_shadow_med" face="Verdana" file="fonts/verdanab.ttf" height="15" texsize="256" antialias="true" hinting="false" autohinting="true" outline="false" shadow="true" bold="true"/>
+		<Font name="font_verdana_bold_shadow_small" face="Verdana" file="fonts/verdanab.ttf" height="12" texsize="256" antialias="true" hinting="false" autohinting="true" outline="false" shadow="true" bold="false"/>
+		<Font name="font_verdana_bold_shadow_status" face="Verdana" file="fonts/verdanab.ttf" height="10" texsize="256" antialias="true" hinting="false" autohinting="true" outline="false" shadow="true" bold="false"/>
+		<Font name="font_verdana_shadow_med2" face="Verdana" file="fonts/verdana.ttf" height="20" texsize="256" antialias="true" hinting="false" autohinting="true" outline="false" shadow="false" bold="false"/>
+		<Font name="font_verdana_bold_shadow_med2" face="Verdana" file="fonts/verdanab.ttf" height="20" texsize="256" antialias="true" hinting="false" autohinting="true" outline="false" shadow="true" bold="true"/>
+		<Font name="font_verdana_shadow_med" face="Verdana" file="fonts/verdana.ttf" height="15" texsize="256" antialias="true" hinting="false" autohinting="true" outline="false" shadow="false" bold="false"/>
+		<Font name="chiller" face="CHILLER" file="fonts/CHILLER.ttf" height="36" texsize="256" antialias="true" hinting="false" autohinting="true" outline="false" shadow="true" bold="false"/>
+		<Font name="comics" face="Comics" file="fonts/comic.ttf" height="20" texsize="256" antialias="true" hinting="false" autohinting="true" outline="false" shadow="true" bold="false"/>
+		<Font name="comics_bold" face="Comics" file="fonts/comicbd.ttf" height="20" texsize="256" antialias="true" hinting="false" autohinting="true" outline="false" shadow="true" bold="true"/>
+		<Font name="times" face="Times" file="fonts/times.ttf" height="25" texsize="256" antialias="true" hinting="false" autohinting="true" outline="false" shadow="true" bold="false"/>
+		<Font name="times_bold" face="Times" file="fonts/timesbd.ttf" height="25" texsize="256" antialias="true" hinting="false" autohinting="true" outline="false" shadow="true" bold="true"/>
+		<Font name="avatar" face="avatar" file="fonts/avatar.ttf" height="25" texsize="256" antialias="true" hinting="false" autohinting="true" outline="false" shadow="true" bold="false"/>
+		<Font name="avatar_bold" face="avatar" file="fonts/avatar.ttf" height="25" texsize="256" antialias="true" hinting="false" autohinting="true" outline="false" shadow="true" bold="true"/>
+		<Font name="gothic" face="gothic" file="fonts/GOTHUT__.ttf" height="42" texsize="256" antialias="true" hinting="false" autohinting="true" outline="false" shadow="true" bold="false"/>
+		<Font name="handwriting" face="handwriting" file="fonts/handwriting.ttf" height="25" texsize="256" antialias="true" hinting="false" autohinting="true" outline="false" shadow="true" bold="false"/>
+		<Font name="murder" face="youmurder" file="fonts/youmurdererbb_reg.otf" height="36" texsize="256" antialias="true" hinting="false" autohinting="true" outline="false" shadow="true" bold="false"/>
+		<Font name="diablo" face="diablo" file="fonts/avqest.ttf" height="32" texsize="256" antialias="true" hinting="false" autohinting="true" outline="false" shadow="true" bold="false"/>
+		<Font name="magic" face="magic" file="fonts/MagicSchoolTwo.ttf" height="36" texsize="256" antialias="true" hinting="false" autohinting="true" outline="false" shadow="true" bold="false"/>
+		<Font name="samurai" face="samurai" file="fonts/samurai.ttf" height="20" texsize="256" antialias="true" hinting="false" autohinting="true" outline="false" shadow="true" bold="false"/>
+		<Font name="runic" face="runes" file="fonts/Runes.ttf" height="36" texsize="256" antialias="true" hinting="false" autohinting="true" outline="false" shadow="true" bold="false"/>
+		<Font name="gargrunic" face="gargish runes" file="fonts/gargishrune.ttf" height="36" texsize="256" antialias="true" hinting="false" autohinting="true" outline="false" shadow="true" bold="false"/>
+
+<!-- Fonts added for Third Dawn UI Skin -->
+<!-- Ultima Online Classic Font -->
+<Font name="UO_15" face="Rough UO Classic" file="fonts/uo-classic.ttf" height="15" texsize="256" 
+					antialias="true" hinting="false"autohinting="false"outline="true" shadow="false"/>
+		<Font name="nol_UO_15" face="Rough UO Classic" file="fonts/uo-classic.ttf" height="15" texsize="256" 
+					antialias="true" hinting="false"autohinting="false"outline="false" shadow="false"/>
+		<Font name="UO_16" face="Rough UO Classic" file="fonts/uo-classic.ttf" height="16" texsize="256" 
+					antialias="true" hinting="false"autohinting="false"outline="true" shadow="false"/>
+		<Font name="nol_UO_16" face="Rough UO Classic" file="fonts/uo-classic.ttf" height="16" texsize="256" 
+					antialias="true" hinting="false"autohinting="false"outline="false" shadow="false"/>
+		<Font name="UO_17" face="Rough UO Classic" file="fonts/uo-classic.ttf" height="17" texsize="256" 
+					antialias="true" hinting="false"autohinting="false"outline="true" shadow="false"/>
+		<Font name="nol_UO_17" face="Rough UO Classic" file="fonts/uo-classic.ttf" height="17" texsize="256" 
+					antialias="true" hinting="false"autohinting="false"outline="false" shadow="false"/>
+		<Font name="UO_18" face="Rough UO Classic" file="fonts/uo-classic.ttf" height="18" texsize="256" 
+					antialias="true" hinting="false"autohinting="false"outline="true" shadow="false"/>
+		<Font name="nol_UO_18" face="Rough UO Classic" file="fonts/uo-classic.ttf" height="18" texsize="256" 
+					antialias="true" hinting="false"autohinting="false"outline="false" shadow="false"/>
+		<Font name="UO_20" face="Rough UO Classic" file="fonts/uo-classic.ttf" height="20" texsize="256" 
+					antialias="true" hinting="false"autohinting="false"outline="true" shadow="false"/>
+		<Font name="nol_UO_20" face="Rough UO Classic" file="fonts/uo-classic.ttf" height="20" texsize="256" 
+					antialias="true" hinting="false"autohinting="false"outline="false" shadow="false"/>			
+		<Font name="UO_22" face="Rough UO Classic" file="fonts/uo-classic.ttf" height="22" texsize="256" 
+					antialias="true" hinting="false"autohinting="false"outline="true" shadow="false"/>
+		<Font name="nol_UO_22" face="Rough UO Classic" file="fonts/uo-classic.ttf" height="22" texsize="256" 
+					antialias="true" hinting="false"autohinting="false"outline="false" shadow="false"/>			
+<!-- Magic:The Gathering -->
+		<Font name="magic_18" face="Magic:The Gathering" file="fonts/magic.ttf" height="18" texsize="256" 
+					antialias="true" hinting="false"autohinting="false"outline="true" shadow="false"/>
+		<Font name="magic_20" face="Magic:The Gathering" file="fonts/magic.ttf" height="20" texsize="256" 
+					antialias="true" hinting="false"autohinting="false"outline="true" shadow="false"/>
+		<Font name="magic_22" face="Magic:The Gathering" file="fonts/magic.ttf" height="22" texsize="256" 
+					antialias="true" hinting="false"autohinting="false"outline="true" shadow="false"/>
+
+
+		<!--  *************** Examples ***************  -->
+		<!-- <Font name="font_arialblack12" face="Arial Black" file="fonts/fonts/ariblk.ttf" height="12" texsize="256" antialias="true" hinting="false" autohinting="true" outline="false" shadow="false"/> -->
+		<!-- <Font name="font_arialblack16" face="Arial Black" file="fonts/fonts/ariblk.ttf" height="16" texsize="512" antialias="true" hinting="true" autohinting="true" outline="false" shadow="true" shadowsize="1" /> -->
+		<!--  ****************************************  -->
+	</Assets>
+</Interface>

@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Interface xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../Interface.xsd">
+  <Windows>
+    <Window name="DamageWindow" layer="default" handleinput="true">
+      <Size>
+        <AbsPoint x="70" y="300" />
+      </Size>
+      <Windows>
+        <Label name="$parentText" sticky="false" font="UO_Chat_Helvetica_21pt" maxchars="1024" textalign="center" autoresize="true" wordwrap="true" handleinput="false" linespacing="20">
+          <Size>
+            <AbsPoint x="50" y="20" />
+          </Size>
+          <color r="255" g="255" b="255" a="255" />
+        </Label>
+      </Windows>
+    </Window>
+  </Windows>
+</Interface>

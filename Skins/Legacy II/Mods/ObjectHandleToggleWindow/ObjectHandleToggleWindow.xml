@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Interface xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../Interface.xsd">
+  <Windows>
+    <Window name="ObjectHandleToggleWindow" movable="true" layer="default">
+      <Size>
+        <AbsPoint x="153" y="20" />
+      </Size>
+      <Anchors>
+        <Anchor point="top" relativePoint="top">
+          <AbsPoint x="0" y="10" />
+        </Anchor>
+      </Anchors>
+      <EventHandlers>
+        <EventHandler event="OnInitialize" function="ObjectHandleToggleWindow.Initialize" />
+        <EventHandler event="OnShutdown" function="ObjectHandleToggleWindow.Shutdown" />
+        <EventHandler event="OnRButtonUp" function="ObjectHandleToggleWindow.ShowContextMenu" />
+      </EventHandlers>
+      <Windows>
+        <Label name="$parentType" font="UOCR_16" maxchars="50" textalign="center" autoresize="true" layer="popup" handleinput="false">
+          <Size>
+           <AbsPoint x="153" y="35" />
+          </Size>
+          <Anchors>
+            <Anchor point="center" relativePoint="center" relativeTo="$parent" />
+          </Anchors>
+          <Color r="217" g="239" b="255"/>
+        </Label>
+        <DynamicImage name="$parentImage" texture="Legacy_Buttons" layer="background" handleinput="false">
+          <Size>
+								<AbsPoint x="151" y="35" />
+          </Size>
+          <Anchors>
+            <Anchor point="center" relativePoint="center" relativeTo="$parent" />
+          </Anchors>
+							<TexCoords x="362" y="77" />
+        </DynamicImage>
+      </Windows>
+    </Window>
+  </Windows>
+</Interface>

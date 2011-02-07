@@ -1,0 +1,165 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Interface xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../Interface.xsd">
+  <Scripts>
+    <Script file="Source/MobileHealthBar.lua" />
+  </Scripts>
+  <Windows>
+    <Window name="MobileHealthBarWindow" movable="false">
+      <Size>
+        <AbsPoint x="256" y="44" />
+      </Size>
+      <EventHandlers>
+        <EventHandler event="OnShutdown" function="MobileHealthBarWindow.Shutdown" />
+        <EventHandler event="OnLButtonDblClk" function="MobileHealthBarWindow.OnMobileDblClicked" />
+        <EventHandler event="OnLButtonDown" function="MobileHealthBarWindow.OnItemClicked" />
+        <EventHandler event="OnMouseDrag" function="MobileHealthBarWindow.OnMouseDrag" />
+        <EventHandler event="OnLButtonUp" function="MobileHealthBarWindow.OnLButtonUp" />
+        <EventHandler event="OnMouseWheel" function="MobileHealthBarWindow.OnRClick" />
+        <EventHandler event="OnRButtonUp" function="MobileHealthBarWindow.LeftClickClose" />
+      </EventHandlers>
+      <Windows>
+        <Button name="$parentClose" inherits="LargeCloseButton" handleinput="true" layer="default" poppable="false">
+          <Size>
+            <AbsPoint x="27" y="31" />
+          </Size>
+          <Anchors>
+            <Anchor point="topright" relativePoint="topright">
+              <AbsPoint x="-9" y="4" />
+            </Anchor>
+          </Anchors>
+          <EventHandlers>
+            <EventHandler event="OnLButtonDown" function="MobileHealthBarWindow.LeftClickClose" />
+          </EventHandlers>
+        </Button>
+        <Button name="$parentToggle" inherits="UO_Default_UpDownArrow_Button" handleinput="true" layer="default" poppable="false">
+          <Anchors>
+            <Anchor point="left" relativePoint="right" relativeTo="$parentClose">
+              <AbsPoint x="-197" y="3" />
+            </Anchor>
+          </Anchors>
+          <EventHandlers>
+            <EventHandler event="OnLButtonDown" function="MobileHealthBarWindow.ToggleGroupExtend" />
+          </EventHandlers>
+        </Button>
+        <DynamicImage name="$parentImage" texture="hud_image2" handleinput="false" layer="background" poppable="false">
+          <Size>
+            <AbsPoint x="256" y="44" />
+          </Size>
+          <TexCoords x="0" y="464" />
+        </DynamicImage>
+        <DynamicImage name="$parentImageDisabled" texture="hud_image2" handleinput="false" layer="background" poppable="false">
+          <Size>
+            <AbsPoint x="256" y="44" />
+          </Size>
+          <TexCoords x="0" y="415" />
+        </DynamicImage>
+        <StatusBar name="$parentHealthBar" inherits="TargetStatusBar">
+          <Size>
+            <AbsPoint x="198" y="5" />
+          </Size>
+          <Anchors>
+            <Anchor point="topleft" relativePoint="topleft">
+              <AbsPoint x="20" y="3" />
+            </Anchor>
+          </Anchors>
+        </StatusBar>
+        <Label name="$parentName" font="UO_DefaultText" maxchars="60" textalign="center" handleinput="false" wordwrap="false" linespacing="24" poppable="false">
+          <Size>
+            <AbsPoint x="220" y="32" />
+          </Size>
+          <Anchors>
+            <Anchor point="center" relativePoint="center" relativeTo="$parentImage">
+              <AbsPoint x="-14" y="3" />
+            </Anchor>
+          </Anchors>
+          <Color r="255" g="255" b="255" a="255" />
+        </Label>
+        <!-- Party health bar extension -->
+        <DynamicImage name="$parentGroupBackground" texture="hud_image2" layer="background" handleinput="false">
+          <Size>
+            <AbsPoint x="256" y="46" />
+          </Size>
+          <Anchors>
+            <Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentImage">
+              <AbsPoint x="0" y="-4" />
+            </Anchor>
+          </Anchors>
+          <TexCoords x="256" y="292" />
+        </DynamicImage>
+        <!-- The large size mana bar -->
+        <StatusBar name="$parentGroupManaBar" inherits="GroupWindowStatusBarBlue">
+          <Size>
+            <AbsPoint x="195" y="5" />
+          </Size>
+          <Anchors>
+            <Anchor point="left" relativePoint="left" relativeTo="$parentGroupBackground">
+              <AbsPoint x="21" y="-8" />
+            </Anchor>
+          </Anchors>
+        </StatusBar>
+        <!-- The large size health bar -->
+        <StatusBar name="$parentGroupHealthBar" inherits="GroupWindowStatusBarRed">
+          <Size>
+            <AbsPoint x="195" y="5" />
+          </Size>
+          <Anchors>
+            <Anchor point="top" relativePoint="bottom" relativeTo="$parentGroupManaBar">
+              <AbsPoint x="0" y="-1" />
+            </Anchor>
+          </Anchors>
+        </StatusBar>
+        <!-- The large size stamina bar -->
+        <StatusBar name="$parentGroupStaminaBar" inherits="GroupWindowStatusBarYellow">
+          <Size>
+            <AbsPoint x="195" y="5" />
+          </Size>
+          <Anchors>
+            <Anchor point="bottom" relativePoint="top" relativeTo="$parentGroupManaBar">
+              <AbsPoint x="0" y="1" />
+            </Anchor>
+          </Anchors>
+        </StatusBar>
+        <!-- The large size heal button -->
+        <Button name="$parentGroupHeal" backgroundtexture="hud_image2" highlighttexture="hud_image2">
+          <Size>
+            <AbsPoint x="96" y="15" />
+          </Size>
+          <Anchors>
+            <Anchor point="left" relativePoint="left" relativeTo="$parentGroupManaBar">
+              <AbsPoint x="-2" y="17" />
+            </Anchor>
+          </Anchors>
+          <TexCoords>
+            <Normal x="1" y="274" />
+            <NormalHighlit x="101" y="274" />
+            <Pressed x="101" y="274" />
+            <PressedHighlit x="101" y="274" />
+          </TexCoords>
+          <EventHandlers>
+            <EventHandler event="OnLButtonUp" function="MobileHealthBarWindow.HealMember" />
+          </EventHandlers>
+        </Button>
+        <!-- The large size cure button -->
+        <Button name="$parentGroupCure" backgroundtexture="hud_image2" highlighttexture="hud_image2">
+          <Size>
+            <AbsPoint x="96" y="15" />
+          </Size>
+          <Anchors>
+            <Anchor point="right" relativePoint="left" relativeTo="$parentGroupHeal">
+              <AbsPoint x="8" y="0" />
+            </Anchor>
+          </Anchors>
+          <TexCoords>
+            <Normal x="200" y="274" />
+            <NormalHighlit x="300" y="274" />
+            <Pressed x="300" y="274" />
+            <PressedHighlit x="300" y="274" />
+          </TexCoords>
+          <EventHandlers>
+            <EventHandler event="OnLButtonUp" function="MobileHealthBarWindow.CureMember" />
+          </EventHandlers>
+        </Button>
+      </Windows>
+    </Window>
+  </Windows>
+</Interface>

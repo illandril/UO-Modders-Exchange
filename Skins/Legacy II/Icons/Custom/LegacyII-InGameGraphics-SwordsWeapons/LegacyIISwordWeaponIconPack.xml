@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Interface xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../Interface.xsd">
+	<Assets>
+				<Texture name="LegacyIIInGameSwordWeaponIconPack_axe" file="Icons/swords_axe.dds" />
+				<Texture name="LegacyIIInGameSwordWeaponIconPack_bardiche" file="Icons/swords_bardiche.dds" />
+				<Texture name="LegacyIIInGameSwordWeaponIconPack_battleaxe" file="Icons/swords_battleaxe.dds" />
+				<Texture name="LegacyIIInGameSwordWeaponIconPack_bladedstaff" file="Icons/swords_bladedstaff.dds" />
+				<Texture name="LegacyIIInGameSwordWeaponIconPack_bokuto" file="Icons/swords_bokuto.dds" />
+				<Texture name="LegacyIIInGameSwordWeaponIconPack_boneharvester" file="Icons/swords_boneharvester.dds" />
+				<Texture name="LegacyIIInGameSwordWeaponIconPack_broadsword" file="Icons/swords_broadsword.dds" />
+				<Texture name="LegacyIIInGameSwordWeaponIconPack_cleaver" file="Icons/swords_cleaver.dds" />
+				<Texture name="LegacyIIInGameSwordWeaponIconPack_crescentblade" file="Icons/swords_crescentblade.dds" />
+				<Texture name="LegacyIIInGameSwordWeaponIconPack_cutlass" file="Icons/swords_cutlass.dds" />
+				<Texture name="LegacyIIInGameSwordWeaponIconPack_daisho" file="Icons/swords_daisho.dds" />
+				<Texture name="LegacyIIInGameSwordWeaponIconPack_doubleaxe" file="Icons/swords_doubleaxe.dds" />
+				<Texture name="LegacyIIInGameSwordWeaponIconPack_elvenmachete" file="Icons/swords_elvenmachete.dds" />
+				<Texture name="LegacyIIInGameSwordWeaponIconPack_executionersaxe" file="Icons/swords_executionersaxe.dds" />
+				<Texture name="LegacyIIInGameSwordWeaponIconPack_halberd" file="Icons/swords_halberd.dds" />
+				<Texture name="LegacyIIInGameSwordWeaponIconPack_katana" file="Icons/swords_katana.dds" />
+				<Texture name="LegacyIIInGameSwordWeaponIconPack_largebattleaxe" file="Icons/swords_largebattleaxe.dds" />
+				<Texture name="LegacyIIInGameSwordWeaponIconPack_longsword" file="Icons/swords_longsword.dds" />
+				<Texture name="LegacyIIInGameSwordWeaponIconPack_nodachi" file="Icons/swords_nodachi.dds" />
+				<Texture name="LegacyIIInGameSwordWeaponIconPack_ornateaxe" file="Icons/swords_ornateaxe.dds" />
+				<Texture name="LegacyIIInGameSwordWeaponIconPack_radiantscimitar" file="Icons/swords_radiantscimitar.dds" />
+				<Texture name="LegacyIIInGameSwordWeaponIconPack_runeblade" file="Icons/swords_runeblade.dds" />
+				<Texture name="LegacyIIInGameSwordWeaponIconPack_scimitar" file="Icons/swords_scimitar.dds" />
+				<Texture name="LegacyIIInGameSwordWeaponIconPack_scythe" file="Icons/swords_scythe.dds" />
+				<Texture name="LegacyIIInGameSwordWeaponIconPack_twohandedaxe" file="Icons/swords_twohandedaxe.dds" />
+				<Texture name="LegacyIIInGameSwordWeaponIconPack_vikingsword" file="Icons/swords_vikingsword.dds" />
+				<Texture name="LegacyIIInGameSwordWeaponIconPack_wakizashi" file="Icons/swords_wakizashi.dds" />
+	</Assets>
+</Interface>

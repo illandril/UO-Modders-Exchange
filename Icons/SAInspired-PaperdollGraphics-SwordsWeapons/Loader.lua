@@ -1,0 +1,1 @@
+LoadResources( "./UserInterface/"..SystemData.Settings.Interface.customUiName.."/Icons/Custom/SAInspired-PaperdollGraphics-SwordsWeapons", "SAInspiredSwordWeaponIconPack.xml", "SAInspiredSwordWeaponIconPack.xml" )

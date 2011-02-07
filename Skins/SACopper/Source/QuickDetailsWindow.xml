@@ -1,0 +1,45 @@
+<Interface xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../Interface.xsd">
+  <Windows>
+    <Window name="StatusDetailsTemplate" handleinput="false">
+      <Windows>
+        <Label name="$parentLabel" font="UO_Default_Outline_Text" maxchars="150" textalign="right" autoresize="true" handleinput="false">
+          <Size>
+            <AbsPoint x="125" y="18"/>
+          </Size>
+        </Label>
+        <Label name="$parentValue" font="UO_Default_Outline_Text" maxchars="256" textalign="left" autoresize="true" handleinput="false">
+          <Size>
+            <AbsPoint x="800" y="18"/>
+          </Size>
+          <Anchors>
+            <Anchor point="right" relativePoint="right" relativeTo="$parentLabel">
+              <AbsPoint x="0" y="0"/>
+            </Anchor>
+          </Anchors>
+        </Label>
+      </Windows>
+    </Window>
+
+    <Window name="QuickDetailsWindow" movable="true" layer="default">
+      <EventHandlers>
+        <EventHandler event="OnInitialize" function="QuickDetailsWindow.Initialize" />
+        <EventHandler event="OnUpdate" function="QuickDetailsWindow.UpdateTime" />
+      </EventHandlers>
+      <Anchors>
+        <Anchor point="topleft" relativePoint="topleft" relativeTo="StatusWindow">
+          <AbsPoint x="90" y="55" />
+        </Anchor>
+      </Anchors>
+      <Size>
+        <AbsPoint x="50" y="50"/>
+      </Size>
+      <Windows>
+        <Button name="$parentDetailsTextRoot" inherits="CoreWindowResizeButtonBottomRight" handleinput="true" layer="default" >
+          <EventHandlers>
+            <EventHandler event="OnLButtonUp" function="QuickDetailsWindow.ShowDetailsContextMenu" />
+          </EventHandlers>
+        </Button>
+      </Windows>
+    </Window>
+  </Windows>
+</Interface>

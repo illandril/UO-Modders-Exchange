@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Interface xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../Interface.xsd">
+	<Assets>
+        <Texture name="SAInspiredPaperdollArcheryWeaponIconPack_bow" file="Icons/archery_bow.dds" />
+        <Texture name="SAInspiredPaperdollArcheryWeaponIconPack_compositebow" file="Icons/archery_compositebow.dds" />
+        <Texture name="SAInspiredPaperdollArcheryWeaponIconPack_crossbow" file="Icons/archery_crossbow.dds" />
+        <Texture name="SAInspiredPaperdollArcheryWeaponIconPack_heavycrossbow" file="Icons/archery_heavycrossbow.dds" />
+        <Texture name="SAInspiredPaperdollArcheryWeaponIconPack_magicalshortbow" file="Icons/archery_magicalshortbow.dds" />
+        <Texture name="SAInspiredPaperdollArcheryWeaponIconPack_repeatingcrossbow" file="Icons/archery_repeatingcrossbow.dds" />
+        <Texture name="SAInspiredPaperdollArcheryWeaponIconPack_yumi" file="Icons/archery_yumi.dds" />
+	</Assets>
+</Interface>

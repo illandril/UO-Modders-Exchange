@@ -1,0 +1,470 @@
+<Interface xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../Interface.xsd">
+	<Scripts>
+		<Script file="Source/SkillsWindow.lua" />
+	</Scripts>
+	<Windows>        
+		<Button name="SkillIcon" texturescale="1.28" font="UO_DefaultText" textalign="topleft" drawchildrenfirst="true">
+			<Size>
+				<AbsPoint x="42" y="42" />
+			</Size>
+			<Windows>	
+				<DynamicImage name="$parentGraphic" texturescale=".67" handleinput="false">
+					<Size>
+						<AbsPoint x="42" y="42" />
+					</Size>
+					<Anchors>
+						<Anchor point="topleft" relativePoint="topleft"/>
+					</Anchors>			        
+				</DynamicImage>
+			</Windows>
+			<EventHandlers>
+				<EventHandler event="OnLButtonDown" function="SkillsWindow.SkillLButtonDown" />
+				<EventHandler event="OnLButtonUp" function="SkillsWindow.SkillLButtonUp" />
+				<EventHandler event="OnRButtonUp" function="SkillsWindow.SkillRButtonUp" />
+				<EventHandler event="OnMouseOver" function="SkillsWindow.SkillMouseOver" />
+				<EventHandler event="OnMouseOverEnd" function="ItemProperties.ClearMouseOverItem" />					
+			</EventHandlers>				
+		</Button>
+ 
+ <!-- Graphics for the lock, and skill-up/down buttons are in the SkillsWindow.lua file -->   
+    <Button name="SkillsWindowCycleButton" >
+        <Size>
+            <AbsPoint x="17" y="15" />
+        </Size>
+        <Anchors>
+            <Anchor point="left" relativePoint="right" relativeTo="$parentAttributeValue">
+                  <AbsPoint x="-5" y="0"/>
+            </Anchor>
+        </Anchors>
+        <EventHandlers>
+            <EventHandler event="OnLButtonUp" function="SkillsWindow.CycleLButtonUp" />
+            <EventHandler event="OnMouseOver" function="SkillsWindow.CycleMouseOver" />
+        </EventHandlers>
+    </Button>
+<!-- show modified button -->
+		<Button name="SkillValueToggleButton" inherits="Legacy_GumpButton" font="nol_Avatar_14" drawchildrenfirst="true" wordwrap="false">
+			<EventHandlers>
+				<EventHandler event="OnLButtonUp" function="SkillsWindow.SkillValueTypeToggleLButtonUp" />
+			</EventHandlers>
+		</Button>
+<!-- show caps button -->
+    <Button name="SkillCapToggleButton" inherits="Legacy_GumpButton" font="nol_Avatar_14" drawchildrenfirst="true" wordwrap="false">
+			<EventHandlers>
+				<EventHandler event="OnLButtonUp" function="SkillsWindow.SkillCapToggleLButtonUp" />
+			</EventHandlers>	
+		</Button>
+<!-- Skills Tracker -->
+    <Button name="SkillsTrackerToggleButton" inherits="Legacy_GumpButton" font="nol_Avatar_14" drawchildrenfirst="true" wordwrap="false">
+      <EventHandlers>
+        <EventHandler event="OnLButtonUp" function="SkillsWindow.SkillsTrackerToggleLButtonUp" />
+      </EventHandlers>
+    </Button>
+    
+		<Button name="SkillsWindowHelpButton" sticky="false" backgroundtexture="Legacy_Gumps_02" highlighttexture="Legacy_Gumps_02">
+			<Size>
+				<AbsPoint x="19" y="18" />
+			</Size>
+			<Anchors>
+				<Anchor point="topleft" relativePoint="topleft" >
+					<AbsPoint x="0" y="0"/>
+				</Anchor>
+			</Anchors>
+			<TexCoords>
+				<Normal x="19" y="311" />
+				<NormalHighlit x="38" y="311" />			
+				<Pressed x="19" y="311" />
+				<PressedHighlit x="38" y="311" />
+				<Disabled x="38" y="311" />
+			</TexCoords> 
+			<EventHandlers>
+				<EventHandler event="OnLButtonUp" function="SkillsWindow.ToggleHelpButton" />
+				<EventHandler event="OnMouseOver" function="SkillsWindow.MoreInfoOnMouseOver" />
+			</EventHandlers>
+		</Button>
+    
+		<Window name="SkillsWindowInfoDisplay"> 
+			<Size>
+				<AbsPoint x="245" y="45" />
+			</Size>
+<!-- skill icon -->
+			<Windows>
+		        <Button name="$parentIcon" inherits="SkillIcon">
+		        	<Anchors>
+				        <Anchor point="topleft" relativePoint="topleft">
+					        <AbsPoint x="0" y="0"/>
+				        </Anchor>
+			        </Anchors>
+		        </Button>
+<!-- skill name -->
+				<Label name="$parentName" font="nol_Arial_Narrow_13" maxchars="64" textalign="left" handleinput="false" wordwrap="false">
+					<Size>
+						<AbsPoint x="112" y="12" />
+					</Size>
+					<Anchors>
+						<Anchor point="topleft" relativePoint="topleft">
+							<AbsPoint x="47" y="0" />
+						</Anchor>
+					</Anchors>
+					<Color r="50" g="50" b="0" a="255" />
+				</Label>
+<!-- skill title -->
+				<Label name="$parentTitle" font="nol_Arial_Narrow_13" maxchars="64" textalign="left" handleinput="false" wordwrap="true">
+					<Size>
+						<AbsPoint x="99" y="12" />
+					</Size>
+					<Anchors>
+						<Anchor point="topleft" relativePoint="topleft">
+							<AbsPoint x="47" y="20" />
+						</Anchor>
+					</Anchors>
+					<Color r="50" g="20" b="0" a="255" />
+				</Label>
+<!-- skill value -->
+				<Label name="$parentValue" font="nol_Arial_Narrow_15" maxchars="64" textalign="right" handleinput="false">
+					<Size>
+						<AbsPoint x="70" y="16" />
+					</Size>
+					<Anchors>
+						<Anchor point="topright" relativePoint="topleft" relativeTo="$parentTitle">
+							<AbsPoint x="0" y="0" />
+						</Anchor>
+					</Anchors>
+					<Color r="0" g="0" b="0" a="255" />
+				</Label>
+<!-- skill lock -->
+		   	<Button name="$parentSkillStateButton" inherits="SkillsWindowCycleButton">
+		   		<Anchors>
+					    <Anchor point="topleft" relativePoint="topleft">
+					      <AbsPoint x="155" y="-5"/>
+					    </Anchor>
+			 	  </Anchors>
+		   	</Button>
+<!-- help button -->
+				<Button name="$parentHelpButton" inherits="SkillsWindowHelpButton">
+		        	<Anchors>
+				        <Anchor point="topright" relativePoint="topleft" relativeTo="$parentSkillStateButton">
+					        <AbsPoint x="3" y="5"/>
+				        </Anchor>
+			        </Anchors>
+		        </Button>
+		    </Windows>
+		</Window>		
+
+<!-- set size of the tabs -->
+		<Button name="SkillsWindowTabButton" inherits="LegacySkillsWindowTabButton" >
+			<Size>
+				<AbsPoint x="56" y="20" />
+			</Size>
+			<TextOffset x="0" y="0"/><!-- This used to have a y="3" here... If you want to know why I took it out, look at the skills window in Japanese! -->
+			<EventHandlers>
+				<EventHandler event="OnLButtonUp" function="SkillsWindow.ToggleTab" />
+			</EventHandlers>
+		</Button>
+
+<!-- this window holds the skill icons, etc -->
+		<Window name="SkillsWindowTabWindowTemplate" moveable="false" >
+			<Size>
+				<AbsPoint x="10" y="0" />
+			</Size>
+			<Anchors> 
+				<Anchor point="topleft" relativePoint="topleft" relativeTo="$parent">
+					<AbsPoint x="30" y="23" />
+				</Anchor>
+				
+				<Anchor point="bottomright" relativePoint="bottomright" relativeTo="$parent">
+					<AbsPoint x="-20" y="-68" />
+				</Anchor>
+			</Anchors>
+
+			<Windows>
+			<!-- Inner Frame Boilerplate --
+				<FullResizeImage name="$parentFrame" inherits="UO_Default_Inner_Window_Frame" >
+					<Anchors>
+            <Anchor point="topleft" relativePoint="topleft">
+              <AbsPoint x="0" y="5" />
+            </Anchor>
+						<Anchor point="bottomright" relativePoint="bottomright" />
+					</Anchors>
+
+				</FullResizeImage>
+				<!-- End of Inner Frame Boilerplate -->
+
+<!--
+				<VerticalResizeImage name="$parentVRule" inherits="UO_Default_Vertical_Rule" layer="background" handleinput="false">
+					<Size>
+						<AbsPoint x="4" y="408" />
+					</Size>
+					<Anchors>
+						<Anchor point="top" relativePoint="top">
+							<AbsPoint x="0" y="30" />
+						</Anchor>
+					</Anchors>
+				</VerticalResizeImage>				             
+-->
+				<Window name="$parentEntry1" inherits="SkillsWindowInfoDisplay">
+					<Anchors>
+						<Anchor point="topleft" relativePoint="topleft">
+							<AbsPoint x="20" y="20" />
+						</Anchor>
+					</Anchors>
+				</Window>									
+
+				<Window name="$parentEntry2" inherits="SkillsWindowInfoDisplay">
+					<Anchors>
+						<Anchor point="topleft" relativePoint="topleft" relativeTo="SkillsWindowTabWindow1Entry1">
+							<AbsPoint x="0" y="45" />
+						</Anchor>
+					</Anchors>
+				</Window>									
+
+				<Window name="$parentEntry3" inherits="SkillsWindowInfoDisplay">
+					<Anchors>
+						<Anchor point="topleft" relativePoint="topleft" relativeTo="SkillsWindowTabWindow1Entry2">
+							<AbsPoint x="0" y="45" />
+						</Anchor>
+					</Anchors>
+				</Window>									
+
+				<Window name="$parentEntry4" inherits="SkillsWindowInfoDisplay">
+					<Anchors>
+						<Anchor point="topleft" relativePoint="topleft" relativeTo="SkillsWindowTabWindow1Entry3">
+							<AbsPoint x="0" y="45" />
+						</Anchor>
+					</Anchors>
+				</Window>										
+
+				<Window name="$parentEntry5" inherits="SkillsWindowInfoDisplay">
+					<Anchors>
+						<Anchor point="topleft" relativePoint="topleft" relativeTo="SkillsWindowTabWindow1Entry4">
+							<AbsPoint x="0" y="45" />
+						</Anchor>
+					</Anchors>
+				</Window>									
+
+				<Window name="$parentEntry6" inherits="SkillsWindowInfoDisplay">
+					<Anchors>
+						<Anchor point="topleft" relativePoint="topleft" relativeTo="SkillsWindowTabWindow1Entry5">
+							<AbsPoint x="0" y="45" />
+						</Anchor>
+					</Anchors>
+				</Window>									
+
+				<Window name="$parentEntry7" inherits="SkillsWindowInfoDisplay">
+					<Anchors>
+						<Anchor point="topleft" relativePoint="topleft" relativeTo="SkillsWindowTabWindow1Entry1">
+							<AbsPoint x="275" y="0" />
+						</Anchor>
+					</Anchors>
+				</Window>	
+
+				<Window name="$parentEntry8" inherits="SkillsWindowInfoDisplay">
+					<Anchors>
+						<Anchor point="topleft" relativePoint="topleft" relativeTo="SkillsWindowTabWindow1Entry7">
+							<AbsPoint x="0" y="45" />
+						</Anchor>
+					</Anchors>
+				</Window>	
+
+				<Window name="$parentEntry9" inherits="SkillsWindowInfoDisplay">
+					<Anchors>
+						<Anchor point="topleft" relativePoint="topleft" relativeTo="SkillsWindowTabWindow1Entry8">
+							<AbsPoint x="0" y="45" />
+						</Anchor>
+					</Anchors>
+				</Window>	
+
+				<Window name="$parentEntry10" inherits="SkillsWindowInfoDisplay">
+					<Anchors>
+						<Anchor point="topleft" relativePoint="topleft" relativeTo="SkillsWindowTabWindow1Entry9">
+							<AbsPoint x="0" y="45" />
+						</Anchor>
+					</Anchors>
+				</Window>
+
+        <Window name="$parentEntry11" inherits="SkillsWindowInfoDisplay">
+          <Anchors>
+            <Anchor point="topleft" relativePoint="topleft" relativeTo="SkillsWindowTabWindow1Entry10">
+              <AbsPoint x="0" y="45" />
+            </Anchor>
+          </Anchors>
+        </Window>
+
+        <Window name="$parentEntry12" inherits="SkillsWindowInfoDisplay">
+          <Anchors>
+            <Anchor point="topleft" relativePoint="topleft" relativeTo="SkillsWindowTabWindow1Entry11">
+              <AbsPoint x="0" y="45" />
+            </Anchor>
+          </Anchors>
+        </Window>
+
+      </Windows>
+		</Window>
+				
+		<Window name="SkillsWindow" movable="true" >
+			<Size>
+				<AbsPoint x="593" y="380" />
+			</Size>
+			<Anchors>
+				<Anchor point="center" relativePoint="center" />
+			</Anchors>
+			<EventHandlers>
+				<EventHandler event="OnInitialize" function="SkillsWindow.Initialize" />
+        <EventHandler event="OnShutdown" function="SkillsWindow.Shutdown" />
+        <EventHandler event="OnShown" function="SkillsWindow.OnShown" />
+        <EventHandler event="OnHidden" function="SkillsWindow.OnHidden" />
+			</EventHandlers>
+			<Windows>
+				<!-- Default chrome. Alter this at your own peril. --> 
+				<Window name="$parentChrome" inherits="Legacy_BlankWindow"> 
+					<Anchors> 
+						<Anchor point="topleft" relativePoint="topleft"/> 
+						<Anchor point="bottomright" relativePoint="bottomright"/> 
+					</Anchors> 
+				</Window>                        
+				<!-- End of default chrome boilerplate code -->
+<!-- Book Image -->
+				<HorizontalResizeImage name="$parentSkillsBookImage" texture="Legacy_Gumps_03" handleinput="false" layer="background" sticky="false">
+					<Size>
+						<AbsPoint x="593" y="380" />
+					</Size>
+  					<Anchors>
+  						<Anchor point="topleft" relativePoint="topleft" >
+  							<AbsPoint x="0" y="0" />
+  						</Anchor>
+  					</Anchors>
+					<Sizes left="593" middle="0" right="0" />
+					<TexCoords>
+						<Left x="0" y="0" />
+						<Middle x="297" y="190" />
+						<Right x="593" y="380" />
+					</TexCoords>
+				</HorizontalResizeImage>
+
+<!-- tab position -->
+				<Button name="$parentTabButton1" inherits="SkillsWindowTabButton" >
+					<Anchors>
+						<Anchor point="topleft" relativePoint="topleft">
+							<AbsPoint x="40" y="6" />
+						</Anchor>
+					</Anchors>        
+				</Button>
+        
+        <Button name="$parentTabButton2" inherits="SkillsWindowTabButton" >
+					<Anchors>
+						<Anchor point="topright" relativePoint="topleft" relativeTo="$parentTabButton1">
+							<AbsPoint x="1" y="0" />
+						</Anchor>
+					</Anchors>
+          <TextOffset x="1" y="0" />
+				</Button>
+        
+        <Button name="$parentTabButton3" inherits="SkillsWindowTabButton" >
+					<Anchors>
+						<Anchor point="topright" relativePoint="topleft" relativeTo="$parentTabButton2">
+							<AbsPoint x="1" y="0" />
+						</Anchor>
+					</Anchors>
+				</Button>
+        
+        <Button name="$parentTabButton4" inherits="SkillsWindowTabButton" >
+					<Anchors>
+						<Anchor point="topright" relativePoint="topleft" relativeTo="$parentTabButton3">
+							<AbsPoint x="1" y="0" />
+						</Anchor>
+					</Anchors>
+				</Button>
+        
+        <Button name="$parentTabButton5" inherits="SkillsWindowTabButton" >
+					<Anchors>
+						<Anchor point="topright" relativePoint="topleft" relativeTo="$parentTabButton4">
+							<AbsPoint x="50" y="0" />
+						</Anchor>
+					</Anchors>
+				</Button>
+        
+        <Button name="$parentTabButton6" inherits="SkillsWindowTabButton" >
+					<Anchors>
+						<Anchor point="topright" relativePoint="topleft" relativeTo="$parentTabButton5">
+							<AbsPoint x="1" y="0" />
+						</Anchor>
+					</Anchors>
+				</Button>
+        
+        <Button name="$parentTabButton7" inherits="SkillsWindowTabButton" >
+					<Anchors>
+						<Anchor point="topright" relativePoint="topleft" relativeTo="$parentTabButton6">
+							<AbsPoint x="1" y="0" />
+						</Anchor>
+					</Anchors>
+				</Button>	
+        
+        <Button name="$parentTabButton8" inherits="SkillsWindowTabButton" >
+					<Anchors>
+						<Anchor point="topright" relativePoint="topleft" relativeTo="$parentTabButton7">
+							<AbsPoint x="1" y="0" />
+						</Anchor>
+					</Anchors>
+				</Button>	
+
+				<Window name="$parentTabWindow1" inherits="SkillsWindowTabWindowTemplate" />
+        <Window name="$parentTabWindow2" inherits="SkillsWindowTabWindowTemplate" />
+        <Window name="$parentTabWindow3" inherits="SkillsWindowTabWindowTemplate" />
+        <Window name="$parentTabWindow4" inherits="SkillsWindowTabWindowTemplate" />
+        <Window name="$parentTabWindow5" inherits="SkillsWindowTabWindowTemplate" />
+        <Window name="$parentTabWindow6" inherits="SkillsWindowTabWindowTemplate" />
+        <Window name="$parentTabWindow7" inherits="SkillsWindowTabWindowTemplate" />
+        <Window name="$parentTabWindow8" inherits="SkillsWindowTabWindowTemplate" />
+                
+				<Label name="$parentCustomHelp" font="nol_Avatar_14" linespacing="20" maxchars="256" textalign="left" autoresize="true" handleinput="false" wordwrap="true" >
+					<Size>
+						<AbsPoint x="200" y="20" />
+					</Size>
+					<Anchors>
+						<Anchor point="topleft" relativePoint="topleft" relativeTo="$parentTabWindow1">
+							<AbsPoint x="25" y="20" />
+						</Anchor>
+					</Anchors>
+					<Color r="25" g="25" b="0" a="255" />
+				</Label>
+				                
+				<Button name="$parentSkillValueTypeToggleButton" inherits="SkillValueToggleButton" >
+		        	<Anchors>
+						<Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentTabWindow1">
+							<AbsPoint x="8" y="0"/>
+						</Anchor>
+					</Anchors>
+				</Button>
+        
+				<Button name="$parentSkillCapToggleButton" inherits="SkillCapToggleButton" >
+		        	<Anchors>
+						<Anchor point="topright" relativePoint="topleft" relativeTo="$parentSkillValueTypeToggleButton">
+							<AbsPoint x="5" y="0"/>
+						</Anchor>
+					</Anchors>
+				</Button>
+
+        <Button name="$parentSkillsTrackerToggleButton" inherits="SkillsTrackerToggleButton" >
+          <Anchors>
+            <Anchor point="topright" relativePoint="topleft" relativeTo="$parentSkillCapToggleButton">
+              <AbsPoint x="5" y="0"/>
+            </Anchor>
+          </Anchors>
+        </Button>
+        
+				<Label name="$parentTotalSkillPoints" font="nol_Avatar_16" maxchars="64" textalign="left" handleinput="false" wordwrap="false" >
+					<Size>
+						<AbsPoint x="260" y="12" />
+					</Size>
+					<Anchors>
+						<Anchor point="bottomright" relativePoint="bottomright" relativeTo="$parentTabWindow1">
+							<AbsPoint x="75" y="18"/>
+						</Anchor>
+					</Anchors>
+					<Color r="25" g="25" b="0" a="255" />
+				</Label>
+
+			</Windows>
+		</Window>
+		
+	</Windows>
+</Interface>

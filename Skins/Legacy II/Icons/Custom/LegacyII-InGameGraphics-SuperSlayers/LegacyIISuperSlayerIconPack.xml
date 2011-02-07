@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Interface xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../Interface.xsd">
+	<Assets>
+        <Texture name="LegacyIIInGameSuperSlayerIconPack_arachnid" file="Icons/arachnid.dds" />
+        <Texture name="LegacyIIInGameSuperSlayerIconPack_demon" file="Icons/demon.dds" />
+        <Texture name="LegacyIIInGameSuperSlayerIconPack_elemental" file="Icons/elemental.dds" />
+        <Texture name="LegacyIIInGameSuperSlayerIconPack_fey" file="Icons/fey.dds" />
+        <Texture name="LegacyIIInGameSuperSlayerIconPack_repond" file="Icons/repond.dds" />
+        <Texture name="LegacyIIInGameSuperSlayerIconPack_reptile" file="Icons/reptile.dds" />
+        <Texture name="LegacyIIInGameSuperSlayerIconPack_undead" file="Icons/undead.dds" />
+	</Assets>
+</Interface>

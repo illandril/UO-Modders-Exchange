@@ -1,0 +1,234 @@
+<Interface xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../Interface.xsd">
+  <Scripts>
+    <Script file="Source/MainMenuWindow.lua" />
+  </Scripts>
+  <Windows>
+
+    <Window name="MenuItemTemplate">
+      <Size>
+        <AbsPoint x="145" y="20" />
+      </Size>
+      
+      <Windows>
+        <Button name="$parentButton" inherits="LegacyDefaultDiamond" backgroundtexture="Legacy_Buttons" highlighttexture="Legacy_Buttons" layer="background">
+          <Size>
+            <AbsPoint x="17" y="17" />
+          </Size>
+          <Anchors>
+            <Anchor point="left" relativePoint="left">
+              <AbsPoint x="5" y="0" />
+            </Anchor>
+          </Anchors>
+        </Button>
+
+        <Label name="$parentText" font="UOCR_17" maxchars="64" textalign="left" handleinput="false" >
+          <Size>
+            <AbsPoint x="150" y="18" />
+          </Size>
+          <Anchors>
+            <Anchor point="left" relativePoint="left">
+              <AbsPoint x="25" y="-2" />
+            </Anchor>
+          </Anchors>
+          <Color r="235" g="235" b="235" a="235" />
+        </Label>
+
+        <Label name="$parentHotkey" font="UO_DefaultText" maxchars="64" textalign="right" handleinput="false" >
+          <Size>
+            <AbsPoint x="100" y="18" />
+          </Size>
+          <Anchors>
+            <Anchor point="right" relativePoint="right">
+              <AbsPoint x="5" y="0" />
+            </Anchor>
+          </Anchors>
+          <Color r="255" g="255" b="255" a="255" />
+        </Label>
+      </Windows>
+    </Window>
+
+
+    <Window name="MainMenuWindow" movable="true" layer="popup">
+      <Size>
+        <AbsPoint x="340" y="220" />
+      </Size>
+      <Anchors>
+        <Anchor point="center" relativePoint="center" relativeTo="">
+          <AbsPoint x="0" y="0" />
+        </Anchor>
+      </Anchors>
+      <EventHandlers>
+        <EventHandler event="OnInitialize" function="MainMenuWindow.Initialize" />
+        <EventHandler event="OnShutdown" function="MainMenuWindow.Shutdown" />
+        <EventHandler event="OnShown" function="MainMenuWindow.OnShown" />
+        <EventHandler event="OnHidden" function="MainMenuWindow.OnHidden" />
+      </EventHandlers>
+      <Windows>
+        <!-- Default chrome. Alter this at your own peril. -->
+        <Window name="$parentChrome" inherits="UO_DefaultWindow">
+          <Anchors>
+            <Anchor point="topleft" relativePoint="topleft"/>
+            <Anchor point="bottomright" relativePoint="bottomright"/>
+          </Anchors>
+        </Window>
+				<!-- End of default chrome boilerplate code -->
+        <DynamicImage name="$parentFrame" texture="Legacy_Gumps_01" handleinput="false" >
+          <Size>
+						<AbsPoint x="393" y="270" />
+				</Size>
+				<Anchors>
+					<Anchor point="topleft" relativePoint="topleft">
+						<AbsPoint x="-28" y="-25" />
+					</Anchor>
+				</Anchors>
+				<TexCoords x="310" y="0"/>
+        </DynamicImage>
+
+<!-- Log Out -->
+        <Window name="$parentLogOutItem" inherits="MenuItemTemplate" >
+          <Anchors>
+            <Anchor point="topleft" relativePoint="topleft" >
+              <AbsPoint x="24" y="20" />
+            </Anchor>
+          </Anchors>
+          <EventHandlers>
+            <EventHandler event="OnLButtonUp" function="MainMenuWindow.OnLogOut" />
+          </EventHandlers>
+        </Window>
+
+<!-- Exit Game -->
+        <Window name="$parentExitGameItem" inherits="MenuItemTemplate" >
+          <Anchors>
+            <Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentLogOutItem">
+              <AbsPoint x="0" y="0" />
+            </Anchor>
+          </Anchors>
+          <EventHandlers>
+            <EventHandler event="OnLButtonUp" function="InterfaceCore.OnExitGame" />
+          </EventHandlers>
+        </Window>
+
+<!-- Help Menu -->
+        <Window name="$parentHelpItem" inherits="MenuItemTemplate" >
+          <Anchors>
+            <Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentExitGameItem">
+              <AbsPoint x="0" y="0" />
+            </Anchor>
+          </Anchors>
+          <EventHandlers>
+            <EventHandler event="OnLButtonUp" function="MainMenuWindow.OnOpenHelp" />
+          </EventHandlers>
+        </Window>
+
+<!-- Bug Report Tool -->
+        <Window name="$parentBugReportItem" inherits="MenuItemTemplate" >
+          <Anchors>
+            <Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentHelpItem">
+              <AbsPoint x="0" y="0" />
+            </Anchor>
+          </Anchors>
+          <EventHandlers>
+            <EventHandler event="OnLButtonUp" function="MainMenuWindow.OnOpenBugReportItem" />
+          </EventHandlers>
+        </Window>
+<!-- User Settings -->
+        <Window name="$parentUserSettingsItem" inherits="MenuItemTemplate" >
+          <Anchors>
+            <Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentBugReportItem">
+              <AbsPoint x="0" y="0" />
+            </Anchor>
+          </Anchors>
+          <EventHandlers>
+            <EventHandler event="OnLButtonUp" function="MainMenuWindow.OnOpenUserSettings" />
+          </EventHandlers>
+        </Window>
+
+<!-- Close Menu --
+        <Window name="$parentCloseMenuItem" inherits="MenuItemTemplate" >
+          <Anchors>
+            <Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentBugReportItem">
+              <AbsPoint x="0" y="0" />
+            </Anchor>
+          </Anchors>
+          <EventHandlers>
+            <EventHandler event="OnLButtonUp" function="MainMenuWindow.OnCloseMenu" />
+          </EventHandlers>
+        </Window>
+
+<!-- == Column 2 == -->
+<!-- User Settings --
+        <Window name="$parentUserSettingsItem" inherits="MenuItemTemplate" >
+          <Anchors>
+            <Anchor point="topright" relativePoint="topleft" relativeTo="$parentLogOutItem">
+              <AbsPoint x="0" y="0" />
+            </Anchor>
+          </Anchors>
+          <EventHandlers>
+            <EventHandler event="OnLButtonUp" function="MainMenuWindow.OnOpenUserSettings" />
+          </EventHandlers>
+        </Window>
+
+<!-- Runic Alphabet --
+        <Window name="$parentRunicAlphabetItem" inherits="MenuItemTemplate" >
+          <Anchors>
+            <Anchor point="bottom" relativePoint="top" relativeTo="$parentUserSettingsItem">
+              <AbsPoint x="0" y="0" />
+            </Anchor>
+          </Anchors>
+          <EventHandlers>
+            <EventHandler event="OnLButtonUp" function="MainMenuWindow.OnOpenRunicAlphabet" />
+          </EventHandlers>
+        </Window>
+
+<!-- Debug Window **Disabled because the window breaks when changing the default window art**
+        <Window name="$parentDebugWindow" inherits="MenuItemTemplate" >
+          <Anchors>
+            <Anchor point="bottom" relativePoint="top" relativeTo="$parentCloseMenuItem">
+              <AbsPoint x="0" y="0" />
+            </Anchor>
+          </Anchors>
+          <EventHandlers>
+            <EventHandler event="OnLButtonUp" function="MainMenuWindow.OnOpenDebugWindow" />
+          </EventHandlers>
+        </Window> -->
+
+<!-- Application Menu --
+        <Window name="$parentAppMenu" inherits="MenuItemTemplate" >
+          <Anchors>
+            <Anchor point="bottom" relativePoint="top" relativeTo="$parentRunicAlphabetItem">
+              <AbsPoint x="0" y="0" />
+            </Anchor>
+          </Anchors>
+          <EventHandlers>
+            <EventHandler event="OnLButtonUp" function="MainMenuWindow.OnOpenAppMenu" />
+          </EventHandlers>
+        </Window>
+        
+<!-- BOD Rewards Window --
+        <Window name="$parentBODRewardWindow" inherits="MenuItemTemplate" >
+          <Anchors>
+            <Anchor point="bottom" relativePoint="top" relativeTo="$parentAppMenu">
+              <AbsPoint x="0" y="0" />
+            </Anchor>
+          </Anchors>
+          <EventHandlers>
+            <EventHandler event="OnLButtonUp" function="MainMenuWindow.OnOpenBODReward" />
+          </EventHandlers>
+        </Window>
+        
+<!-- Vet Rewards Window -- ** Disabled because it didn't work **
+        <Window name="$parentVetRewardWindow" inherits="MenuItemTemplate" >
+          <Anchors>
+            <Anchor point="bottom" relativePoint="top" relativeTo="$parentBODRewardWindow">
+              <AbsPoint x="0" y="0" />
+            </Anchor>
+          </Anchors>
+          <EventHandlers>
+            <EventHandler event="OnLButtonUp" function="MainMenuWindow.OnOpenVRSelect" />
+          </EventHandlers>
+        </Window> -->
+
+      </Windows>
+    </Window>
+  </Windows>
+</Interface>

@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Interface xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../Interface.xsd">
+<!-- This file is used to include custom files
+		 and define new fonts. -->
+<!-- UI Window Script Files should be included in the UI Window file -->
+	<Include file="Icons/custom-icons.xml" />
+	<Include file="LegacyFiles/Source/legacy-ui-templates.xml" />
+	
+	<!-- Script Files 
+	<Scripts>
+	</Scripts> -->
+
+<!-- Fonts
+			I am using the following naming convention for fonts:
+			
+				Prefixes:
+						nol_ 	= Font outlines are turned off (outline="false")
+						shd_ 	= Font shadows are turned on (shadow="true")
+					
+				Suffix:
+						_##		= Font size (height="##")
+-->
+  <Assets>
+   <Texture name="Legacy_Buttons" file="LegacyFiles/Textures/legacy-buttons.dds" />
+   <Texture name="Legacy_Gumps_Runebook" file="LegacyFiles/Textures/legacy-gumps-runebook.dds" />
+<!--
+		<Font name="UOS_10" face="Oltima_Unline_Solid" file="LegacyFiles/Fonts/Oltima_Unline_Solid.ttf" height="10" texsize="256" 
+					antialias="true" hinting="false" autohinting="true" outline="true" shadow="false"/>
+		<Font name="nol_UOS_10" face="Oltima_Unline_Solid" file="LegacyFiles/Fonts/Oltima_Unline_Solid.ttf" height="10" texsize="256" 
+					antialias="true" hinting="false" autohinting="true" outline="false" shadow="false"/>
+		<Font name="UOS_12" face="Oltima_Unline_Solid" file="LegacyFiles/Fonts/Oltima_Unline_Solid.ttf" height="12" texsize="256" 
+					antialias="true" hinting="false" autohinting="true" outline="true" shadow="false"/>
+		<Font name="nol_UOS_12" face="Oltima_Unline_Solid" file="LegacyFiles/Fonts/Oltima_Unline_Solid.ttf" height="12" texsize="256" 
+					antialias="true" hinting="false" autohinting="true" outline="false" shadow="false"/>
+		<Font name="UOS_13" face="Oltima_Unline_Solid" file="LegacyFiles/Fonts/Oltima_Unline_Solid.ttf" height="13" texsize="256" 
+					antialias="true" hinting="false" autohinting="true" outline="true" shadow="false"/>
+		<Font name="nol_UOS_13" face="Oltima_Unline_Solid" file="LegacyFiles/Fonts/Oltima_Unline_Solid.ttf" height="13" texsize="256" 
+					antialias="true" hinting="false" autohinting="true" outline="false" shadow="false"/>
+		<Font name="UOS_14" face="Oltima_Unline_Solid" file="LegacyFiles/Fonts/Oltima_Unline_Solid.ttf" height="14" texsize="256" 
+					antialias="true" hinting="false" autohinting="true" outline="true" shadow="false"/>
+		<Font name="nol_UOS_14" face="Oltima_Unline_Solid" file="LegacyFiles/Fonts/Oltima_Unline_Solid.ttf" height="14" texsize="256" 
+					antialias="true" hinting="false" autohinting="true" outline="false" shadow="false"/>
+		<Font name="UOS_15" face="Oltima_Unline_Solid" file="LegacyFiles/Fonts/Oltima_Unline_Solid.ttf" height="15" texsize="256" 
+					antialias="true" hinting="false" autohinting="true" outline="true" shadow="false"/>
+		<Font name="nol_UOS_15" face="Oltima_Unline_Solid" file="LegacyFiles/Fonts/Oltima_Unline_Solid.ttf" height="15" texsize="256" 
+					antialias="true" hinting="false" autohinting="true" outline="false" shadow="false"/>
+		<Font name="UOS_18" face="Oltima_Unline_Solid" file="LegacyFiles/Fonts/Oltima_Unline_Solid.ttf" height="18" texsize="256" 
+					antialias="true" hinting="false" autohinting="true" outline="true" shadow="false"/>
+		<Font name="nol_UOS_18" face="Oltima_Unline_Solid" file="LegacyFiles/Fonts/Oltima_Unline_Solid.ttf" height="18" texsize="256" 
+					antialias="true" hinting="false" autohinting="true" outline="false" shadow="false"/>
+	
+<!-- Ultima Runes (All Caps) -->
+		<!-- Runic seems to be 1 px off for heights, so add 1 in comparison to others --
+		<Font name="Ultima_Runes_Caps_15" face="Ultima Runes-Caps" file="LegacyFiles/Fonts/Ultima Runes-Caps.ttf" height="15" texsize="256" 
+					antialias="true" hinting="false" autohinting="true" outline="true" shadow="false"/>
+		<Font name="nol_Ultima_Runes_Caps_15" face="Ultima Runes-Caps" file="LegacyFiles/Fonts/Ultima Runes-Caps.ttf" height="15" texsize="256" 
+					antialias="true" hinting="false" autohinting="true" outline="false" shadow="false"/>
+		<Font name="Ultima_Runes_Caps_17" face="Ultima Runes-Caps" file="LegacyFiles/Fonts/Ultima Runes-Caps.ttf" height="17" texsize="256" 
+					antialias="true" hinting="false" autohinting="true" outline="true" shadow="false"/>
+		<Font name="nol_Ultima_Runes_Caps_17" face="Ultima Runes-Caps" file="LegacyFiles/Fonts/Ultima Runes-Caps.ttf" height="17" texsize="256" 
+					antialias="true" hinting="false" autohinting="true" outline="false" shadow="false"/>
+		<Font name="Ultima_Runes_Caps_19" face="Ultima Runes-Caps" file="LegacyFiles/Fonts/Ultima Runes-Caps.ttf" height="19" texsize="256" 
+					antialias="true" hinting="false" autohinting="true" outline="true" shadow="false"/>
+		<Font name="nol_Ultima_Runes_Caps_19" face="Ultima Runes-Caps" file="LegacyFiles/Fonts/Ultima Runes-Caps.ttf" height="19" texsize="256" 
+					antialias="true" hinting="false" autohinting="true" outline="false" shadow="false"/>
+		<Font name="Ultima_Runes_Caps_21" face="Ultima Runes-Caps" file="LegacyFiles/Fonts/Ultima Runes-Caps.ttf" height="21" texsize="256" 
+					antialias="true" hinting="false" autohinting="true" outline="true" shadow="false"/>
+		<Font name="nol_Ultima_Runes_Caps_21" face="Ultima Runes-Caps" file="LegacyFiles/Fonts/Ultima Runes-Caps.ttf" height="21" texsize="256" 
+					antialias="true" hinting="false" autohinting="true" outline="false" shadow="false"/>
+
+<!-- Ultima Runes --
+		<Font name="Ultima_Runes_17" face="Ultima Runes" file="LegacyFiles/Fonts/Ultima Runes.ttf" height="17" texsize="256" 
+					antialias="true" hinting="false" autohinting="true" outline="true" shadow="false"/>
+		<Font name="nol_Ultima_Runes_17" face="Ultima Runes" file="LegacyFiles/Fonts/Ultima Runes.ttf" height="17" texsize="256" 
+					antialias="true" hinting="false" autohinting="true" outline="false" shadow="false"/>
+		<Font name="Ultima_Runes_19" face="Ultima Runes" file="LegacyFiles/Fonts/Ultima Runes.ttf" height="19" texsize="256" 
+					antialias="true" hinting="false" autohinting="true" outline="true" shadow="false"/>
+		<Font name="nol_Ultima_Runes_19" face="Ultima Runes" file="LegacyFiles/Fonts/Ultima Runes.ttf" height="19" texsize="256" 
+					antialias="true" hinting="false" autohinting="true" outline="false" shadow="false"/>
+		<Font name="Ultima_Runes_21" face="Ultima Runes" file="LegacyFiles/Fonts/Ultima Runes.ttf" height="21" texsize="256" 
+					antialias="true" hinting="false" autohinting="true" outline="true" shadow="false"/>
+		<Font name="nol_Ultima_Runes_21" face="Ultima Runes" file="LegacyFiles/Fonts/Ultima Runes.ttf" height="21" texsize="256" 
+					antialias="true" hinting="false" autohinting="true" outline="false" shadow="false"/>
+
+<!-- Britanian Runes I (This version has upper and lower case unlike Britanian Runes (which has been removed)) --					
+		<Font name="Britannian_Runes_I_17" face="Britannian Runes I" file="LegacyFiles/Fonts/Britannian Runes I.ttf" height="17" texsize="256" 
+					antialias="true" hinting="false" autohinting="true" outline="true" shadow="false"/>
+		<Font name="nol_Britannian_Runes_I_17" face="Britannian Runes I" file="LegacyFiles/Fonts/Britannian Runes I.ttf" height="17" texsize="256" 
+					antialias="true" hinting="false" autohinting="true" outline="false" shadow="false"/>
+		<Font name="Britannian_Runes_I_19" face="Britannian Runes I" file="LegacyFiles/Fonts/Britannian Runes I.ttf" height="19" texsize="256" 
+					antialias="true" hinting="false" autohinting="true" outline="true" shadow="false"/>
+		<Font name="nol_Britannian_Runes_I_19" face="Britannian Runes I" file="LegacyFiles/Fonts/Britannian Runes I.ttf" height="19" texsize="256" 
+					antialias="true" hinting="false" autohinting="true" outline="false" shadow="false"/>
+		<Font name="Britannian_Runes_I_21" face="Britannian Runes I" file="LegacyFiles/Fonts/Britannian Runes I.ttf" height="21" texsize="256" 
+					antialias="true" hinting="false" autohinting="true" outline="true" shadow="false"/>
+		<Font name="nol_Britannian_Runes_I_21" face="Britannian Runes I" file="LegacyFiles/Fonts/Britannian Runes I.ttf" height="21" texsize="256" 
+					antialias="true" hinting="false" autohinting="true" outline="false" shadow="false"/>
+
+<!-- Avatar --
+		<Font name="Avatar_14" face="Avatar" file="LegacyFiles/Fonts/Avatar.ttf" height="14" texsize="256" 
+					antialias="true" hinting="false" autohinting="true" outline="true" shadow="false"/>
+		<Font name="nol_Avatar_14" face="Avatar" file="LegacyFiles/Fonts/Avatar.ttf" height="14" texsize="256" 
+					antialias="true" hinting="false" autohinting="true" outline="false" shadow="false"/>
+		<Font name="shd_nol_Avatar_14" face="Avatar" file="LegacyFiles/Fonts/Avatar.ttf" height="14" texsize="256" 
+					antialias="true" hinting="false" autohinting="true" outline="false" shadow="true"/>
+		<Font name="Avatar_15" face="Avatar" file="LegacyFiles/Fonts/Avatar.ttf" height="15" texsize="256" 
+					antialias="true" hinting="false" autohinting="true" outline="true" shadow="false"/>
+		<Font name="nol_Avatar_15" face="Avatar" file="LegacyFiles/Fonts/Avatar.ttf" height="15" texsize="256" 
+					antialias="true" hinting="false" autohinting="true" outline="False" shadow="false"/>
+		<Font name="Avatar_16" face="Avatar" file="LegacyFiles/Fonts/Avatar.ttf" height="16" texsize="256" 
+					antialias="true" hinting="false" autohinting="true" outline="true" shadow="false"/>
+		<Font name="nol_Avatar_16" face="Avatar" file="LegacyFiles/Fonts/Avatar.ttf" height="16" texsize="256" 
+					antialias="true" hinting="false" autohinting="true" outline="false" shadow="false"/>
+		<Font name="Avatar_18" face="Avatar" file="LegacyFiles/Fonts/Avatar.ttf" height="18" texsize="256" 
+					antialias="true" hinting="false" autohinting="true" outline="true" shadow="false"/>
+		<Font name="nol_Avatar_18" face="Avatar" file="LegacyFiles/Fonts/Avatar.ttf" height="18" texsize="256" 
+					antialias="true" hinting="false" autohinting="true" outline="false" shadow="false"/>
+		<Font name="Avatar_20" face="Avatar" file="LegacyFiles/Fonts/Avatar.ttf" height="20" texsize="256" 
+					antialias="true" hinting="false" autohinting="true" outline="true" shadow="false"/>
+		<Font name="nol_Avatar_20" face="Avatar" file="LegacyFiles/Fonts/Avatar.ttf" height="20" texsize="256" 
+					antialias="true" hinting="false" autohinting="true" outline="false" shadow="false"/>
+		<Font name="Avatar_22" face="Avatar" file="LegacyFiles/Fonts/Avatar.ttf" height="22" texsize="256" 
+					antialias="true" hinting="false" autohinting="true" outline="true" shadow="false"/>
+		<Font name="nol_Avatar_22" face="Avatar" file="LegacyFiles/Fonts/Avatar.ttf" height="22" texsize="256" 
+					antialias="true" hinting="false" autohinting="true" outline="false" shadow="false"/>
+
+<!-- Arial Narrow --
+		<Font name="Arial_Narrow_13" face="ArialNarrow" file="LegacyFiles/Fonts/ARIALNB.TTF" height="13" texsize="256" 
+					antialias="true" hinting="false" autohinting="true" outline="true" shadow="false"/>
+		<Font name="nol_Arial_Narrow_13" face="ArialNarrow" file="LegacyFiles/Fonts/ARIALNB.TTF" height="13" texsize="256" 
+					antialias="true" hinting="false" autohinting="true" outline="false" shadow="false"/>
+		<Font name="Arial_Narrow_14" face="ArialNarrow" file="LegacyFiles/Fonts/ARIALNB.TTF" height="14" texsize="256" 
+					antialias="true" hinting="false" autohinting="true" outline="true" shadow="false"/>
+		<Font name="nol_Arial_Narrow_14" face="ArialNarrow" file="LegacyFiles/Fonts/ARIALNB.TTF" height="14" texsize="256" 
+					antialias="true" hinting="false" autohinting="true" outline="false" shadow="false"/>
+		<Font name="Arial_Narrow_15" face="ArialNarrow" file="LegacyFiles/Fonts/ARIALNB.TTF" height="15" texsize="256" 
+					antialias="true" hinting="false" autohinting="true" outline="true" shadow="false"/>
+		<Font name="nol_Arial_Narrow_15" face="ArialNarrow" file="LegacyFiles/Fonts/ARIALNB.TTF" height="15" texsize="256" 
+					antialias="true" hinting="false" autohinting="true" outline="false" shadow="false"/>  
+    <Font name="Arial_Narrow_18" face="ArialNarrow" file="LegacyFiles/Fonts/ARIALNB.TTF" height="18" texsize="256" 
+					antialias="true" hinting="false" autohinting="true" outline="true" shadow="false"/>  
+    <Font name="nol_Arial_Narrow_18" face="ArialNarrow" file="LegacyFiles/Fonts/ARIALNB.TTF" height="18" texsize="256" 
+					antialias="true" hinting="false" autohinting="true" outline="false" shadow="false"/>
+		<Font name="Arial_Narrow_20" face="ArialNarrow" file="LegacyFiles/Fonts/ARIALNB.TTF" height="20" texsize="256" 
+					antialias="true" hinting="false" autohinting="true" outline="true" shadow="false"/>
+    <Font name="nol_Arial_Narrow_20" face="ArialNarrow" file="LegacyFiles/Fonts/ARIALNB.TTF" height="20" texsize="256" 
+					antialias="true" hinting="false" autohinting="true" outline="false" shadow="false"/>
+		<Font name="Arial_Narrow_22" face="ArialNarrow" file="LegacyFiles/Fonts/ARIALNB.TTF" height="22" texsize="256" 
+					antialias="true" hinting="false" autohinting="true" outline="true" shadow="false"/>
+    <Font name="nol_Arial_Narrow_22" face="ArialNarrow" file="LegacyFiles/Fonts/ARIALNB.TTF" height="22" texsize="256" 
+					antialias="true" hinting="false" autohinting="true" outline="false" shadow="false"/>
+
+<!-- Times New Roman Bold --
+		<Font name="TimesNewRoman_Bold_14" face="TimesNewRomanBold" file="LegacyFiles/Fonts/timesbd.ttf" height="14" texsize="256" 
+					antialias="true" hinting="false" autohinting="true" outline="true" shadow="false"/>										
+		<Font name="TimesNewRoman_Bold_18" face="TimesNewRomanBold" file="LegacyFiles/Fonts/timesbd.ttf" height="18" texsize="256" 
+					antialias="true" hinting="false" autohinting="true" outline="true" shadow="false"/>
+		<Font name="TimesNewRoman_Bold_20" face="TimesNewRomanBold" file="LegacyFiles/Fonts/timesbd.ttf" height="20" texsize="256" 
+					antialias="true" hinting="false" autohinting="true" outline="true" shadow="false"/>
+		<Font name="TimesNewRoman_Bold_22" face="TimesNewRomanBold" file="LegacyFiles/Fonts/timesbd.ttf" height="22" texsize="256" 
+					antialias="true" hinting="false" autohinting="true" outline="true" shadow="false"/>
+
+<!-- Times New Roman --
+		<Font name="TimesNewRoman_13" face="TimesNewRoman" file="LegacyFiles/Fonts/times.ttf" height="18" texsize="256"
+					antialias="true" hinting="false" autohinting="true" outline="true" shadow="false"/>
+		<Font name="TimesNewRoman_14" face="TimesNewRoman" file="LegacyFiles/Fonts/times.ttf" height="14" texsize="256"
+					antialias="true" hinting="false" autohinting="true" outline="true" shadow="false"/>
+		<Font name="TimesNewRoman_16" face="TimesNewRoman" file="LegacyFiles/Fonts/times.ttf" height="16" texsize="256"
+					antialias="true" hinting="false" autohinting="true" outline="true" shadow="false"/>
+		<Font name="TimesNewRoman_18" face="TimesNewRoman" file="LegacyFiles/Fonts/times.ttf" height="18" texsize="256"
+					antialias="true" hinting="false" autohinting="true" outline="true" shadow="false"/>
+		<Font name="TimesNewRoman_20" face="TimesNewRoman" file="LegacyFiles/Fonts/times.ttf" height="20" texsize="256" 
+					antialias="true" hinting="false" autohinting="true" outline="true" shadow="false"/>
+		<Font name="TimesNewRoman_22" face="TimesNewRoman" file="LegacyFiles/Fonts/times.ttf" height="22" texsize="256"
+					antialias="true" hinting="false" autohinting="true" outline="true" shadow="false"/>
+
+<!-- Magic:The Gathering --
+		<Font name="Magic_18" face="Magic:The Gathering" file="LegacyFiles/Fonts/magic.ttf" height="18" texsize="256" 
+					antialias="true" hinting="false" autohinting="true" outline="true" shadow="false"/>
+		<Font name="Magic_20" face="Magic:The Gathering" file="LegacyFiles/Fonts/magic.ttf" height="20" texsize="256" 
+					antialias="true" hinting="false" autohinting="true" outline="true" shadow="false"/>
+		<Font name="Magic_22" face="Magic:The Gathering" file="LegacyFiles/Fonts/magic.ttf" height="22" texsize="256" 
+					antialias="true" hinting="false" autohinting="true" outline="true" shadow="false"/>
+
+<!-- Tenace --
+		<Font name="Tenace_13" face="Tenace SSI" file="LegacyFiles/Fonts/Tena.TTF" height="13" texsize="256" 
+					antialias="true" hinting="false" autohinting="true" outline="true" shadow="false"/>
+		<Font name="nol_Tenace_13" face="Tenace SSI" file="LegacyFiles/Fonts/Tena.TTF" height="13" texsize="256" 
+					antialias="true" hinting="false" autohinting="true" outline="false" shadow="false"/>
+		<Font name="Tenace_14" face="Tenace SSI" file="LegacyFiles/Fonts/Tena.TTF" height="14" texsize="256" 
+					antialias="true" hinting="false" autohinting="true" outline="true" shadow="false"/>
+		<Font name="nol_Tenace_14" face="Tenace SSI" file="LegacyFiles/Fonts/Tena.TTF" height="14" texsize="256"   
+					antialias="true" hinting="false" autohinting="true" outline="false" shadow="false"/>
+		<Font name="Tenace_15" face="Tenace SSI" file="LegacyFiles/Fonts/Tena.TTF" height="15" texsize="256" 
+					antialias="true" hinting="false" autohinting="true" outline="true" shadow="false"/>
+		<Font name="nol_Tenace_15" face="Tenace SSI" file="LegacyFiles/Fonts/Tena.TTF" height="15" texsize="256" 
+					antialias="true" hinting="false" autohinting="true" outline="False" shadow="false"/>
+		<Font name="Tenace_16" face="Tenace SSI" file="LegacyFiles/Fonts/Tena.TTF" height="16" texsize="256" 
+					antialias="true" hinting="false" autohinting="true" outline="true" shadow="false"/>
+		<Font name="nol_Tenace_16" face="Tenace SSI" file="LegacyFiles/Fonts/Tena.TTF" height="16" texsize="256"  
+					antialias="true" hinting="false" autohinting="true" outline="false" shadow="false"/>										
+		<Font name="Tenace_18" face="Tenace SSI" file="LegacyFiles/Fonts/tena.ttf" height="18" texsize="256" 
+					antialias="true" hinting="false" autohinting="true" outline="true" shadow="false"/>
+		<Font name="nol_Tenace_18" face="Tenace SSI" file="LegacyFiles/Fonts/Tena.TTF" height="18" texsize="256"  
+					antialias="true" hinting="false" autohinting="true" outline="false" shadow="false"/>
+		<Font name="Tenace_20" face="Tenace SSI" file="LegacyFiles/Fonts/tena.ttf" height="20" texsize="256" 
+					antialias="true" hinting="false" autohinting="true" outline="true" shadow="false"/>
+		<Font name="nol_Tenace_20" face="Tenace SSI" file="LegacyFiles/Fonts/Tena.TTF" height="20" texsize="256"  
+					antialias="true" hinting="false" autohinting="true" outline="false" shadow="false"/>
+		<Font name="Tenace_22" face="Tenace SSI" file="LegacyFiles/Fonts/tena.ttf" height="22" texsize="256" 
+					antialias="true" hinting="false" autohinting="true" outline="true" shadow="false"/>
+		<Font name="nol_Tenace_22" face="Tenace SSI" file="LegacyFiles/Fonts/Tena.TTF" height="22" texsize="256"  
+					antialias="true" hinting="false" autohinting="true" outline="false" shadow="false"/>
+-->
+	</Assets>
+
+</Interface>

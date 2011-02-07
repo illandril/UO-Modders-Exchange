@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Interface xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../Interface.xsd">
+	<Assets>
+				<Texture name="SAInspiredPaperdollSwordWeaponIconPack_axe" file="Icons/axe.dds" />
+				<Texture name="SAInspiredPaperdollSwordWeaponIconPack_battleaxe" file="Icons/battleaxe.dds" />
+				<Texture name="SAInspiredPaperdollSwordWeaponIconPack_bladedstaff" file="Icons/bladedstaff.dds" />
+				<Texture name="SAInspiredPaperdollSwordWeaponIconPack_boneharvester" file="Icons/boneharvester.dds" />
+				<Texture name="SAInspiredPaperdollSwordWeaponIconPack_broadsword" file="Icons/broadsword.dds" />
+				<Texture name="SAInspiredPaperdollSwordWeaponIconPack_cleaver" file="Icons/cleaver.dds" />
+				<Texture name="SAInspiredPaperdollSwordWeaponIconPack_crescentblade" file="Icons/crescentblade.dds" />
+				<Texture name="SAInspiredPaperdollSwordWeaponIconPack_cutlass" file="Icons/cutlass.dds" />
+				<Texture name="SAInspiredPaperdollSwordWeaponIconPack_daisho" file="Icons/daisho.dds" />
+				<Texture name="SAInspiredPaperdollSwordWeaponIconPack_elvenmachete" file="Icons/elvenmachete.dds" />
+				<Texture name="SAInspiredPaperdollSwordWeaponIconPack_executionersaxe" file="Icons/executionersaxe.dds" />
+				<Texture name="SAInspiredPaperdollSwordWeaponIconPack_halberd" file="Icons/halberd.dds" />
+				<Texture name="SAInspiredPaperdollSwordWeaponIconPack_katana" file="Icons/katana.dds" />
+				<Texture name="SAInspiredPaperdollSwordWeaponIconPack_largebattleaxe" file="Icons/largebattleaxe.dds" />
+				<Texture name="SAInspiredPaperdollSwordWeaponIconPack_longsword" file="Icons/longsword.dds" />
+				<Texture name="SAInspiredPaperdollSwordWeaponIconPack_nodachi" file="Icons/nodachi.dds" />
+				<Texture name="SAInspiredPaperdollSwordWeaponIconPack_ornateaxe" file="Icons/ornateaxe.dds" />
+				<Texture name="SAInspiredPaperdollSwordWeaponIconPack_radiantscimitar" file="Icons/radiantscimitar.dds" />
+				<Texture name="SAInspiredPaperdollSwordWeaponIconPack_runeblade" file="Icons/runeblade.dds" />
+				<Texture name="SAInspiredPaperdollSwordWeaponIconPack_scimitar" file="Icons/scimitar.dds" />
+				<Texture name="SAInspiredPaperdollSwordWeaponIconPack_scythe" file="Icons/scythe.dds" />
+				<Texture name="SAInspiredPaperdollSwordWeaponIconPack_twohandedaxe" file="Icons/twohandedaxe.dds" />
+				<Texture name="SAInspiredPaperdollSwordWeaponIconPack_vikingsword" file="Icons/vikingsword.dds" />
+				<Texture name="SAInspiredPaperdollSwordWeaponIconPack_wakizashi" file="Icons/wakizashi.dds" />
+	</Assets>
+</Interface>

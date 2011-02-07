@@ -1,0 +1,54 @@
+<Interface xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../Interface.xsd">
+	<Scripts>
+		<Script file="Enhancements/CustomColorPickerWindow.lua" />
+	</Scripts>
+	<Windows>
+      <Window name="CustomColorPickerWindowColorItemTemplate" movable="false" handleinput="true">
+        <Size>
+          <AbsPoint x="47" y="47" />
+         </Size>
+        <EventHandlers>
+            <EventHandler event="OnLButtonUp" function="CustomColorPickerWindow.SetColor" />
+        </EventHandlers>
+
+        <Windows>
+          <!-- Inner Frame Boilerplate -->
+          <FullResizeImage name="$parentFrame" inherits="UO_Default_Inner_Window_Frame" layer="secondary">
+            <Anchors>
+              <Anchor point="topleft" relativePoint="topleft" />
+              <Anchor point="bottomright" relativePoint="bottomright" />
+            </Anchors>
+          </FullResizeImage>
+          <!-- End of Inner Frame Boilerplate -->
+
+            <DynamicImage name="$parentColor" inherits="ColorPickerWindowColorTemplate">
+                <Anchors>
+                    <Anchor point="topleft" relativePoint="topleft">
+                        <AbsPoint x="0" y="0" />
+                    </Anchor>
+                    <Anchor point="bottomright" relativePoint="bottomright">
+                        <AbsPoint x="0" y="0" />
+                    </Anchor>                
+                </Anchors>
+            </DynamicImage>
+        </Windows>
+     
+      </Window>
+      <Window name="CustomColorPickerWindowTemplate" movable="false" popable="true">
+          <EventHandlers>
+            <EventHandler event="OnInitialize" function="CustomColorPickerWindow.Initialize" />
+          </EventHandlers>
+          <Windows>
+        
+            <Button name="$parentCloseButton" inherits="UO_Default_Generic_Close_Button">
+              <Anchors> 
+                <Anchor point="bottomright" relativePoint="bottomright">
+                  <AbsPoint x="0" y="0" />
+                </Anchor>
+              </Anchors>
+            </Button>
+            
+          </Windows>
+       </Window>
+    </Windows>
+</Interface>

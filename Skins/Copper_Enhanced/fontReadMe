@@ -1,0 +1,122 @@
+Copper/Stone Enhanced Font installation
+
+This is a readme for "hardcode" installation of fonts in Copper and Stone Enhanced UIs.  This is to show how and where a player may personally change the fonts they wish to see in a given UI element.
+First section will deal with how to change an element to a package available font.  Second section will detail how to add in new fonts. 
+
+Fonts available:
+  - Arial Narrow
+  - Avatar
+  - Kingthings Exeter
+  - Magic Medieval
+  - Tenace SSi
+  - Times New Roman
+  - Times New Roman Bold
+  - UO Classic
+  
+How the fonts are defined:
+In the Fonts folder in the UI, there is a Fonts.XML file.  That file has each font and font size available defined accordingly:
+
+Example:
+<Font name="Avatar_14" face="Avatar" file="fonts/Avatar.ttf" height="14" texsize="256" 
+					antialias="true" hinting="false"autohinting="false"outline="true" shadow="false"/>
+				
+Font Name: This is the "called" name of the font and the term that will be enetered into other XML files in the Source folder as needed.
+Face: This is the Font Name provided by opening the font (*.ttf) file in Windows.  You will need this information to add in a custom font.
+File: The location and filename of the defined font.  Also needed to add in new fonts, for ease of use and formating, you will want to keep all your fonts in the Fonts folder and just replace the filename after "fonts/"
+Height: Defines the pt size of the font
+
+Texsize should be left alone and the rest are settings that can be set to true or false to fit personal preferences.
+
+Where fonts are changed:
+Labels, Buttons, and Edit Boxes are XML definitions that can have a Font applied to it. Such a line in the XML will loook like the following example:
+
+<Label name="$parentName" sticky="false" font="magic_20" maxchars="1024" textalign="center" autoresize="true" wordwrap="true" handleinput ="true" linespacing="20" layer="background">
+<EditBox name="ChatInput" font="UO_ChatText" autoresize="true" maxchars="256" scrolling="horz" history="25">
+<Button name="ChatTab" sticky="false" backgroundtexture="chat" highlighttexture="chat" textalign="center"  font="UO_GoldButtonText">
+
+By changing the font name in quotes to one defined in the fonts.XML file, you can change the font for that specific UI element.
+
+Font Names in Copper and Stone Enhanced (Note that these are current as of writing and may change):
+  - Arial Narrow
+    - Arial_Narrow_XX where XX = 13, 14, 15, 18, 20, 22; This is an outlined font
+    - nol_Arial_Narrow_XX where XX = 13, 14, 15, 18, 20, 22; This is a NO outline font
+  - Avatar
+    - Avatar_XX where XX = 14, 15, 16, 18, 20, 22; This is an outlined font
+    - nol_Avatar_Narrow_XX where XX = 14, 15, 16, 18, 20, 22; This is a NO outline font
+  - Kingthings Exeter
+    - King_XX where XX = 13, 14, 16, 17, 18, 20, 22; This is an outlined font
+  - Magic Medieval
+    - magic_XX where XX = 18, 20, 22; This is an outlined font
+  - Tenace SSi
+    - Tenace_XX where XX = 13, 14, 15, 16, 18, 20, 22; This is an outlined font
+    - nol_Tenace_XX where XX = 13, 14, 15, 16, 18, 20, 22; This is a NO outline font
+  - Times New Roman
+    - TimesNewRoman_XX where XX = 13, 14, 16, 17, 18, 20, 22; This is an outlined font
+  - Times New Roman Bold
+    - TimesNewRoman_Bold_XX where XX = 14, 18, 20, 22; This is an outlined font
+  - UO Classic
+    - UO_XX where XX = 15, 16, 17, 18, 19, 20, 22; This is an outlined font
+    - nol_UO_XX where XX = 15, 16, 17, 18, 19, 20, 22; This is a NO outline font
+
+Common UI Fonts to target:
+Here I will list some of the most commonly targeted UI elements that players want to change the fonts.  I will provide the UI element, the XML file, the subgrouping, and the line number the font call appears.
+  
+  - Overhead Names
+    - OverheadText.xml
+    - $parentName
+    - Line 23
+  
+  - Overhead Text
+    - OverheadText.xml
+    - $parentChat (There are three, $ParentChat1, $parentChat2, and $parentChat3, these reference the 3 lines of text that appear overhead and should all be changed to the same font)
+    - 1: Line 34 2: Line 39 3: Line 44
+    
+  - Item Properties
+    - ItemProperties.xml
+    - ItemPropItemDef
+    - Line 6
+    
+  - Paperdoll Nameplate
+    - PaperdollWindow
+    - $parentName
+    - Line 632
+    - Note: Line 639 can be used to change the color of the font on the nameplate as desires via RGB values
+    
+  - UI Window Titlebar
+    - UO_DefaultWindow.xml
+    - $parent_UO_TitleBar_WindowTitle
+    - Line 57
+    - Note: To change the coloration of this UI element you need to go to line 138 of UO_Default_UI_Templates.xml
+    
+  - Container Window Titlebar (oddly enough this one is defined differently)
+    - ContainerWindow.xml
+    - $parentTitle
+    - Line 159
+    - Note: This shares the same color call as the default UI titlebar
+    
+  - Grid View Quantity
+    - ContainerWindow.xml
+    - $parentQuantity
+    - Line 78
+    
+  - Hotbar Hotkey Labels
+    - WindowFrameTemplates.xml
+    - $parentHotkey
+    - Line 125 
+  
+  - Hotbar Quantity Labels
+    - WindowFrameTemplates.xml
+    - $parentQuantity
+    - Line 20
+    
+  - Hotbar Bandage Timer
+    - WindowFrameTemplates.xml
+    - $parentBandageTime
+    - Line 32
+
+Adding your own fonts:
+
+First, the font MUST be a TrueType font (*.ttf filename)
+Copy the font file into the fonts folder of the desired UI package
+Using the template above, create an XML line in the Fonts.XML file for each instance of the font you want.  If you want different sizes, you will have to define each one separately, want outlines or no, same thing.  See the fonts.xml file in Copper or Stone Enhanced for examples.
+To make it easier to keep track, block off each set of fonts.

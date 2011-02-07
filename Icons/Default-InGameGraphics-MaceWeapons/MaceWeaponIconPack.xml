@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Interface xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../Interface.xsd">
+	<Assets>
+        <Texture name="DefaultInGameMaceWeaponIconPack_blackstaff" file="Icons/mace_blackstaff.dds" />
+        <Texture name="DefaultInGameMaceWeaponIconPack_club" file="Icons/mace_club.dds" />
+        <Texture name="DefaultInGameMaceWeaponIconPack_diamondmace" file="Icons/mace_diamondmace.dds" />
+        <Texture name="DefaultInGameMaceWeaponIconPack_gnarledstaff" file="Icons/mace_gnarledstaff.dds" />
+        <Texture name="DefaultInGameMaceWeaponIconPack_hammerpick" file="Icons/mace_hammerpick.dds" />
+        <Texture name="DefaultInGameMaceWeaponIconPack_mace" file="Icons/mace_mace.dds" />
+        <Texture name="DefaultInGameMaceWeaponIconPack_maul" file="Icons/mace_maul.dds" />
+        <Texture name="DefaultInGameMaceWeaponIconPack_nunchaku" file="Icons/mace_nunchaku.dds" />
+        <Texture name="DefaultInGameMaceWeaponIconPack_quarterstaff" file="Icons/mace_quarterstaff.dds" />
+        <Texture name="DefaultInGameMaceWeaponIconPack_scepter" file="Icons/mace_scepter.dds" />
+        <Texture name="DefaultInGameMaceWeaponIconPack_sheperdscrook" file="Icons/mace_sheperdscrook.dds" />
+        <Texture name="DefaultInGameMaceWeaponIconPack_smithhammer" file="Icons/mace_smithhammer.dds" />
+        <Texture name="DefaultInGameMaceWeaponIconPack_tetsubo" file="Icons/mace_tetsubo.dds" />
+        <Texture name="DefaultInGameMaceWeaponIconPack_waraxe" file="Icons/mace_waraxe.dds" />
+        <Texture name="DefaultInGameMaceWeaponIconPack_warhammer" file="Icons/mace_warhammer.dds" />
+        <Texture name="DefaultInGameMaceWeaponIconPack_wildstaff" file="Icons/mace_wildstaff.dds" />
+	</Assets>
+</Interface>

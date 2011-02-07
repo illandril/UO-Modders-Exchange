@@ -1,0 +1,442 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Interface xmlns:xsi="http://www.w3.org/1001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../Interface.xsd">
+	<Windows>
+		<Label name="ChatOverhead" font="UO_ChatText" maxchars="1024" wordwrap="true" autoresize="true" textalign="center" handleinput="false" layer="background">
+		        <Size>
+				<AbsPoint x="400" y="1" />
+			</Size>
+			<Color r="255" g="255" b="255" a="255" />
+			<EventHandlers>
+				<EventHandler event="OnShutdown" function="ChatManager.OnOverheadChatShutdown" />
+			</EventHandlers>        
+		</Label>
+
+		<HorizontalResizeImage name="ChatInputBackground" texture="chat" layer="background" movable="true" >
+			<Size>
+				<AbsPoint x="655" y="26" />
+			</Size>
+			<Sizes left="20" middle="600" right="20" />
+			<TexCoords>
+				<Left x="1" y="151" />
+				<Middle x="30" y="151" />
+				<Right x="740" y="151" />
+			</TexCoords>
+			<Anchors>
+				<Anchor point="bottomleft" relativePoint="bottomleft" relativeTo="">
+					<AbsPoint x="0" y="-80" />
+				</Anchor>
+			</Anchors>
+		</HorizontalResizeImage>
+		
+		<EditBox name="ChatInput" font="UO_ChatText" autoresize="true" maxchars="256" scrolling="horz" history="25">
+			<Size>
+				<AbsPoint x="650" y="0" />
+			</Size>
+			<EventHandlers>
+				<EventHandler event="OnKeyEnter" function="ChatManager.OnChatKeyEnter" />
+				<EventHandler event="OnTextChanged" function="ChatManager.OnTextChanged" />
+			</EventHandlers>
+			<Anchors>
+				<Anchor point="topright" relativePoint="bottomleft" relativeTo="InputPrefixLabel">
+					<AbsPoint x="0" y="0" />
+				</Anchor>
+			</Anchors>
+		</EditBox>
+
+    <Label name="InputPrefixLabel" font="UO_ChatText" autoresize="true" autoresizewidth="true" maxchars="256" textalign="left" >
+      <Size>
+        <AbsPoint x="10" y="0" />
+      </Size>
+      <Color r="255" g="255" b="255" a="255" />
+      <Anchors>
+        <Anchor point="bottomleft" relativePoint="bottomleft" relativeTo="ChatInputBackground">
+            <AbsPoint x="8" y="-2" />
+        </Anchor>
+      </Anchors>
+    </Label>
+
+    <EditBox name="TabRename" font="UO_ChatText" maxchars="8" scrolling="horz" history="false" layer="overlay">
+			<Size>
+				<AbsPoint x="100" y="35" />
+			</Size>
+			<EventHandlers>
+				<EventHandler event="OnKeyEnter" function="ChatManager.OnTabRename" />
+			</EventHandlers>
+		</EditBox>
+
+		<Button name="ChatTab" sticky="false" backgroundtexture="chat" highlighttexture="chat" textalign="center"  font="UO_GoldButtonText">
+			<Size>
+				<AbsPoint x="103" y="26" />
+			</Size>
+			<TexCoords>
+				<Normal x="0" y="230" />
+				<NormalHighlit x="0" y="230" />
+				<Pressed x="0" y="230" />
+				<PressedHighlit x="0" y="230" />
+				<Disabled x="104" y="230" />
+			</TexCoords>
+			<TextColors>
+				<Disabled r="253" g="210" b="69" a="255" />
+				<NormalHighlit r="23" g="24" b="19" a="255" />
+				<Pressed r="23" g="24" b="19" a="255" />
+				<PressedHighlit r="23" g="24" b="19" a="255" />
+				<Normal r="73" g="59" b="14" a="255" />
+			</TextColors>
+			<EventHandlers>
+				<EventHandler event="OnLButtonDown" function="ChatManager.OnTabLButtonDown"/>
+				<EventHandler event="OnLButtonUp" function="ChatManager.TabClicked"/>
+				<EventHandler event="OnRButtonUp" function="ChatManager.ItemRButtonUp"/>
+				<EventHandler event="OnMouseOver" function="ChatManager.MouseOver" />
+<!--				<EventHandler event="OnMouseOverEnd" function="ChatManager.MouseOverEnd" />-->
+			</EventHandlers>
+		</Button>
+	
+		<VerticalScrollbar name="ChatVertScroll" up="StandardVertScrollUpBtn" down="StandardVertScrollDownBtn" thumb="StandardVertScrollThumb" gutter="StandardVertScrollGutter">
+			<Size>
+				<AbsPoint x="20" y="0" />
+			</Size>
+			<Anchors>
+				<Anchor point="topright" relativePoint="topright">
+					<AbsPoint x="-30" y="0"/>
+				</Anchor>
+			</Anchors>
+			<ThumbOffset x="1" y="1" />
+		</VerticalScrollbar>
+		
+		<Window name="SystemMessageFrame" movable="true" layer="background">
+			<Size>
+				<AbsPoint x="650" y="150" />
+			</Size>
+			<Anchors>
+				<Anchor point="topleft" relativePoint="topleft" relativeTo="">
+					<AbsPoint x="0" y="760" />
+				</Anchor>
+			</Anchors>
+			<EventHandlers>
+				<EventHandler event="OnMouseOver" function="ChatManager.MouseOver" />
+			</EventHandlers>
+			<Windows>
+				<FullResizeImage name="$parentBackground" layer="background" handleinput="false" texture="chat">
+					<Sizes>
+						<TopLeft x="25" y="104" />
+						<Middle x="230" y="80" />
+						<BottomRight x="40" y="1" />
+					</Sizes>
+					<TexCoords>
+						<TopLeft x="1" y="11" />
+						<TopCenter x="35" y="11" />
+						<TopRight x="720" y="12" />
+						<MiddleLeft x="1" y="50" />
+						<MiddleCenter x="50" y="50" />
+						<MiddleRight x="720" y="70" />
+						<BottomLeft x="1" y="50" />
+						<BottomCenter x="50" y="50" />
+						<BottomRight x="50" y="50" />
+					</TexCoords>
+					<Anchors>
+						<Anchor point="topleft" relativePoint="topleft">
+							<AbsPoint x="0" y="20" />
+						</Anchor>
+						<Anchor point="bottomright" relativePoint="bottomright"/>
+					</Anchors>
+					<EventHandlers>
+						<EventHandler event="OnMouseOver" function="ChatManager.MouseOver" />
+					</EventHandlers>
+				</FullResizeImage>
+
+        <FullResizeImage name="$parentBackground2" layer="background" handleinput="false" texture="chat">
+          <Sizes>
+            <TopLeft x="25" y="104" />
+            <Middle x="230" y="80" />
+            <BottomRight x="40" y="1" />
+          </Sizes>
+          <TexCoords>
+            <TopLeft x="1" y="267" />
+            <TopCenter x="35" y="267" />
+            <TopRight x="720" y="268" />
+            <MiddleLeft x="1" y="306" />
+            <MiddleCenter x="50" y="306" />
+            <MiddleRight x="720" y="326" />
+            <BottomLeft x="1" y="306" />
+            <BottomCenter x="50" y="306" />
+            <BottomRight x="50" y="306" />
+          </TexCoords>
+          <Anchors>
+            <Anchor point="topleft" relativePoint="topleft" relativeTo="$parentBackground">
+              <AbsPoint x="0" y="0" />
+            </Anchor>
+            <Anchor point="bottomright" relativePoint="bottomright"/>
+          </Anchors>
+        </FullResizeImage>
+
+<!--
+    				<DynamicImage name="$parentBackground" movable="false" handleinput="false" texture="chat" layer="background" sticky="true">
+					<Size>
+						<AbsPoint x="650" y="150" />
+					</Size>
+					<Anchors>
+						<Anchor point="topleft" relativePoint="topleft"/>
+						<Anchor point="bottomright" relativePoint="bottomright"/>
+					</Anchors>
+				</DynamicImage>	
+-->
+				<LogDisplay name="$parentLogDisplay" font="UO_ChatText" scrollbar="ChatVertScroll" scrollbarPosition="right" background=""  maxchars="4096">
+					<Size>
+						<AbsPoint x="650" y="135" />
+					</Size>
+					<Anchors>
+						<Anchor point="topleft" relativePoint="topleft">
+							<AbsPoint x="30" y="24" />
+						</Anchor>
+						<Anchor point="bottomright" relativePoint="bottomright"/>
+					</Anchors>
+					<EventHandlers>
+						<EventHandler event="OnMouseOver" function="ChatManager.MouseOver" />
+					</EventHandlers>
+				</LogDisplay>
+				<Button name="$parentResizeButton" inherits="CoreWindowResizeButtonBottomRight" layer="popup">
+					<Anchors>
+						<Anchor point="bottomright" relativePoint="bottomright">
+							<AbsPoint x="-20" y="0" />
+						</Anchor>
+					</Anchors>
+					<EventHandlers>
+						<EventHandler event="OnLButtonDown" function="ChatManager.OnResizeBegin" />
+						<EventHandler event="OnLButtonUp" function="ChatManager.OnResizeEnd" />
+					</EventHandlers>
+				</Button>
+				<Button name="$parentHelpButton" sticky="false" backgroundtexture="chat" highlighttexture="chat">
+					<Size>
+						<AbsPoint x="28" y="45" />
+					</Size>
+					<Anchors>
+						<Anchor point="topleft" relativePoint="topleft" >
+							<AbsPoint x="0" y="0"/>
+						</Anchor>
+					</Anchors>
+					<TexCoords>
+						<Normal x="780" y="10" />
+						<NormalHighlit x="835" y="10" />			
+						<Pressed x="835" y="10" />
+						<PressedHighlit x="835" y="10" />
+						<Disabled x="780" y="10" />
+					</TexCoords> 
+					<EventHandlers>
+						<EventHandler event="OnLButtonUp" function="ChatManager.ShowHelp" />
+					</EventHandlers>
+				</Button>
+			</Windows>
+		</Window>
+
+		<!--friends list-->
+		<Window name="FriendsListItem" movable="false">
+			<Size>
+				<AbsPoint x="400" y="25" />
+			</Size>
+			<EventHandlers>
+				<EventHandler event="OnLButtonUp" function="ChatManager.OnFriendsListItemClicked" />
+			</EventHandlers>
+			<Windows>
+				<Label name="$parentName" font="UO_DefaultText" maxchars="20" textalign="left">
+					<Size>
+						<AbsPoint x="255" y="25" />
+					</Size>
+					<Anchors>
+						<Anchor point="topleft" relativePoint="topleft">
+							<AbsPoint x="0" Y="0"/>
+						</Anchor>
+					</Anchors>					
+				</Label>
+        <Label name="$parentId" font="UO_DefaultText" maxchars="10" textalign="left">
+					<Size>
+						<AbsPoint x="70" y="25" />
+					</Size>
+					<Anchors>
+						<Anchor point="right" relativePoint="left" relativeTo="$parentName">
+							<AbsPoint x="0" Y="0"/>
+						</Anchor>
+					</Anchors>					
+				</Label>
+				<Label name="$parentOnline" font="UO_DefaultText" maxchars="5" textalign="left">
+					<Size>
+						<AbsPoint x="70" y="25" />
+					</Size>
+ 					<Anchors>
+            <Anchor point="right" relativePoint="left" relativeTo="$parentId">
+              <AbsPoint x="0" Y="0"/>
+            </Anchor>
+					</Anchors>					
+				</Label>
+			</Windows>
+		</Window>
+
+		<Window name="FriendsList" movable="true">
+			<Size>
+				<AbsPoint x="412" y="450" />
+			</Size>
+			<Anchors>
+				<Anchor point="topleft" relativePoint="topleft">
+					<AbsPoint x="600" y="500" />
+				</Anchor>
+			</Anchors>
+			<EventHandlers>
+				<EventHandler event="OnShown" function="ChatManager.OnFriendsListShown" />
+				<EventHandler event="OnHidden" function="ChatManager.OnFriendsListHidden" />
+			</EventHandlers>
+			<Windows>
+				<!-- Default chrome. Alter this at your own peril. -->
+				<Window name="$parentChrome" inherits="UO_DefaultWindow">
+					<Anchors>
+						<Anchor point="topleft" relativePoint="topleft"/>
+						<Anchor point="bottomright" relativePoint="bottomright"/>
+					</Anchors>
+				</Window>
+				<!-- End of default chrome boilerplate code -->				
+			
+				<Label name="$parentNameLabel" font="UO_DefaultText" maxchars="64" textalign="left">
+					<Color r="255" g="255" b="255" a="255" />
+					<Size>
+						<AbsPoint x="265" y="35"/>
+					</Size>
+					<Anchors>
+						<Anchor point="topleft" relativePoint="topleft">
+							<AbsPoint x="12" Y="47"/>
+						</Anchor>
+					</Anchors>					
+				</Label>
+        <Label name="$parentIdLabel" font="UO_DefaultText" maxchars="64" textalign="left">
+					<Color r="255" g="255" b="255" a="255" />
+					<Size>
+						<AbsPoint x="60" y="35"/>
+					</Size>
+					<Anchors>
+						<Anchor point="right" relativePoint="left" relativeTo="$parentNameLabel">
+							<AbsPoint x="0" Y="0"/>
+						</Anchor>
+					</Anchors>					
+				</Label>
+				<Label name="$parentOnlineLabel" font="UO_DefaultText" maxchars="64" textalign="left">
+					<Color r="255" g="255" b="255" a="255" />
+					<Size>
+						<AbsPoint x="70" y="35"/>
+					</Size>
+					<Anchors>
+            <Anchor point="right" relativePoint="left" relativeTo="$parentIdLabel">
+              <AbsPoint x="0" Y="0"/>
+            </Anchor>
+					</Anchors>					
+				</Label>
+	
+				<ScrollWindow name="$parentList" childscrollwindow="$parentScrollChild" scrollbar="$parentScrollbar" lineheight="18">
+					<Anchors>
+						<Anchor point="topleft" relativePoint="topleft">
+							<AbsPoint x="12" y="70" />
+						</Anchor>
+						<Anchor point="bottomright" relativePoint="bottomright">
+							<AbsPoint x="0" y="-115"/>
+						</Anchor>
+					</Anchors>
+					<Windows>
+						<VerticalScrollbar name="$parentScrollbar" inherits="StandardVertScroll" layer="secondary"/>
+
+						<Window name ="$parentScrollChild" >
+							<Size>
+								<AbsPoint x="400" y="0"/>
+							</Size>
+							<Windows>
+								<Window name="FriendsListItemList">
+									<Size>
+										<AbsPoint x="400" y="900" />
+									</Size>
+								</Window>
+							</Windows>
+						</Window>
+					</Windows>
+				</ScrollWindow>
+			
+				<FullResizeImage name="$parentFrame" inherits="UO_Default_Inner_Window_Frame">
+					<Size>
+						<AbsPoint x="400" y="300"/>
+					</Size>
+					<Anchors>
+						<Anchor point="topleft" relativePoint="topleft">
+							<AbsPoint x="12" y="67" />
+						</Anchor>
+						<Anchor point="bottomright" relativePoint="bottomright">
+							<AbsPoint x="-14" y="-110"/>
+						</Anchor>
+					</Anchors>
+				</FullResizeImage>
+
+				<Button name="FriendsListTellButton" inherits="UO_Default_Medium_Select_Button" >
+					<Anchors>
+						<Anchor point="bottomright" relativePoint="bottomright">
+							<AbsPoint x="-15" y="-75" />
+						</Anchor>
+					</Anchors>
+					<EventHandlers>
+						<EventHandler event="OnLButtonUp" function="ChatManager.OnTellFriend" />
+					</EventHandlers>
+				</Button>
+
+				<Button name="FriendsListAddButton" inherits="UO_Default_Medium_Select_Button" >
+					<Anchors>
+						<Anchor point="bottomleft" relativePoint="bottomleft">
+							<AbsPoint x="10" y="-43" />
+						</Anchor>
+					</Anchors>
+					<EventHandlers>
+						<EventHandler event="OnLButtonUp" function="ChatManager.OnAddFriends" />
+					</EventHandlers>
+				</Button>
+
+				<Button name="FriendsListDeleteButton" inherits="UO_Default_Medium_Select_Button" >
+					<Anchors>
+						<Anchor point="bottomleft" relativePoint="bottomleft">
+							<AbsPoint x="10" y="-75" />
+						</Anchor>
+					</Anchors>
+					<EventHandlers>
+						<EventHandler event="OnLButtonUp" function="ChatManager.OnDeleteFriend" />
+					</EventHandlers>
+				</Button>
+        <!-- This block removed because Adding Friends by ID is no longer being used. -->
+<!--
+        <Button name="FriendsListAddByIdButton" inherits="UO_Default_Medium_Select_Button" >
+					<Anchors>
+						<Anchor point="bottomleft" relativePoint="bottomleft">
+							<AbsPoint x="10" y="-10" />
+						</Anchor>
+					</Anchors>
+					<EventHandlers>
+						<EventHandler event="OnLButtonUp" function="ChatManager.OnAddFriendsById" />
+					</EventHandlers>
+				</Button>
+        
+        <FullResizeImage name="$parentIdFrame" inherits="UO_Default_Inner_Window_Frame">
+					<Size>
+						<AbsPoint x="210" y="30"/>
+					</Size>
+					<Anchors>
+						<Anchor point="bottomright" relativePoint="bottomright">
+							<AbsPoint x="-15" y="-10" />
+						</Anchor>
+					</Anchors>
+				</FullResizeImage>
+        
+        <EditBox name="FriendsListId" font="UO_ChatText" maxchars="16" scrolling="horz" history="true">
+					<Size>
+						<AbsPoint x="200" y="30" />
+					</Size>
+					<Anchors>
+						<Anchor point="bottomright" relativePoint="bottomright">
+							<AbsPoint x="-15" y="-10" />
+						</Anchor>
+					</Anchors>
+				</EditBox>
+-->
+			</Windows>
+		</Window>
+	</Windows>
+</Interface>
+	

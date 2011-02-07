@@ -1,0 +1,169 @@
+<Interface xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../Interface.xsd">
+	<Scripts>
+		<Script file="Source/PartyHealthBar.lua" />
+	</Scripts>
+	<Windows>
+		<Window name="PartyHealthBar" movable="false" draganddrop="true">
+			<Size>
+				<AbsPoint x="195" y="65" />
+			</Size>
+			<Windows>
+				<FullResizeImage name="$parentBackground" inherits="UO_Simple_Black_Background" layer="background" alpha="0.5">
+					<Anchors>
+						<Anchor point="topleft" relativePoint="topleft" />
+						<Anchor point="bottomright" relativePoint="bottomright" />
+					</Anchors>
+				</FullResizeImage>
+				<FullResizeImage name="$parentFrame" inherits="UO_Simple_Frame" layer="background">
+					<Anchors>
+						<Anchor point="topleft" relativePoint="topleft" />
+						<Anchor point="bottomright" relativePoint="bottomright" />
+					</Anchors>
+				</FullResizeImage>
+				<Button name="$parentCloseButton" backgroundtexture="UO_Core" highlighttexture="UO_Core" texturescale="1.28" layer="popup">
+					<Size>
+						<AbsPoint x="9" y="9" />
+					</Size>
+					<Anchors>
+						<Anchor point="topright" relativePoint="topright" />
+					</Anchors>
+					<EventHandlers>
+						<EventHandler event="OnLButtonUp" function="PartyHealthBar.CloseWindow" />
+					</EventHandlers>
+					<TexCoords>
+						<Normal x="182" y="309" />
+						<NormalHighlit x="182" y="275" />
+						<Pressed x="182" y="309"  />
+						<PressedHighlit x="182" y="275" />
+						<Disabled x="182" y="309" />
+					</TexCoords>
+				</Button>
+				<Label name="$parentName" font="UO_DefaultText_15pt" maxchars="60" textalign="left" handleinput="false" wordwrap="false" linespacing="18" popable="false">
+					<Size>
+						<AbsPoint x="145" y="32" />
+					</Size>
+					<Anchors>
+						<Anchor point="topleft" relativePoint="topleft" relativeTo="$parent">
+							<AbsPoint x="25" y="5" />
+						</Anchor>
+					</Anchors>
+					<Color r="255" g="255" b="255" a="255" />
+				</Label>
+				<StatusBar name="$parentHealthBar" inherits="GroupWindowStatusBarRed" handleinput="false">
+					<Size>
+						<AbsPoint x="153" y="5" />
+					</Size>
+					<Anchors>
+						<Anchor point="topleft" relativePoint="topleft" relativeTo="$parent">
+							<AbsPoint x="25" y="25" />
+						</Anchor>
+					</Anchors>
+				</StatusBar>
+				<StatusBar name="$parentManaBar" inherits="GroupWindowStatusBarBlue" handleinput="false">
+					<Size>
+						<AbsPoint x="153" y="5" />
+					</Size>
+					<Anchors>
+						<Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentHealthBar">
+							<AbsPoint x="0" y="5" />
+						</Anchor>
+					</Anchors>
+				</StatusBar>
+				<StatusBar name="$parentStaminaBar" inherits="GroupWindowStatusBarYellow" handleinput="false">
+					<Size>
+						<AbsPoint x="153" y="3" />
+					</Size>
+					<Anchors>
+						<Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentManaBar">
+							<AbsPoint x="0" y="5" />
+						</Anchor>
+					</Anchors>
+				</StatusBar>
+				<Button name="$parentRedButton" backgroundtexture="hud_image2" highlighttexture="hud_image2">
+					<Size>
+						<AbsPoint x="18" y="17" />
+					</Size>
+					<Anchors>
+						<Anchor point="topleft" relativePoint="topleft" relativeTo="$parent" >
+							<AbsPoint x="5" y="15" />
+						</Anchor>
+					</Anchors>
+					<TexCoords>
+						<Normal  x="0" y="287" />
+						<NormalHighlit x="36" y="287" />
+						<Pressed x="36" y="287" />
+						<PressedHighlit x="36" y="287" />
+					</TexCoords>
+					<EventHandlers>
+                        <EventHandler event="OnLButtonUp" function="PetWindow.HealMember" />
+                        <EventHandler event="OnMouseOver" function="PetWindow.ViewHealButtonMouseOver" />
+                        <EventHandler event="OnMouseOverEnd" function="ItemProperties.ClearMouseOverItem" />
+					</EventHandlers>
+				</Button>
+				<Button name="$parentGreenButton" backgroundtexture="hud_image2" highlighttexture="hud_image2">
+					<Size>
+						<AbsPoint x="18" y="17" />
+					</Size>
+					<Anchors>
+						<Anchor point="topleft" relativePoint="topleft" relativeTo="$parent" >
+							<AbsPoint x="5" y="30" />
+						</Anchor>
+					</Anchors>
+					<TexCoords>
+						<Normal  x="18" y="287" />
+						<NormalHighlit x="54" y="287" />
+						<Pressed x="54" y="287" />
+						<PressedHighlit x="54" y="287" />
+					</TexCoords>
+					<EventHandlers>
+						<EventHandler event="OnLButtonUp" function="PetWindow.CureMember" />
+                        <EventHandler event="OnMouseOver" function="PetWindow.ViewCureButtonMouseOver" />
+                        <EventHandler event="OnMouseOverEnd" function="ItemProperties.ClearMouseOverItem" />
+					</EventHandlers>
+				</Button>
+				<Button name="$parentGroupCurse" backgroundtexture="hud_image2" highlighttexture="hud_image2" texturescale=".85">
+          <Size>
+            <AbsPoint x="18" y="16" />
+          </Size>
+          <Anchors>
+            <Anchor point="left" relativePoint="left" relativeTo="$parentGreenButton" >
+              <AbsPoint x="2" y="15" />
+            </Anchor>
+          </Anchors>
+          <TexCoords>
+            <Normal  x="72" y="287" />
+            <NormalHighlit x="90" y="287" />
+            <Pressed x="90" y="287" />
+            <PressedHighlit x="90" y="287" />
+          </TexCoords>
+          <EventHandlers>
+            <EventHandler event="OnLButtonUp" function="PetWindow.CurseMember" />
+			<EventHandler event="OnMouseOver" function="PetWindow.ViewCurseButtonMouseOver" />
+			<EventHandler event="OnMouseOverEnd" function="ItemProperties.ClearMouseOverItem" />			
+          </EventHandlers>
+        </Button>
+				<Label name="$parentNumber" font="UO_DefaultText_15pt" maxchars="2" textalign="bottom" handleinput="false" wordwrap="false" linespacing="18" popable="false">
+					<Size>
+						<AbsPoint x="30" y="20" />
+					</Size>
+					<Anchors>
+						<Anchor point="top" relativePoint="bottom" relativeTo="$parentRedButton">
+							<AbsPoint x="0" y="1" />
+						</Anchor>
+					</Anchors>
+					<Color r="255" g="255" b="255" a="255" />
+				</Label>
+			</Windows>
+			<EventHandlers>
+				<EventHandler event="OnShutdown" function="PartyHealthBar.OnShutdown" />
+				<EventHandler event="OnLButtonDown" function="PartyHealthBar.OnLButtonDown" />
+				<EventHandler event="OnLButtonUp" function="PartyHealthBar.OnLButtonUp" />
+				<EventHandler event="OnLButtonDblClk" function="PartyHealthBar.OnLButtonDblClk" />
+				<EventHandler event="OnRButtonUp" function="PartyHealthBar.OnRButtonUp" />
+				<EventHandler event="OnMouseDrag" function="PartyHealthBar.OnMouseDrag" />
+				<EventHandler event="OnMouseOver" function="PartyHealthBar.OnMouseOver" />
+				<EventHandler event="OnMouseOverEnd" function="PartyHealthBar.OnMouseOverEnd" />
+			</EventHandlers>
+		</Window>
+	</Windows>
+</Interface>

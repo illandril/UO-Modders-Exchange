@@ -1,0 +1,1 @@
+LoadResources( "./UserInterface/"..SystemData.Settings.Interface.customUiName.."/Icons/Custom/LegacyII-InGameGraphics-Instruments", "LegacyIIInstrumentsIconPack.xml", "LegacyIIInstrumentsIconPack.xml" )

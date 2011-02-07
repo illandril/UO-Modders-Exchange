@@ -1,0 +1,395 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Interface xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../Interface.xsd">
+  <Scripts>
+    <Script file="Source/Generic/Runebook.lua" />
+  </Scripts>
+  <Windows>
+    <Window name="PurpleRuneTemplate" layer="popup">
+      <Size>
+        <AbsPoint x="280" y="28" />
+      </Size>
+      <Windows>
+        <Button name="$parentIcon" inherits="PurpleDiamond">
+          <Size>
+            <AbsPoint x="28" y="28" />
+          </Size>
+          <Anchors>
+            <Anchor point="topleft" relativePoint="topleft">
+              <AbsPoint x="0" y="0" />
+            </Anchor>
+          </Anchors>
+          <EventHandlers>
+            <EventHandler event="OnLButtonUp" function="Runebook.OnRuneClicked" />
+          </EventHandlers>
+        </Button>
+        <Label name="$parentName" font="UO_DefaultText" maxchars="64" textalign="left">
+          <Size>
+            <AbsPoint x="235" y="28" />
+          </Size>
+          <Anchors>
+            <Anchor point="topright" relativePoint="topleft" relativeTo="$parentIcon">
+              <AbsPoint x="5" y="5" />
+            </Anchor>
+          </Anchors>
+        </Label>
+      </Windows>
+      <EventHandlers>
+        <EventHandler event="OnLButtonDown" function="Runebook.OnRuneClicked" />
+      </EventHandlers>
+    </Window>
+    <Window name="TorquoiseRuneTemplate" layer="popup">
+      <Size>
+        <AbsPoint x="280" y="28" />
+      </Size>
+      <Windows>
+        <Button name="$parentIcon" inherits="TorquoiseDiamond">
+          <Size>
+            <AbsPoint x="28" y="28" />
+          </Size>
+          <Anchors>
+            <Anchor point="topleft" relativePoint="topleft">
+              <AbsPoint x="0" y="0" />
+            </Anchor>
+          </Anchors>
+          <EventHandlers>
+            <EventHandler event="OnLButtonUp" function="Runebook.OnRuneClicked" />
+          </EventHandlers>
+        </Button>
+        <Label name="$parentName" font="UO_DefaultText" maxchars="64" textalign="left">
+          <Size>
+            <AbsPoint x="235" y="28" />
+          </Size>
+          <Anchors>
+            <Anchor point="topright" relativePoint="topleft" relativeTo="$parentIcon">
+              <AbsPoint x="5" y="5" />
+            </Anchor>
+          </Anchors>
+        </Label>
+      </Windows>
+      <EventHandlers>
+        <EventHandler event="OnLButtonDown" function="Runebook.OnRuneClicked" />
+      </EventHandlers>
+    </Window>
+    <Window name="GrayRuneTemplate" layer="popup">
+      <Size>
+        <AbsPoint x="280" y="28" />
+      </Size>
+      <Windows>
+        <Button name="$parentIcon" inherits="GrayDiamond">
+          <Size>
+            <AbsPoint x="28" y="28" />
+          </Size>
+          <Anchors>
+            <Anchor point="topleft" relativePoint="topleft">
+              <AbsPoint x="0" y="0" />
+            </Anchor>
+          </Anchors>
+          <EventHandlers>
+            <EventHandler event="OnLButtonUp" function="Runebook.OnRuneClicked" />
+          </EventHandlers>
+        </Button>
+        <Label name="$parentName" font="UO_DefaultText" maxchars="64" textalign="left">
+          <Size>
+            <AbsPoint x="235" y="28" />
+          </Size>
+          <Anchors>
+            <Anchor point="topright" relativePoint="topleft" relativeTo="$parentIcon">
+              <AbsPoint x="5" y="5" />
+            </Anchor>
+          </Anchors>
+        </Label>
+      </Windows>
+      <EventHandlers>
+        <EventHandler event="OnLButtonDown" function="Runebook.OnRuneClicked" />
+      </EventHandlers>
+    </Window>
+    <Window name="GreenRuneTemplate" layer="popup">
+      <Size>
+        <AbsPoint x="280" y="28" />
+      </Size>
+      <Windows>
+        <Button name="$parentIcon" inherits="GreenDiamond">
+          <Size>
+            <AbsPoint x="28" y="28" />
+          </Size>
+          <Anchors>
+            <Anchor point="topleft" relativePoint="topleft">
+              <AbsPoint x="0" y="0" />
+            </Anchor>
+          </Anchors>
+          <EventHandlers>
+            <EventHandler event="OnLButtonUp" function="Runebook.OnRuneClicked" />
+          </EventHandlers>
+        </Button>
+        <Label name="$parentName" font="UO_DefaultText" maxchars="64" textalign="left">
+          <Size>
+            <AbsPoint x="235" y="28" />
+          </Size>
+          <Anchors>
+            <Anchor point="topright" relativePoint="topleft" relativeTo="$parentIcon">
+              <AbsPoint x="5" y="5" />
+            </Anchor>
+          </Anchors>
+        </Label>
+      </Windows>
+      <EventHandlers>
+        <EventHandler event="OnLButtonDown" function="Runebook.OnRuneClicked" />
+      </EventHandlers>
+    </Window>
+    <Window name="BrownRuneTemplate" layer="popup">
+      <Size>
+        <AbsPoint x="280" y="28" />
+      </Size>
+      <Windows>
+        <Button name="$parentIcon" inherits="BrownDiamond">
+          <Size>
+            <AbsPoint x="28" y="28" />
+          </Size>
+          <Anchors>
+            <Anchor point="topleft" relativePoint="topleft">
+              <AbsPoint x="0" y="0" />
+            </Anchor>
+          </Anchors>
+          <EventHandlers>
+            <EventHandler event="OnLButtonUp" function="Runebook.OnRuneClicked" />
+          </EventHandlers>
+        </Button>
+        <Label name="$parentName" font="UO_DefaultText" maxchars="64" textalign="left">
+          <Size>
+            <AbsPoint x="235" y="28" />
+          </Size>
+          <Anchors>
+            <Anchor point="topright" relativePoint="topleft" relativeTo="$parentIcon">
+              <AbsPoint x="5" y="5" />
+            </Anchor>
+          </Anchors>
+        </Label>
+      </Windows>
+      <EventHandlers>
+        <EventHandler event="OnLButtonDown" function="Runebook.OnRuneClicked" />
+      </EventHandlers>
+    </Window>
+    <Window name="DefaultButtonTemplate" layer="popup">
+      <Size>
+        <AbsPoint x="200" y="25" />
+      </Size>
+      <Windows>
+        <Button name="$parentIcon" texture="hud_image" inherits="YellowDiamond">
+          <Size>
+            <AbsPoint x="28" y="28" />
+          </Size>
+          <Anchors>
+            <Anchor point="topleft" relativePoint="topleft">
+              <AbsPoint x="0" y="0" />
+            </Anchor>
+          </Anchors>
+          <EventHandlers>
+            <EventHandler event="OnLButtonUp" function="Runebook.OnDefaultClicked" />
+          </EventHandlers>
+        </Button>
+        <Label name="$parentName" font="UO_DefaultText" maxchars="64" textalign="left">
+          <Size>
+            <AbsPoint x="200" y="28" />
+          </Size>
+          <Anchors>
+            <Anchor point="topright" relativePoint="topleft" relativeTo="$parentIcon">
+              <AbsPoint x="5" y="5" />
+            </Anchor>
+          </Anchors>
+          <TextColors>
+            <Normal r="242" g="212" b="167" a="255" />
+            <Disabled r="142" g="112" b="67" a="255" />
+          </TextColors>
+        </Label>
+      </Windows>
+      <EventHandlers>
+        <EventHandler event="OnLButtonDown" function="Runebook.OnDefaultClicked" />
+      </EventHandlers>
+    </Window>
+    <Window name="RuneCoordsTemplate">
+      <Size>
+        <AbsPoint x="130" y="60" />
+      </Size>
+      <Windows>
+        <Button name="$parentIcon" texture="UO_Common">
+          <Size>
+            <AbsPoint x="125" y="66" />
+          </Size>
+          <Anchors>
+            <Anchor point="topleft" relativePoint="topleft">
+              <AbsPoint x="0" y="0" />
+            </Anchor>
+          </Anchors>
+          <TexCoords>
+            <Normal texture="UO_Common" x="0" y="258" />
+            <Disabled texture="UO_Common" x="0" y="324" />
+          </TexCoords>
+        </Button>
+        <Label name="$parentName" font="UO_DefaultText" maxchars="64" textalign="center">
+          <Size>
+            <AbsPoint x="130" y="66" />
+          </Size>
+          <Anchors>
+            <Anchor point="topleft" relativePoint="topleft" relativeTo="$parentIcon">
+              <AbsPoint x="0" y="0" />
+            </Anchor>
+          </Anchors>
+          <TextColors>
+            <Normal r="0" g="0" b="0" a="255" />
+          </TextColors>
+        </Label>
+      </Windows>
+    </Window>
+    <Window name="RUNEBOOK_GUMP" movable="true">
+      <Size>
+        <AbsPoint x="570" y="408" />
+      </Size>
+      <Anchors>
+        <Anchor point="center" relativePoint="center" />
+      </Anchors>
+      <EventHandlers>
+        <EventHandler event="OnInitialize" function="Runebook.Initialize" />
+        <EventHandler event="OnShutdown" function="Runebook.Shutdown" />
+      </EventHandlers>
+      <Windows>
+        <!-- Default chrome. Alter this at your own peril. -->
+        <Window name="$parentChrome" inherits="UO_DefaultWindow">
+          <Anchors>
+            <Anchor point="topleft" relativePoint="topleft" />
+            <Anchor point="bottomright" relativePoint="bottomright" />
+          </Anchors>
+        </Window>
+        <!-- End of default chrome boilerplate code -->
+        <Label name="$parentCharges" font="UO_DefaultText" maxchars="32" textalign="left">
+          <Size>
+            <AbsPoint x="200" y="60" />
+          </Size>
+          <Anchors>
+            <Anchor point="topleft" relativePoint="topleft">
+              <AbsPoint x="30" y="35" />
+            </Anchor>
+          </Anchors>
+          <TextColors>
+            <Normal r="167" g="137" b="92" a="255" />
+          </TextColors>
+        </Label>
+        <Window name="$parentRenameBook" inherits="DefaultButtonTemplate">
+          <Anchors>
+            <Anchor point="topright" relativePoint="topleft" relativeTo="$parentCharges">
+              <AbsPoint x="100" y="-6" />
+            </Anchor>
+          </Anchors>
+        </Window>
+        <Window name="$parentFirst" movable="false">
+          <Size>
+            <AbsPoint x="280" y="248" />
+          </Size>
+          <Anchors>
+            <Anchor point="topleft" relativePoint="topleft">
+              <AbsPoint x="5" y="57" />
+            </Anchor>
+          </Anchors>
+          <Windows>
+            <!-- Inner Frame Boilerplate -->
+            <FullResizeImage name="$parentFrame" inherits="UO_Default_Inner_Window_Frame">
+              <Anchors>
+                <Anchor point="topleft" relativePoint="topleft" />
+                <Anchor point="bottomright" relativePoint="bottomright" />
+              </Anchors>
+            </FullResizeImage>
+            <!-- End of Inner Frame Boilerplate -->
+          </Windows>
+        </Window>
+        <Window name="$parentSecond" movable="false">
+          <Size>
+            <AbsPoint x="280" y="248" />
+          </Size>
+          <Anchors>
+            <Anchor point="topright" relativePoint="topleft" relativeTo="$parentFirst">
+              <AbsPoint x="-1" y="0" />
+            </Anchor>
+          </Anchors>
+          <Windows>
+            <!-- Inner Frame Boilerplate -->
+            <FullResizeImage name="$parentFrame" inherits="UO_Default_Inner_Window_Frame">
+              <Anchors>
+                <Anchor point="topleft" relativePoint="topleft" />
+                <Anchor point="bottomright" relativePoint="bottomright" />
+              </Anchors>
+            </FullResizeImage>
+            <!-- End of Inner Frame Boilerplate -->
+          </Windows>
+        </Window>
+        <Window name="$parentCoords" inherits="RuneCoordsTemplate">
+          <Anchors>
+            <Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentFirst">
+              <AbsPoint x="20" y="25" />
+            </Anchor>
+          </Anchors>
+        </Window>
+        <Window name="$parentLocation">
+          <Size>
+            <AbsPoint x="260" y="28" />
+          </Size>
+          <Anchors>
+            <Anchor point="topright" relativePoint="topleft" relativeTo="$parentCoords">
+              <AbsPoint x="40" y="-10" />
+            </Anchor>
+          </Anchors>
+          <Windows>
+            <HorizontalResizeImage name="$parentHorRule" inherits="UO_Default_Horizontal_Rule">
+              <Size>
+                <AbsPoint x="260" y="4" />
+              </Size>
+            </HorizontalResizeImage>
+            <Label name="$parentName" font="UO_DefaultText" maxchars="64" textalign="center">
+              <Size>
+                <AbsPoint x="260" y="28" />
+              </Size>
+              <Anchors>
+                <Anchor point="topleft" relativePoint="bottomleft" relativeTo="$parentHorRule">
+                  <AbsPoint x="0" y="7" />
+                </Anchor>
+              </Anchors>
+              <TextColors>
+                <Normal r="75" g="200" b="100" a="255" />
+              </TextColors>
+            </Label>
+          </Windows>
+        </Window>
+        <Window name="$parentDropRune" inherits="DefaultButtonTemplate" id="18">
+          <Anchors>
+            <Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentLocation">
+              <AbsPoint x="-20" y="-25" />
+            </Anchor>
+          </Anchors>
+        </Window>
+        <Window name="$parentRecall" inherits="DefaultButtonTemplate">
+          <Anchors>
+            <Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentDropRune" />
+          </Anchors>
+        </Window>
+        <Window name="$parentRecallSpell" inherits="DefaultButtonTemplate">
+          <Anchors>
+            <Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentRecall" />
+          </Anchors>
+        </Window>
+        <Window name="$parentGateTravel" inherits="DefaultButtonTemplate">
+          <Anchors>
+            <Anchor point="topright" relativePoint="topleft" relativeTo="$parentDropRune" />
+          </Anchors>
+        </Window>
+        <Window name="$parentSacred" inherits="DefaultButtonTemplate">
+          <Anchors>
+            <Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentGateTravel" />
+          </Anchors>
+        </Window>
+        <Window name="$parentSetDefault" inherits="DefaultButtonTemplate">
+          <Anchors>
+            <Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentSacred" />
+          </Anchors>
+        </Window>
+      </Windows>
+    </Window>
+  </Windows>
+</Interface>

@@ -1,0 +1,1 @@
+LoadResources( "./UserInterface/"..SystemData.Settings.Interface.customUiName.."/Icons/Custom/LegacyII-InGameGraphics-FencingWeapons", "LegacyIIFencingWeaponIconPack.xml", "LegacyIIFencingWeaponIconPack.xml" )

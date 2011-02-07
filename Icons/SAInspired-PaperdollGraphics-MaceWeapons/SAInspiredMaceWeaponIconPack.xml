@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Interface xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../Interface.xsd">
+	<Assets>
+        <Texture name="SAInspiredPaperdollMaceWeaponIconPack_blackstaff" file="Icons/mace_blackstaff.dds" />
+        <Texture name="SAInspiredPaperdollMaceWeaponIconPack_club" file="Icons/mace_club.dds" />
+        <Texture name="SAInspiredPaperdollMaceWeaponIconPack_diamondmace" file="Icons/mace_diamondmace.dds" />
+        <Texture name="SAInspiredPaperdollMaceWeaponIconPack_gnarledstaff" file="Icons/mace_gnarledstaff.dds" />
+        <Texture name="SAInspiredPaperdollMaceWeaponIconPack_hammerpick" file="Icons/mace_hammerpick.dds" />
+        <Texture name="SAInspiredPaperdollMaceWeaponIconPack_mace" file="Icons/mace_mace.dds" />
+        <Texture name="SAInspiredPaperdollMaceWeaponIconPack_maul" file="Icons/mace_maul.dds" />
+        <Texture name="SAInspiredPaperdollMaceWeaponIconPack_nunchaku" file="Icons/mace_nunchaku.dds" />
+        <Texture name="SAInspiredPaperdollMaceWeaponIconPack_quarterstaff" file="Icons/mace_quarterstaff.dds" />
+        <Texture name="SAInspiredPaperdollMaceWeaponIconPack_scepter" file="Icons/mace_scepter.dds" />
+        <Texture name="SAInspiredPaperdollMaceWeaponIconPack_sheperdscrook" file="Icons/mace_sheperdscrook.dds" />
+        <Texture name="SAInspiredPaperdollMaceWeaponIconPack_smithhammer" file="Icons/mace_smithhammer.dds" />
+        <Texture name="SAInspiredPaperdollMaceWeaponIconPack_tetsubo" file="Icons/mace_tetsubo.dds" />
+        <Texture name="SAInspiredPaperdollMaceWeaponIconPack_waraxe" file="Icons/mace_waraxe.dds" />
+        <Texture name="SAInspiredPaperdollMaceWeaponIconPack_warhammer" file="Icons/mace_warhammer.dds" />
+        <Texture name="SAInspiredPaperdollMaceWeaponIconPack_wildstaff" file="Icons/mace_wildstaff.dds" />
+	</Assets>
+</Interface>

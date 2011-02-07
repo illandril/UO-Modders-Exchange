@@ -1,0 +1,159 @@
+<Interface xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../Interface.xsd">
+  <Assets>
+    <Texture name="WOD" file="Source/wod.dds"/>
+  </Assets>
+  <Scripts>
+		<Script file="Source/MobileHealthBar.lua" />
+	</Scripts>
+	<Windows>
+		<Window name="MobileHealthBar" movable="false" draganddrop="true">
+			<Size>
+				<AbsPoint x="194" y="48" />
+			</Size>
+			<Windows>
+				<DynamicImage name="$parentImage" texture="hud_image2" handleinput="false" layer="background" poppable="false">
+          <Size>
+            <AbsPoint x="194" y="48" />
+          </Size>
+          <TexCoords x="0" y="462"/>
+        </DynamicImage>
+        <Button name="$parentWod" backgroundtexture="WOD" highlighttexture="WOD" layer="popup">
+          <Size>
+            <AbsPoint x="95" y="108" />
+          </Size>
+          <Anchors>
+            <Anchor point="center" relativePoint="center" relativeTo="$parent" >
+              <AbsPoint x="0" y="0" />
+            </Anchor>
+          </Anchors>
+          <TexCoords>
+            <Normal  x="0" y="0" />
+            <NormalHighlit x="0" y="0" />
+            <Pressed x="110" y="0" />
+            <PressedHighlit x="110" y="0" />
+          </TexCoords>
+          <EventHandlers>
+            <EventHandler event="OnLButtonUp" function="MobileHealthBar.WodButton_OnLButtonUp" />
+            <EventHandler event="OnMouseOver" function="MobileHealthBar.WodButton_OnMouseOver" />
+            <EventHandler event="OnMouseOverEnd" function="PartyHealthBar.OnMouseOverEnd" />
+          </EventHandlers>
+        </Button>
+        <Button name="$parentRedButton" backgroundtexture="hud_image2" highlighttexture="hud_image2" texturescale="1">
+          <Size>
+            <AbsPoint x="16" y="14" />
+          </Size>
+          <Anchors>
+            <Anchor point="topright" relativePoint="topright" >
+              <AbsPoint x="-30" y="16" />
+            </Anchor>
+          </Anchors>
+          <TexCoords>
+            <Normal  x="0" y="287" />
+            <NormalHighlit x="36" y="287" />
+            <Pressed x="36" y="287" />
+            <PressedHighlit x="36" y="287" />
+          </TexCoords>
+          <EventHandlers>
+            <EventHandler event="OnLButtonUp" function="MobileHealthBar.RedButton_OnLButtonUp" />
+            <EventHandler event="OnMouseOver" function="PartyHealthBar.RedButton_OnMouseOver" />
+            <EventHandler event="OnMouseOverEnd" function="PartyHealthBar.OnMouseOverEnd" />
+          </EventHandlers>
+        </Button>
+        <Button name="$parentGreenButton" backgroundtexture="hud_image2" highlighttexture="hud_image2"  texturescale="1">
+          <Size>
+            <AbsPoint x="16" y="14" />
+          </Size>
+          <Anchors>
+            <Anchor point="topright" relativePoint="topright" >
+              <AbsPoint x="-13" y="16" />
+            </Anchor>
+          </Anchors>
+          <TexCoords>
+            <Normal  x="18" y="287" />
+            <NormalHighlit x="54" y="287" />
+            <Pressed x="54" y="287" />
+            <PressedHighlit x="54" y="287" />
+          </TexCoords>
+          <EventHandlers>
+            <EventHandler event="OnLButtonUp" function="MobileHealthBar.GreenButton_OnLButtonUp" />
+            <EventHandler event="OnMouseOver" function="PartyHealthBar.GreenButton_OnMouseOver" />
+            <EventHandler event="OnMouseOverEnd" function="PartyHealthBar.OnMouseOverEnd" />
+
+          </EventHandlers>
+        </Button>
+        
+				<Button name="$parentCloseButton" backgroundtexture="UO_Core" highlighttexture="UO_Core" texturescale="1.28" layer="popup">
+					<Size>
+						<AbsPoint x="9" y="9" />
+					</Size>
+					<Anchors>
+						<Anchor point="topright" relativePoint="topright" />
+					</Anchors>
+					<EventHandlers>
+						<EventHandler event="OnLButtonUp" function="MobileHealthBar.CloseWindow" />
+					</EventHandlers>
+					<TexCoords>
+						<Normal x="182" y="309" />
+						<NormalHighlit x="182" y="275" />
+						<Pressed x="182" y="309"  />
+						<PressedHighlit x="182" y="275" />
+						<Disabled x="182" y="309" />
+					</TexCoords>
+				</Button>
+				<Label name="$parentName" font="UO_15" maxchars="60" textalign="left" handleinput="false" wordwrap="false" linespacing="18" popable="false">
+					<Size>
+						<AbsPoint x="145" y="32" />
+					</Size>
+					<Anchors>
+						<Anchor point="topleft" relativePoint="topleft" relativeTo="$parent">
+							<AbsPoint x="2" y="15" />
+						</Anchor>
+					</Anchors>
+					<Color r="255" g="255" b="255" a="255" />
+				</Label>
+				<Label name="$parentHealthBarLabel" font="UO_DefaultText_15pt" maxchars="50" textalign="left" handleinput="false" wordwrap="false" linespacing="18" popable="false">
+					<Size>
+						<AbsPoint x="175" y="16" />
+					</Size>
+					<Anchors>
+						<Anchor point="topleft" relativePoint="topleft" relativeTo="$parent">
+							<AbsPoint x="5" y="30" />
+						</Anchor>
+					</Anchors>
+					<Color r="255" g="255" b="255" a="255" />
+				</Label>
+				<StatusBar name="$parentHealthBar" inherits="TargetStatusBar" handleinput="false">
+					<Size>
+						<AbsPoint x="155" y="6" />
+					</Size>
+					<Anchors>
+						<Anchor point="topleft" relativePoint="topleft" relativeTo="$parent">
+							<AbsPoint x="20" y="7" />
+						</Anchor>
+					</Anchors>
+				</StatusBar>
+        <Label name="$parentHealthBarPerc" font="UO_DefaultText_15pt" maxchars="50" textalign="left" handleinput="false" wordwrap="false" linespacing="18" popable="false">
+          <Size>
+            <AbsPoint x="50" y="16" />
+          </Size>
+          <Anchors>
+            <Anchor point="topright" relativePoint="topright" relativeTo="$parent">
+              <AbsPoint x="-122" y="31" />
+            </Anchor>
+          </Anchors>
+          <Color r="255" g="255" b="255" a="255" />
+        </Label>
+			</Windows>
+			<EventHandlers>
+				<EventHandler event="OnShutdown" function="MobileHealthBar.OnShutdown" />
+				<EventHandler event="OnLButtonDown" function="MobileHealthBar.OnLButtonDown" />
+				<EventHandler event="OnLButtonUp" function="MobileHealthBar.OnLButtonUp" />
+				<EventHandler event="OnLButtonDblClk" function="MobileHealthBar.OnLButtonDblClk" />
+				<EventHandler event="OnRButtonUp" function="MobileHealthBar.OnRButtonUp" />
+				<EventHandler event="OnMouseOver" function="MobileHealthBar.OnMouseOver" />
+				<EventHandler event="OnMouseOverEnd" function="MobileHealthBar.OnMouseOverEnd" />
+        <EventHandler event="OnMouseWheel" function="EnhancePack.Scale" />
+			</EventHandlers>
+		</Window>
+	</Windows>
+</Interface>

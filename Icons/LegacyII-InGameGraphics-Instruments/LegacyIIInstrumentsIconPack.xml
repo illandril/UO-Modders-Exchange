@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Interface xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../Interface.xsd">
+	<Assets>
+        <Texture name="LegacyIIInGameInstrumentsIconPack_bambooflute" file="Icons/instrument_bambooflute.dds" />
+        <Texture name="LegacyIIInGameInstrumentsIconPack_drum" file="Icons/instrument_drum.dds" />
+        <Texture name="LegacyIIInGameInstrumentsIconPack_lapharp" file="Icons/instrument_lapharp.dds" />
+        <Texture name="LegacyIIInGameInstrumentsIconPack_lute" file="Icons/instrument_lute.dds" />
+        <Texture name="LegacyIIInGameInstrumentsIconPack_snakecharmerflute" file="Icons/instrument_snakecharmerflute.dds" />
+        <Texture name="LegacyIIInGameInstrumentsIconPack_standingharp" file="Icons/instrument_standingharp.dds" />
+        <Texture name="LegacyIIInGameInstrumentsIconPack_tambourine" file="Icons/instrument_tambourine.dds" />
+	      <Texture name="LegacyIIInGameInstrumentsIconPack_tambourineribbon" file="Icons/instrument_tambourineribbon.dds" />
+	</Assets>      
+</Interface>

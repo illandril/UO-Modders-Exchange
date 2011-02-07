@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Interface xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../Interface.xsd">
+  <Scripts>
+    <Script file="Source/UO_DefaultWindow.lua" />
+  </Scripts>
+  <Windows>
+    <Window name="Illandril_PaperdollWindow" movable="false" layer="background" popable="false">
+      <EventHandlers>
+        <EventHandler event="OnInitialize" function="UO_DefaultWindow.Initialize" />
+      </EventHandlers>
+
+      <Windows>
+<!-- Body background -->
+        <FullResizeImage name="$parent_UO_DefaultWindowBackground" layer="background" handleinput="true" texture="Paperdoll_Textures">
+          <Anchors>
+            <Anchor point="topleft" relativePoint="topleft">
+              <AbsPoint x="0" y="0" />
+            </Anchor>
+            <Anchor point="bottomright" relativePoint="bottomright">
+              <AbsPoint x="0" y="0" />
+            </Anchor>
+          </Anchors>
+          <Sizes>
+            <TopLeft x="83" y="66" />
+            <Middle x="200" y="470" />
+            <BottomRight x="78" y="78" />
+          </Sizes>
+          <TexCoords>
+            <TopLeft x="10" y="10" />
+            <TopCenter x="93" y="10" />
+            <TopRight x="293" y="10" />
+            <MiddleLeft x="10" y="76" />
+            <MiddleCenter x="93" y="76" />
+            <MiddleRight x="293" y="76" />
+            <BottomLeft x="10" y="546" />
+            <BottomCenter x="93" y="546" />
+            <BottomRight x="293" y="546" />
+          </TexCoords>
+          <EventHandlers>
+            <EventHandler event="OnRButtonUp" function="UO_DefaultWindow.CloseDialog" />
+          </EventHandlers>                    
+        </FullResizeImage>
+
+        <Label name="$parent_UO_TitleBar_WindowTitle" inherits="UO_Default_Label_Color"  font="UO_Title" maxchars="0" handleinput="false" layer="popup" autoresizewidth="true">
+          <Size>
+            <AbsPoint x="0" y="24"/>
+          </Size>
+          <Anchors>
+            <Anchor point="top" relativePoint="top">
+              <AbsPoint x="0" y="0" />
+            </Anchor>
+          </Anchors>
+        </Label>
+
+        <!-- Close button -->
+<!--
+        <Button name="$parent_UO_WindowCloseButton" inherits="UO_Default_Close_Button">
+          <Anchors>
+            <Anchor point="topright" relativePoint="topright">
+              <AbsPoint x="0" y="0" />
+            </Anchor>
+          </Anchors>
+        </Button>
+-->
+      </Windows>
+    </Window>
+  </Windows>
+</Interface>

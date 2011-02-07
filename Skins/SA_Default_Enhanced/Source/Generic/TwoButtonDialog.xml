@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Interface xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../Interface.xsd">
+<Include file="EnhancedUI.xml"/>
+    <Scripts>
+        <Script file="Source/Generic/TwoButtonDialog.lua" />
+    </Scripts>
+
+    <Windows>
+        <Window name="TwoButtonDialog" movable="true">
+            <Size>
+                <AbsPoint x="315" y="500" />
+            </Size>
+            <Anchors>
+                <Anchor point="top" relativePoint="top">
+                    <AbsPoint x="0" y="212" />
+                </Anchor>
+            </Anchors>
+            <EventHandlers>
+                <EventHandler event="OnInitialize" function="TwoButtonDialog.Initialize" />
+                <EventHandler event="OnKeyEscape" function="TwoButtonDialog.OnCloseWindow"/>
+            </EventHandlers>
+            <Windows>
+
+                <Window name="$parentChrome" inherits="UO_DefaultWindow" >
+                    <Anchors>
+                        <Anchor point="topleft" relativePoint="topleft"/>
+                        <Anchor point="bottomright" relativePoint="bottomright"/>
+                    </Anchors>
+                </Window>
+
+                <Label name="$parentSubtitle" inherits="UO_Default_Label_Color" font="UO_Subtitle" textalign="left" autoresize="true" maxchars="2048" linespacing="20" wordwrap="true" >
+                    <Size>
+                        <AbsPoint x="285" y="0"/>
+                    </Size>
+                    <Anchors>
+                        <Anchor point="topleft" relativePoint="topleft">
+                            <AbsPoint x="20" y="60"/>
+                        </Anchor>
+                    </Anchors>
+                </Label>
+
+                <ScrollWindow name="$parentScroll" childscrollwindow="$parentChild" scrollbar="$parentbar" lineheight="18" autoHideScrollBar="true">
+                    <Anchors>
+                        <Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentSubtitle">
+                            <AbsPoint x="0" y="10"/>
+                        </Anchor>
+
+                        <Anchor point="bottomright" relativePoint="bottomright">
+                            <AbsPoint x="-5" y="-70" />
+                        </Anchor>
+                    </Anchors>
+                    <Windows>
+
+                        <VerticalScrollbar name="$parentbar" inherits="StandardVertScroll">
+                            <Size>
+                                <AbsPoint x="20" y="0" />
+                            </Size>
+                            <Anchors>
+                                <Anchor point="topright" relativePoint="topright">
+                                    <AbsPoint x="-10" y="0"/>
+                                </Anchor>
+                            </Anchors>
+                        </VerticalScrollbar>
+                        <Window name="$parentChild">
+                            <Windows>
+                                <Label name="$parentText" font="UO_DefaultText" textalign="left" autoresize="true" maxchars="2048" linespacing="20" wordwrap="true" >
+                                    <Size>
+                                        <AbsPoint x="250" y="0" />
+                                    </Size>
+                                    <Anchors>
+                                        <Anchor point="topleft" relativePoint="topleft">
+                                        </Anchor>
+                                    </Anchors>
+                                </Label>
+                            </Windows>
+                        </Window>
+
+                    </Windows>
+                </ScrollWindow>
+
+                <Button name="$parentLeftButtonName" inherits="UO_Default_GumpButton" >
+                    <Anchors>
+                        <Anchor point="bottomleft" relativePoint="bottomleft" >
+                            <AbsPoint x="45" y="-15" />
+                        </Anchor>
+                    </Anchors>
+                    <EventHandlers>
+                        <EventHandler event="OnLButtonUp" function="TwoButtonDialog.LeftButtonPressed"/>
+                    </EventHandlers>
+                </Button>
+                <Button name="$parentRightButtonName" inherits="UO_Default_GumpButton" >
+                    <Anchors>
+                        <Anchor point="bottomright" relativePoint="bottomright" >
+                            <AbsPoint x="-45" y="-15" />
+                        </Anchor>
+                    </Anchors>
+                    <EventHandlers>
+                        <EventHandler event="OnLButtonUp" function="TwoButtonDialog.RightButtonPressed"/>
+                    </EventHandlers>
+                </Button>
+            </Windows>
+        </Window>
+
+        <Window name="TwoButtonDialog_Short" movable="true">
+            <Size>
+                <AbsPoint x="315" y="280" />
+            </Size>
+            <Anchors>
+                <Anchor point="top" relativePoint="top">
+                    <AbsPoint x="0" y="212" />
+                </Anchor>
+            </Anchors>
+            <EventHandlers>
+
+                <EventHandler event="OnInitialize" function="TwoButtonDialog.Initialize" />
+                <EventHandler event="OnKeyEscape" function="TwoButtonDialog.OnCloseWindow"/>
+            </EventHandlers>
+            <Windows>
+
+                <Window name="$parentChrome" inherits="UO_DefaultWindow" >
+                    <Anchors>
+                        <Anchor point="topleft" relativePoint="topleft"/>
+                        <Anchor point="bottomright" relativePoint="bottomright"/>
+                    </Anchors>
+                </Window>
+
+                <Label name="$parentSubtitle" font="UO_Subtitle" textalign="left" autoresize="true" maxchars="2048" linespacing="20" wordwrap="true" >
+                    <Size>
+                        <AbsPoint x="285" y="0"/>
+                    </Size>
+                    <Anchors>
+                        <Anchor point="topleft" relativePoint="topleft">
+                            <AbsPoint x="20" y="60"/>
+                        </Anchor>
+                    </Anchors>
+                    <Color r="255" g="255" b="255" a="255"/>
+                </Label>
+
+                <ScrollWindow name="$parentScroll" childscrollwindow="$parentChild" scrollbar="$parentbar" lineheight="18" autoHideScrollBar="true">
+                    <Size>
+                        <AbsPoint x="275" y="0"/>
+                    </Size>
+                    <Anchors>
+                        <Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentSubtitle">
+                            <AbsPoint x="0" y="10"/>
+                        </Anchor>
+                        <Anchor point="bottomright" relativePoint="bottomright">
+                            <AbsPoint x="-5" y="-70" />
+                        </Anchor>
+                    </Anchors>
+                    <Windows>
+
+                        <VerticalScrollbar name="$parentbar" inherits="StandardVertScroll">
+                            <Size>
+                                <AbsPoint x="20" y="0" />
+                            </Size>
+                            <Anchors>
+                                <Anchor point="topright" relativePoint="topright">
+                                    <AbsPoint x="-10" y="0"/>
+                                </Anchor>
+                            </Anchors>
+                        </VerticalScrollbar>
+                        <Window name="$parentChild">
+                            <Windows>
+                                <Label name="$parentText" font="UO_DefaultText" textalign="left" autoresize="true" maxchars="2048" linespacing="20" wordwrap="true" >
+                                    <Size>
+                                        <AbsPoint x="250" y="0" />
+                                    </Size>
+                                    <Anchors>
+                                        <Anchor point="topleft" relativePoint="topleft">
+                                        </Anchor>
+                                    </Anchors>
+                                    <Color r="255" g="255" b="255" a="255" />
+                                </Label>
+                            </Windows>
+                        </Window>
+                    </Windows>
+                </ScrollWindow>
+
+                <Button name="$parentLeftButtonName" inherits="UO_Default_GumpButton" >
+                    <Anchors>
+                        <Anchor point="bottomleft" relativePoint="bottomleft" >
+                            <AbsPoint x="45" y="-15" />
+                        </Anchor>
+                    </Anchors>
+                    <EventHandlers>
+                        <EventHandler event="OnLButtonUp" function="TwoButtonDialog.LeftButtonPressed"/>
+                    </EventHandlers>
+                </Button>
+                <Button name="$parentRightButtonName" inherits="UO_Default_GumpButton" >
+                    <Anchors>
+                        <Anchor point="bottomright" relativePoint="bottomright" >
+                            <AbsPoint x="-45" y="-15" />
+                        </Anchor>
+                    </Anchors>
+                    <EventHandlers>
+                        <EventHandler event="OnLButtonUp" function="TwoButtonDialog.RightButtonPressed"/>
+                    </EventHandlers>
+                </Button>
+            </Windows>
+        </Window>
+
+        <Window name="TwoButtonDialog_Wide" movable="true">
+            <Size>
+                <AbsPoint x="630" y="500" />
+            </Size>
+            <Anchors>
+                <Anchor point="top" relativePoint="top">
+                    <AbsPoint x="0" y="212" />
+                </Anchor>
+            </Anchors>
+            <EventHandlers>
+
+                <EventHandler event="OnInitialize" function="TwoButtonDialog.Initialize" />
+                <EventHandler event="OnKeyEscape" function="TwoButtonDialog.OnCloseWindow"/>
+            </EventHandlers>
+            <Windows>
+
+                <Window name="$parentChrome" inherits="UO_DefaultWindow" >
+                    <Anchors>
+                        <Anchor point="topleft" relativePoint="topleft"/>
+                        <Anchor point="bottomright" relativePoint="bottomright"/>
+                    </Anchors>
+                </Window>
+
+                <Label name="$parentSubtitle" font="UO_Subtitle" textalign="left" autoresize="true" maxchars="2048" linespacing="20" wordwrap="true" >
+                    <Size>
+                        <AbsPoint x="600" y="0"/>
+                    </Size>
+                    <Anchors>
+                        <Anchor point="topleft" relativePoint="topleft">
+                            <AbsPoint x="20" y="60"/>
+                        </Anchor>
+                    </Anchors>
+                    <Color r="255" g="255" b="255" a="255"/>
+                </Label>
+
+                <ScrollWindow name="$parentScroll" childscrollwindow="$parentChild" scrollbar="$parentbar" lineheight="18" autoHideScrollBar="true">
+                    <Size>
+                        <AbsPoint x="600" y="350"/>
+                    </Size>
+                    <Anchors>
+                        <Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentSubtitle">
+                            <AbsPoint x="0" y="10"/>
+                        </Anchor>
+                        <Anchor point="bottomright" relativePoint="bottomright">
+                            <AbsPoint x="-5" y="-70" />
+                        </Anchor>
+                    </Anchors>
+                    <Windows>
+
+                        <VerticalScrollbar name="$parentbar" inherits="StandardVertScroll">
+                            <Size>
+                                <AbsPoint x="20" y="0" />
+                            </Size>
+                            <Anchors>
+                                <Anchor point="topright" relativePoint="topright">
+                                    <AbsPoint x="-10" y="0"/>
+                                </Anchor>
+                            </Anchors>
+                        </VerticalScrollbar>
+                        <Window name="$parentChild">
+                            <Windows>
+                                <Label name="$parentText" font="UO_DefaultText" textalign="left" autoresize="true" maxchars="2048" linespacing="20" wordwrap="true" >
+                                    <Size>
+                                        <AbsPoint x="565" y="0" />
+                                    </Size>
+                                    <Anchors>
+                                        <Anchor point="topleft" relativePoint="topleft">
+                                        </Anchor>
+                                    </Anchors>
+                                    <Color r="255" g="255" b="255" a="255" />
+                                </Label>
+                            </Windows>
+                        </Window>
+                    </Windows>
+                </ScrollWindow>
+
+                <Button name="$parentLeftButtonName" inherits="UO_Default_GumpButton" >
+                    <Anchors>
+                        <Anchor point="bottomleft" relativePoint="bottomleft" >
+                            <AbsPoint x="45" y="-15" />
+                        </Anchor>
+                    </Anchors>
+                    <EventHandlers>
+                        <EventHandler event="OnLButtonUp" function="TwoButtonDialog.LeftButtonPressed"/>
+                    </EventHandlers>
+                </Button>
+                <Button name="$parentRightButtonName" inherits="UO_Default_GumpButton" >
+                    <Anchors>
+                        <Anchor point="bottomright" relativePoint="bottomright" >
+                            <AbsPoint x="-45" y="-15" />
+                        </Anchor>
+                    </Anchors>
+                    <EventHandlers>
+                        <EventHandler event="OnLButtonUp" function="TwoButtonDialog.RightButtonPressed"/>
+                    </EventHandlers>
+                </Button>
+            </Windows>
+        </Window>
+
+    </Windows>
+</Interface>

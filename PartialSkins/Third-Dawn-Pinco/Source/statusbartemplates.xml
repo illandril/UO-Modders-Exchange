@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Interface xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../Interface.xsd">
+	<Windows>
+
+	<!-- Status Bar Horizontal Resize Images -->
+<!--
+    <HorizontalResizeImage name="RedHorizResizeImg" texture="hud_image">
+		<Size>
+			<AbsPoint x="201" y="12" />
+		</Size>
+		<Sizes left="10" middle="181" right="10" />
+		<TexCoords>
+			<Left x="192" y="581" />
+			<Middle x="202" y="581" />
+			<Right x="384" y="581" />
+		</TexCoords>
+	</HorizontalResizeImage>
+	
+	<HorizontalResizeImage name="BlueHorizResizeImg" texture="hud_image">
+		<Size>
+			<AbsPoint x="201" y="12" />
+		</Size>
+		<Sizes left="10" middle="181" right="10" />
+		<TexCoords>
+			<Left x="192" y="593" />
+			<Middle x="202" y="593" />
+			<Right x="384" y="593" />
+		</TexCoords>
+	</HorizontalResizeImage>	
+	
+	<HorizontalResizeImage name="YellowHorizResizeImg" texture="hud_image">
+		<Size>
+			<AbsPoint x="201" y="12" />
+		</Size>
+		<Sizes left="10" middle="181" right="10" />
+		<TexCoords>
+			<Left x="192" y="607" />
+			<Middle x="202" y="607" />
+			<Right x="384" y="607" />       
+		</TexCoords>
+	</HorizontalResizeImage>
+-->
+    <HorizontalResizeImage name="RedHorizResizeImg" texture="hud_image">
+      <Size>
+        <AbsPoint x="163" y="7" />
+      </Size>
+      <Sizes left="10" middle="144" right="10" />
+      <TexCoords>
+        <Left x="2" y="98" />
+        <Middle x="10" y="98" />
+        <Right x="155" y="98" />
+      </TexCoords>
+    </HorizontalResizeImage>
+
+    <HorizontalResizeImage name="BlueHorizResizeImg" texture="hud_image">
+      <Size>
+        <AbsPoint x="153" y="7" />
+      </Size>
+      <Sizes left="10" middle="133" right="10" />
+      <TexCoords>
+        <Left x="12" y="110" />
+        <Middle x="22" y="110" />
+        <Right x="155" y="110" />
+      </TexCoords>
+    </HorizontalResizeImage>
+
+    <HorizontalResizeImage name="YellowHorizResizeImg" texture="hud_image">
+      <Size>
+        <AbsPoint x="147" y="7" />
+      </Size>
+      <Sizes left="10" middle="127" right="10" />
+      <TexCoords>
+        <Left x="18" y="122" />
+        <Middle x="28" y="122" />
+        <Right x="155" y="122" />
+      </TexCoords>
+    </HorizontalResizeImage>
+    
+
+    <HorizontalResizeImage name="TargetRedHorizResizeImg" texture="hud_image">
+		<Size>
+			<AbsPoint x="155" y="6" />
+		</Size>
+		<Sizes left="155" middle="0" right="0" />
+		<TexCoords>
+			<Left x="3" y="132" />
+			<Middle x="13" y="132" />
+			<Right x="90" y="132" />
+		</TexCoords>
+	</HorizontalResizeImage>
+	
+	<HorizontalResizeImage name="MobileRedHorizResizeImg" texture="hud_image">
+		<Size>
+			<AbsPoint x="129" y="5" />
+		</Size>
+		<Sizes left="129" middle="0" right="0" />
+		<TexCoords>
+			<Left x="220" y="230" />
+			<Middle x="250" y="230" />
+			<Right x="270" y="230" />
+		</TexCoords>
+	</HorizontalResizeImage>
+	
+	<!-- Status Bar Horizontal Resize Images -->
+<!--
+	<HorizontalResizeImage name="RedMiniHorizResizeImg" texture="hud_image">
+		<Size>
+			<AbsPoint x="201" y="2" />
+		</Size>
+		<Sizes left="10" middle="181" right="10" />
+		<TexCoords>
+			<Left x="192" y="584" />
+			<Middle x="202" y="584" />
+			<Right x="384" y="584" />
+		</TexCoords>
+	</HorizontalResizeImage>
+	
+	<HorizontalResizeImage name="BlueMiniHorizResizeImg" texture="hud_image">
+    <Size>
+      <AbsPoint x="201" y="2" />
+    </Size>
+    <Sizes left="10" middle="181" right="10" />
+    <TexCoords>
+      <Left x="192" y="584" />
+      <Middle x="202" y="584" />
+      <Right x="384" y="584" />
+    </TexCoords>
+	</HorizontalResizeImage>	
+	
+	<HorizontalResizeImage name="YellowMiniHorizResizeImg" texture="hud_image">
+		<Size>
+			<AbsPoint x="201" y="2" />
+		</Size>
+		<Sizes left="10" middle="181" right="10" />
+		<TexCoords>
+			<Left x="192" y="610" />
+			<Middle x="202" y="610" />
+			<Right x="384" y="610" />       
+		</TexCoords>
+	</HorizontalResizeImage>
+-->
+
+    <HorizontalResizeImage name="RedMiniHorizResizeImg" texture="hud_image">
+      <Size>
+        <AbsPoint x="201" y="2" />
+      </Size>
+      <Sizes left="10" middle="144" right="10" />
+      <TexCoords>
+        <Left x="2" y="135" />
+        <Middle x="10" y="135" />
+        <Right x="155" y="135" />
+      </TexCoords>
+    </HorizontalResizeImage>
+
+    <HorizontalResizeImage name="BlueMiniHorizResizeImg" texture="hud_image">
+      <Size>
+        <AbsPoint x="201" y="2" />
+      </Size>
+      <Sizes left="10" middle="133" right="10" />
+      <TexCoords>
+        <Left x="12" y="147" />
+        <Middle x="22" y="147" />
+        <Right x="155" y="147" />
+      </TexCoords>
+    </HorizontalResizeImage>
+
+    <HorizontalResizeImage name="YellowMiniHorizResizeImg" texture="hud_image">
+      <Size>
+        <AbsPoint x="201" y="2" />
+      </Size>
+      <Sizes left="10" middle="127" right="10" />
+      <TexCoords>
+        <Left x="18" y="159" />
+        <Middle x="28" y="159" />
+        <Right x="155" y="159" />
+      </TexCoords>
+    </HorizontalResizeImage>
+    
+
+    <!-- Thicker but shorter bars for the Group Window -->
+<!--
+    <HorizontalResizeImage name="RedThickHorizResizeImg" texture="hud_image">
+      <Size>
+        <AbsPoint x="67" y="3" />
+      </Size>
+      <Sizes left="10" middle="47" right="10" />
+      <TexCoords>
+        <Left x="202" y="584" />
+        <Middle x="202" y="584" />
+        <Right x="374" y="584" />
+      </TexCoords>
+    </HorizontalResizeImage>
+    <HorizontalResizeImage name="BlueThickHorizResizeImg" texture="hud_image">
+      <Size>
+        <AbsPoint x="67" y="3" />
+      </Size>
+      <Sizes left="10" middle="47" right="10" />
+      <TexCoords>
+        <Left x="202" y="601" />
+        <Middle x="202" y="601" />
+        <Right x="374" y="601" />
+      </TexCoords>
+    </HorizontalResizeImage>
+    <HorizontalResizeImage name="YellowThickHorizResizeImg" texture="hud_image">
+      <Size>
+        <AbsPoint x="67" y="3" />
+      </Size>
+      <Sizes left="10" middle="47" right="10" />
+      <TexCoords>
+        <Left x="202" y="610" />
+        <Middle x="202" y="610" />
+        <Right x="374" y="610" />
+      </TexCoords>
+    </HorizontalResizeImage>
+-->
+
+    <HorizontalResizeImage name="RedThickHorizResizeImg" texture="hud_image">
+      <Size>
+        <AbsPoint x="67" y="3" />
+      </Size>
+      <Sizes left="10" middle="144" right="10" />
+      <TexCoords>
+        <Left x="2" y="98" />
+        <Middle x="10" y="98" />
+        <Right x="155" y="98" />
+      </TexCoords>
+    </HorizontalResizeImage>
+    <HorizontalResizeImage name="BlueThickHorizResizeImg" texture="hud_image">
+      <Size>
+        <AbsPoint x="67" y="3" />
+      </Size>
+      <Sizes left="10" middle="133" right="10" />
+      <TexCoords>
+        <Left x="12" y="110" />
+        <Middle x="22" y="110" />
+        <Right x="155" y="110" />
+      </TexCoords>
+    </HorizontalResizeImage>
+    <HorizontalResizeImage name="YellowThickHorizResizeImg" texture="hud_image">
+      <Size>
+        <AbsPoint x="67" y="3" />
+      </Size>
+      <Sizes left="10" middle="127" right="10" />
+      <TexCoords>
+        <Left x="18" y="122" />
+        <Middle x="28" y="122" />
+        <Right x="155" y="122" />
+      </TexCoords>
+    </HorizontalResizeImage>
+    
+    
+	
+	<StatusBar name="RedStatusBar" background="" foreground="RedHorizResizeImg" >
+		<ForegroundOffset x="0" y="0" />
+	</StatusBar>
+
+	<StatusBar name="BlueStatusBar" background="" foreground="BlueHorizResizeImg" >
+		<ForegroundOffset x="0" y="0" />
+	</StatusBar>
+
+	<StatusBar name="YellowStatusBar" background="" foreground="YellowHorizResizeImg" >
+		<ForegroundOffset x="0" y="0" />
+	</StatusBar>
+
+    
+  <StatusBar name="TargetStatusBar" background="" foreground="TargetRedHorizResizeImg" >
+	<ForegroundOffset x="0" y="0" />
+  </StatusBar>
+
+  <StatusBar name="TargetMobileBar" background="" foreground="MobileRedHorizResizeImg" >
+	<ForegroundOffset x="0" y="0" />
+  </StatusBar>
+    
+  <StatusBar name="RedMiniStatusBar" background="" foreground="RedMiniHorizResizeImg" >
+    <ForegroundOffset x="0" y="0" />
+  </StatusBar>
+
+  <StatusBar name="BlueMiniStatusBar" background="" foreground="BlueMiniHorizResizeImg" >
+    <ForegroundOffset x="0" y="0" />
+  </StatusBar>
+
+  <StatusBar name="YellowMiniStatusBar" background="" foreground="YellowMiniHorizResizeImg" >
+    <ForegroundOffset x="0" y="0" />
+  </StatusBar>
+
+    
+  <StatusBar name="GroupWindowStatusBarRed" background="" foreground="RedThickHorizResizeImg" >
+    <ForegroundOffset x="0" y="0" />
+  </StatusBar>
+
+  <StatusBar name="GroupWindowStatusBarBlue" background="" foreground="BlueThickHorizResizeImg" >
+    <ForegroundOffset x="0" y="0" />
+  </StatusBar>
+
+  <StatusBar name="GroupWindowStatusBarYellow" background="" foreground="YellowThickHorizResizeImg" >
+    <ForegroundOffset x="0" y="0" />
+  </StatusBar>
+	
+	</Windows>
+</Interface>

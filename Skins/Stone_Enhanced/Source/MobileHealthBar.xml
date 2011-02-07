@@ -1,0 +1,72 @@
+<Interface xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../Interface.xsd">
+	<Scripts>
+		<Script file="Source/MobileHealthBar.lua" />
+	</Scripts>
+	<Windows>
+		<Window name="MobileHealthBar" movable="false" draganddrop="true">
+			<Size>
+				<AbsPoint x="194" y="50" />
+			</Size>
+			<Windows>
+				<DynamicImage name="$parentImage" texture="hud_image2" handleinput="false" layer="background" poppable="false">
+          <Size>
+            <AbsPoint x="194" y="48" />
+          </Size>
+          <TexCoords x="0" y="462"/>
+        </DynamicImage>
+
+				<Button name="$parentCloseButton" inherits="UO_Default_Generic_Close_Button" handleinput="true" layer="default">
+					<Anchors>
+						<Anchor point="topright" relativePoint="topright" />
+              <AbsPoint x="-1" y="-1" />
+					</Anchors>
+					<EventHandlers>
+						<EventHandler event="OnLButtonUp" function="MobileHealthBar.CloseWindow" />
+					</EventHandlers>
+				</Button>
+				<Label name="$parentName" font="UO_DefaultText_15pt" maxchars="60" textalign="left" handleinput="false" wordwrap="false" linespacing="18" popable="false">
+					<Size>
+						<AbsPoint x="145" y="32" />
+					</Size>
+					<Anchors>
+						<Anchor point="topleft" relativePoint="topleft" relativeTo="$parent">
+							<AbsPoint x="0" y="11" />
+						</Anchor>
+					</Anchors>
+					<Color r="255" g="255" b="255" a="255" />
+				</Label>
+				<StatusBar name="$parentHealthBar" inherits="MobileStatusBar" handleinput="false">
+					<Size>
+						<AbsPoint x="153" y="3" />
+					</Size>
+					<Anchors>
+						<Anchor point="topleft" relativePoint="topleft" relativeTo="$parent">
+							<AbsPoint x="21" y="2" />
+						</Anchor>
+					</Anchors>
+				</StatusBar>
+				<Label name="$parentMhbWindowHits" font="UO_DefaultText" maxchars="60" textalign="right" handleinput="false" wordwrap="false" linespacing="18" poppable="false">
+          <Size>
+            <AbsPoint x="228" y="32" />
+          </Size>
+          <Anchors>
+            <Anchor point="bottomright" relativePoint="bottomright">
+              <AbsPoint x="-3" y="5" />
+            </Anchor>
+          </Anchors>
+          <Color r="255" g="255" b="255" a="255" />
+        </Label>
+			</Windows>
+			<EventHandlers>
+				<EventHandler event="OnShutdown" function="MobileHealthBar.OnShutdown" />
+				<EventHandler event="OnLButtonDown" function="MobileHealthBar.OnLButtonDown" />
+				<EventHandler event="OnLButtonUp" function="MobileHealthBar.OnLButtonUp" />
+				<EventHandler event="OnLButtonDblClk" function="MobileHealthBar.OnLButtonDblClk" />
+				<EventHandler event="OnRButtonUp" function="MobileHealthBar.OnRButtonUp" />
+				<EventHandler event="OnMouseDrag" function="MobileHealthBar.OnMouseDrag" />
+				<EventHandler event="OnMouseOver" function="MobileHealthBar.OnMouseOver" />
+				<EventHandler event="OnMouseOverEnd" function="MobileHealthBar.OnMouseOverEnd" />
+			</EventHandlers>
+		</Window>
+	</Windows>
+</Interface>

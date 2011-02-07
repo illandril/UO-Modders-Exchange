@@ -1,0 +1,92 @@
+<Interface xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../Interface.xsd">
+  <Scripts>
+    <Script file="Source/PartyListWindow.lua" />
+  </Scripts>
+  <Windows>
+    <Window name ="PartyListTemplate">
+      <Size>
+        <AbsPoint x="160" y="15" />
+      </Size>
+      <EventHandlers>
+        <EventHandler event="OnLButtonDown" function="PartyListWindow.OnMouseDrag" />
+        <EventHandler event="OnRButtonUp" function="PartyListWindow.OnRClick" />
+      </EventHandlers>
+      <Windows>
+        <!--<Window name="$parentFrame" inherits="UO_DefaultWindow1">
+          <Anchors>
+            <Anchor point="topleft" relativePoint="topleft" />
+            <Anchor point="bottomright" relativePoint="bottomright"/>
+          </Anchors>
+        </Window>-->
+        
+        <DynamicImage name="$parentIcon">
+          <Anchors>
+            <Anchor point="topleft" relativePoint="center" relativeTo="">
+              <AbsPoint x="25" y="30" />
+            </Anchor>
+          </Anchors>
+        </DynamicImage>
+        <Label name="$parentMemberName" font="UO_DefaultText" linespacing="18" maxchars="20" textalign="left" autoresize="true" handleinput="false" >
+          <Size>
+            <AbsPoint x="150" y="10" />
+          </Size>
+          <Anchors>
+            <Anchor point="left" relativePoint="left" relativeTo="">
+              <AbsPoint x="0" y="0" />
+            </Anchor>
+          </Anchors>
+          <Color r="255" g="255" b="255" a="255" />
+        </Label>
+      </Windows>
+    </Window>
+
+    <Window name="PartyListWindow" layer="default" movable="true">
+      <Size>
+        <AbsPoint x="245" y="284" />
+      </Size>
+      <Anchors>
+        <Anchor point="topleft" relativePoint="topleft">
+          <AbsPoint x="0" y="0" />
+        </Anchor>
+      </Anchors>
+      <EventHandlers>
+        <EventHandler event="OnInitialize" function="PartyListWindow.Initialize" />
+        <EventHandler event="OnShutdown" function="PartyListWindow.Shutdown" />
+        <EventHandler event="OnLButtonDown" function="PartyListWindow.OnMouseDrag" />
+        <EventHandler event="OnRButtonUp" function="PartyListWindow.OnRClick" />
+      </EventHandlers>
+      <Windows>
+        <Window name="$parentShowView" movable="false">
+          <Size>
+            <AbsPoint x="245" y="284" />
+          </Size>
+          <Anchors>
+            <Anchor point="topleft" relativePoint="topleft">
+              <AbsPoint x="0" y="0" />
+            </Anchor>
+          </Anchors>
+          <Windows>
+            <!--Background Image-->
+            <Window name="$parentFrame" inherits="UO_DefaultWindow">
+              <Anchors>
+                <Anchor point="topleft" relativePoint="topleft" />
+                <Anchor point="bottomright" relativePoint="bottomright"/>
+              </Anchors>
+            </Window>
+            <Label name="$parentName" font="UO_DefaultText" maxchars="16" textalign="center" handleinput="false" wordwrap="true" linespacing="18">
+              <Size>
+                <AbsPoint x="165" y="18" />
+              </Size>
+              <Anchors>
+                <Anchor point="top" relativePoint="top" relativeTo="">
+                  <AbsPoint x="0" y="5" />
+                </Anchor>
+              </Anchors>
+            </Label>
+          </Windows>
+        </Window>
+      </Windows>
+    </Window>
+    <!--End of PartyWindow -->
+  </Windows>
+</Interface>

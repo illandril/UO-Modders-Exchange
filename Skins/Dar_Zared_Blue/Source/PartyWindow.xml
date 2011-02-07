@@ -1,0 +1,252 @@
+<Interface xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../Interface.xsd">
+  <Scripts>
+    <Script file="Source/PartyWindow.lua" />
+  </Scripts>
+  <Windows>
+    <Window name="PartyHealthBarTemplate" movable="false">
+      <Size>
+        <AbsPoint x="166" y="41" />
+      </Size>
+      <EventHandlers>
+        <!--<EventHandler event="OnLButtonDown" function="PartyWindow.OnItemClicked" />-->
+        <!--<EventHandler event="OnLButtonDblClk" function="PartyWindow.OnDblClick" />-->
+        <!--<EventHandler event="OnRButtonDown" function="PartyWindow.OnRClick" />-->
+      </EventHandlers>
+      <Windows>
+        <DynamicImage name="$parentImage" texture="hud_image" handleinput="false" layer="background" poppable="false">
+          <Size>
+            <AbsPoint x="136" y="39" />
+          </Size>
+          <TexCoords x="0" y="819"/>
+        </DynamicImage>
+
+        <StatusBar name="$parentHealthBar" inherits="TargetStatusBar">
+          <Size>
+            <AbsPoint x="126" y="3" />
+          </Size>
+          <Anchors>
+            <Anchor point="topleft" relativePoint="topleft" relativeTo="$parentImage">
+              <AbsPoint x="4" y="2" />
+            </Anchor>
+          </Anchors>
+        </StatusBar>
+
+        <Button name="$parentHeal" inherits="HealButtonTemplate">
+          <Anchors>
+            <Anchor point="topleft" relativePoint="topleft" relativeTo="$parentHealthBar">
+              <AbsPoint x="128" y="-5" />
+            </Anchor>
+          </Anchors>
+        </Button>
+        <Button name="$parentCure" inherits="CureButtonTemplate">
+          <Anchors>
+            <Anchor point="topleft" relativePoint="topleft" relativeTo="$parentHeal">
+              <AbsPoint x="0" y="18" />
+            </Anchor>
+          </Anchors>
+        </Button>
+
+        <!--<EditBox name="$parentInputName" font="UO_DefaultText" maxchars="16" textalign="center" scrolling="horz" history="false" taborder="0" input="text">
+          <Size>
+            <AbsPoint x="118" y="28" />
+          </Size>
+          <Anchors>
+            <Anchor point="center" relativePoint="center" relativeTo="$parent">
+              <AbsPoint x="17" y="6" />
+            </Anchor>
+          </Anchors>
+          <TextColor r="255" g="255" b="255" a="255" />
+          <EventHandlers>
+            --><!--<EventHandler event="OnKeyEnter" function="PartyWindow.OnKeyEnter" />
+            <EventHandler event="OnKeyEscape" function="PartyWindow.OnKeyEscape" />
+            <EventHandler event="OnLButtonDown" function="PartyWindow.OnTextItemClicked" />--><!--
+          </EventHandlers>
+        </EditBox>-->
+
+        <Label name="$parentLabelName" font="UO_DefaultText" maxchars="60" textalign="left" handleinput="false" wordwrap="false" linespacing="18" poppable="false">
+          <Size>
+            <AbsPoint x="120" y="16" />
+          </Size>
+          <Anchors>
+            <Anchor point="center" relativePoint="center" relativeTo="$parent">
+              <AbsPoint x="-20" y="0" />
+            </Anchor>
+          </Anchors>
+          <TextColor r="255" g="255" b="255" a="255" />
+        </Label>
+      </Windows>
+    </Window>
+
+    <!--The large size heal button-->
+    <Button name="HealButtonTemplate" backgroundtexture="hud_image2" highlighttexture="hud_image2">
+      <Size>
+        <AbsPoint x="18" y="17" />
+      </Size>
+      <Anchors>
+        <Anchor point="right" relativePoint="left" relativeTo="$parentHealthBar" >
+          <AbsPoint x="4" y="5" />
+        </Anchor>
+      </Anchors>
+      <TexCoords>
+        <Normal  x="0" y="287" />
+        <NormalHighlit x="36" y="287" />
+        <Pressed x="36" y="287" />
+        <PressedHighlit x="36" y="287" />
+      </TexCoords>
+      <EventHandlers>
+        <EventHandler event="OnLButtonUp" function="PartyWindow.HealMember" />
+      </EventHandlers>
+    </Button>
+
+    <!--The large size cure button-->
+    <Button name="CureButtonTemplate" backgroundtexture="hud_image2" highlighttexture="hud_image2">
+      <Size>
+        <AbsPoint x="18" y="17" />
+      </Size>
+      <Anchors>
+        <Anchor point="right" relativePoint="left" relativeTo="$parentHealthBar" >
+          <AbsPoint x="4" y="22" />
+        </Anchor>
+      </Anchors>
+      <TexCoords>
+        <Normal  x="18" y="287" />
+        <NormalHighlit x="54" y="287" />
+        <Pressed x="54" y="287" />
+        <PressedHighlit x="54" y="287" />
+      </TexCoords>
+      <EventHandlers>
+        <EventHandler event="OnLButtonUp" function="PartyWindow.CureMember" />
+      </EventHandlers>
+    </Button>
+
+    <Button name="ShowButtonTemplate" backgroundtexture="hud_image" highlighttexture="hud_image">
+      <Size>
+        <AbsPoint x="40" y="40" />
+      </Size>
+      <TexCoords>
+        <Normal  x="179" y="857" />
+        <NormalHighlit x="179" y="857" />
+        <Pressed x="179" y="857" />
+        <PressedHighlit x="179" y="857" />
+        <Disabled x="179" y="857" />
+      </TexCoords>
+      <EventHandlers>
+        <EventHandler event="OnLButtonUp" function="PartyWindow.ShowParty" />
+      </EventHandlers>
+    </Button>
+
+    <Button name="HideButtonTemplate" backgroundtexture="hud_image" highlighttexture="hud_image">
+      <Size>
+        <AbsPoint x="36" y="36" />
+      </Size>
+      <TexCoords>
+        <Normal  x="142" y="857" />
+        <NormalHighlit x="142" y="857" />
+        <Pressed x="142" y="857" />
+        <PressedHighlit x="142" y="857" />
+        <Disabled x="142" y="857" />
+      </TexCoords>
+      <EventHandlers>
+        <EventHandler event="OnLButtonUp" function="PartyWindow.HideParty" />
+      </EventHandlers>
+    </Button>
+
+    <Window name="PartyWindow" layer="background" movable="true">
+      <Size>
+        <AbsPoint x="175" y="60" />
+      </Size>
+      <Anchors>
+        <Anchor point="topleft" relativePoint="topleft">
+          <AbsPoint x="0" y="0" />
+        </Anchor>
+      </Anchors>
+      <EventHandlers>
+        <EventHandler event="OnInitialize" function="PartyWindow.Initialize" />
+        <EventHandler event="OnShutdown" function="PartyWindow.Shutdown" />
+        <EventHandler event="OnLButtonDown" function="PartyWindow.OnMouseDrag" />
+      </EventHandlers>
+      <Windows>
+        <Window name="$parentHideView" movable="false">
+          <Size>
+            <AbsPoint x="40" y="40" />
+          </Size>
+          <Anchors>
+            <Anchor point="topleft" relativePoint="topleft">
+              <AbsPoint x="0" y="0" />
+            </Anchor>
+          </Anchors>
+
+          <Windows>
+            <Button name="$parentShowButton" inherits="ShowButtonTemplate">
+              <Anchors>
+                <Anchor point="topleft" relativePoint="topleft">
+                  <AbsPoint x="0" y="0" />
+                </Anchor>
+              </Anchors>
+            </Button>
+          </Windows>
+        </Window>
+
+        <Window name="$parentShowView" movable="false">
+          <Size>
+            <AbsPoint x="175" y="60" />
+          </Size>
+          <Anchors>
+            <Anchor point="topleft" relativePoint="topleft">
+              <AbsPoint x="0" y="0" />
+            </Anchor>
+          </Anchors>
+
+          <Windows>
+            <!--Default Black background texture -->
+            <FullResizeImage name="$parentBackground" inherits="UO_Simple_Black_Background" layer="background">
+              <Anchors>
+                <Anchor point="topleft" relativePoint="topleft">
+                  <AbsPoint x="2" y="20" />
+                </Anchor>
+                <Anchor point="bottomright" relativePoint="bottomright" />
+              </Anchors>
+            </FullResizeImage>
+
+            <!-- Gold title bar -->
+            <DynamicImage name="$parentTitleBar" texture="hud_image" layer="background">
+              <Size>
+                <AbsPoint x="179" y="61" />
+              </Size>
+              <TexCoords x="0" y="856" />
+              <Anchors>
+                <Anchor point="topleft" relativePoint="topleft">
+                  <AbsPoint x="0" y="0" />
+                </Anchor>
+              </Anchors>
+            </DynamicImage>
+
+            <Label name="$parentName" font="UO_DefaultText" maxchars="16" textalign="center" handleinput="false" wordwrap="true" linespacing="18">
+              <Size>
+                <AbsPoint x="155" y="10" />
+              </Size>
+              <Anchors>
+                <Anchor point="top" relativePoint="top" relativeTo="$parentTitleBar">
+                  <AbsPoint x="-12" y="12" />
+                </Anchor>
+              </Anchors>
+            </Label>
+
+            <!-- Left arrow circle button -->
+            <Button name="$parentHideButton" inherits="HideButtonTemplate" >
+              <Anchors>
+                <Anchor point="topright" relativePoint="topleft" relativeTo="$parentTitleBar">
+                  <AbsPoint x="-37" y="1" />
+                </Anchor>
+              </Anchors>
+            </Button>
+
+          </Windows>
+        </Window>
+
+      </Windows>
+    </Window>
+    <!--End of PartyWindow -->
+
+  </Windows>
+</Interface>

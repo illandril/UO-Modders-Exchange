@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Interface xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../Interface.xsd">
+	<Assets>
+        <Texture name="LegacyIIMiscIconsIconPack_trashbarrel" file="Icons/trashbarrel.dds" />
+        <Texture name="LegacyIIMiscIconsIconPack_recallhome" file="Icons/recallhome.dds" />
+        <Texture name="LegacyIIMiscIconsIconPack_arlo" file="Icons/arlo.dds" />
+        <Texture name="LegacyIIMiscIconsIconPack_antnest1" file="Icons/antnest1.dds" />
+        <Texture name="LegacyIIMiscIconsIconPack_antnest2" file="Icons/antnest2.dds" />
+        <Texture name="LegacyIIMiscIconsIconPack_antnest3" file="Icons/antnest3.dds" />
+        <Texture name="LegacyIIMiscIconsIconPack_antnest4" file="Icons/antnest4.dds" />
+        <Texture name="LegacyIIMiscIconsIconPack_antnest5" file="Icons/antnest5.dds" />
+        <Texture name="LegacyIIMiscIconsIconPack_trick-or-treat" file="Icons/trick-or-treat.dds" />
+	</Assets>
+</Interface>

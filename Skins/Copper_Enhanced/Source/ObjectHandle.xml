@@ -1,0 +1,73 @@
+<Interface xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../Interface.xsd">
+	<Scripts>
+		<Script file="Source/ObjectHandle.lua" />
+	</Scripts>
+	<Windows>
+		<Window name="ObjectHandleWindow" movable="false">
+			<Size>
+				<AbsPoint x="274" y="50" />
+			</Size>
+			<Windows>
+				<Window name="$parentTint" movable="false">
+					<Size>
+						<AbsPoint x="254" y="41" />
+					</Size>
+					<Anchors>
+						<Anchor point="topleft" relativePoint="topleft">
+							<AbsPoint x="0" y="7" />
+						</Anchor>
+					</Anchors>
+					<Windows>
+
+						<DynamicImage name="$parentBackground" texture="UO_Common" acceptInput="false" draganddrop="true">
+							<Size>
+								<AbsPoint x="254" y="33" />
+							</Size>
+							<TexCoords x="0" y="0" />
+							<Anchors>
+								<Anchor point="topleft" relativePoint="topleft">
+									<AbsPoint x="0" y="7" />
+								</Anchor>
+							</Anchors>
+							<EventHandlers>
+								<EventHandler event="OnLButtonDown" function="ObjectHandleWindow.OnItemClicked" />
+								<EventHandler event="OnLButtonDblClk" function="ObjectHandleWindow.OnDblClick" />
+								<EventHandler event="OnRButtonUp" function="ObjectHandleWindow.OnClickClose" />
+								<EventHandler event="OnLButtonUp" function="ObjectHandleWindow.OnLButtonUp" />
+								<EventHandler event="OnMouseOver" function="ObjectHandleWindow.OnMouseOver" />
+								<EventHandler event="OnMouseOverEnd" function="ObjectHandleWindow.OnMouseOverEnd" />
+							</EventHandlers>
+						</DynamicImage>
+
+						<Label name="$parentName" font="UO_17" maxchars="64" textalign="center" handleinput="false" wordwrap="true" linespacing="18" poppable="false" layer="popup">
+							<Size>
+								<AbsPoint x="254" y="33" />
+							</Size>
+							<Anchors>
+								<Anchor point="center" relativePoint="center">
+									<AbsPoint x="0" y="3" />
+								</Anchor>
+							</Anchors>
+							<Color r="255" g="255" b="255" a="255" />
+						</Label>
+					</Windows>
+				</Window>
+
+				<!--Button name="$parentClose" inherits="LargeCloseButton"  handleinput="true" layer="popup" poppable="false">
+					<Size>
+						<AbsPoint x="28" y="31" />
+					</Size>
+					<Anchors>				
+						<Anchor point="topleft" relativePoint="bottomleft" relativeTo="$parentTintBackground">
+							<AbsPoint x="240" y="20" />
+						</Anchor>
+					</Anchors>
+					<EventHandlers>
+						<EventHandler event="OnLButtonDown" function="ObjectHandleWindow.OnClickClose" />
+					</EventHandlers>	
+				</Button-->
+
+			</Windows>
+		</Window>
+	</Windows>
+</Interface>

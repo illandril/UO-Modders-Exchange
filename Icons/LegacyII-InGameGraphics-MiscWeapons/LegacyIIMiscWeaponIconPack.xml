@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Interface xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../Interface.xsd">
+	<Assets>
+        <Texture name="LegacyIIInGameMiscWeaponIconPack_bola" file="Icons/misc_bola.dds" />
+        <Texture name="LegacyIIInGameMiscWeaponIconPack_fukiyaanddarts" file="Icons/misc_fukiyaanddarts.dds" />
+        <Texture name="LegacyIIInGameMiscWeaponIconPack_shuriken" file="Icons/misc_shuriken.dds" />
+        <Texture name="LegacyIIInGameMiscWeaponIconPack_smokebomb" file="Icons/misc_smokebomb.dds" />
+	</Assets>
+</Interface>

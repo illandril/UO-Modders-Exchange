@@ -1,0 +1,40 @@
+<Interface xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../Interface.xsd">
+	<Scripts>
+		<Script file="Source/BuffDebuffWindow.lua" />
+	</Scripts>
+	<Windows>
+		<Window name="BuffDebuffTemplate" movable="false" layer="secondary">
+      <Size>
+        <AbsPoint x="40" y="32"/>
+      </Size>
+      <EventHandlers>
+        <EventHandler event="OnMouseOver" function="BuffDebuff.MouseOver" />
+        <EventHandler event="OnMouseOverEnd" function="ItemProperties.ClearMouseOverItem" />
+      </EventHandlers>
+      <Windows>
+        <DynamicImage name="$parentTextureIcon" texturescale="1.0" handleinput="false">
+          <Size>
+            <AbsPoint x="32" y="32" />
+          </Size>
+          <Anchors>
+            <Anchor point="topleft" relativePoint="topleft">
+              <AbsPoint x="0" y="0" />
+            </Anchor>
+          </Anchors>
+        </DynamicImage>
+        <!--Used to display the countdown for the bandage to take effect -->       
+        <Label name="$parentlabelTimer" font="UO_Chat_Helvetica_21pt" maxchars="8" textalign="center" autoresize="true" wordwrap="false" layer="popup" handleinput="false">
+          <Size>
+            <AbsPoint x="40" y="22" />
+          </Size>
+          <Anchors>
+            <Anchor point="topleft" relativePoint="topleft">
+              <AbsPoint x="1" y="32" />
+            </Anchor>
+          </Anchors>
+          <Color r="255" g="255" b="255" a="255" />
+        </Label>
+      </Windows>
+      </Window>
+	</Windows>
+</Interface>

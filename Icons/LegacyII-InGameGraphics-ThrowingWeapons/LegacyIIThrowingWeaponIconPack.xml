@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Interface xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../Interface.xsd">
+	<Assets>
+        <Texture name="LegacyIIInGameThrowingWeaponIconPack_boomerang" file="Icons/throwing_boomerang.dds" />
+        <Texture name="LegacyIIInGameThrowingWeaponIconPack_cyclone" file="Icons/throwing_cyclone.dds" />
+        <Texture name="LegacyIIInGameThrowingWeaponIconPack_soulglaive" file="Icons/throwing_soulglaive.dds" />
+	</Assets>
+</Interface>

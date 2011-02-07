@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Interface xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../Interface.xsd">
+  <Scripts>
+    <Script file="Source/TrackingPointer.lua" />
+  </Scripts>
+  <Windows>
+    <Window name="TrackingPointer">
+      <Size>
+        <AbsPoint x="38" y="24" />
+      </Size>
+      <EventHandlers>
+        <EventHandler event="OnUpdate" function="TrackingPointer.OnUpdate" />
+      </EventHandlers>
+      <Windows>
+        <DynamicImage name="$parentPointerImage" texturescale="1.0" handleinput="false" layer="default">
+          <Size>
+            <AbsPoint x="38" y="21" />
+            <Anchors>
+              <Anchor point="left" relativePoint="left">
+                <AbsPoint x="0" y="0" />
+              </Anchor>
+            </Anchors>
+          </Size>
+        </DynamicImage>
+        <DynamicImage name="$parentPointerImageBackground" texturescale="1.0" handleinput="false" layer="background">
+          <Size>
+            <AbsPoint x="43" y="25" />
+          </Size>
+          <Anchors>
+            <Anchor point="center" relativePoint="center" relativeTo="$parentPointerImage">
+              <AbsPoint x="30" y="30" />
+            </Anchor>
+          </Anchors>
+        </DynamicImage>
+      </Windows>
+    </Window>
+    <!--
+ -->
+  </Windows>
+</Interface>

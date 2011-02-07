@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Interface xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../Interface.xsd">
+	<Windows>
+
+<!-- Status Window Bar Templates -->
+	
+    <HorizontalResizeImage name="RedHorizResizeImg" texture="hud_image">
+      <Size>
+        <AbsPoint x="165" y="11" />
+      </Size>
+      <Sizes left="165" middle="0" right="0" />
+      <TexCoords>
+        <Left x="1" y="98" />
+        <Middle x="10" y="98" />
+        <Right x="155" y="98" />
+      </TexCoords>
+    </HorizontalResizeImage>
+
+    <HorizontalResizeImage name="BlueHorizResizeImg" texture="hud_image">
+      <Size>
+        <AbsPoint x="165" y="11" />
+      </Size>
+      <Sizes left="165" middle="0" right="0" />
+      <TexCoords>
+        <Left x="1" y="110" />
+        <Middle x="22" y="110" />
+        <Right x="155" y="110" />
+      </TexCoords>
+    </HorizontalResizeImage>
+
+    <HorizontalResizeImage name="YellowHorizResizeImg" texture="hud_image">
+      <Size>
+        <AbsPoint x="165" y="11" />
+      </Size>
+      <Sizes left="165" middle="0" right="0" />
+      <TexCoords>
+        <Left x="1" y="122" />
+        <Middle x="28" y="122" />
+        <Right x="155" y="122" />
+      </TexCoords>
+    </HorizontalResizeImage>
+    
+<!-- TargetWindow Health Bar Template -->
+
+    <HorizontalResizeImage name="TargetRedHorizResizeImg" texture="hud_image">
+		<Size>
+			<AbsPoint x="227" y="10" />
+		</Size>
+		<Sizes left="227" middle="0" right="0" />
+		<TexCoords>
+			<Left x="176" y="126" />
+			<Middle x="13" y="134" />
+			<Right x="90" y="134" />
+		</TexCoords>
+	</HorizontalResizeImage>
+	
+<!--- MobileHealthBar and PetWindow Health Bar Templates -->
+
+    <HorizontalResizeImage name="RedMobileHorizResizeImg" texture="hud_image">
+      <Size>
+        <AbsPoint x="155" y="6" />
+      </Size>
+      <Sizes left="155" middle="0" right="0" />
+      <TexCoords>
+        <Left x="175" y="101" />
+        <Middle x="10" y="135" />
+        <Right x="155" y="135" />
+      </TexCoords>
+    </HorizontalResizeImage>
+
+    <HorizontalResizeImage name="RedPetHorizResizeImg" texture="hud_image">
+      <Size>
+        <AbsPoint x="125" y="3" />
+      </Size>
+      <Sizes left="125" middle="0" right="0" />
+      <TexCoords>
+        <Left x="175" y="96" />
+        <Middle x="22" y="147" />
+        <Right x="155" y="147" />
+      </TexCoords>
+    </HorizontalResizeImage>
+
+<!-- PartyWindow Status Bar Templates -->    
+
+    <HorizontalResizeImage name="RedPartyHorizResizeImg" texture="hud_image">
+      <Size>
+        <AbsPoint x="153" y="5" />
+      </Size>
+      <Sizes left="153" middle="0" right="0" />
+      <TexCoords>
+        <Left x="175" y="101" />
+        <Middle x="10" y="98" />
+        <Right x="155" y="98" />
+      </TexCoords>
+    </HorizontalResizeImage>
+    <HorizontalResizeImage name="BluePartyHorizResizeImg" texture="hud_image">
+      <Size>
+        <AbsPoint x="153" y="5" />
+      </Size>
+      <Sizes left="153" middle="0" right="0" />
+      <TexCoords>
+        <Left x="175" y="108" />
+        <Middle x="22" y="110" />
+        <Right x="155" y="110" />
+      </TexCoords>
+    </HorizontalResizeImage>
+    <HorizontalResizeImage name="YellowPartyHorizResizeImg" texture="hud_image">
+      <Size>
+        <AbsPoint x="153" y="5" />
+      </Size>
+      <Sizes left="153" middle="0" right="0" />
+      <TexCoords>
+        <Left x="175" y="115" />
+        <Middle x="28" y="122" />
+        <Right x="155" y="122" />
+      </TexCoords>
+    </HorizontalResizeImage>
+    
+<!--  StatusWindow Status Bar Calls -->
+	
+	<StatusBar name="RedStatusBar" background="" foreground="RedHorizResizeImg" >
+		<ForegroundOffset x="0" y="0" />
+	</StatusBar>
+
+	<StatusBar name="BlueStatusBar" background="" foreground="BlueHorizResizeImg" >
+		<ForegroundOffset x="0" y="0" />
+	</StatusBar>
+
+	<StatusBar name="YellowStatusBar" background="" foreground="YellowHorizResizeImg" >
+		<ForegroundOffset x="0" y="0" />
+	</StatusBar>
+
+<!-- TargetWindow Health Bar Call -->
+    
+  <StatusBar name="TargetStatusBar" background="" foreground="TargetRedHorizResizeImg" >
+	<ForegroundOffset x="0" y="0" />
+  </StatusBar>
+
+<!-- MobileHealthBar Health Bar Call --> 
+    
+  <StatusBar name="MobileStatusBar" background="" foreground="RedMobileHorizResizeImg" >
+    <ForegroundOffset x="0" y="0" />
+  </StatusBar>
+
+<!-- PetWIndow Health Bar Call --> 
+ 
+  <StatusBar name="PetStatusBar" background="" foreground="RedPetHorizResizeImg" >
+    <ForegroundOffset x="0" y="0" />
+  </StatusBar> 
+ 
+<!-- PartyWindow Status Bar Calls --> 
+     
+  <StatusBar name="GroupWindowStatusBarRed" background="" foreground="RedPartyHorizResizeImg" >
+    <ForegroundOffset x="0" y="0" />
+  </StatusBar>
+
+  <StatusBar name="GroupWindowStatusBarBlue" background="" foreground="BluePartyHorizResizeImg" >
+    <ForegroundOffset x="0" y="0" />
+  </StatusBar>
+
+  <StatusBar name="GroupWindowStatusBarYellow" background="" foreground="YellowPartyHorizResizeImg" >
+    <ForegroundOffset x="0" y="0" />
+  </StatusBar>
+	
+	</Windows>
+</Interface>

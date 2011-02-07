@@ -1,0 +1,309 @@
+<Interface xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../Interface.xsd">
+  <Scripts>
+    <Script file="MobilesOnScreenWindow.lua" />
+  </Scripts>
+  <Windows>
+    <Window name="MobilesHealthBarTemplate" movable="false">
+      <Size>
+        <AbsPoint x="163" y="38" />
+      </Size>
+      <EventHandlers>
+        <EventHandler event="OnLButtonDown" function="MobilesOnScreen.OnItemClicked" />
+        <EventHandler event="OnLButtonDblClk" function="MobilesOnScreen.OnDblClick" />
+        <EventHandler event="OnRButtonDown" function="MobilesOnScreen.OnRClick" />
+        <EventHandler event="OnUpdate" function="MobilesOnScreen.UpdateTable"  />
+      </EventHandlers>
+      <Windows>
+        <DynamicImage name="$parentImage" texture="hud_image" handleinput="false" layer="background" poppable="false">
+          <Size>
+            <AbsPoint x="163" y="38" />
+          </Size>
+          <TexCoords x="0" y="984"/>
+        </DynamicImage>
+
+        <StatusBar name="$parentHealthBar" inherits="TargetMobileBar">
+          <Size>
+            <AbsPoint x="129" y="5" />
+          </Size>
+          <Anchors>
+            <Anchor point="topleft" relativePoint="topleft">
+              <AbsPoint x="18" y="6" />
+            </Anchor>
+          </Anchors>
+        </StatusBar>
+
+        <Label  name="$parentInputName" font="UO_15" maxchars="16" textalign="left">
+          <Size>
+            <AbsPoint x="158" y="28" />
+          </Size>
+          <Anchors>
+            <Anchor point="center" relativePoint="center">
+              <AbsPoint x="0" y="9" />
+            </Anchor>
+          </Anchors>
+          <Color r="255" g="255" b="255" a="255" />
+          <EventHandlers>
+            <EventHandler event="OnLButtonDown" function="MobilesOnScreen.OnItemClicked" />
+          </EventHandlers>
+        </Label>
+        <!--  		<Button name="$parentEditName" sticky="false" backgroundtexture="UO_Common" highlighttexture="UO_Common" layer="secondary" >
+					<Size>
+						<AbsPoint x="18" y="16" />
+					</Size>
+					<Anchors>
+						<Anchor point="topleft" relativePoint="topleft">
+							<AbsPoint x="135" y="13" />
+						</Anchor>
+					</Anchors>
+					<EventHandlers>
+ 						<EventHandler event="OnLButtonUp" function="MobilesOnScreen.OpenHealthbar" />
+						<EventHandler event="OnMouseOver" function="MobilesOnScreen.OpenHealthbarToolTip" />
+					</EventHandlers>
+					<TexCoords>
+						<Normal x="211" y="143" />
+						<NormalHighlit x="229" y="143" />
+						<Pressed x="229" y="143" />
+						<PressedHighlit x="229" y="143" />
+					</TexCoords>
+		</Button>  -->
+      </Windows>
+    </Window>
+
+
+    <Button name="ShowMobileButtonTemplate" backgroundtexture="hud_image" highlighttexture="hud_image">
+      <Size>
+        <AbsPoint x="40" y="40" />
+      </Size>
+      <TexCoords>
+        <Normal  x="179" y="857" />
+        <NormalHighlit x="179" y="857" />
+        <Pressed x="179" y="857" />
+        <PressedHighlit x="179" y="857" />
+        <Disabled x="179" y="857" />
+      </TexCoords>
+
+      <EventHandlers>
+        <EventHandler event="OnLButtonUp" function="MobilesOnScreen.ShowPet" />
+      </EventHandlers>
+    </Button>
+
+    <Button name="HideMobileButtonTemplate" backgroundtexture="hud_image" highlighttexture="hud_image">
+       <Size>
+        <AbsPoint x="36" y="36" />
+      </Size>
+      <TexCoords>
+        <Normal  x="142" y="857" />
+        <NormalHighlit x="142" y="857" />
+        <Pressed x="142" y="857" />
+        <PressedHighlit x="142" y="857" />
+        <Disabled x="142" y="857" />
+      </TexCoords>
+      <EventHandlers>
+        <EventHandler event="OnLButtonUp" function="MobilesOnScreen.HidePet" />
+      </EventHandlers>
+    </Button>
+
+    <Window name="MobilesOnScreenWindow" movable="true">
+      <Size>
+        <AbsPoint x="175" y="60" />
+      </Size>
+      <Anchors>
+        <Anchor point="topleft" relativePoint="topleft">
+          <AbsPoint x="0" y="0" />
+        </Anchor>
+      </Anchors>
+      <EventHandlers>
+        <EventHandler event="OnInitialize" function="MobilesOnScreen.Initialize" />
+        <EventHandler event="OnShutdown" function="MobilesOnScreen.Shutdown" />
+        <!-- 				<EventHandler event="OnMouseWheel" function="LucisInterface.AdjustScale" /> -->
+        <EventHandler event="OnLButtonDown" function="MobilesOnScreen.OnMouseDrag" />
+      </EventHandlers>
+      <Windows>
+        <Window name="$parentHideView" moveable="false">
+          <Size>
+            <AbsPoint x="40" y="40" />
+          </Size>
+          <Anchors>
+            <Anchor point="topleft" relativePoint="topleft">
+              <AbsPoint x="0" y="0" />
+            </Anchor>
+          </Anchors>
+
+          <Windows>
+            <Button name="$parentShowButton" inherits="ShowMobileButtonTemplate">
+              <Anchors>
+                <Anchor point="topleft" relativePoint="topleft">
+                  <AbsPoint x="0" y="0" />
+                </Anchor>
+              </Anchors>
+            </Button>
+          </Windows>
+        </Window>
+
+        <Window name="$parentShowView"	movable="false">
+          <Size>
+            <AbsPoint x="175" y="60" />
+          </Size>
+          <Anchors>
+            <Anchor point="topleft" relativePoint="topleft">
+              <AbsPoint x="0" y="0" />
+            </Anchor>
+          </Anchors>
+
+          <Windows>
+            <!--Default Black background texture -->
+            <FullResizeImage name="$parentBackground" inherits="UO_Simple_Black_Background" layer="background">
+              <Anchors>
+                <Anchor point="topleft" relativePoint="topleft">
+                  <AbsPoint x="0" y="20" />
+                </Anchor>
+                <Anchor point="bottomright" relativePoint="bottomright" />
+              </Anchors>
+            </FullResizeImage>
+
+            <!-- Gold title bar -->
+            <DynamicImage name="$parentTitleBar" texture="hud_image" layer="background">
+               <Size>
+                <AbsPoint x="179" y="61" />
+              </Size>
+              <TexCoords x="0" y="856" />
+              <Anchors>
+                <Anchor point="topleft" relativePoint="topleft">
+                  <AbsPoint x="0" y="0" />
+                </Anchor>
+              </Anchors>
+              <EventHandlers>
+                <EventHandler event="OnRButtonUp" function="MobilesOnScreen.RContextMenu" />
+              </EventHandlers>
+            </DynamicImage>
+
+            <Label name="$parentName" font="UO_DefaultText" maxchars="16" textalign="center" handleinput="false" wordwrap="true" linespacing="18">
+              <Size>
+                <AbsPoint x="155" y="10" />
+              </Size>
+              <Anchors>
+                <Anchor point="top" relativePoint="top" relativeTo="$parentTitleBar">
+                  <AbsPoint x="-12" y="12" />
+                </Anchor>
+              </Anchors>
+            </Label>
+
+            <!-- Left arrow circle button -->
+            <Button name="$parentHideButton" inherits="HideMobileButtonTemplate" >
+              <Anchors>
+                <Anchor point="topright" relativePoint="topleft" relativeTo="$parentTitleBar">
+                  <AbsPoint x="-37" y="1" />
+                </Anchor>
+              </Anchors>
+            </Button>
+            <Button name="$parentShowFilterSettings" inherits="UO_Default_Spring_Button" textalign="center"  font="UO_GoldButtonText" layer="overlay">
+              <Anchors>
+                <Anchor point="topleft" relativePoint="topleft" relativeTo="$parentTitleBar">
+                  <AbsPoint x="120" y="10" />
+                </Anchor>
+              </Anchors>
+              <EventHandlers>
+                <EventHandler event="OnLButtonUp" function="MobilesOnScreen.OnShowFilterButton" />
+                <EventHandler event="OnMouseOver" function="MobilesOnScreen.ShowFilterToolTip" />
+              </EventHandlers>
+            </Button>
+
+          </Windows>
+        </Window>
+
+      </Windows>
+    </Window>
+    <!--End of MobilesOnScreen -->
+
+    <!-- MoS Filter Window -->
+    <Window name="MobilesOnScreenOptionsWindow" movable="true" >
+      <Size>
+        <AbsPoint x="300" y="370" />
+      </Size>
+      <Anchors>
+        <Anchor point="topleft" relativePoint="topleft" relativeTo="">
+          <AbsPoint x="100" y="100" />
+        </Anchor>
+      </Anchors>
+      <EventHandlers>
+        <!-- 			<EventHandler event="OnInitialize" function="JournalWindow.Initialize" />
+				<EventHandler event="OnShutdown" function="JournalWindow.Shutdown" />
+				<EventHandler event="OnRButtonUp" function="JournalWindow.JournalContextMenu" /> -->
+        <EventHandler event="OnHidden" function="MobilesOnScreen.OnFilterHidden" />
+        <EventHandler event="OnLButtonUp" function=""/>
+      </EventHandlers>
+
+
+      <Windows>
+        <!-- Default chrome. Alter this at your own peril. -->
+        <Window name="$parentChrome" inherits="UO_DefaultWindow">
+          <Size>
+            <AbsPoint x="300" y="370" />
+          </Size>
+          <Anchors>
+            <Anchor point="topleft" relativePoint="topleft" />
+            <Anchor point="bottomright" relativePoint="bottomright"/>
+          </Anchors>
+        </Window>
+        <Button name="$parentOkayButton" inherits="UO_Default_Medium_Select_Button" >
+          <Anchors>
+            <Anchor point="bottom" relativePoint="bottom" >
+              <AbsPoint x="0" y="-15" />
+            </Anchor>
+          </Anchors>
+          <EventHandlers>
+            <EventHandler event="OnLButtonUp" function="MobilesOnScreen.OnFilterOkayButton"/>
+          </EventHandlers>
+        </Button>
+
+        <Window name="$parentSliderItem">
+          <Size>
+            <AbsPoint x="300" y="30" />
+          </Size>
+          <Windows>
+            <Label name="$parentSliderText" font="UO_DefaultText" maxchars="64" textalign="center">
+              <Size>
+                <AbsPoint x="180" y="0"/>
+              </Size>
+              <EventHandlers>
+                <EventHandler event="OnMouseOver" function="MobilesOnScreen.LabelOnMouseOver" />
+              </EventHandlers>
+              <Color r="255" g="255" b="255" a="255" />
+            </Label>
+            <SliderBar name="$parentSliderBar" inherits="UO_Default_Horizontal_SliderBar" >
+              <Size>
+                <AbsPoint x="200" y="16"/>
+              </Size>
+              <Anchors>
+                <Anchor point="center" relativePoint="center" relativeTo="$parentSliderText">
+                  <AbsPoint x="-10" y="30" />
+                </Anchor>
+              </Anchors>
+              <EventHandlers>
+                <EventHandler event="OnSlide" function="MobilesOnScreen.OnSlide" />
+              </EventHandlers>
+            </SliderBar>
+            <Label name="$parentVal" font="UO_DefaultText" maxchars="64" textalign="left">
+              <Size>
+                <AbsPoint x="40" y="20"/>
+              </Size>
+              <Anchors>
+                <Anchor point="topright" relativePoint="topleft" relativeTo="$parentSliderBar">
+                  <AbsPoint x="10" y="0" />
+                </Anchor>
+              </Anchors>
+              <Color r="255" g="255" b="255" a="255" />
+            </Label>
+          </Windows>
+          <Anchors>
+            <Anchor point="bottomleft" relativePoint="bottomleft" relativeTo="MobilesOnScreenOptionsWindow">
+              <AbsPoint x="60" y="-75" />
+            </Anchor>
+          </Anchors>
+        </Window>
+
+      </Windows>
+    </Window>
+
+  </Windows>
+</Interface>

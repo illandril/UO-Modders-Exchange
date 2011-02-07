@@ -1,0 +1,96 @@
+<Interface xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../Interface.xsd">
+    <Assets>
+        <Texture name="diablo_health" file="DiabloHealth.dds" />
+    </Assets>
+    <Windows>
+        <Window name="DiabloHealth" layer="background" handleinput="false">
+            <Size>
+                <AbsPoint x="232" y="188" />
+            </Size>
+            <Anchors>
+                <Anchor point="bottomleft" relativePoint="bottomleft" relativeTo="Root">
+                    <AbsPoint x="0" y="0" />
+                </Anchor>
+            </Anchors>
+            <Windows>
+                <VerticalResizeImage name="$parentFrame" texture="diablo_health" reverseFill="true">
+                    <Size>
+                        <AbsPoint x="232" y="188" />
+                    </Size>
+                    <Anchors>
+                        <Anchor point="bottomleft" relativePoint="bottomleft" relativeTo="$parent">
+                            <AbsPoint x="0" y="0" />
+                        </Anchor>
+                    </Anchors>
+                    <Sizes top="1" middle="186" bottom="1" />
+                    <TexCoords>
+                        <Left x="280" y="0" />
+                        <Middle x="280" y="1" />
+                        <Right x="280" y="187" />
+                    </TexCoords>
+                </VerticalResizeImage>
+                <VerticalResizeImage name="$parentFill" texture="diablo_health" reverseFill="true">
+                    <Size>
+                        <AbsPoint x="151" y="153" />
+                    </Size>
+                    <Anchors>
+                        <Anchor point="bottomleft" relativePoint="bottomleft" relativeTo="$parent">
+                            <AbsPoint x="67" y="-31" />
+                        </Anchor>
+                    </Anchors>
+                    <Sizes top="1" middle="151" bottom="1" />
+                    <TexCoords>
+                        <Left x="347" y="204" />
+                        <Middle x="347" y="205" />
+                        <Right x="347" y="356" />
+                    </TexCoords>
+                </VerticalResizeImage>
+            </Windows>
+        </Window>
+        
+        <Window name="DiabloMana" layer="background" handleinput="false">
+            <Size>
+                <AbsPoint x="232" y="188" />
+            </Size>
+            <Anchors>
+                <Anchor point="bottomright" relativePoint="bottomright" relativeTo="Root">
+                    <AbsPoint x="0" y="0" />
+                </Anchor>
+            </Anchors>
+            <Windows>
+                <VerticalResizeImage name="$parentFrame" texture="diablo_health" reverseFill="true">
+                    <Size>
+                        <AbsPoint x="232" y="188" />
+                    </Size>
+                    <Anchors>
+                        <Anchor point="bottomright" relativePoint="bottomright" relativeTo="$parent">
+                            <AbsPoint x="0" y="0" />
+                        </Anchor>
+                    </Anchors>
+                    <Sizes top="1" middle="186" bottom="1" />
+                    <TexCoords>
+                        <Left x="0" y="0" />
+                        <Middle x="0" y="1" />
+                        <Right x="0" y="187" />
+                    </TexCoords>
+                </VerticalResizeImage>
+                <VerticalResizeImage name="$parentFill" texture="diablo_health" reverseFill="true">
+                    <Size>
+                        <AbsPoint x="151" y="153" />
+                    </Size>
+                    <Anchors>
+                        <Anchor point="bottomright" relativePoint="bottomright" relativeTo="$parent">
+                            <AbsPoint x="-67" y="-31" />
+                        </Anchor>
+                    </Anchors>
+                    <Sizes top="1" middle="151" bottom="1" />
+                    <TexCoords>
+                        <Left x="14" y="204" />
+                        <Middle x="14" y="205" />
+                        <Right x="14" y="356" />
+                    </TexCoords>
+                </VerticalResizeImage>
+            </Windows>
+        </Window>
+    </Windows>
+</Interface>

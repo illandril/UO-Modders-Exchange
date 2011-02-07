@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Interface xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../Interface.xsd">
+	<Assets>
+        <Texture name="LegacyIIInGameArcheryWeaponIconPack_bow" file="Icons/archery_bow.dds" />
+        <Texture name="LegacyIIInGameArcheryWeaponIconPack_compositebow" file="Icons/archery_compositebow.dds" />
+        <Texture name="LegacyIIInGameArcheryWeaponIconPack_elvencomposite" file="Icons/archery_elvencomposite.dds" />
+        <Texture name="LegacyIIInGameArcheryWeaponIconPack_crossbow" file="Icons/archery_crossbow.dds" />
+        <Texture name="LegacyIIInGameArcheryWeaponIconPack_heavycrossbow" file="Icons/archery_heavycrossbow.dds" />
+        <Texture name="LegacyIIInGameArcheryWeaponIconPack_magicalshortbow" file="Icons/archery_magicalshortbow.dds" />
+        <Texture name="LegacyIIInGameArcheryWeaponIconPack_repeatingcrossbow" file="Icons/archery_repeatingcrossbow.dds" />
+        <Texture name="LegacyIIInGameArcheryWeaponIconPack_yumi" file="Icons/archery_yumi.dds" />
+	</Assets>
+</Interface>

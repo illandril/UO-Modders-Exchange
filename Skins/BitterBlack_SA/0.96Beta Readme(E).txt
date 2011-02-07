@@ -1,0 +1,95 @@
+
+BitterBlack_SA
+
+Thank you very much for using BitterBlack_SA.
+BitterBlack_SA is a skin file set for Ultima Online Stygian Abyss client.
+
+BitterBlack_SA has a simply customized UI which is aimed at changing appearances of the client.
+I added some changes to layouts of some windows, which are frequently accessed, or trimmed them.
+
+Changes to scales are also kept at the minimum, so if you would like to scale down you can do it with [Enable UI Scale] in [Options] of [User Settings].
+
+I reccommend you resolution of more than WXGA for the sake of brightness of your screen and to display it in details.
+
+[Installation]
+- Unzip the archives, and there will be made "Bitter_Black_SA" folder. 
+- Copy the whole "Bitter_Black_SA" folder into the "UserInterface" folder in the default UOSA folder.
+- Open Up Stygian Abyss client.
+- Push the "custom UI" button with a UOSA login screen and change it to "Bitter_Black_SA".
+- Log in.
+
+[Note]
+Don't alter files in the skin or don't make use of files/images in the skin for other purposes without permission.
+But under some conditions I will remove this restriction in the future version, which will be released sometime after the official launch of UOSA.
+For the time being I will put the restriction on the skin, for I release this as a provisional version.
+
+[Etc]
+If you find bugs or textures that don't work well, please confirm them on [Default] UI before you inform me of the bugs.
+Regarding bugs that occur on [Default] UI too, send them to EA.
+Since the default UI has some bugs in itself, you may possibly find those ones on my skin too.
+I will revise them at the time after the default UI will be fixed.
+If you find bugs only found on my skin, or if you find windows not covered with the skin, feel free to inform me of those issues. 
+I'd like to fix them as far as I could.
+
+[Update History]
+09/11/09
+Ver. 0.96 Beta: 
+	- Adapted to patch(4.0.0.0).
+	- You can now remove health bars of creatures or PCs by right clicking on them. 
+		(While context menu was displayed by right clicking on health bars of creatures and PCs until now, from now the context menu will be displayed by rotating a mouse wheel with the mouse icon on health bars. 
+		If you would like to have a context menu displayed from a health bar when another context menu is already displayed from another health bar, rotate the mouse wheel after you once left click on the health bar from which you would like to draw the context menu.)
+		(*)Note: If this change incurs too much disrepute, I might put it back to the former design. Notebook PC users or others that can not live with this change can contact me.
+	- You can now remove paper dolls by right-clicking on name plate of them too.
+	- You can now adjust size of paper dolls separately from setting of UI scale.  
+		To adjust size of paper dolls, please seclect "User Settings - Options - Papardoll Scale". After adjusting a slide bar, please reopen paper dolls.
+		(*) I apply "CustomSettings 1.0" by illandril to save and to load the settings. 
+
+09/09/09
+Ver. 0.95 Beta: 
+	-I made TargetWindow a little smaller, since it was relatively larger in comparison with other component parts.
+		(I checked it to some extent, however please let me know if you notice NPCs or items whose names stick out of their window.	
+		Icons of just a few items will stick out of their window, which however is normal.
+		But if you can not live with them, please let me know. I'll try looking into them.)
+	- Changed layout of buttons on radar map for an easier operation.
+	- Radar map is now scaled down much more, so that it can display wider area.
+	- Made atlas map window resizable, modifying the source of "resizable-map" by Dar & Zared.
+		(This will cause following issues:
+		- Center might be sometimes off, when you reduce the window.	(*) Changing facet after resizing would let it be centered again.
+		- You can not scroll the map at will when reduced.(*) If you need to scroll the map, keep size of the window relatively larger and zoom up to some extent.
+		This means that you can use this function most effectively in case that you keep checking on "Center on player" option.) 
+	- Changed rate of sclaling down, size of way points and layout of atlas map window so that you can see the whole map even if it is minimized.
+	- Added a little change to the design of indicator of target type on hotbar, so that it would not be buried by resize button of hotbar.
+	- Readjusted color of health bar.
+	- Fixed the isuue that some Action icons are not displayed properly.
+	- Readjusted size of some windows and colors/location of letters on them.
+	- Fixed some textures.
+	- Changed icon of pointer of Tracking skill so that you can see it more clearly. 
+
+09/04/09
+Ver. 0.92 Beta: 
+	- Adapted to patch(3.0.0.130).
+	- Readjusted size of Pet Window.
+	- Tweaked location of letters on Skill Window so that they should not be out of the window when your screen size is larger.
+
+08/22/09
+Ver. 0.91 Beta: 
+	- Fixed troubles when you click on destinations on the gump of runebook.
+	- Some tweaks to display letters properly and so on.
+
+08/21/09
+Ver. 0.9 Beta: provisional Beta version of the moment.
+	- I modified basic UIs for SA Beta client and some things of high priority.
+	- A hot bar is able to have 38 slots now. 
+		(It has following problems:
+		 - You can't see an object property of objects after 12th slots.
+		 - Hotkeys set on after 12th slots will be cleared when you login at the next time. 
+		 Therefore please use slots after 12th for purposes that are not affected by these problems.)
+	- Chat windows are not covered at this time, because it seems that the Custom UI of chat windows is not valid at the moment.
+
+[Credit]
+Created by B-LAU 
+ http://cid-fa4b78a1e50ee1f2.skydrive.live.com/browse.aspx/GAME2/UOSKIN (Download and post message )
+ http://b-lau.spawn.jp/cgi-bin/mailform/form.html (japanese)
+             
+Translated to English with help of athos
+ http://www.britain.sakura.ne.jp/ (Britannia Bibliothek)

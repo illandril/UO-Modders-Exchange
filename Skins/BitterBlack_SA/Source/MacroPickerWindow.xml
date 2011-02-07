@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Interface xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../Interface.xsd">
+  <Scripts>
+    <Script file="Source/MacroPickerWindow.lua" />
+  </Scripts>
+  <Windows>
+    <DynamicImage name="MacroPickerItemTemplate" texturescale="0.78" handleinput="true" layer="default">
+      <Size>
+        <AbsPoint x="50" y="50" />
+      </Size>
+      <EventHandlers>
+        <EventHandler event="OnLButtonUp" function="MacroPickerWindow.SetMacro" />
+      </EventHandlers>
+    </DynamicImage>
+    <Window name="MacroPickerWindowTemplate" movable="false" layer="popup">
+      <Size>
+        <AbsPoint x="280" y="300" />
+      </Size>
+      <EventHandlers>
+        <EventHandler event="OnInitialize" function="MacroPickerWindow.Initialize" />
+      </EventHandlers>
+      <Windows>
+        <!-- Inner Frame Boilerplate -->
+        <FullResizeImage name="$parentBackground" inherits="UO_Simple_Black_Background">
+          <Size>
+            <AbsPoint x="0" y="0" />
+          </Size>
+          <Anchors>
+            <Anchor point="topleft" relativePoint="topleft" />
+            <Anchor point="bottomright" relativePoint="bottomright" />
+          </Anchors>
+          <Windows>
+            <FullResizeImage name="$parentFrame" inherits="UO_Default_Inner_Window_Frame">
+              <Size>
+                <AbsPoint x="10" y="10" />
+              </Size>
+              <Anchors>
+                <Anchor point="topleft" relativePoint="topleft" />
+                <Anchor point="bottomright" relativePoint="bottomright" />
+              </Anchors>
+            </FullResizeImage>
+          </Windows>
+        </FullResizeImage>
+        <!-- End of Inner Frame Boilerplate -->
+        <ScrollWindow name="$parentView" childscrollwindow="$parentScrollChild" scrollbar="$parentScrollbar" lineheight="60" draganddrop="true" autoHideScrollBar="true">
+          <Size>
+            <AbsPoint x="265" y="292" />
+          </Size>
+          <Anchors>
+            <Anchor point="topleft" relativePoint="topleft">
+              <AbsPoint x="4" y="4" />
+            </Anchor>
+          </Anchors>
+          <EventHandlers>
+            <EventHandler event="OnLButtonUp" function="ContainerWindow.OnContainerRelease" />
+          </EventHandlers>
+          <Windows>
+            <VerticalScrollbar name="$parentScrollbar" inherits="StandardVertScroll" />
+            <Window name="$parentScrollChild">
+              <Size>
+                <AbsPoint x="250" y="0" />
+              </Size>
+            </Window>
+          </Windows>
+        </ScrollWindow>
+      </Windows>
+    </Window>
+  </Windows>
+</Interface>

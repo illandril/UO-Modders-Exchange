@@ -1,0 +1,51 @@
+<Interface xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../Interface.xsd">
+    <Assets>
+        <Texture name="colored_grid_backpack" file="Colored Grid Backpack.dds" />
+    </Assets>
+    <Windows>
+        <Button name="ColoredGridViewSocketTemplate" texturescale="1.125" draganddrop="true">
+      <Size>
+        <AbsPoint x="54" y="54" />
+      </Size>
+      <Windows>
+        <DynamicImage name="$parentIcon" texturescale="1.125" handleinput="false" layer="default">
+          <Size>
+            <AbsPoint x="48" y="48" />
+          </Size>
+          <Anchors>
+            <Anchor point="center" relativePoint="center" relativeTo="">
+              <AbsPoint x="0" y="0" />
+            </Anchor>
+          </Anchors>
+        </DynamicImage>
+        <Label name="$parentQuantity" font="UO_DefaultText" maxchars="6" textalign="left" autoresize="true" wordwrap="false" layer="popup" handleinput="false">
+          <Size>
+            <AbsPoint x="50" y="15" />
+          </Size>
+          <Anchors>
+            <Anchor point="bottomleft" relativePoint="bottomleft">
+              <AbsPoint x="2" y="-2" />
+            </Anchor>
+          </Anchors>
+          <Color r="255" g="255" b="255" a="255" />
+        </Label>
+      </Windows>
+      <TexCoords>
+        <Normal texture="colored_grid_backpack" x="0" y="0" />
+        <NormalHighlit texture="colored_grid_backpack" x="50" y="0" />
+        <Disabled texture="colored_grid_backpack" x="0" y="0" />
+        <Pressed texture="colored_grid_backpack" x="0" y="0" />
+        <PressedHighlit texture="colored_grid_backpack" x="50" y="0" />
+      </TexCoords>
+      <EventHandlers>
+        <EventHandler event="OnLButtonDown" function="ContainerWindow.OnItemClicked" />
+        <EventHandler event="OnLButtonDblClk" function="ContainerWindow.OnItemDblClicked" />
+        <EventHandler event="OnLButtonUp" function="ContainerWindow.OnItemRelease" />
+        <EventHandler event="OnMouseOver" function="ContainerWindow.ItemMouseOver" />
+        <EventHandler event="OnMouseOverEnd" function="ItemProperties.ClearMouseOverItem" />
+        <EventHandler event="OnRButtonDown" function="ContainerWindow.OnItemGet" />
+        <EventHandler event="OnRButtonUp" function="ContainerWindow.OnItemRButtonUp" />
+			</EventHandlers>
+		</Button>
+	</Windows>
+</Interface>

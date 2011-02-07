@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Interface xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../Interface.xsd">
+  <Scripts>
+    <Script file="Source/MacroWindow.lua" />
+  </Scripts>
+  <Windows>
+    <Window name="MacroItemTemplate" movable="false">
+      <Size>
+        <AbsPoint x="285" y="50" />
+      </Size>
+      <EventHandlers>
+        <EventHandler event="OnRButtonUp" function="MacroWindow.OnItemRButtonUp" />
+      </EventHandlers>
+      <Windows>
+        <DynamicImage name="$parentSquareIcon" texturescale="0.78" layer="default" popable="false">
+          <Size>
+            <AbsPoint x="50" y="50" />
+          </Size>
+          <Anchors>
+            <Anchor point="left" relativePoint="left" relativeTo="">
+              <AbsPoint x="0" y="0" />
+            </Anchor>
+          </Anchors>
+          <EventHandlers>
+            <EventHandler event="OnLButtonDown" function="MacroWindow.PickupMacro" />
+          </EventHandlers>
+        </DynamicImage>
+        <DynamicImage name="$parentDisabled" texture="hud_image" texturescale="0.78" handleinput="false" layer="default">
+          <Size>
+            <AbsPoint x="50" y="50" />
+          </Size>
+          <Anchors>
+            <Anchor point="left" relativePoint="left" relativeTo="">
+              <AbsPoint x="0" y="0" />
+            </Anchor>
+          </Anchors>
+          <TexCoords x="112" y="324" />
+        </DynamicImage>
+        <Label name="$parentName" font="UO_DefaultText" linespacing="20" maxchars="64" textalign="left" autoresize="false" handleinput="false" wordwrap="true">
+          <Size>
+            <AbsPoint x="225" y="25" />
+          </Size>
+          <Anchors>
+            <Anchor point="topright" relativePoint="topleft" relativeTo="$parentSquareIcon">
+              <AbsPoint x="5" y="3" />
+            </Anchor>
+          </Anchors>
+          <Color r="255" g="255" b="255" a="255" />
+        </Label>
+        <Label name="$parentBinding" font="UO_DefaultText" linespacing="20" maxchars="64" textalign="right" autoresize="false" handleinput="false" wordwrap="true">
+          <Size>
+            <AbsPoint x="225" y="25" />
+          </Size>
+          <Anchors>
+            <Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentName">
+              <AbsPoint x="0" y="3" />
+            </Anchor>
+          </Anchors>
+          <Color r="75" g="200" b="100" a="255" />
+        </Label>
+      </Windows>
+    </Window>
+    <Window name="EditMacroWindowTemplate" movable="true">
+      <Size>
+        <AbsPoint x="850" y="100" />
+      </Size>
+    </Window>
+    <Window name="MacroWindow" movable="true">
+      <Size>
+        <AbsPoint x="310" y="500" />
+      </Size>
+      <Anchors>
+        <Anchor point="topleft" relativePoint="topleft">
+          <AbsPoint x="50" y="300" />
+        </Anchor>
+      </Anchors>
+      <EventHandlers>
+        <EventHandler event="OnInitialize" function="MacroWindow.Initialize" />
+        <EventHandler event="OnShutdown" function="MacroWindow.Shutdown" />
+        <EventHandler event="OnShown" function="MacroWindow.OnShown" />
+      </EventHandlers>
+      <Windows>
+        <!-- Default chrome. Alter this at your own peril. -->
+        <Window name="$parentChrome" inherits="UO_DefaultWindow">
+          <Anchors>
+            <Anchor point="topleft" relativePoint="topleft" />
+            <Anchor point="bottomright" relativePoint="bottomright" />
+          </Anchors>
+        </Window>
+        <!-- End of default chrome boilerplate code -->
+        <!-- Macro Scrolling Window-->
+        <ScrollWindow name="MacroScrollWindow" childscrollwindow="MacroScrollWindowScrollChild" scrollbar="MacroScrollWindowScrollbar" lineheight="18" autoHideScrollBar="true">
+          <Size>
+            <AbsPoint x="305" y="415" />
+          </Size>
+          <Anchors>
+            <Anchor point="topleft" relativePoint="topleft" relativeTo="">
+              <AbsPoint x="0" y="35" />
+            </Anchor>
+          </Anchors>
+          <Windows>
+            <VerticalScrollbar name="$parentScrollbar" inherits="StandardVertScroll" />
+            <Label name="$parentNoMacros" font="UO_DefaultText" linespacing="20" maxchars="64" textalign="center" autoresize="true" handleinput="false" wordwrap="true">
+              <Size>
+                <AbsPoint x="200" y="30" />
+              </Size>
+              <Anchors>
+                <Anchor point="topleft" relativePoint="topleft" relativeTo="MacroScrollWindow">
+                  <AbsPoint x="10" y="10" />
+                </Anchor>
+              </Anchors>
+              <Color r="255" g="255" b="255" a="255" />
+            </Label>
+            <Window name="$parentScrollChild">
+              <Size>
+                <AbsPoint x="290" y="0" />
+              </Size>
+              <Anchors>
+                <Anchor point="topleft" relativePoint="topleft" />
+              </Anchors>
+            </Window>
+          </Windows>
+        </ScrollWindow>
+        <Button name="AddMacroButton" inherits="UO_Default_GumpButton">
+          <Anchors>
+            <Anchor point="bottom" relativePoint="bottom" relativeTo="">
+              <AbsPoint x="0" y="-10" />
+            </Anchor>
+          </Anchors>
+          <EventHandlers>
+            <EventHandler event="OnLButtonUp" function="MacroWindow.AddMacro" />
+          </EventHandlers>
+        </Button>
+      </Windows>
+    </Window>
+  </Windows>
+</Interface>

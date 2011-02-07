@@ -1,0 +1,184 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Interface xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../Interface.xsd">
+  <Scripts>
+    <Script file="Source/PetWindow.lua" />
+  </Scripts>
+  <Windows>
+    <Window name="PetHealthBarTemplate" movable="false">
+      <Size>
+        <AbsPoint x="163" y="50" />
+      </Size>
+      <EventHandlers>
+        <EventHandler event="OnLButtonDown" function="PetWindow.OnItemClicked" />
+        <EventHandler event="OnLButtonDblClk" function="PetWindow.OnDblClick" />
+        <EventHandler event="OnRButtonDown" function="PetWindow.OnRClick" />
+      </EventHandlers>
+      <Windows>
+        <DynamicImage name="$parentImage" texture="hud_image" handleinput="false" layer="background" poppable="false">
+          <Size>
+            <AbsPoint x="163" y="39" />
+          </Size>
+          <TexCoords x="0" y="817" />
+        </DynamicImage>
+        <StatusBar name="$parentHealthBar" inherits="TargetStatusBar">
+          <Size>
+            <AbsPoint x="100" y="4" />
+          </Size>
+          <Anchors>
+            <Anchor point="topleft" relativePoint="topleft" relativeTo="$parentImage">
+              <AbsPoint x="32" y="2" />
+            </Anchor>
+          </Anchors>
+        </StatusBar>
+        <EditBox name="$parentInputName" font="UO_DefaultText" maxchars="14" textalign="center" scrolling="horz" history="false" taborder="0" input="text">
+          <Size>
+            <AbsPoint x="156" y="28" />
+          </Size>
+          <Anchors>
+            <Anchor point="center" relativePoint="center" relativeTo="$parent">
+              <AbsPoint x="19" y="4" />
+            </Anchor>
+          </Anchors>
+          <TextColor r="255" g="255" b="255" a="255" />
+          <EventHandlers>
+            <EventHandler event="OnKeyEnter" function="PetWindow.OnKeyEnter" />
+            <EventHandler event="OnKeyEscape" function="PetWindow.OnKeyEscape" />
+            <EventHandler event="OnLButtonDown" function="PetWindow.OnTextItemClicked" />
+          </EventHandlers>
+        </EditBox>
+        <Label name="$parentLabelName" font="UO_DefaultText" maxchars="60" textalign="center" handleinput="false" wordwrap="false" linespacing="18" poppable="false">
+          <Size>
+            <AbsPoint x="156" y="28" />
+          </Size>
+          <Anchors>
+            <Anchor point="center" relativePoint="center" relativeTo="$parent">
+              <AbsPoint x="-2" y="-2" />
+            </Anchor>
+          </Anchors>
+          <TextColor r="255" g="255" b="255" a="255" />
+        </Label>
+      </Windows>
+    </Window>
+    <Button name="ShowButtonTemplate" backgroundtexture="hud_image" highlighttexture="hud_image">
+      <Size>
+        <AbsPoint x="25" y="43" />
+      </Size>
+      <TexCoords>
+        <Normal x="189" y="858" />
+        <NormalHighlit x="215" y="858" />
+        <Pressed x="215" y="858" />
+        <PressedHighlit x="215" y="858" />
+        <Disabled x="189" y="858" />
+      </TexCoords>
+      <EventHandlers>
+        <EventHandler event="OnLButtonUp" function="PetWindow.ShowPet" />
+      </EventHandlers>
+    </Button>
+    <Button name="HideButtonTemplate" backgroundtexture="hud_image" highlighttexture="hud_image">
+      <Size>
+        <AbsPoint x="28" y="28" />
+      </Size>
+      <TexCoords>
+        <Normal x="169" y="902" />
+        <NormalHighlit x="198" y="902" />
+        <Pressed x="198" y="902" />
+        <PressedHighlit x="198" y="902" />
+        <Disabled x="169" y="902" />
+      </TexCoords>
+      <EventHandlers>
+        <EventHandler event="OnLButtonUp" function="PetWindow.HidePet" />
+      </EventHandlers>
+    </Button>
+    <Window name="PetWindow" layer="background" movable="true">
+      <Size>
+        <AbsPoint x="184" y="50" />
+      </Size>
+      <Anchors>
+        <Anchor point="topleft" relativePoint="topleft">
+          <AbsPoint x="0" y="0" />
+        </Anchor>
+      </Anchors>
+      <EventHandlers>
+        <EventHandler event="OnInitialize" function="PetWindow.Initialize" />
+        <EventHandler event="OnShutdown" function="PetWindow.Shutdown" />
+        <EventHandler event="OnLButtonDown" function="PetWindow.OnMouseDrag" />
+      </EventHandlers>
+      <Windows>
+        <Window name="$parentHideView" movable="false">
+          <Size>
+            <AbsPoint x="25" y="43" />
+          </Size>
+          <Anchors>
+            <Anchor point="topleft" relativePoint="topleft">
+              <AbsPoint x="0" y="0" />
+            </Anchor>
+          </Anchors>
+          <Windows>
+            <Button name="$parentShowButton" inherits="ShowButtonTemplate">
+              <Anchors>
+                <Anchor point="topleft" relativePoint="topleft">
+                  <AbsPoint x="0" y="0" />
+                </Anchor>
+              </Anchors>
+            </Button>
+          </Windows>
+        </Window>
+        <Window name="$parentShowView" movable="false">
+          <Size>
+            <AbsPoint x="184" y="50" />
+          </Size>
+          <Anchors>
+            <Anchor point="topleft" relativePoint="topleft">
+              <AbsPoint x="0" y="0" />
+            </Anchor>
+          </Anchors>
+          <Windows>
+            <!--Default Black background texture -->
+            <FullResizeImage name="$parentBackground" inherits="UO_Simple_Black_Background2" layer="background">
+              <Anchors>
+                <Anchor point="topleft" relativePoint="topleft">
+                  <AbsPoint x="0" y="37" />
+                </Anchor>
+                <Anchor point="bottomright" relativePoint="bottomright">
+                  <AbsPoint x="6" y="0" />
+                </Anchor>
+              </Anchors>
+            </FullResizeImage>
+            <!-- Gold title bar -->
+            <DynamicImage name="$parentTitleBar" texture="hud_image" layer="background">
+              <Size>
+                <AbsPoint x="184" y="45" />
+              </Size>
+              <TexCoords x="0" y="855" />
+              <Anchors>
+                <Anchor point="topleft" relativePoint="topleft">
+                  <AbsPoint x="0" y="0" />
+                </Anchor>
+              </Anchors>
+            </DynamicImage>
+            <Label name="$parentName" font="UO_DefaultText" maxchars="16" textalign="center" handleinput="false" wordwrap="true" linespacing="18">
+              <Size>
+                <AbsPoint x="155" y="10" />
+              </Size>
+              <Anchors>
+                <Anchor point="top" relativePoint="top" relativeTo="$parentTitleBar">
+                  <AbsPoint x="-12" y="12" />
+                </Anchor>
+              </Anchors>
+              <Color r="192" g="162" b="117" a="255" />
+            </Label>
+            <!-- Left arrow circle button -->
+            <Button name="$parentHideButton" inherits="HideButtonTemplate">
+              <Anchors>
+                <Anchor point="topright" relativePoint="topleft" relativeTo="$parentTitleBar">
+                  <AbsPoint x="-38" y="6" />
+                </Anchor>
+              </Anchors>
+            </Button>
+          </Windows>
+        </Window>
+      </Windows>
+    </Window>
+    <!--End of PetWindow -->
+  </Windows>
+</Interface>

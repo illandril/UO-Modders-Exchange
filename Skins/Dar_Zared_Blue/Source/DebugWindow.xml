@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Interface xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../Interface.xsd">
+	<Scripts>
+		<Script file="Source/DebugWindow.lua" />
+	</Scripts>
+	<Windows>
+	
+		<Window name="LogFilterButton" inherits="LabelCheckButton" id="1"> 
+			<EventHandlers>
+				<EventHandler event="OnLButtonUp" function="DebugWindow.UpdateDisplayFilter" />
+			</EventHandlers>
+		</Window>
+	
+		<VerticalScrollbar name="DebugVertScroll" up="StandardVertScrollUpBtn" down="StandardVertScrollDownBtn" thumb="StandardVertScrollThumb" gutter="StandardVertScrollGutter" >
+			<Size>
+				<AbsPoint x="20" y="0" />
+			</Size>
+			<ThumbOffset x="1" y="1" />
+		</VerticalScrollbar>
+		
+		<Window name="DebugWindow" movable="true" layer="popup">
+			<Size>
+				<AbsPoint x="800" y="500" />
+			</Size>
+			<Anchors>
+				<Anchor point="top" relativePoint="top" relativeTo="">
+				    <AbsPoint x="0" y="100" />
+				</Anchor>
+			</Anchors>
+			<EventHandlers>
+				<EventHandler event="OnInitialize" function="DebugWindow.Initialize" />
+				<EventHandler event="OnShutdown" function="DebugWindow.Shutdown" />
+			</EventHandlers>
+			<Windows>			
+				<!-- Default chrome. Alter this at your own peril. --> 
+				<Window name="$parentChrome" inherits="UO_DefaultWindow"> 
+					<Anchors> 
+						<Anchor point="topleft" relativePoint="topleft" /> 
+						<Anchor point="bottomright" relativePoint="bottomright"/> 
+					</Anchors> 
+				</Window>                        
+				<LogDisplay name="$parentText" font="UO_DefaultText" scrollbar="$parentScrollbar" scrollbarPosition="right" background=""  maxchars="4096" maxentries="4096">
+					<Size>
+						<AbsPoint x="780" y="390" />
+					</Size>
+					<Anchors>
+						<Anchor point="topleft" relativePoint="topleft" relativeTo="">
+							<AbsPoint x="7" y="40" />
+						</Anchor>
+						<Anchor point="bottomright" relativePoint="bottomright" relativeTo="">
+							<AbsPoint x="-7" y="-75" />
+						</Anchor>
+					</Anchors>
+                    <Windows>
+                        <VerticalScrollbar name="$parentScrollbar" inherits="DebugVertScroll">
+                            <Anchors>
+                                <Anchor point="topright" relativePoint="topleft">
+                                    <AbsPoint x="-20" y="0" />
+                                </Anchor>
+                                <Anchor point="bottomright" relativePoint="bottomright"/>
+                            </Anchors>
+                        </VerticalScrollbar>
+                    </Windows>
+				</LogDisplay>
+				<Button name="$parentReloadUi" inherits="UO_Default_Medium_Select_Button" textalign="center" >
+					<Anchors>
+						<Anchor point="bottomleft" relativePoint="bottomleft" >
+							<AbsPoint x="10" y="-10" />
+						</Anchor>
+					</Anchors>
+					<EventHandlers>
+						<EventHandler event="OnLButtonUp" function="InterfaceCore.ReloadUI"/>
+					</EventHandlers>
+				</Button>
+				<Button name="$parentToggleLogging" inherits="UO_Default_Medium_Select_Button" textalign="center" >
+					<Anchors>
+						<Anchor point="topleft" relativePoint="topright" relativeTo="$parentToggleOptions">
+							<AbsPoint x="-10" y="0" />
+						</Anchor>
+					</Anchors>
+					<EventHandlers>
+						<EventHandler event="OnLButtonUp" function="DebugWindow.ToggleLogging"/>
+					</EventHandlers>
+				</Button>
+				<Button name="$parentToggleOptions" inherits="UO_Default_Medium_Select_Button" textalign="center" >
+
+					<Anchors>
+						<Anchor point="bottomright" relativePoint="bottomright" >
+							<AbsPoint x="-20" y="-10" />
+						</Anchor>
+					</Anchors>
+					<EventHandlers>
+						<EventHandler event="OnLButtonUp" function="DebugWindow.ToggleOptions"/>
+					</EventHandlers>
+				</Button>
+				
+                <Button name="$parentResizeButton" inherits="CoreWindowResizeButtonBottomRight" layer="popup" >
+                    <Anchors>
+                        <Anchor point="bottomright" relativePoint="bottomright" relativeTo="" >
+                            <AbsPoint x="0" y="0" />
+                        </Anchor>
+                    </Anchors>
+                    <EventHandlers>
+                        <EventHandler event="OnLButtonDown" function="DebugWindow.OnResizeBegin" />
+                    </EventHandlers>
+                </Button>
+			</Windows>
+		</Window>
+		
+		<!--- Options -->
+		<Window name="DebugWindowOptions" layer="popup" > 
+			<Size>
+				<AbsPoint x="400" y="420" />
+			</Size>
+			<Anchors>
+				<Anchor point="topright" relativePoint="topleft" relativeTo="DebugWindow">
+					<AbsPoint x="0" y="0"/>
+				</Anchor>
+			</Anchors>
+			<Windows>
+				<!-- Default chrome. Alter this at your own peril. --> 
+				<Window name="$parentChrome" inherits="UO_DefaultWindow"> 
+					<Anchors> 
+						<Anchor point="topleft" relativePoint="topleft" /> 
+						<Anchor point="bottomright" relativePoint="bottomright"/> 
+					</Anchors> 
+				</Window>  			
+				<Label name="$parentFiltersTitle" font="UO_DefaultText" textalign="left" maxchars="64">
+					<Size>
+						<AbsPoint x="400" y="20" />
+					</Size>
+					<Anchors>
+						<Anchor point="topleft" relativePoint="topleft" relativeTo="$parent">
+							<AbsPoint x="10" y="40" />
+						</Anchor>
+					</Anchors>
+				</Label>
+				<Window name="$parentFilterType1" inherits="LogFilterButton" id="1"> 
+					<Anchors>
+						<Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentFiltersTitle">
+							<AbsPoint x="20" y="5" />
+						</Anchor>
+					</Anchors>
+				</Window>
+				<Window name="$parentFilterType2" inherits="LogFilterButton" id="2"> 
+					<Anchors>
+						<Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentFilterType1">
+							<AbsPoint x="0" y="0" />
+						</Anchor>
+					</Anchors>
+				</Window>
+				<Window name="$parentFilterType3" inherits="LogFilterButton" id="3"> 
+					<Anchors>
+						<Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentFilterType2">
+							<AbsPoint x="0" y="0" />
+						</Anchor>
+					</Anchors>
+				</Window>
+				<Window name="$parentFilterType4" inherits="LogFilterButton" id="4"> 
+					<Anchors>
+						<Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentFilterType3">
+							<AbsPoint x="0" y="0" />
+						</Anchor>
+					</Anchors>
+				</Window>
+                <Window name="$parentFilterType5" inherits="LogFilterButton" id="5">
+                    <Anchors>
+                        <Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentFilterType4">
+                            <AbsPoint x="0" y="0" />
+                        </Anchor>
+                    </Anchors>
+                </Window>
+                <!--<Window name="$parentFilterType6" inherits="LogFilterButton" id="6">
+                    <Anchors>
+                        <Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentFilterType5">
+                            <AbsPoint x="0" y="0" />
+                        </Anchor>
+                    </Anchors>
+                </Window>
+                <Window name="$parentFilterType7" inherits="LogFilterButton" id="7">
+                    <Anchors>
+                        <Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentFilterType6">
+                            <AbsPoint x="0" y="0" />
+                        </Anchor>
+                    </Anchors>
+                </Window>-->                
+                
+				<Label name="$parentErrorHandlingTitle" font="UO_DefaultText" textalign="left" maxchars="64">
+					<Size>
+						<AbsPoint x="400" y="20" />
+					</Size>
+					<Anchors>
+						<Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentFilterType5">
+							<AbsPoint x="-20" y="20" />
+						</Anchor>
+					</Anchors>
+				</Label>
+				<Window name="$parentErrorOption1" inherits="LabelCheckButton" id="1"> 
+					<Anchors>
+						<Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentErrorHandlingTitle">
+							<AbsPoint x="20" y="5" />
+						</Anchor>
+					</Anchors>
+					<EventHandlers>
+						<EventHandler event="OnLButtonUp" function="DebugWindow.UpdateLuaErrorHandling" />
+					</EventHandlers>
+				</Window>
+				<Window name="$parentErrorOption2" inherits="LabelCheckButton" id="1"> 
+					<Anchors>
+						<Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentErrorOption1">
+							<AbsPoint x="0" y="0" />
+						</Anchor>
+					</Anchors>
+					<EventHandlers>
+						<EventHandler event="OnLButtonUp" function="DebugWindow.UpdateCodeErrorHandling" />
+					</EventHandlers>
+				</Window>
+				
+				<Window name="$parentLuaDebugLibrary" inherits="LabelCheckButton" id="1"> 
+					<Anchors>
+						<Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentErrorOption2">
+							<AbsPoint x="0" y="20" />
+						</Anchor>
+					</Anchors>
+					<EventHandlers>
+						<EventHandler event="OnLButtonUp" function="DebugWindow.UpdateLoadLuaDebugLibrary" />
+					</EventHandlers>
+				</Window>
+				
+			</Windows>
+		</Window>		
+	</Windows>
+</Interface>

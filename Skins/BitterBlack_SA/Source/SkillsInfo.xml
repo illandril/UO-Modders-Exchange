@@ -1,0 +1,163 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Interface xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../Interface.xsd">
+  <Scripts>
+    <Script file="Source/SkillsInfo.lua" />
+  </Scripts>
+  <Windows>
+    <Window name="SkillsInfo" movable="true">
+      <Size>
+        <AbsPoint x="560" y="200" />
+      </Size>
+      <Anchors>
+        <Anchor point="topright" relativePoint="topright">
+          <AbsPoint x="-50" y="50" />
+        </Anchor>
+      </Anchors>
+      <EventHandlers>
+        <EventHandler event="OnInitialize" function="SkillsInfo.Initialize" />
+      </EventHandlers>
+      <Windows>
+        <!-- Default chrome. Alter this at your own peril. -->
+        <Window name="$parentChrome" inherits="UO_DefaultWindow">
+          <Anchors>
+            <Anchor point="topleft" relativePoint="topleft"></Anchor>
+            <Anchor point="bottomright" relativePoint="bottomright" />
+          </Anchors>
+        </Window>
+        <!-- End of default chrome boilerplate code -->
+        <Label name="$parentTitle" font="UO_Title_Large" maxchars="64" textalign="center" autoresize="false" handleinput="false" wordwrap="true">
+          <Size>
+            <AbsPoint x="540" y="20" />
+          </Size>
+          <Anchors>
+            <Anchor point="middle" relativePoint="middle">
+              <AbsPoint x="5" y="-1" />
+            </Anchor>
+          </Anchors>
+          <Color r="142" g="112" b="67" a="255" />
+        </Label>
+        <Label name="$parentDescription" font="UO_DefaultText" maxchars="10000" textalign="left" autoresize="true" handleinput="false" wordwrap="true">
+          <Size>
+            <AbsPoint x="540" y="18" />
+          </Size>
+          <Anchors>
+            <Anchor point="topleft" relativePoint="topleft">
+              <AbsPoint x="10" y="40" />
+            </Anchor>
+          </Anchors>
+          <Color r="242" g="212" b="167" a="255" />
+        </Label>
+        <Label name="$parentRequires" font="UO_GoldButtonText" maxchars="64" textalign="left" autoresize="true" handleinput="false" wordwrap="true">
+          <Size>
+            <AbsPoint x="540" y="12" />
+          </Size>
+          <Anchors>
+            <Anchor point="topleft" relativePoint="topleft">
+              <AbsPoint x="0" y="0" />
+            </Anchor>
+          </Anchors>
+          <Color r="75" g="200" b="100" a="255" />
+        </Label>
+        <Label name="$parentRequiresEntry" font="UO_DefaultText" maxchars="10000" textalign="left" autoresize="true" handleinput="false" wordwrap="true">
+          <Size>
+            <AbsPoint x="540" y="12" />
+          </Size>
+          <Anchors>
+            <Anchor point="topleft" relativePoint="topleft">
+              <AbsPoint x="0" y="0" />
+            </Anchor>
+          </Anchors>
+          <Color r="255" g="255" b="255" a="255" />
+        </Label>
+        <Label name="$parentDirect" font="UO_GoldButtonText" maxchars="64" textalign="left" autoresize="true" handleinput="false" wordwrap="true">
+          <Size>
+            <AbsPoint x="540" y="12" />
+          </Size>
+          <Anchors>
+            <Anchor point="topleft" relativePoint="topleft">
+              <AbsPoint x="0" y="0" />
+            </Anchor>
+          </Anchors>
+          <Color r="75" g="200" b="100" a="255" />
+        </Label>
+        <Label name="$parentDirectEntry" font="UO_DefaultText" maxchars="10000" textalign="left" autoresize="true" handleinput="false" wordwrap="true">
+          <Size>
+            <AbsPoint x="540" y="12" />
+          </Size>
+          <Anchors>
+            <Anchor point="topleft" relativePoint="topleft">
+              <AbsPoint x="0" y="0" />
+            </Anchor>
+          </Anchors>
+          <Color r="255" g="255" b="255" a="255" />
+        </Label>
+        <Label name="$parentInteractive" font="UO_GoldButtonText" maxchars="64" textalign="left" autoresize="true" handleinput="false" wordwrap="true">
+          <Size>
+            <AbsPoint x="540" y="12" />
+          </Size>
+          <Anchors>
+            <Anchor point="topleft" relativePoint="topleft">
+              <AbsPoint x="0" y="0" />
+            </Anchor>
+          </Anchors>
+          <Color r="75" g="200" b="100" a="255" />
+        </Label>
+        <Label name="$parentInteractiveEntry" font="UO_DefaultText" maxchars="10000" textalign="left" autoresize="true" handleinput="false" wordwrap="true">
+          <Size>
+            <AbsPoint x="540" y="12" />
+          </Size>
+          <Anchors>
+            <Anchor point="topleft" relativePoint="topleft">
+              <AbsPoint x="0" y="0" />
+            </Anchor>
+          </Anchors>
+          <Color r="255" g="255" b="255" a="255" />
+        </Label>
+        <Label name="$parentAutomatic" font="UO_GoldButtonText" maxchars="64" textalign="left" autoresize="true" handleinput="false" wordwrap="true">
+          <Size>
+            <AbsPoint x="540" y="12" />
+          </Size>
+          <Anchors>
+            <Anchor point="topleft" relativePoint="topleft">
+              <AbsPoint x="0" y="0" />
+            </Anchor>
+          </Anchors>
+          <Color r="75" g="200" b="100" a="255" />
+        </Label>
+        <Label name="$parentAutomaticEntry" font="UO_DefaultText" maxchars="10000" textalign="left" autoresize="true" handleinput="false" wordwrap="true">
+          <Size>
+            <AbsPoint x="540" y="12" />
+          </Size>
+          <Anchors>
+            <Anchor point="topleft" relativePoint="topleft">
+              <AbsPoint x="0" y="0" />
+            </Anchor>
+          </Anchors>
+          <Color r="255" g="255" b="255" a="255" />
+        </Label>
+        <Label name="$parentMore" font="UO_GoldButtonText" maxchars="64" textalign="left" autoresize="true" handleinput="false" wordwrap="true">
+          <Size>
+            <AbsPoint x="540" y="12" />
+          </Size>
+          <Anchors>
+            <Anchor point="topleft" relativePoint="topleft">
+              <AbsPoint x="0" y="0" />
+            </Anchor>
+          </Anchors>
+          <Color r="75" g="200" b="100" a="255" />
+        </Label>
+        <Label name="$parentMoreEntry" font="UO_DefaultText" maxchars="10000" textalign="left" autoresize="true" handleinput="false" wordwrap="true">
+          <Size>
+            <AbsPoint x="540" y="12" />
+          </Size>
+          <Anchors>
+            <Anchor point="topleft" relativePoint="topleft">
+              <AbsPoint x="0" y="0" />
+            </Anchor>
+          </Anchors>
+          <Color r="125" g="150" b="255" a="255" />
+        </Label>
+      </Windows>
+    </Window>
+  </Windows>
+</Interface>

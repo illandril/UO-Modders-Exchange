@@ -1,0 +1,414 @@
+<Interface xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../Interface.xsd">
+    <Scripts>
+        <Script file="Source/MenuBarWindow.lua" />
+    </Scripts>
+    <Windows>
+        <Button name="MenuButtonTemplate" sticky="false" backgroundtexture="hud_image" highlighttexture="hud_image">
+            <Size>
+                <AbsPoint x="48" y="48" />
+            </Size>
+            <EventHandlers>
+                <EventHandler event="OnLButtonUp" function="MenuBarWindow.ToggleMenuButton" />
+                <EventHandler event="OnMouseOver" function="MenuBarWindow.OnMouseoverMenuBtn" />
+            </EventHandlers>
+        </Button>
+
+      <!-- THIS IS THE BUTTON TEMPLATE THAT ALL BUTTONS WILL BE USING -->
+      <Button name="$MenuButtonFrame" sticky="false" backgroundtexture="hud_image" highlighttexture="hud_image" overlaytexture="hud_image" overlayhighlighttexture="hud_image">
+        <Size>
+          <AbsPoint x="54" y="54" />
+        </Size>
+        <Anchors>
+          <Anchor point="middle" relativePoint="middle" relativeTo="$parentHorizHandle">
+            <AbsPoint x="20" y="0"/>
+          </Anchor>
+        </Anchors>
+        <TexCoords>
+          <Normal         x="0"   y="274" />
+          <NormalHighlit  x="53"  y="274" />
+          <Pressed        x="53"  y="274" />
+          <PressedHighlit x="53"  y="274" />
+          <Disabled       x="0"   y="274" />
+        </TexCoords>
+        <OverlayTexCoords>
+          <Normal         x="0"   y="274" />
+          <NormalHighlit  x="53"  y="274" />
+          <Pressed        x="53"  y="274" />
+          <PressedHighlit x="53"  y="274" />
+          <Disabled       x="0"   y="274" />
+        </OverlayTexCoords>
+        <EventHandlers>
+          <EventHandler event="OnLButtonUp" function="MenuBarWindow.ToggleMenuButton" />
+          <EventHandler event="OnMouseOver" function="MenuBarWindow.OnMouseoverMenuBtn" />
+        </EventHandlers>
+      </Button>
+
+        <Window name="MenuBarWindow" movable="false" layer="default">
+            <Size>
+                <AbsPoint x="545" y="70" />
+            </Size>
+            <Anchors>
+                <Anchor point="bottomright" relativePoint="bottomright" >
+                    <AbsPoint x="-10" y="-10"/>
+                </Anchor>
+            </Anchors>
+            <EventHandlers>
+                <EventHandler event="OnInitialize" function="MenuBarWindow.Initialize" />
+                <EventHandler event="OnShutdown" function="MenuBarWindow.Shutdown" />
+		<EventHandler event="OnMouseWheel" function="EnhancePack.Scale" />
+            </EventHandlers>
+            <Windows>
+				
+                <DynamicImage name="$parentHorizHandle" texture="UO_Core" texturescale="1.0" popable="false">
+                  <Size>
+                    <AbsPoint x="14" y="46" />
+                  </Size>
+                  <Anchors>
+                    <Anchor point="left" relativePoint="left">
+                      <AbsPoint x="0" y="-9" />
+                    </Anchor>
+                  </Anchors>
+                  <TexCoords x="270" y="150"/>
+					<EventHandlers>
+						<EventHandler event="OnLButtonUp" function="MenuBarWindow.OnMoveMaximizedEnd" />
+						<EventHandler event="OnLButtonDown" function="MenuBarWindow.OnMoveMaximizedStart" />
+					</EventHandlers>
+                </DynamicImage>
+                <Button name="$parentMinimizeButton" backgroundtexture="hud_image" highlighttexture="hud_image" texturescale="0.8">
+                    <Size>
+                        <AbsPoint x="19" y="19" />
+                    </Size>
+                    <Anchors>
+                        <Anchor point="center" relativePoint="center" relativeTo="$parentHorizHandle"/>
+                    </Anchors>
+                    <TexCoords>
+                        <Normal x="61" y="937" />
+                        <NormalHighlit x="85" y="937" />
+                        <Pressed x="85" y="937" />
+                        <PressedHighlit x="85" y="937" />
+                    </TexCoords>
+                    <EventHandlers>
+                        <EventHandler event="OnLButtonUp" function="MenuBarWindow.ToggleWindowState" />
+						<EventHandler event="OnRButtonUp" function="MenuBarWindow.OnRButtonUp" />
+                    </EventHandlers>                    
+                </Button>
+                        
+                <!-- Inner Frame Boilerplate -->
+                <FullResizeImage name="$parentFrame" inherits="UO_Default_Main_Menu_Window_Frame" handleinput="true" popable="false">
+                    <Anchors>
+                        <Anchor point="topleft" relativePoint="topleft" >
+                            <AbsPoint x="0" y="1"/>
+                        </Anchor>                            
+                        <Anchor point="bottomright" relativePoint="bottomright" >
+                            <AbsPoint x="-15" y="-13"/>
+                        </Anchor>       
+                    </Anchors>
+					<EventHandlers>
+						<EventHandler event="OnLButtonUp" function="MenuBarWindow.OnMoveMaximizedEnd" />
+						<EventHandler event="OnLButtonDown" function="MenuBarWindow.OnMoveMaximizedStart" />
+					</EventHandlers>
+                </FullResizeImage>
+                <!-- End of Inner Frame Boilerplate -->           
+                
+                <!-- War button -->
+                <Button name="$parentWarButton" movable="false" backgroundtexture="hud_image" highlighttexture="hud_image" texturescale="0.9">
+                  <Size>
+                    <!--<AbsPoint x="60" y="77" /> ACTUAL TEXTURE SCALE -->
+                    <AbsPoint x="54" y="69" /> <!-- SCALED DOWN TO THE TEXT SCALE VALUE-->
+                  </Size>
+                       <Anchors>
+                        <Anchor point="right" relativePoint="left" relativeTo="$parentHorizHandle">
+                            <AbsPoint x="7" y="2"/>
+                        </Anchor>
+                    </Anchors>
+                    <EventHandlers>
+                        <EventHandler event="OnLButtonUp" function="MenuBarWindow.ToggleWarModeButton" />
+                        <EventHandler event="OnMouseOver" function="MenuBarWindow.OnMouseoverMenuBtn" />
+                    </EventHandlers>
+                    <TexCoords>
+                        <Normal x="204" y="280" />
+                        <NormalHighlit x="266" y="280" />
+                        <Pressed x="204" y="355" />
+                        <PressedHighlit x="266" y="355" />
+                    </TexCoords>
+                </Button>                
+                
+                <!-- Menu buttons --> 
+              <Button name="$parentTogglePaperdoll" inherits="$MenuButtonFrame">
+                <Anchors>
+                  <Anchor point="right" relativePoint="left" relativeTo="$parentWarButton">
+                    <AbsPoint x="7" y="0"/>
+                  </Anchor>
+                </Anchors>
+                <OverlayTexCoords>
+                  <Normal         x="0"   y="596" />
+                  <NormalHighlit  x="53"  y="596" />
+                  <Pressed        x="53"  y="596" />
+                  <PressedHighlit x="53"  y="596" />
+                  <Disabled       x="0"   y="596" />
+                </OverlayTexCoords>
+                <EventHandlers>
+                  <EventHandler event="OnLButtonUp" function="MenuBarWindow.TogglePaperdollWindow" />
+                  <EventHandler event="OnMouseOver" function="MenuBarWindow.OnMouseoverMenuBtn" />
+                </EventHandlers>
+              </Button>        
+              
+              <Button name="$parentToggleSkills" inherits="$MenuButtonFrame">
+                <Anchors>
+                  <Anchor point="topright" relativePoint="topleft" relativeTo="$parentWarButton">
+                    <AbsPoint x="7" y="7"/>
+                  </Anchor>
+                </Anchors>
+                <OverlayTexCoords>
+                  <Normal         x="0"   y="650" />
+                  <NormalHighlit  x="53"  y="650" />
+                  <Pressed        x="53"  y="650" />
+                  <PressedHighlit x="53"  y="650" />
+                  <Disabled       x="0"   y="650" />
+                </OverlayTexCoords>
+                <EventHandlers>
+                  <EventHandler event="OnLButtonUp" function="MenuBarWindow.GeneralWindows" />
+                  <EventHandler event="OnMouseOver" function="MenuBarWindow.OnMouseoverMenuBtn" />
+                </EventHandlers>
+              </Button>
+
+              <Button name="$parentToggleQuests" inherits="$MenuButtonFrame">
+                <Anchors>
+                  <Anchor point="topright" relativePoint="topleft" relativeTo="$parentToggleSkills">
+                    <AbsPoint x="-5" y="0"/>
+                  </Anchor>
+                </Anchors>
+                <OverlayTexCoords>
+                  <Normal         x="0"   y="434" />
+                  <NormalHighlit  x="53"  y="434" />
+                  <Pressed        x="53"  y="434" />
+                  <PressedHighlit x="53"  y="434" />
+                  <Disabled       x="0"   y="434" />
+                </OverlayTexCoords>
+                <EventHandlers>
+                  <EventHandler event="OnLButtonUp" function="MenuBarWindow.CustomizeMenu" />
+                  <EventHandler event="OnMouseOver" function="MenuBarWindow.OnMouseoverMenuBtn" />
+                </EventHandlers>
+              </Button>
+
+              <Button name="$parentToggleVirtues" inherits="$MenuButtonFrame">
+                <Anchors>
+                  <Anchor point="topright" relativePoint="topleft" relativeTo="$parentToggleQuests">
+                    <AbsPoint x="-5" y="0"/>
+                  </Anchor>
+                </Anchors>
+                <OverlayTexCoords>
+                  <Normal         x="0"   y="489" />
+                  <NormalHighlit  x="53"  y="489" />
+                  <Pressed        x="53"  y="489" />
+                  <PressedHighlit x="53"  y="489" />
+                  <Disabled       x="0"   y="489" />
+                </OverlayTexCoords>
+
+              </Button>
+              
+              <Button name="$parentToggleGuild" inherits="$MenuButtonFrame">
+                <Anchors>
+                  <Anchor point="topright" relativePoint="topleft" relativeTo="$parentToggleQuests">
+                    <AbsPoint x="-5" y="0"/>
+                  </Anchor>
+                </Anchors>
+                <OverlayTexCoords>
+                  <Normal         x="0"   y="542" />
+                  <NormalHighlit  x="53"  y="542" />
+                  <Pressed        x="53"  y="542" />
+                  <PressedHighlit x="53"  y="542" />
+                  <Disabled       x="0"   y="542" />
+                </OverlayTexCoords>
+                <EventHandlers>
+                  <EventHandler event="OnLButtonUp" function="MenuBarWindow.ToggleGuildWindow" />
+                  <EventHandler event="OnMouseOver" function="MenuBarWindow.OnMouseoverMenuBtn" />
+                </EventHandlers>
+              </Button>
+
+				<Button name="$parentToggleChat" inherits="$MenuButtonFrame">
+					<Anchors>
+						<Anchor point="topright" relativePoint="topleft" relativeTo="$parentToggleGuild">
+							<AbsPoint x="-5" y="0"/>
+						</Anchor>
+					</Anchors>
+					<OverlayTexCoords>
+						<Normal         x="107" y="435" />
+						<NormalHighlit  x="107" y="489" />
+						<Pressed        x="107" y="489" />
+						<PressedHighlit x="107" y="489" />
+						<Disabled       x="107" y="435" />
+					</OverlayTexCoords>
+					<EventHandlers>
+						<EventHandler event="OnLButtonUp" function="MenuBarWindow.ToggleChatWindow" />
+						<EventHandler event="OnMouseOver" function="MenuBarWindow.OnMouseoverMenuBtn" />
+					</EventHandlers>
+				</Button>
+              
+              
+              <Button name="$parentToggleMap" inherits="$MenuButtonFrame">
+                <Anchors>
+                  <Anchor point="topright" relativePoint="topleft" relativeTo="$parentToggleChat">
+                    <AbsPoint x="-5" y="0"/>
+                  </Anchor>
+                </Anchors>
+                <OverlayTexCoords>
+                  <Normal         x="0"   y="326" />
+                  <NormalHighlit  x="53"  y="326" />
+                  <Pressed        x="53"  y="326" />
+                  <PressedHighlit x="53"  y="326" />
+                  <Disabled       x="0"   y="326" />
+                </OverlayTexCoords>
+                <EventHandlers>
+                  <EventHandler event="OnLButtonUp" function="MenuBarWindow.ToggleMapWindow" />
+                  <EventHandler event="OnMouseOver" function="MenuBarWindow.OnMouseoverMenuBtn" />
+                </EventHandlers>
+              </Button>
+
+              <Button name="$parentToggleMainMenu" inherits="$MenuButtonFrame">
+                <Anchors>
+                  <Anchor point="topright" relativePoint="topleft" relativeTo="$parentToggleQuests">
+                    <AbsPoint x="-5" y="0"/>
+                  </Anchor>
+                </Anchors>
+                <OverlayTexCoords>
+                  <Normal         x="0"   y="380" />
+                  <NormalHighlit  x="53"  y="380" />
+                  <Pressed        x="53"  y="380" />
+                  <PressedHighlit x="53"  y="380" />
+                  <Disabled       x="0"   y="380" />
+                </OverlayTexCoords>
+              </Button>
+
+              <Button name="$parentToggleInventory" sticky="false" backgroundtexture="hud_image" highlighttexture="hud_image" draganddrop="true">
+                <Size>
+                  <AbsPoint x="63" y="60" />
+                </Size>
+                <Anchors>
+                    <Anchor point="right" relativePoint="left" relativeTo="$parentToggleMainMenu"/>
+                  </Anchors>
+                <TexCoords>
+                  <Normal x="330" y="323" />
+                  <NormalHighlit x="392" y="323" />
+                  <Pressed x="392" y="323" />
+                  <PressedHighlit x="392" y="323" />
+                </TexCoords>
+                <EventHandlers>
+                  <EventHandler event="OnLButtonUp" function="MenuBarWindow.ToggleInventoryWindow" />
+					<EventHandler event="OnMouseOver" function="ItemProperties.OnPlayerBackpackMouseover" />
+					<EventHandler event="OnMouseOverEnd" function="ItemProperties.ClearMouseOverItem" />
+                </EventHandlers>
+              </Button>
+              
+            </Windows>
+        </Window>
+
+        <Window name="MenuBarWindowMinimized" movable="true" layer="default">
+            <Size>
+                <AbsPoint x="150" y="70" />
+            </Size>          
+            <Anchors>
+                <Anchor point="left" relativePoint="right" />
+            </Anchors>
+            <Windows>
+              <DynamicImage name="$parentHorizHandle" texture="UO_Core" texturescale="1.0" popable="false">
+                <Size>
+                <AbsPoint x="14" y="46" />
+                  </Size>
+                  <Anchors>
+                    <Anchor point="left" relativePoint="left">
+                      <AbsPoint x="0" y="-9" />
+                    </Anchor>
+                  </Anchors>
+                  <TexCoords x="270" y="150"/>
+				  <EventHandlers>
+					  <EventHandler event="OnLButtonUp" function="MenuBarWindow.OnMoveMinimizedEnd" />
+					  <EventHandler event="OnLButtonDown" function="MenuBarWindow.OnMoveMinimizedStart" />
+				  </EventHandlers>
+              </DynamicImage>
+              
+                <Button name="$parentMaximizeButton" backgroundtexture="hud_image" highlighttexture="hud_image" texturescale="0.8">
+                    <Size>
+                        <AbsPoint x="19" y="19" />
+                    </Size>
+                    <Anchors>
+                        <Anchor point="center" relativePoint="center" relativeTo="$parentHorizHandle"/>
+                    </Anchors>
+                    <TexCoords>
+                        <Normal x="37" y="937" />
+                        <NormalHighlit x="13" y="937" />
+                        <Pressed x="13" y="937" />
+                        <PressedHighlit x="13" y="937" />
+                    </TexCoords>
+                    <EventHandlers>
+                        <EventHandler event="OnLButtonUp" function="MenuBarWindow.ToggleWindowState" />
+                    </EventHandlers>
+                </Button>
+
+              <!-- Inner Frame Boilerplate -->
+              <FullResizeImage name="$parentFrame" inherits="UO_Default_Main_Menu_Window_Frame" handleinput="true" popable="false"  frameonly="false">
+                <Anchors>
+                  <Anchor point="topleft" relativePoint="topleft" >
+                    <AbsPoint x="0" y="1"/>
+                  </Anchor>
+                  <Anchor point="bottomright" relativePoint="bottomright" >
+                    <AbsPoint x="-15" y="-13"/>
+                  </Anchor>
+                </Anchors>
+				  <EventHandlers>
+					  <EventHandler event="OnLButtonUp" function="MenuBarWindow.OnMoveMinimizedEnd" />
+					  <EventHandler event="OnLButtonDown" function="MenuBarWindow.OnMoveMinimizedStart" />
+				  </EventHandlers>
+              </FullResizeImage>
+              <!-- End of Inner Frame Boilerplate -->
+
+              <!-- War button -->
+              <Button name="$parentWarButton" movable="false" backgroundtexture="hud_image" highlighttexture="hud_image" texturescale="0.9">
+                <Size>
+                  <!--<AbsPoint x="60" y="77" /> ORIGINAL TEXTURE SCALE-->
+                  <AbsPoint x="54" y="69" /> <!-- SCALED DOWN TO THE TEXT SCALE VALUE-->
+                </Size>
+                <Anchors>
+                  <Anchor point="right" relativePoint="left" relativeTo="$parentHorizHandle">
+                    <AbsPoint x="7" y="0"/>
+                  </Anchor>
+                </Anchors>
+                <EventHandlers>
+                  <EventHandler event="OnLButtonUp" function="MenuBarWindow.ToggleWarModeButton" />
+                  <EventHandler event="OnMouseOver" function="MenuBarWindow.OnMouseoverMenuBtn" />
+                </EventHandlers>
+                <TexCoords>
+                  <Normal x="204" y="277" />
+                  <NormalHighlit x="266" y="277" />
+                  <Pressed x="204" y="355" />
+                  <PressedHighlit x="266" y="355" />
+                </TexCoords>
+              </Button>
+
+              <!-- Menu buttons -->
+              <Button name="$parentToggleInventory" sticky="false" backgroundtexture="hud_image" highlighttexture="hud_image" draganddrop="true">
+                <Size>
+                  <AbsPoint x="63" y="60" />
+                </Size>
+                <Anchors>
+                  <Anchor point="right" relativePoint="left" relativeTo="$parentWarButton">
+                    <AbsPoint x="1" y="0"/>
+                  </Anchor>
+                </Anchors>
+                <TexCoords>
+                  <Normal x="330" y="323" />
+                  <NormalHighlit x="392" y="323" />
+                  <Pressed x="392" y="323" />
+                  <PressedHighlit x="392" y="323" />
+                </TexCoords>
+                <EventHandlers>
+                  <EventHandler event="OnLButtonUp" function="MenuBarWindow.ToggleInventoryWindow" />
+					<EventHandler event="OnMouseOver" function="ItemProperties.OnPlayerBackpackMouseover" />
+					<EventHandler event="OnMouseOverEnd" function="ItemProperties.ClearMouseOverItem" />
+                </EventHandlers>
+              </Button>
+
+            </Windows>
+        </Window>        
+    </Windows>
+</Interface>

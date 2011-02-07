@@ -1,0 +1,40 @@
+<Interface xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../Interface.xsd">
+	<Scripts>
+		<Script file="Source/BuffDebuffWindow.lua" />
+	</Scripts>
+	<Windows>
+		<Window name="BuffDebuffTemplate" movable="false" layer="secondary">
+      <Size>
+        <AbsPoint x="32" y="32"/>
+      </Size>
+      <EventHandlers>
+        <EventHandler event="OnMouseOver" function="BuffDebuff.MouseOver" />
+        <EventHandler event="OnMouseOverEnd" function="ItemProperties.ClearMouseOverItem" />
+      </EventHandlers>
+      <Windows>
+        <DynamicImage name="$parentTextureIcon" texturescale="1.0" handleinput="false">
+          <Size>
+            <AbsPoint x="32" y="32" />
+          </Size>
+          <Anchors>
+            <Anchor point="topleft" relativePoint="topleft">
+              <AbsPoint x="0" y="0" />
+            </Anchor>
+          </Anchors>
+        </DynamicImage>
+		<Label name="$parentTimerLabel" font="UO_Default_Outline_Text" maxchars="256" handleinput="false" autoresizewidth="true">
+		       <Size>
+		            <AbsPoint x="32" y="32"/>
+		         </Size>
+		            <Anchors>
+		                <Anchor point="topleft" relativePoint="topleft" >
+							<AbsPoint x="3" y="32" />
+						</Anchor>
+		           </Anchors>
+		     </Label>
+		
+      </Windows>
+    </Window>
+		
+	</Windows>
+</Interface>

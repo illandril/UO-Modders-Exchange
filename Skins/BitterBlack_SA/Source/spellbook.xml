@@ -1,0 +1,242 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Interface xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../Interface.xsd">
+  <Scripts>
+    <Script file="Source/Spellbook.lua" />
+  </Scripts>
+  <Windows>
+    <Button name="SpellbookTabButton" drawchildrenfirst="true" font="UO_GoldButtonText">
+      <Size>
+        <AbsPoint x="61" y="24" />
+      </Size>
+      <TextColors>
+        <Normal r="142" g="112" b="67" a="255" />
+        <Disabled r="192" g="162" b="117" a="255" />
+      </TextColors>
+      <TextOffset x="0" y="1" />
+      <Windows>
+        <HorizontalResizeImage name="$parentTab" texture="UO_Common" texturescale="1.0" handleinput="false">
+          <Size>
+            <AbsPoint x="1" y="24" />
+          </Size>
+          <Anchors>
+            <Anchor point="topleft" relativePoint="topleft" />
+            <Anchor point="bottomright" relativePoint="bottomright" />
+          </Anchors>
+          <Sizes left="27" middle="4" right="27" />
+          <TexCoords>
+            <Left x="182" y="410" />
+            <Middle x="212" y="410" />
+            <Right x="233" y="410" />
+          </TexCoords>
+        </HorizontalResizeImage>
+        <HorizontalResizeImage name="$parentTabSelected" texture="UO_Common" texturescale="1.0" handleinput="false">
+          <Size>
+            <AbsPoint x="1" y="24" />
+          </Size>
+          <Anchors>
+            <Anchor point="topleft" relativePoint="topleft" />
+            <Anchor point="bottomright" relativePoint="bottomright" />
+          </Anchors>
+          <Sizes left="27" middle="4" right="27" />
+          <TexCoords>
+            <Left x="182" y="384" />
+            <Middle x="212" y="384" />
+            <Right x="233" y="384" />
+          </TexCoords>
+        </HorizontalResizeImage>
+      </Windows>
+      <EventHandlers>
+        <EventHandler event="OnLButtonUp" function="Spellbook.ToggleTab" />
+      </EventHandlers>
+    </Button>
+    <Button name="SpellbookButtonDef" texturescale="0.75" font="UO_DefaultText" textalign="topleft" drawchildrenfirst="true">
+      <Size>
+        <AbsPoint x="48" y="48" />
+      </Size>
+      <Windows>
+        <DynamicImage name="$parentSquareIcon" texturescale="0.75" handleinput="false">
+          <Size>
+            <AbsPoint x="48" y="48" />
+          </Size>
+          <Anchors>
+            <Anchor point="topleft" relativePoint="topleft" />
+          </Anchors>
+        </DynamicImage>
+        <Label name="$parentDesc" font="UO_DefaultText" linespacing="20" maxchars="64" textalign="left" autoresize="true" handleinput="false">
+          <Size>
+            <AbsPoint x="250" y="16" />
+          </Size>
+          <Anchors>
+            <Anchor point="right" relativePoint="left">
+              <AbsPoint x="5" y="-10" />
+            </Anchor>
+          </Anchors>
+          <Color r="255" g="255" b="255" a="255" />
+        </Label>
+        <Label name="$parentWordPower" font="UO_DefaultText_15pt" linespacing="20" maxchars="64" textalign="left" autoresize="true" handleinput="false">
+          <Size>
+            <AbsPoint x="250" y="16" />
+          </Size>
+          <Anchors>
+            <Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentDesc">
+              <AbsPoint x="0" y="2" />
+            </Anchor>
+          </Anchors>
+          <Color r="255" g="255" b="255" a="255" />
+        </Label>
+      </Windows>
+      <!-- This code removed for consistance with other dragable icons per DT398. It may be used later if we ever want to make click-to-cast icons have this highlight. -->
+      <!--<TexCoords>
+				<NormalHighlit texture="hud_image" x="344" y="531" />
+				<Disabled texture="hud_image" x="194" y="531" />
+				<Pressed texture="hud_image" x="294" y="531" />
+				<PressedHighlit texture="hud_image" x="294" y="531" />
+			</TexCoords>-->
+      <EventHandlers>
+        <EventHandler event="OnShutdown" function="Spellbook.ShutdownSpellIcon" />
+        <EventHandler event="OnLButtonDown" function="Spellbook.SpellLButtonDown" />
+        <EventHandler event="OnLButtonUp" function="Spellbook.SpellLButtonUp" />
+        <EventHandler event="OnRButtonDown" function="Spellbook.SpellRButtonDown" />
+        <EventHandler event="OnMouseOver" function="Spellbook.SpellMouseOver" />
+        <EventHandler event="OnMouseOverEnd" function="ItemProperties.ClearMouseOverItem" />
+      </EventHandlers>
+    </Button>
+    <Window name="Spellbook" movable="true">
+      <Size>
+        <AbsPoint x="504" y="256" />
+        <!-- y="500" -->
+      </Size>
+      <Anchors>
+        <Anchor point="center" relativePoint="center" />
+      </Anchors>
+      <EventHandlers>
+        <EventHandler event="OnInitialize" function="Spellbook.Initialize" />
+        <EventHandler event="OnShutdown" function="Spellbook.Shutdown" />
+      </EventHandlers>
+      <Windows>
+        <!-- Default chrome. Alter this at your own peril. -->
+        <Window name="$parentChrome" inherits="UO_DefaultWindow">
+          <Anchors>
+            <Anchor point="topleft" relativePoint="topleft" />
+            <Anchor point="bottomright" relativePoint="bottomright" />
+          </Anchors>
+        </Window>
+        <!-- End of default chrome boilerplate code -->
+        <Label name="$parentTithing" font="UO_DefaultText" maxchars="128" textalign="left" autoresize="true" handleinput="false">
+          <Size>
+            <AbsPoint x="270" y="20" />
+          </Size>
+          <Anchors>
+            <Anchor point="topright" relativePoint="topright" relativeTo="$parent">
+              <AbsPoint x="5" y="36" />
+            </Anchor>
+          </Anchors>
+        </Label>
+        <DynamicImage name="$parentSquareIcon" texturescale="0.78" handleinput="true" layer="popup">
+          <Size>
+            <AbsPoint x="20" y="20" />
+          </Size>
+          <Anchors>
+            <Anchor point="left" relativePoint="right" relativeTo="$parentTithing">
+              <AbsPoint x="-10" y="0" />
+            </Anchor>
+          </Anchors>
+          <EventHandlers>
+            <EventHandler event="OnLButtonDown" function="Spellbook.TithLButtonDown" />
+            <EventHandler event="OnMouseOver" function="Spellbook.TithMouseOver" />
+          </EventHandlers>
+        </DynamicImage>
+        <Window name="$parentTabWindow" moveable="false">
+          <Size>
+            <AbsPoint x="10" y="10" />
+          </Size>
+          <Anchors>
+            <Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentChrome_UO_TitleBar">
+              <AbsPoint x="4" y="25" />
+            </Anchor>
+            <Anchor point="bottomright" relativePoint="bottomright" relativeTo="$parent">
+              <AbsPoint x="-4" y="-4" />
+            </Anchor>
+          </Anchors>
+          <Windows>
+            <!-- Inner Frame Boilerplate -->
+            <FullResizeImage name="$parentFrame" inherits="UO_Default_Inner_Window_Frame">
+              <Anchors>
+                <Anchor point="topleft" relativePoint="topleft" />
+                <Anchor point="bottomright" relativePoint="bottomright" />
+              </Anchors>
+            </FullResizeImage>
+            <!-- End of Inner Frame Boilerplate -->
+            <VerticalResizeImage name="$parentVRule" inherits="UO_Default_Vertical_Rule" layer="background" handleinput="false">
+              <Size>
+                <AbsPoint x="4" y="185" />
+                <!-- y="336"-->
+              </Size>
+              <Anchors>
+                <Anchor point="top" relativePoint="top">
+                  <AbsPoint x="-10" y="5" />
+                </Anchor>
+              </Anchors>
+            </VerticalResizeImage>
+            <Button name="$parentButton1" inherits="SpellbookButtonDef" id="1">
+              <Anchors>
+                <Anchor point="topleft" relativePoint="topleft">
+                  <AbsPoint x="2" y="2" />
+                </Anchor>
+              </Anchors>
+            </Button>
+            <Button name="$parentButton2" inherits="SpellbookButtonDef" id="2">
+              <Anchors>
+                <Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentButton1">
+                  <AbsPoint x="0" y="0" />
+                </Anchor>
+              </Anchors>
+            </Button>
+            <Button name="$parentButton3" inherits="SpellbookButtonDef" id="3">
+              <Anchors>
+                <Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentButton2">
+                  <AbsPoint x="0" y="0" />
+                </Anchor>
+              </Anchors>
+            </Button>
+            <Button name="$parentButton4" inherits="SpellbookButtonDef" id="4">
+              <Anchors>
+                <Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentButton3">
+                  <AbsPoint x="0" y="0" />
+                </Anchor>
+              </Anchors>
+            </Button>
+            <Button name="$parentButton5" inherits="SpellbookButtonDef" id="5">
+              <Anchors>
+                <Anchor point="topleft" relativePoint="topleft" relativeTo="$parentButton1">
+                  <AbsPoint x="242" y="0" />
+                </Anchor>
+              </Anchors>
+            </Button>
+            <Button name="$parentButton6" inherits="SpellbookButtonDef" id="6">
+              <Anchors>
+                <Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentButton5">
+                  <AbsPoint x="0" y="0" />
+                </Anchor>
+              </Anchors>
+            </Button>
+            <Button name="$parentButton7" inherits="SpellbookButtonDef" id="7">
+              <Anchors>
+                <Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentButton6">
+                  <AbsPoint x="0" y="0" />
+                </Anchor>
+              </Anchors>
+            </Button>
+            <Button name="$parentButton8" inherits="SpellbookButtonDef" id="8">
+              <Anchors>
+                <Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentButton7">
+                  <AbsPoint x="0" y="0" />
+                </Anchor>
+              </Anchors>
+            </Button>
+          </Windows>
+        </Window>
+      </Windows>
+    </Window>
+  </Windows>
+</Interface>

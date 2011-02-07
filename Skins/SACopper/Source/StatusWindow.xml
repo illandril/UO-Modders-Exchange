@@ -1,0 +1,170 @@
+<Interface xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../Interface.xsd">
+  <Scripts>
+    <Script file="Source/StatusWindow.lua" />
+  </Scripts>
+  <Windows>
+    <Window name="StatusWindow" movable="true">
+      <Size>
+        <!--<AbsPoint x="290" y="133" /> -->
+        <AbsPoint x="258" y="94" />
+      </Size>
+      <Anchors>
+        <Anchor point="topleft" relativePoint="topleft" relativeTo="">
+          <AbsPoint x="5" y="5" />
+        </Anchor>
+      </Anchors>
+      <EventHandlers>
+        <EventHandler event="OnInitialize" function="StatusWindow.Initialize" />
+        <EventHandler event="OnShutdown" function="StatusWindow.Shutdown" />
+        <EventHandler event="OnLButtonUp" function="StatusWindow.OnLClick" />
+        <EventHandler event="OnRButtonUp" function="StatusWindow.OnRClick" />
+        <EventHandler event="OnLButtonDblClk" function="StatusWindow.OnMouseDlbClk" />
+      </EventHandlers>
+      <Windows>
+
+        <Window name="BuffDebuff" layer="default" popable="false">
+          <Size>
+            <AbsPoint x="0" y="0" />
+          </Size>
+          <Anchors>
+            <Anchor point="topleft" relativePoint="topleft" relativeTo="StatusWindow">
+              <!--<AbsPoint x="135" y="55" />-->
+              <AbsPoint x="91" y="57" />
+            </Anchor>
+          </Anchors>
+          <EventHandlers>
+            <EventHandler event="OnInitialize" function="BuffDebuff.Initialize" />
+            <EventHandler event="OnShutdown" function="BuffDebuff.Shutdown" />
+          </EventHandlers>
+        </Window>
+
+        <CircleImage name="$parentPortraitBg" texture="hud_image" numsegments="16" texturescale="1.95" layer="background" popable="false" handleinput="false">
+          <Size>
+            <AbsPoint x="75" y="75" />
+          </Size>
+          <Anchors>
+            <Anchor point="topleft" relativePoint="topleft">
+              <AbsPoint x="10" y="10" />
+            </Anchor>
+          </Anchors>
+          <TexCoords x="398" y="50" />
+        </CircleImage>
+        
+        <CircleImage name="$parentPortrait" numsegments="16" texturescale="0.55" layer="background" popable="false" handleinput="false">
+          <Size>
+            <AbsPoint x="75" y="75" />
+          </Size>
+          <Anchors>
+            <Anchor point="center" relativePoint="center" relativeTo="$parentPortraitBg">
+              <AbsPoint x="0" y="0" />
+            </Anchor>
+          </Anchors>
+        </CircleImage>
+        
+        <DynamicImage name="$parentImage" texture="hud_image" layer="background" popable="false" handleinput="false">
+          <Size>
+            <!--<AbsPoint x="290" y="133" />-->
+            <AbsPoint x="258" y="94" />
+          </Size>
+        </DynamicImage>
+
+        <Window name="HoverWindow" layer="background" handleinput="true">
+          <Size>
+            <AbsPoint x="155" y="55" />
+          </Size>
+          <Anchors>
+            <Anchor point="topleft" relativePoint="topleft" relativeTo="StatusWindow">
+              <AbsPoint x="135" y="0" />
+            </Anchor>
+          </Anchors>
+          <EventHandlers>
+            <EventHandler event="OnMouseOver" function="StatusWindow.OnMouseOver" />
+            <EventHandler event="OnMouseOverEnd" function="StatusWindow.OnMouseOverEnd" />
+          </EventHandlers>
+        </Window>
+
+        <Button name="HidePaperDollImageToggle" inherits="UO_Default_Spring_Button" textalign="center" layer="overlay">
+          <Anchors>
+            <Anchor point="top" relativePoint="top" relativeTo="">
+              <AbsPoint x="-60" y="0" />
+            </Anchor>
+          </Anchors>
+          <EventHandlers>
+          </EventHandlers>
+        </Button>
+
+        <StatusBar name="$parentHealthBar" inherits="RedStatusBar" handleinput="false">
+          <Size>
+            <AbsPoint x="163" y="7" />
+          </Size>
+          <Anchors>
+            <Anchor point="topleft" relativePoint="topleft">
+              <AbsPoint x="83" y="10" />
+            </Anchor>
+          </Anchors>
+        </StatusBar>
+
+        <StatusBar name="$parentManaBar" inherits="BlueStatusBar" handleinput="false">
+          <Size>
+            <AbsPoint x="163" y="7" />
+          </Size>
+          <Anchors>
+            <Anchor point="topleft" relativePoint="topleft" relativeTo="$parentHealthBar" handleinput="false">
+              <AbsPoint x="0" y="11" />
+            </Anchor>
+          </Anchors>
+        </StatusBar>
+
+        <StatusBar name="$parentStaminaBar" inherits="YellowStatusBar" handleinput="false">
+          <Size>
+            <AbsPoint x="163" y="7" />
+          </Size>
+          <Anchors>
+            <Anchor point="topleft" relativePoint="topleft" relativeTo="$parentManaBar">
+              <AbsPoint x="0" y="12" />
+            </Anchor>
+          </Anchors>
+        </StatusBar>
+
+        <Label name="StatusWindowWhite" handleinput="false">
+          <Color r="255" g="255" b="255"/>
+        </Label>
+
+        <Label name="$parentHealthTooltip" inherits="StatusWindowWhite" font="UO_Default_Outline_Text" maxchars="100" textalign="center" autoresize="true" wordwrap="true" layer="secondary" handleinput="false">
+          <Size>
+            <AbsPoint x="100" y="60" />
+          </Size>
+          <Anchors>
+            <Anchor point="topright" relativePoint="topright" relativeTo="$parentHealthBar">
+              <AbsPoint x="-20" y="-4" />
+            </Anchor>
+          </Anchors>
+        </Label>
+
+        <Label name="$parentManaTooltip" inherits="StatusWindowWhite" font="UO_Default_Outline_Text" maxchars="100" textalign="center" autoresize="true" wordwrap="true" layer="secondary" handleinput="false">
+          <Size>
+            <AbsPoint x="100" y="60" />
+          </Size>
+          <Anchors>
+            <Anchor point="topright" relativePoint="topright" relativeTo="$parentManaBar">
+              <AbsPoint x="-20" y="-2" />
+            </Anchor>
+          </Anchors>
+        </Label>
+
+        <Label name="$parentStaminaTooltip" inherits="StatusWindowWhite" font="UO_Default_Outline_Text" maxchars="100" textalign="center" autoresize="true" wordwrap="true" layer="secondary" handleinput="false">
+          <Size>
+            <AbsPoint x="100" y="60" />
+          </Size>
+          <Anchors>
+            <Anchor point="topright" relativePoint="topright" relativeTo="$parentStaminaBar">
+              <AbsPoint x="-20" y="-2" />
+            </Anchor>
+          </Anchors>
+        </Label>
+
+      </Windows>
+    </Window>
+    
+  </Windows>
+</Interface>

@@ -1,0 +1,245 @@
+<Interface xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../Interface.xsd">
+  <Include file="LegacyFiles/Source/LegacyBlankWindowTemplate.xml" />
+  <Scripts>
+    <Script file="Source/CharacterSheet.lua" />
+  </Scripts>
+  <Windows>
+    <HorizontalResizeImage name="CharacterSheetHRDef" inherits="UO_Default_Horizontal_Rule">
+      <Size>
+        <AbsPoint x="355" y="0"/>
+      </Size>
+    </HorizontalResizeImage>
+
+    <Window name="AttributeTemplate" >
+      <Size>
+        <AbsPoint x="230" y="16"/>
+      </Size>
+      <Windows>
+
+        <DynamicImage name="$parentSquareIcon" texturescale="0.33" handleinput="true">
+          <Size>
+            <AbsPoint x="27" y="27" />
+          </Size>
+          <Anchors>
+            <Anchor point="left" relativePoint="left">
+              <AbsPoint x="28" y="0" />
+            </Anchor>
+          </Anchors>
+          <EventHandlers>
+            <EventHandler event="OnLButtonDown" function="CharacterSheet.StatLButtonDown" />
+          </EventHandlers>
+        </DynamicImage>
+
+        <Label name="$parentAttributeName" inherits="UO_Default_Label_Color" font="nol_Arial_Narrow_14" maxchars="128" textalign="left" autoresize="true" handleinput="false" >
+          <Size>
+            <AbsPoint x="150" y="20"/>
+          </Size>
+          <Anchors>
+            <Anchor point="right" relativePoint="left"  relativeTo="$parentSquareIcon">
+              <AbsPoint x="5" y="0"/>
+            </Anchor>
+          </Anchors>
+          <Color r="50" g="50" b="0" a="255" />
+        </Label>
+
+        <Label name="$parentAttributeValue" font="nol_Arial_Narrow_14" maxchars="64" textalign="right" autoresize="true" handleinput="false" >
+          <Size>
+            <AbsPoint x="50" y="20"/>
+          </Size>
+          <Anchors>
+            <Anchor point="right" relativePoint="right" relativeTo="$parent">
+              <AbsPoint x="0" y="0"/>
+            </Anchor>
+          </Anchors>
+          <Color r="50" g="50" b="0" a="255" />
+        </Label>
+
+        <Button name="$parentLockButton" >
+          <!--inherits="UpArrow"-->
+          <Size>
+            <AbsPoint x="17" y="15" />
+          </Size>
+          <Anchors>
+            <Anchor point="left" relativePoint="right" relativeTo="$parentAttributeValue">
+              <AbsPoint x="30" y="0"/>
+            </Anchor>
+          </Anchors>
+          <EventHandlers>
+            <EventHandler event="OnLButtonDown" function="CharacterSheet.ClickStatLock"/>
+          </EventHandlers>
+          <!--<Windows>
+            <FullResizeImage name="$parentFrame" inherits="UO_Default_Inner_Window_Frame" >
+              <Anchors>
+                <Anchor point="topleft" relativePoint="topleft" />
+                <Anchor point="bottomright" relativePoint="bottomright" />
+              </Anchors>
+            </FullResizeImage>
+          </Windows>-->
+        </Button>
+
+        <Label name="$parentExtra" font="nol_Arial_Narrow_14" maxchars="32" textalign="right" autoresize="true" handleinput="false" >
+          <Size>
+            <AbsPoint x="60" y="20"/>
+          </Size>
+          <Anchors>
+            <Anchor point="left" relativePoint="right" relativeTo="$parentAttributeValue">
+              <AbsPoint x="-10" y="0"/>
+            </Anchor>
+          </Anchors>
+          <Color r="0" g="90" b="0" a="255" />
+        </Label>
+      </Windows>
+    </Window>
+
+    <Window name="CharacterSheet" movable="true" >
+      <Size>
+        <AbsPoint x="505" y="325" /> <!-- 310 610 -->
+      </Size>
+      <Anchors>
+        <Anchor point="topleft" relativePoint="topleft" >
+          <AbsPoint x="0" y="0" />
+        </Anchor>
+      </Anchors>
+      <EventHandlers>
+        <EventHandler event="OnInitialize" function="CharacterSheet.Initialize" />
+        <EventHandler event="OnShutdown" function="CharacterSheet.Shutdown" />
+        <EventHandler event="OnShown" function="CharacterSheet.OnShown" />
+        <EventHandler event="OnHidden" function="CharacterSheet.OnHidden" />
+      </EventHandlers>
+      <Windows>
+        <!-- Default chrome. Alter this at your own peril. -->
+        <Window name="$parentChrome" inherits="Legacy_BlankWindow">
+          <Anchors>
+            <Anchor point="topleft" relativePoint="topleft"/>
+            <Anchor point="bottomright" relativePoint="bottomright"/>
+          </Anchors>
+        </Window>
+        <!-- End of default chrome boilerplate code -->
+
+<!-- Book Image -->
+				<HorizontalResizeImage name="$parentSkillsBookImage" texture="Legacy_Gumps_02" handleinput="false" layer="background" sticky="false">
+					<Size>
+						<AbsPoint x="509" y="325" />
+					</Size>
+  					<Anchors>
+  						<Anchor point="topleft" relativePoint="topleft" >
+  							<AbsPoint x="0" y="0" />
+  						</Anchor>
+  					</Anchors>
+					<Sizes left="509" middle="0" right="0" />
+					<TexCoords>
+						<Left x="0" y="660" />
+						<Middle x="255" y="660" />
+						<Right x="509" y="660" />
+					</TexCoords>
+				</HorizontalResizeImage>
+
+<!-- Gump title to display over the book graphic -->
+				<Label name="CharacterSheetLegacyWindowTitle" font="nol_Avatar_18" maxchars="64" textalign="center">
+					<Color r="50" g="50" b="0" a="255" />
+					<Size>
+						<AbsPoint x="150" y="35"/>
+					</Size>
+					<Anchors>
+            <Anchor point="topleft" relativePoint="topleft">
+              <AbsPoint x="65" Y="0"/>
+            </Anchor>
+					</Anchors>					
+				</Label>
+
+<!-- position for the "top arrows" window is set in the CharacterSheet.lua (line 136) file -->
+        <Window name="$parentTopArrows">
+          <Size>
+            <AbsPoint x="230" y="30"/>
+          </Size>
+          <Windows>
+            <Button name="$parentPrevButton" inherits="Legacy_Scroll_SmallPreviousButton">
+              <Size>
+                <AbsPoint x="16" y="21" />
+              </Size>
+              <Anchors>
+                <Anchor point="left" relativePoint="left" >
+                  <AbsPoint x="48" y="0" />
+                </Anchor>
+              </Anchors>
+              <EventHandlers>
+                <EventHandler event="OnLButtonUp" function="CharacterSheet.LeftArrowPressed" />
+              </EventHandlers>
+            </Button>
+            <Button name="$parentNextButton" inherits="Legacy_Scroll_SmallNextButton">
+              <Size>
+                <AbsPoint x="15" y="19" />
+              </Size>
+              <Anchors>
+                <Anchor point="right" relativePoint="right" >
+                  <AbsPoint x="-10" y="0"/>
+                </Anchor>
+              </Anchors>
+              <EventHandlers>
+                <EventHandler event="OnLButtonUp" function="CharacterSheet.RightArrowPressed" />
+              </EventHandlers>
+            </Button>
+            <Label name="$parentText" font="nol_Avatar_18" maxchars="2048" textalign="center" autoresize="true" handleinput="false" wordwrap="true">
+              <Size>
+                <AbsPoint x="160" y="0" />
+              </Size>
+              <Anchors>
+                <Anchor point="topright" relativePoint="topleft" relativeTo="$parentPrevButton" >
+                	<AbsPoint x="-10" y="0"/>
+                </Anchor>
+              </Anchors>
+          		<Color r="50" g="50" b="0" a="255" />
+            </Label>
+          </Windows>
+        </Window>
+        <!--  
+				<DynamicImage name="$parentMedallion" inherits="UO_Default_View_Medallion"  >
+					<Anchors>
+						<Anchor point="topleft" relativePoint="topleft">
+							<AbsPoint x="5" y="-20" />
+						</Anchor>
+					</Anchors>
+				</DynamicImage>
+
+				<DynamicImage name="$parentMedallionIcon" texture="hud_image" texturescale="1.0" handleinput="false">
+					<Size>
+						<AbsPoint x="30" y="29" />				
+					</Size>
+					<Anchors>
+						<Anchor point="topleft" relativePoint="topleft" relativeTo="$parentMedallion">
+							<AbsPoint x="14" y="14" />
+						</Anchor>
+					</Anchors>
+					<TexCoords x="56" y="429" />
+				</DynamicImage>	
+                -->
+
+        <Button name="$parentPrimaryWeaponAbility" inherits="HotbarButtonDef" id="101" >
+          <Anchors>
+            <Anchor point="bottom" relativePoint="bottomright">
+              <AbsPoint x="120" y="-35" />
+            </Anchor>
+          </Anchors>
+          <EventHandlers>
+            <EventHandler event="OnLButtonDown" function="CharacterSheet.ItemLButtonDown" />
+            <EventHandler event="OnLButtonUp" function="CharacterSheet.ItemLButtonUp" />
+            <EventHandler event="OnMouseOver" function="CharacterSheet.ItemMouseOver" />
+            <EventHandler event="OnMouseOverEnd" function="ItemProperties.ClearMouseOverItem" />
+          </EventHandlers>
+        </Button>
+        <Button name="$parentSecondaryWeaponAbility" inherits="HotbarButtonDef" id="102" >
+          <Anchors>
+            <Anchor point="topright" relativePoint="topleft" relativeTo="$parentPrimaryWeaponAbility" />
+          </Anchors>
+          <EventHandlers>
+            <EventHandler event="OnLButtonDown" function="CharacterSheet.ItemLButtonDown" />
+            <EventHandler event="OnLButtonUp" function="CharacterSheet.ItemLButtonUp" />
+            <EventHandler event="OnMouseOver" function="CharacterSheet.ItemMouseOver" />
+            <EventHandler event="OnMouseOverEnd" function="ItemProperties.ClearMouseOverItem" />
+          </EventHandlers>
+        </Button>
+      </Windows>
+    </Window>
+
+  </Windows>
+</Interface>

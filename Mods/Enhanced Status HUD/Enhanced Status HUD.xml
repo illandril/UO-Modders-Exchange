@@ -1,0 +1,267 @@
+<Interface xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../Interface.xsd">
+    <Assets>
+        <Texture name="enhanced_status_hud" file="Enhanced Status HUD.dds" />
+    </Assets>
+    <Windows>
+        <Window name="ESH_TopLeftAnchor" layer="background" handleinput="false">
+            <Anchors>
+                <Anchor point="topleft" relativePoint="topleft" relativeTo="$parent"/>
+            </Anchors>
+            <Size>
+                <AbsPoint x="60" y="60" />
+            </Size>
+            <Windows>
+                <DynamicImage name="$parentFrame" texture="enhanced_status_hud">
+                    <Size>
+                        <AbsPoint x="60" y="60" />
+                    </Size>
+                    <Anchors>
+                        <Anchor point="topleft" relativePoint="topleft" relativeTo="$parent"/>
+                    </Anchors>
+                    <TexCoords x="0" y="100"/>
+                    <TexDims x="60" y="60"/>
+                </DynamicImage>
+                <DynamicImage name="$parentCorner" texture="enhanced_status_hud">
+                    <Size>
+                        <AbsPoint x="25" y="25" />
+                    </Size>
+                    <Anchors>
+                        <Anchor point="topleft" relativePoint="topleft" relativeTo="$parent"/>
+                    </Anchors>
+                    <TexCoords x="0" y="0"/>
+                    <TexDims x="25" y="25"/>
+                </DynamicImage>
+            </Windows>
+        </Window>
+        <Window name="ESH_TopRightAnchor" layer="background" handleinput="false">
+            <Anchors>
+                <Anchor point="topright" relativePoint="topright" relativeTo="$parent"/>
+            </Anchors>
+            <Size>
+                <AbsPoint x="60" y="60" />
+            </Size>
+            <Windows>
+                <DynamicImage name="$parentFrame" texture="enhanced_status_hud">
+                    <Size>
+                        <AbsPoint x="60" y="60" />
+                    </Size>
+                    <Anchors>
+                        <Anchor point="topright" relativePoint="topright" relativeTo="$parent"/>
+                    </Anchors>
+                    <TexCoords x="0" y="100"/>
+                    <TexDims x="60" y="60"/>
+                </DynamicImage>
+                <DynamicImage name="$parentCorner" texture="enhanced_status_hud">
+                    <Size>
+                        <AbsPoint x="25" y="25" />
+                    </Size>
+                    <Anchors>
+                        <Anchor point="topright" relativePoint="topright" relativeTo="$parent"/>
+                    </Anchors>
+                    <TexCoords x="75" y="0"/>
+                    <TexDims x="25" y="25"/>
+                </DynamicImage>
+            </Windows>
+        </Window>
+        <Window name="ESH_BottomLeftAnchor" layer="background" handleinput="false">
+            <Anchors>
+                <Anchor point="bottomleft" relativePoint="bottomleft" relativeTo="$parent"/>
+            </Anchors>
+            <Size>
+                <AbsPoint x="60" y="60" />
+            </Size>
+            <Windows>
+                <DynamicImage name="$parentFrame" texture="enhanced_status_hud">
+                    <Size>
+                        <AbsPoint x="60" y="60" />
+                    </Size>
+                    <Anchors>
+                        <Anchor point="bottomleft" relativePoint="bottomleft" relativeTo="$parent"/>
+                    </Anchors>
+                    <TexCoords x="0" y="100"/>
+                    <TexDims x="60" y="60"/>
+                </DynamicImage>
+                <DynamicImage name="$parentCorner" texture="enhanced_status_hud">
+                    <Size>
+                        <AbsPoint x="25" y="25" />
+                    </Size>
+                    <Anchors>
+                        <Anchor point="bottomleft" relativePoint="bottomleft" relativeTo="$parent"/>
+                    </Anchors>
+                    <TexCoords x="0" y="75"/>
+                    <TexDims x="25" y="25"/>
+                </DynamicImage>
+            </Windows>
+        </Window>
+        <Window name="ESH_BottomRightAnchor" layer="background" handleinput="false">
+            <Anchors>
+                <Anchor point="bottomright" relativePoint="bottomright" relativeTo="$parent"/>
+            </Anchors>
+            <Size>
+                <AbsPoint x="60" y="60" />
+            </Size>
+            <Windows>
+                <DynamicImage name="$parentFrame" texture="enhanced_status_hud">
+                    <Size>
+                        <AbsPoint x="60" y="60" />
+                    </Size>
+                    <Anchors>
+                        <Anchor point="bottomright" relativePoint="bottomright" relativeTo="$parent"/>
+                    </Anchors>
+                    <TexCoords x="0" y="100"/>
+                    <TexDims x="60" y="60"/>
+                </DynamicImage>
+                <DynamicImage name="$parentCorner" texture="enhanced_status_hud">
+                    <Size>
+                        <AbsPoint x="25" y="25" />
+                    </Size>
+                    <Anchors>
+                        <Anchor point="bottomright" relativePoint="bottomright" relativeTo="$parent"/>
+                    </Anchors>
+                    <TexCoords x="75" y="75"/>
+                    <TexDims x="25" y="25"/>
+                </DynamicImage>
+            </Windows>
+        </Window>
+        
+        
+        <Window name="ESH_Skull" movable="true">
+            <Size>
+                <AbsPoint x="60" y="60" />
+            </Size>
+            <Windows>
+                <Window name="$parentTL" inherits="ESH_TopLeftAnchor"/>
+                <Window name="$parentTR" inherits="ESH_TopRightAnchor"/>
+                <Window name="$parentBL" inherits="ESH_BottomLeftAnchor"/>
+                <Window name="$parentBR" inherits="ESH_BottomRightAnchor"/>
+                <VerticalResizeImage name="$parentBottom" texture="enhanced_status_hud" reverseFill="true" layer="background" handleinput="false">
+                    <Size>
+                        <AbsPoint x="60" y="60" />
+                    </Size>
+                    <Anchors>
+                        <Anchor point="bottomleft" relativePoint="bottomleft" relativeTo="$parent"/>
+                    </Anchors>
+                    <EventHandlers>
+                        <EventHandler event="OnShutdown" function="EnhancedStatusHUD.Shutdown" />
+                    </EventHandlers>
+                    <Sizes top="0" middle="60" bottom="0" />
+                    <TexCoords>
+                        <Left x="150" y="0" />
+                        <Middle x="150" y="0" />
+                        <Right x="150" y="60" />
+                    </TexCoords>
+                </VerticalResizeImage>
+                <VerticalResizeImage name="$parentTop" inherits="$parentBottom" reverseFill="false">
+                    <Anchors>
+                        <Anchor point="topleft" relativePoint="topleft" relativeTo="$parent"/>
+                    </Anchors>
+                </VerticalResizeImage>
+            </Windows>
+        </Window>
+        
+        
+        <Window name="ESH_Bandaid" movable="true">
+            <Size>
+                <AbsPoint x="60" y="60" />
+            </Size>
+            <Windows>
+                <Window name="$parentTL" inherits="ESH_TopLeftAnchor"/>
+                <Window name="$parentTR" inherits="ESH_TopRightAnchor"/>
+                <Window name="$parentBL" inherits="ESH_BottomLeftAnchor"/>
+                <Window name="$parentBR" inherits="ESH_BottomRightAnchor"/>
+                <VerticalResizeImage name="$parentBottom" texture="enhanced_status_hud" reverseFill="true" layer="background" handleinput="false">
+                    <Size>
+                        <AbsPoint x="60" y="60" />
+                    </Size>
+                    <Anchors>
+                        <Anchor point="bottomleft" relativePoint="bottomleft" relativeTo="$parent"/>
+                    </Anchors>
+                    <EventHandlers>
+                        <EventHandler event="OnShutdown" function="EnhancedStatusHUD.Shutdown" />
+                    </EventHandlers>
+                    <Sizes top="0" middle="60" bottom="0" />
+                    <TexCoords>
+                        <Left x="250" y="0" />
+                        <Middle x="250" y="0" />
+                        <Right x="250" y="60" />
+                    </TexCoords>
+                </VerticalResizeImage>
+                <VerticalResizeImage name="$parentTop" inherits="$parentBottom" reverseFill="false">
+                    <Anchors>
+                        <Anchor point="topleft" relativePoint="topleft" relativeTo="$parent"/>
+                    </Anchors>
+                </VerticalResizeImage>
+            </Windows>
+        </Window>
+        
+        
+        <Window name="ESH_Wisdom" movable="true">
+            <Size>
+                <AbsPoint x="60" y="60" />
+            </Size>
+            <Windows>
+                <Window name="$parentTL" inherits="ESH_TopLeftAnchor"/>
+                <Window name="$parentTR" inherits="ESH_TopRightAnchor"/>
+                <Window name="$parentBL" inherits="ESH_BottomLeftAnchor"/>
+                <Window name="$parentBR" inherits="ESH_BottomRightAnchor"/>
+                <VerticalResizeImage name="$parentBottom" texture="enhanced_status_hud" reverseFill="true" layer="background" handleinput="false">
+                    <Size>
+                        <AbsPoint x="60" y="60" />
+                    </Size>
+                    <Anchors>
+                        <Anchor point="bottomleft" relativePoint="bottomleft" relativeTo="$parent"/>
+                    </Anchors>
+                    <EventHandlers>
+                        <EventHandler event="OnShutdown" function="EnhancedStatusHUD.Shutdown" />
+                    </EventHandlers>
+                    <Sizes top="0" middle="60" bottom="0" />
+                    <TexCoords>
+                        <Left x="150" y="100" />
+                        <Middle x="150" y="100" />
+                        <Right x="150" y="160" />
+                    </TexCoords>
+                </VerticalResizeImage>
+                <VerticalResizeImage name="$parentTop" inherits="$parentBottom" reverseFill="false">
+                    <Anchors>
+                        <Anchor point="topleft" relativePoint="topleft" relativeTo="$parent"/>
+                    </Anchors>
+                </VerticalResizeImage>
+            </Windows>
+        </Window>
+        
+        
+        <Window name="ESH_Footsteps" movable="true">
+            <Size>
+                <AbsPoint x="60" y="60" />
+            </Size>
+            <Windows>
+                <Window name="$parentTL" inherits="ESH_TopLeftAnchor"/>
+                <Window name="$parentTR" inherits="ESH_TopRightAnchor"/>
+                <Window name="$parentBL" inherits="ESH_BottomLeftAnchor"/>
+                <Window name="$parentBR" inherits="ESH_BottomRightAnchor"/>
+                <VerticalResizeImage name="$parentBottom" texture="enhanced_status_hud" reverseFill="true" layer="background" handleinput="false">
+                    <Size>
+                        <AbsPoint x="60" y="60" />
+                    </Size>
+                    <Anchors>
+                        <Anchor point="bottomleft" relativePoint="bottomleft" relativeTo="$parent"/>
+                    </Anchors>
+                    <EventHandlers>
+                        <EventHandler event="OnShutdown" function="EnhancedStatusHUD.Shutdown" />
+                    </EventHandlers>
+                    <Sizes top="0" middle="60" bottom="0" />
+                    <TexCoords>
+                        <Left x="250" y="100" />
+                        <Middle x="250" y="100" />
+                        <Right x="250" y="160" />
+                    </TexCoords>
+                </VerticalResizeImage>
+                <VerticalResizeImage name="$parentTop" inherits="$parentBottom" reverseFill="false">
+                    <Anchors>
+                        <Anchor point="topleft" relativePoint="topleft" relativeTo="$parent"/>
+                    </Anchors>
+                </VerticalResizeImage>
+            </Windows>
+        </Window>
+    </Windows>
+</Interface>

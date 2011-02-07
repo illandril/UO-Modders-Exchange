@@ -1,0 +1,882 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Interface xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../Interface.xsd">
+  <Scripts>
+    <Script file="Source/CustomizeHouseWindow.lua" />
+  </Scripts>
+  <Windows>
+    <!--
+		<FullResizeImage name="CustomizeHouseFrame" inherits="UO_Default_Inner_Window_Frame">
+			<Anchors>
+				<Anchor point="topleft" relativePoint="topleft" />
+				<Anchor point="bottomright" relativePoint="bottomright" />
+			</Anchors>
+		</FullResizeImage>
+		-->
+    <!-- Icon used for housing tiles  -->
+    <Button name="CustomizeHouseIcon">
+      <Size>
+        <AbsPoint x="60" y="100" />
+      </Size>
+      <EventHandlers>
+        <EventHandler event="OnLButtonUp" function="CustomizeHouseWindow.OnIconSelected" />
+        <!-- EventHandler event="OnMouseOver" function="Tooltips.OnMouseOver" / -->
+        <!-- EventHandler event="OnMouseOverEnd" function="Tooltips.ClearTooltip" / -->
+      </EventHandlers>
+      <Windows>
+        <DynamicImage name="$parentImage" handleinput="false">
+          <Size>
+            <AbsPoint x="50" y="90" />
+          </Size>
+          <Anchors>
+            <Anchor point="bottom" relativePoint="bottom">
+              <AbsPoint x="0" y="-5" />
+            </Anchor>
+          </Anchors>
+        </DynamicImage>
+        <!-- gold highlight -->
+        <!-- Button name="$parentHighlight" inherits="UO_Default_Selection_Highlight"  handleinput="true" / -->
+        <Button name="$parentHighlight" layer="background" backgroundtexture="" highlighttexture="hud_image" texturescale="5" handleinput="false">
+          <Anchors>
+            <Anchor point="topleft" relativePoint="topleft" />
+            <Anchor point="bottomright" relativePoint="bottomright" />
+          </Anchors>
+          <TexCoords>
+            <NormalHighlit texture="hud_image" x="347" y="533" />
+            <Pressed texture="hud_image" x="460" y="355" />
+            <PressedHighlit texture="hud_image" x="347" y="533" />
+          </TexCoords>
+        </Button>
+      </Windows>
+    </Button>
+    <!-- 
+		Other options for Highlight color
+		
+		<NormalHighlit texture="hud_image" x="347" y="533" />
+		<Pressed texture="hud_image" x="460" y="340" />
+		<PressedHighlit texture="hud_image" x="347" y="533" />
+		
+		<NormalHighlit texture="hud_image" x="200" y="540" />
+		<Pressed texture="UO_Common" x="450" y="330" />
+		<PressedHighlit texture="UO_Common" x="450" y="330" />
+						
+		transparent black
+		<Button name="$parentHighlight" layer="background" backgroundtexture="" highlighttexture="UO_Common" texturescale="1.28" handleinput="false" >
+			<Anchors>
+				<Anchor point="topleft" relativePoint="topleft" />
+				<Anchor point="bottomright" relativePoint="bottomright" />
+			</Anchors>
+			<TexCoords>
+				<NormalHighlit x="264" y="259" />
+				<PressedHighlit x="264" y="259" />
+			</TexCoords>
+		</Button>
+			
+		white
+		<Button name="$parentHighlight" layer="background" backgroundtexture="" highlighttexture="UO_Common" texturescale="10" handleinput="false" >
+			<Anchors>
+				<Anchor point="topleft" relativePoint="topleft" />
+				<Anchor point="bottomright" relativePoint="bottomright" />
+			</Anchors>
+			<TexCoords>
+				<NormalHighlit x="450" y="210" />
+				<PressedHighlit x="450" y="210" />
+			</TexCoords>
+		</Button>
+			
+		note if any of these are used we need to set handleinput="false" on the door swing icons			
+		-->
+    <Button name="CustomizeHouseRadioButton" backgroundtexture="CC_Widgets" highlighttexture="CC_Widgets">
+      <Size>
+        <AbsPoint x="35" y="35" />
+      </Size>
+      <TexCoords>
+        <Normal x="412" y="125" />
+        <NormalHighlit x="412" y="125" />
+        <Pressed x="412" y="158" />
+        <PressedHighlit x="412" y="158" />
+        <Disabled x="412" y="125" />
+      </TexCoords>
+      <EventHandlers>
+        <EventHandler event="OnLButtonUp" function="CustomizeHouseWindow.HandleViewSettingsButton" />
+      </EventHandlers>
+    </Button>
+    <Label name="CustomizeHouseText" font="UO_GoldButtonText" maxchars="12" textalign="center" autoresize="false">
+      <Size>
+        <AbsPoint x="100" y="26" />
+      </Size>
+      <Color r="242" g="212" b="167" a="255" />
+    </Label>
+    <!-- CustomizeHouseWindow - MAIN WINDOW -->
+    <Window name="CustomizeHouseWindow" layer="secondary" movable="true">
+      <Size>
+        <!-- can change size by 88 pixel increments to x 480  <AbsPoint x="656" y="164" /> <AbsPoint x="1256" y="164" /> -->
+        <AbsPoint x="656" y="164" />
+      </Size>
+      <Anchors>
+        <Anchor point="bottomright" relativePoint="bottomright" relativeTo="">
+          <AbsPoint x="-35" y="-62" />
+        </Anchor>
+      </Anchors>
+      <EventHandlers>
+        <EventHandler event="OnInitialize" function="CustomizeHouseWindow.Initialize" />
+        <EventHandler event="OnShutdown" function="CustomizeHouseWindow.Shutdown" />
+      </EventHandlers>
+      <Windows>
+        <!-- BACKGROUND AND TOP SECTION OF WINDOW -->
+        <HorizontalResizeImage name="$parentBackground" inherits="Customized_Housing_Background" layer="background" popable="false" handleinput="false">
+          <Anchors>
+            <Anchor point="topleft" relativePoint="topleft" />
+            <Anchor point="topright" relativePoint="topright" />
+          </Anchors>
+        </HorizontalResizeImage>
+        <!-- Close button -->
+        <Button name="$parentChrome_UO_WindowCloseButton" inherits="UO_Default_Close_Button" layer="default">
+          <Anchors>
+            <Anchor point="topright" relativePoint="topright">
+              <AbsPoint x="-102" y="4" />
+            </Anchor>
+          </Anchors>
+        </Button>
+        <!-- 6 system button to titlebar area -->
+        <Button name="$parentBackupButton" inherits="UO_Default_GenericTextButton" font="UO_GoldButtonText" textalign="center" wordwrap="false">
+          <Size>
+            <AbsPoint x="75" y="16" />
+          </Size>
+          <Anchors>
+            <Anchor point="topleft" relativePoint="topleft">
+              <AbsPoint x="22" y="6" />
+            </Anchor>
+          </Anchors>
+          <EventHandlers>
+            <EventHandler event="OnLButtonUp" function="CustomizeHouseWindow.HandleBackupButton" />
+            <EventHandler event="OnMouseOver" function="CustomizeHouseWindow.OnMouseOver" />
+            <EventHandler event="OnMouseOverEnd" function="Tooltips.ClearTooltip" />
+          </EventHandlers>
+        </Button>
+        <VerticalResizeImage name="$parentBackupVerticalRule" inherits="UO_Default_Vertical_Rule">
+          <Size>
+            <AbsPoint x="4" y="13" />
+          </Size>
+          <Anchors>
+            <Anchor point="topright" relativePoint="topleft" relativeTo="$parentBackupButton">
+              <AbsPoint x="5" y="7" />
+            </Anchor>
+          </Anchors>
+        </VerticalResizeImage>
+        <Button name="$parentRestoreButton" inherits="UO_Default_GenericTextButton" font="UO_GoldButtonText" textalign="center" wordwrap="false">
+          <Size>
+            <AbsPoint x="85" y="16" />
+          </Size>
+          <Anchors>
+            <Anchor point="topright" relativePoint="topleft" relativeTo="$parentBackupButton">
+              <AbsPoint x="10" y="0" />
+            </Anchor>
+          </Anchors>
+          <EventHandlers>
+            <EventHandler event="OnLButtonUp" function="CustomizeHouseWindow.HandleRestoreButton" />
+            <EventHandler event="OnMouseOver" function="CustomizeHouseWindow.OnMouseOver" />
+            <EventHandler event="OnMouseOverEnd" function="Tooltips.ClearTooltip" />
+          </EventHandlers>
+        </Button>
+        <VerticalResizeImage name="$parentRestoreVerticalRule" inherits="UO_Default_Vertical_Rule">
+          <Size>
+            <AbsPoint x="4" y="13" />
+          </Size>
+          <Anchors>
+            <Anchor point="topright" relativePoint="topleft" relativeTo="$parentRestoreButton">
+              <AbsPoint x="5" y="7" />
+            </Anchor>
+          </Anchors>
+        </VerticalResizeImage>
+        <Button name="$parentSynchButton" inherits="UO_Default_GenericTextButton" font="UO_GoldButtonText" textalign="center" wordwrap="false">
+          <Size>
+            <AbsPoint x="70" y="16" />
+          </Size>
+          <Anchors>
+            <Anchor point="topright" relativePoint="topleft" relativeTo="$parentRestoreButton">
+              <AbsPoint x="10" y="0" />
+            </Anchor>
+          </Anchors>
+          <EventHandlers>
+            <EventHandler event="OnLButtonUp" function="CustomizeHouseWindow.HandleSynchButton" />
+            <EventHandler event="OnMouseOver" function="CustomizeHouseWindow.OnMouseOver" />
+            <EventHandler event="OnMouseOverEnd" function="Tooltips.ClearTooltip" />
+          </EventHandlers>
+        </Button>
+        <VerticalResizeImage name="$parentSynchVerticalRule" inherits="UO_Default_Vertical_Rule">
+          <Size>
+            <AbsPoint x="4" y="13" />
+          </Size>
+          <Anchors>
+            <Anchor point="topright" relativePoint="topleft" relativeTo="$parentSynchButton">
+              <AbsPoint x="5" y="7" />
+            </Anchor>
+          </Anchors>
+        </VerticalResizeImage>
+        <Button name="$parentClearButton" inherits="UO_Default_GenericTextButton" font="UO_GoldButtonText" textalign="center" wordwrap="false">
+          <Size>
+            <AbsPoint x="65" y="16" />
+          </Size>
+          <Anchors>
+            <Anchor point="topright" relativePoint="topleft" relativeTo="$parentSynchButton">
+              <AbsPoint x="10" y="0" />
+            </Anchor>
+          </Anchors>
+          <EventHandlers>
+            <EventHandler event="OnLButtonUp" function="CustomizeHouseWindow.HandleClearButton" />
+            <EventHandler event="OnMouseOver" function="CustomizeHouseWindow.OnMouseOver" />
+            <EventHandler event="OnMouseOverEnd" function="Tooltips.ClearTooltip" />
+          </EventHandlers>
+        </Button>
+        <VerticalResizeImage name="$parentClearVerticalRule" inherits="UO_Default_Vertical_Rule">
+          <Size>
+            <AbsPoint x="4" y="13" />
+          </Size>
+          <Anchors>
+            <Anchor point="topright" relativePoint="topleft" relativeTo="$parentClearButton">
+              <AbsPoint x="5" y="7" />
+            </Anchor>
+          </Anchors>
+        </VerticalResizeImage>
+        <Button name="$parentCommitButton" inherits="UO_Default_GenericTextButton" font="UO_GoldButtonText" textalign="center" wordwrap="false">
+          <Size>
+            <AbsPoint x="80" y="16" />
+          </Size>
+          <Anchors>
+            <Anchor point="topright" relativePoint="topleft" relativeTo="$parentClearButton">
+              <AbsPoint x="10" y="0" />
+            </Anchor>
+          </Anchors>
+          <EventHandlers>
+            <EventHandler event="OnLButtonUp" function="CustomizeHouseWindow.HandleCommitButton" />
+            <EventHandler event="OnMouseOver" function="CustomizeHouseWindow.OnMouseOver" />
+            <EventHandler event="OnMouseOverEnd" function="Tooltips.ClearTooltip" />
+          </EventHandlers>
+        </Button>
+        <VerticalResizeImage name="$parentCommitVerticalRule" inherits="UO_Default_Vertical_Rule">
+          <Size>
+            <AbsPoint x="4" y="13" />
+          </Size>
+          <Anchors>
+            <Anchor point="topright" relativePoint="topleft" relativeTo="$parentCommitButton">
+              <AbsPoint x="5" y="7" />
+            </Anchor>
+          </Anchors>
+        </VerticalResizeImage>
+        <Button name="$parentRevertButton" inherits="UO_Default_GenericTextButton" font="UO_GoldButtonText" textalign="center" wordwrap="false">
+          <Size>
+            <!-- <AbsPoint x="100" y="30" /> -->
+            <AbsPoint x="80" y="16" />
+          </Size>
+          <Anchors>
+            <Anchor point="topright" relativePoint="topleft" relativeTo="$parentCommitButton">
+              <AbsPoint x="10" y="0" />
+            </Anchor>
+          </Anchors>
+          <EventHandlers>
+            <EventHandler event="OnLButtonUp" function="CustomizeHouseWindow.HandleRevertButton" />
+            <EventHandler event="OnMouseOver" function="CustomizeHouseWindow.OnMouseOver" />
+            <EventHandler event="OnMouseOverEnd" function="Tooltips.ClearTooltip" />
+          </EventHandlers>
+        </Button>
+        <!-- LEFT SECTION -->
+        <!-- The 7 Tile Type Buttons + Erase and EyeDropper -->
+        <Button name="$parentWallsButton" inherits="Housing_Walls_Button">
+          <Anchors>
+            <Anchor point="topleft" relativePoint="topleft">
+              <AbsPoint x="13" y="39" />
+            </Anchor>
+          </Anchors>
+          <EventHandlers>
+            <EventHandler event="OnLButtonUp" function="CustomizeHouseWindow.HandleWallsButton" />
+            <EventHandler event="OnMouseOver" function="CustomizeHouseWindow.OnMouseOver" />
+            <EventHandler event="OnMouseOverEnd" function="Tooltips.ClearTooltip" />
+          </EventHandlers>
+        </Button>
+        <Button name="$parentDoorsButton" inherits="Housing_Doors_Button">
+          <Anchors>
+            <Anchor point="topleft" relativePoint="topleft">
+              <AbsPoint x="43" y="39" />
+            </Anchor>
+          </Anchors>
+          <EventHandlers>
+            <EventHandler event="OnLButtonUp" function="CustomizeHouseWindow.HandleDoorsButton" />
+            <EventHandler event="OnMouseOver" function="CustomizeHouseWindow.OnMouseOver" />
+            <EventHandler event="OnMouseOverEnd" function="Tooltips.ClearTooltip" />
+          </EventHandlers>
+        </Button>
+        <Button name="$parentFloorsButton" inherits="Housing_Floors_Button">
+          <Anchors>
+            <Anchor point="topleft" relativePoint="topleft">
+              <AbsPoint x="72" y="39" />
+            </Anchor>
+          </Anchors>
+          <EventHandlers>
+            <EventHandler event="OnLButtonUp" function="CustomizeHouseWindow.HandleFloorsButton" />
+            <EventHandler event="OnMouseOver" function="CustomizeHouseWindow.OnMouseOver" />
+            <EventHandler event="OnMouseOverEnd" function="Tooltips.ClearTooltip" />
+          </EventHandlers>
+        </Button>
+        <Button name="$parentStairsButton" inherits="Housing_Stairs_Button">
+          <Anchors>
+            <Anchor point="topleft" relativePoint="topleft">
+              <AbsPoint x="13" y="69" />
+            </Anchor>
+          </Anchors>
+          <EventHandlers>
+            <EventHandler event="OnLButtonUp" function="CustomizeHouseWindow.HandleStairsButton" />
+            <EventHandler event="OnMouseOver" function="CustomizeHouseWindow.OnMouseOver" />
+            <EventHandler event="OnMouseOverEnd" function="Tooltips.ClearTooltip" />
+          </EventHandlers>
+        </Button>
+        <Button name="$parentRoofsButton" inherits="Housing_Roofs_Button">
+          <Anchors>
+            <Anchor point="topleft" relativePoint="topleft">
+              <AbsPoint x="43" y="69" />
+            </Anchor>
+          </Anchors>
+          <EventHandlers>
+            <EventHandler event="OnLButtonUp" function="CustomizeHouseWindow.HandleRoofsButton" />
+            <EventHandler event="OnMouseOver" function="CustomizeHouseWindow.OnMouseOver" />
+            <EventHandler event="OnMouseOverEnd" function="Tooltips.ClearTooltip" />
+          </EventHandlers>
+        </Button>
+        <Button name="$parentTeleportersButton" inherits="Housing_Teleporters_Button">
+          <Anchors>
+            <Anchor point="topleft" relativePoint="topleft">
+              <AbsPoint x="72" y="69" />
+            </Anchor>
+          </Anchors>
+          <EventHandlers>
+            <EventHandler event="OnLButtonUp" function="CustomizeHouseWindow.HandleTeleportersButton" />
+            <EventHandler event="OnMouseOver" function="CustomizeHouseWindow.OnMouseOver" />
+            <EventHandler event="OnMouseOverEnd" function="Tooltips.ClearTooltip" />
+          </EventHandlers>
+        </Button>
+        <Button name="$parentMiscButton" inherits="Housing_Misc_Button">
+          <Anchors>
+            <Anchor point="topleft" relativePoint="topleft">
+              <AbsPoint x="13" y="97" />
+            </Anchor>
+          </Anchors>
+          <EventHandlers>
+            <EventHandler event="OnLButtonUp" function="CustomizeHouseWindow.HandleMiscButton" />
+            <EventHandler event="OnMouseOver" function="CustomizeHouseWindow.OnMouseOver" />
+            <EventHandler event="OnMouseOverEnd" function="Tooltips.ClearTooltip" />
+          </EventHandlers>
+        </Button>
+        <Button name="$parentEyeDropperButton" inherits="Housing_EyeDropper_Button">
+          <Anchors>
+            <Anchor point="topleft" relativePoint="topleft">
+              <AbsPoint x="43" y="97" />
+            </Anchor>
+          </Anchors>
+          <EventHandlers>
+            <EventHandler event="OnLButtonUp" function="CustomizeHouseWindow.HandleEyeDropperButton" />
+            <EventHandler event="OnMouseOver" function="CustomizeHouseWindow.OnMouseOver" />
+            <EventHandler event="OnMouseOverEnd" function="Tooltips.ClearTooltip" />
+          </EventHandlers>
+        </Button>
+        <Button name="$parentEraseButton" inherits="Housing_Erase_Button">
+          <Anchors>
+            <Anchor point="topleft" relativePoint="topleft">
+              <AbsPoint x="72" y="97" />
+            </Anchor>
+          </Anchors>
+          <EventHandlers>
+            <EventHandler event="OnLButtonUp" function="CustomizeHouseWindow.HandleEraseButton" />
+            <EventHandler event="OnMouseOver" function="CustomizeHouseWindow.OnMouseOver" />
+            <EventHandler event="OnMouseOverEnd" function="Tooltips.ClearTooltip" />
+          </EventHandlers>
+        </Button>
+        <!-- MIDDLE SECTION OF WINDOW -->
+        <HorizontalScrollWindow name="$parentScroll" childscrollwindow="$parentChild" scrollbar="$parentbar" linewidth="50" autoHideScrollBar="true">
+          <Size>
+            <!-- can change size   <AbsPoint x="884" y="130" /> -->
+            <AbsPoint x="284" y="130" />
+          </Size>
+          <Anchors>
+            <Anchor point="topleft" relativePoint="topleft">
+              <AbsPoint x="143" y="35" />
+            </Anchor>
+          </Anchors>
+          <Windows>
+            <HorizontalScrollbar name="$parentbar" inherits="StandardHorizScroll">
+              <Anchors>
+                <Anchor point="bottomleft" relativePoint="topleft">
+                  <AbsPoint x="25" y="-25" />
+                </Anchor>
+                <Anchor point="bottomright" relativePoint="bottomright">
+                  <AbsPoint x="-25" y="-12" />
+                </Anchor>
+              </Anchors>
+            </HorizontalScrollbar>
+            <Window name="$parentChild">
+              <Size>
+                <!-- can change size <AbsPoint x="904" y="100" /> -->
+                <AbsPoint x="304" y="100" />
+              </Size>
+              <!--  
+							<Anchors>
+							    <Anchor point="topleft" relativePoint="topleft" />
+								<Anchor point="bottomright" relativePoint="bottomright" >
+									<AbsPoint x="0" y="-25"/>
+								</Anchor>							
+							</Anchors>
+							-->
+              <Windows>
+                <!-- Labels for Stairs -->
+                <!-- if we prefer gold text just add inherits="UO_Default_Label_Color" -->
+                <Label name="$parentExteriorStepsLabel" font="UO_GoldButtonText" maxchars="40" textalign="left" handleinput="false" wordwrap="true" autoresize="false" lineheight="30">
+                  <Size>
+                    <AbsPoint x="80" y="60" />
+                  </Size>
+                  <Anchors>
+                    <Anchor point="bottomleft" relativePoint="bottomleft">
+                      <AbsPoint x="10" y="0" />
+                    </Anchor>
+                  </Anchors>
+                </Label>
+                <Label name="$parentInteriorStairsLabel" font="UO_GoldButtonText" maxchars="40" textalign="left" handleinput="false" wordwrap="true" autoresize="false=" lineheight="50">
+                  <Size>
+                    <AbsPoint x="110" y="60" />
+                  </Size>
+                </Label>
+              </Windows>
+            </Window>
+          </Windows>
+        </HorizontalScrollWindow>
+        <!-- Change Roof Height Buttons -->
+        <Button name="$parentRoofUpButton" inherits="Housing_Roof_Up_Button" layer="secondary">
+          <Anchors>
+            <Anchor point="top" relativePoint="topright" relativeTo="$parentScroll">
+              <AbsPoint x="-20" y="0" />
+            </Anchor>
+          </Anchors>
+          <EventHandlers>
+            <EventHandler event="OnLButtonUp" function="CustomizeHouseWindow.HandleRoofUpButton" />
+            <EventHandler event="OnMouseOver" function="CustomizeHouseWindow.OnMouseOver" />
+            <EventHandler event="OnMouseOverEnd" function="Tooltips.ClearTooltip" />
+          </EventHandlers>
+        </Button>
+        <Label name="$parentRoofHeightText" font="UO_GoldButtonText" maxchars="20" textalign="center" handleinput="false" autoresize="false">
+          <Size>
+            <AbsPoint x="40" y="20" />
+          </Size>
+          <Anchors>
+            <Anchor point="top" relativePoint="top" relativeTo="$parentScroll" layer="secondary">
+              <AbsPoint x="0" y="0" />
+            </Anchor>
+          </Anchors>
+          <Color r="255" g="255" b="255" a="255" />
+        </Label>
+        <Button name="$parentRoofDownButton" inherits="Housing_Roof_Down_Button" layer="secondary">
+          <Anchors>
+            <Anchor point="top" relativePoint="topleft" relativeTo="$parentScroll">
+              <AbsPoint x="20" y="0" />
+            </Anchor>
+          </Anchors>
+          <EventHandlers>
+            <EventHandler event="OnLButtonUp" function="CustomizeHouseWindow.HandleRoofDownButton" />
+            <EventHandler event="OnMouseOver" function="CustomizeHouseWindow.OnMouseOver" />
+            <EventHandler event="OnMouseOverEnd" function="Tooltips.ClearTooltip" />
+          </EventHandlers>
+        </Button>
+        <!-- Previous Category Buttons -->
+        <Button name="$parentPreviousCategoryButton" inherits="Housing_Previous_Category_Button" layer="secondary">
+          <Anchors>
+            <Anchor point="topleft" relativePoint="topleft">
+              <AbsPoint x="125" y="35" />
+            </Anchor>
+          </Anchors>
+          <EventHandlers>
+            <EventHandler event="OnLButtonUp" function="CustomizeHouseWindow.HandlePreviousButton" />
+            <EventHandler event="OnMouseOver" function="CustomizeHouseWindow.OnMouseOver" />
+            <EventHandler event="OnMouseOverEnd" function="Tooltips.ClearTooltip" />
+          </EventHandlers>
+        </Button>
+        <!-- RIGHT SECTION OF WINDOW -->
+        <!-- Change Story Buttons  -->
+        <!--	Note that different buttons are shown/hidden depending on whether we have a 3 or 4 story house -->
+        <Button name="$parentStory1Button" inherits="Housing_Bottom_Story_Button">
+          <Anchors>
+            <Anchor point="topright" relativePoint="topright">
+              <AbsPoint x="-153" y="100" />
+            </Anchor>
+          </Anchors>
+          <EventHandlers>
+            <EventHandler event="OnLButtonUp" function="CustomizeHouseWindow.HandleChangeStoryButton" />
+            <EventHandler event="OnMouseOver" function="CustomizeHouseWindow.OnMouseOver" />
+            <EventHandler event="OnMouseOverEnd" function="Tooltips.ClearTooltip" />
+          </EventHandlers>
+        </Button>
+        <Button name="$parentStory2Button" inherits="Housing_Middle_Story_Button">
+          <Anchors>
+            <Anchor point="topright" relativePoint="bottomright" relativeTo="$parentStory1Button">
+              <AbsPoint x="0" y="0" />
+            </Anchor>
+          </Anchors>
+          <EventHandlers>
+            <EventHandler event="OnLButtonUp" function="CustomizeHouseWindow.HandleChangeStoryButton" />
+            <EventHandler event="OnMouseOver" function="CustomizeHouseWindow.OnMouseOver" />
+            <EventHandler event="OnMouseOverEnd" function="Tooltips.ClearTooltip" />
+          </EventHandlers>
+        </Button>
+        <Button name="$parentStory3Of3Button" inherits="Housing_Top_Story_Button">
+          <Anchors>
+            <Anchor point="topright" relativePoint="bottomright" relativeTo="$parentStory2Button">
+              <AbsPoint x="0" y="3" />
+            </Anchor>
+          </Anchors>
+          <EventHandlers>
+            <EventHandler event="OnLButtonUp" function="CustomizeHouseWindow.HandleChangeStoryButton" />
+            <EventHandler event="OnMouseOver" function="CustomizeHouseWindow.OnMouseOver" />
+            <EventHandler event="OnMouseOverEnd" function="Tooltips.ClearTooltip" />
+          </EventHandlers>
+        </Button>
+        <Button name="$parentStory3Of4Button" inherits="Housing_Middle_Story_Button">
+          <Anchors>
+            <Anchor point="topright" relativePoint="bottomright" relativeTo="$parentStory2Button">
+              <AbsPoint x="0" y="3" />
+            </Anchor>
+          </Anchors>
+          <EventHandlers>
+            <EventHandler event="OnLButtonUp" function="CustomizeHouseWindow.HandleChangeStoryButton" />
+            <EventHandler event="OnMouseOver" function="CustomizeHouseWindow.OnMouseOver" />
+            <EventHandler event="OnMouseOverEnd" function="Tooltips.ClearTooltip" />
+          </EventHandlers>
+        </Button>
+        <Button name="$parentStory4Of4Button" inherits="Housing_Top_Story_Button">
+          <Anchors>
+            <Anchor point="topright" relativePoint="bottomright" relativeTo="$parentStory3Of4Button">
+              <AbsPoint x="0" y="3" />
+            </Anchor>
+          </Anchors>
+          <EventHandlers>
+            <EventHandler event="OnLButtonUp" function="CustomizeHouseWindow.HandleChangeStoryButton" />
+            <EventHandler event="OnMouseOver" function="CustomizeHouseWindow.OnMouseOver" />
+            <EventHandler event="OnMouseOverEnd" function="Tooltips.ClearTooltip" />
+          </EventHandlers>
+        </Button>
+        <Button name="$parentVisibilityButton" inherits="Housing_Visibility_Button">
+          <Anchors>
+            <Anchor point="topright" relativePoint="topright">
+              <AbsPoint x="-146" y="135" />
+            </Anchor>
+          </Anchors>
+          <EventHandlers>
+            <EventHandler event="OnLButtonUp" function="CustomizeHouseWindow.ToggleVisibilityWindow" />
+            <EventHandler event="OnMouseOver" function="CustomizeHouseWindow.OnMouseOver" />
+            <EventHandler event="OnMouseOverEnd" function="Tooltips.ClearTooltip" />
+          </EventHandlers>
+        </Button>
+        <Label name="$parentComponentsUsedText" inherits="CustomizeHouseText">
+          <Anchors>
+            <Anchor point="topright" relativePoint="topright">
+              <AbsPoint x="-2" y="32" />
+            </Anchor>
+          </Anchors>
+          <EventHandlers>
+            <EventHandler event="OnMouseOver" function="CustomizeHouseWindow.OnMouseOver" />
+            <EventHandler event="OnMouseOverEnd" function="Tooltips.ClearTooltip" />
+          </EventHandlers>
+        </Label>
+        <Window name="$parentComponentsUsedIcon">
+          <Size>
+            <AbsPoint x="35" y="26" />
+          </Size>
+          <Anchors>
+            <Anchor point="left" relativePoint="right" relativeTo="$parentComponentsUsedText" />
+          </Anchors>
+          <EventHandlers>
+            <EventHandler event="OnMouseOver" function="CustomizeHouseWindow.OnMouseOver" />
+            <EventHandler event="OnMouseOverEnd" function="Tooltips.ClearTooltip" />
+          </EventHandlers>
+        </Window>
+        <Label name="$parentFixturesUsedText" inherits="CustomizeHouseText">
+          <Anchors>
+            <Anchor point="topright" relativePoint="topright">
+              <AbsPoint x="-2" y="69" />
+            </Anchor>
+          </Anchors>
+          <EventHandlers>
+            <EventHandler event="OnMouseOver" function="CustomizeHouseWindow.OnMouseOver" />
+            <EventHandler event="OnMouseOverEnd" function="Tooltips.ClearTooltip" />
+          </EventHandlers>
+        </Label>
+        <Window name="$parentFixturesUsedIcon">
+          <Size>
+            <AbsPoint x="35" y="26" />
+          </Size>
+          <Anchors>
+            <Anchor point="left" relativePoint="right" relativeTo="$parentFixturesUsedText" />
+          </Anchors>
+          <EventHandlers>
+            <EventHandler event="OnMouseOver" function="CustomizeHouseWindow.OnMouseOver" />
+            <EventHandler event="OnMouseOverEnd" function="Tooltips.ClearTooltip" />
+          </EventHandlers>
+        </Window>
+        <Label name="$parentHouseCostText" inherits="CustomizeHouseText">
+          <Anchors>
+            <Anchor point="topright" relativePoint="topright">
+              <AbsPoint x="-2" y="106" />
+            </Anchor>
+          </Anchors>
+          <EventHandlers>
+            <EventHandler event="OnMouseOver" function="CustomizeHouseWindow.OnMouseOver" />
+            <EventHandler event="OnMouseOverEnd" function="Tooltips.ClearTooltip" />
+          </EventHandlers>
+        </Label>
+        <Window name="$parentHouseCostIcon">
+          <Size>
+            <AbsPoint x="35" y="26" />
+          </Size>
+          <Anchors>
+            <Anchor point="left" relativePoint="right" relativeTo="$parentHouseCostText" />
+          </Anchors>
+          <EventHandlers>
+            <EventHandler event="OnMouseOver" function="CustomizeHouseWindow.OnMouseOver" />
+            <EventHandler event="OnMouseOverEnd" function="Tooltips.ClearTooltip" />
+          </EventHandlers>
+        </Window>
+      </Windows>
+    </Window>
+    <!-- allows two lines, but probably only 1 word per line -->
+    <Label name="CustomizeHouseVisibilityText" font="UO_DefaultText" maxchars="20" textalign="left" handleinput="false" autoresize="true" />
+    <!-- allows two lines, but probably only 1 word per line -->
+    <Window name="CustomizeHouseVisibilityRow">
+      <Size>
+        <AbsPoint x="620" y="20" />
+      </Size>
+      <Windows>
+        <Label name="$parentSectionName" inherits="UO_Default_Label_Color" font="UO_Subtitle" maxchars="20" textalign="left" handleinput="false" autoresize="false">
+          <Size>
+            <AbsPoint x="70" y="20" />
+          </Size>
+          <Anchors>
+            <Anchor point="topleft" relativePoint="topleft">
+              <AbsPoint x="20" y="0" />
+            </Anchor>
+          </Anchors>
+        </Label>
+        <Button name="$parentShowButton" inherits="CustomizeHouseRadioButton">
+          <Anchors>
+            <Anchor point="right" relativePoint="left" relativeTo="$parentSectionName">
+              <AbsPoint x="50" y="0" />
+            </Anchor>
+          </Anchors>
+          <EventHandlers>
+            <EventHandler event="OnLButtonUp" function="CustomizeHouseVisibility.HandleVisibilityChange" />
+          </EventHandlers>
+        </Button>
+        <Label name="$parentShowLabel" inherits="CustomizeHouseVisibilityText">
+          <Size>
+            <AbsPoint x="57" y="20" />
+          </Size>
+          <Anchors>
+            <Anchor point="right" relativePoint="left" relativeTo="$parentShowButton">
+              <AbsPoint x="5" y="0" />
+            </Anchor>
+          </Anchors>
+        </Label>
+        <Button name="$parentTransparentButton" inherits="CustomizeHouseRadioButton">
+          <Anchors>
+            <Anchor point="right" relativePoint="left" relativeTo="$parentShowLabel">
+              <AbsPoint x="20" y="0" />
+            </Anchor>
+          </Anchors>
+          <EventHandlers>
+            <EventHandler event="OnLButtonUp" function="CustomizeHouseVisibility.HandleVisibilityChange" />
+          </EventHandlers>
+        </Button>
+        <Label name="$parentTransparentLabel" inherits="CustomizeHouseVisibilityText">
+          <Size>
+            <AbsPoint x="125" y="20" />
+          </Size>
+          <Anchors>
+            <Anchor point="right" relativePoint="left" relativeTo="$parentTransparentButton">
+              <AbsPoint x="5" y="0" />
+            </Anchor>
+          </Anchors>
+        </Label>
+        <Button name="$parentHideButton" inherits="CustomizeHouseRadioButton">
+          <Anchors>
+            <Anchor point="right" relativePoint="left" relativeTo="$parentTransparentLabel">
+              <AbsPoint x="20" y="0" />
+            </Anchor>
+          </Anchors>
+          <EventHandlers>
+            <EventHandler event="OnLButtonUp" function="CustomizeHouseVisibility.HandleVisibilityChange" />
+          </EventHandlers>
+        </Button>
+        <Label name="$parentHideLabel" inherits="CustomizeHouseVisibilityText">
+          <Size>
+            <AbsPoint x="57" y="20" />
+          </Size>
+          <Anchors>
+            <Anchor point="right" relativePoint="left" relativeTo="$parentHideButton">
+              <AbsPoint x="5" y="0" />
+            </Anchor>
+          </Anchors>
+        </Label>
+      </Windows>
+    </Window>
+    <!-- this version includes an InvalidOnly visibilty option
+
+		<Window name="CustomizeHouseVisibilityRow" >
+			<Size>
+				<AbsPoint x="620" y="20" />
+			</Size>
+			<Windows>
+
+				<Label name="$parentSectionName" inherits="UO_Default_Label_Color" font="UO_Subtitle" maxchars="20" textalign="left" handleinput="false" autoresize="false">
+					<Size>
+						<AbsPoint x="70" y="20" />
+					</Size>
+				</Label>
+
+				<Button name="$parentShowButton" inherits="CustomizeHouseRadioButton">
+					<Anchors>
+						<Anchor point="right" relativePoint="left" relativeTo="$parentSectionName">
+							<AbsPoint x="20" y="0" />
+						</Anchor>
+					</Anchors>
+					<EventHandlers>
+						<EventHandler event="OnLButtonUp" function="CustomizeHouseVisibility.HandleVisibilityChange" />
+					</EventHandlers>
+				</Button>
+
+				<Label name="$parentShowLabel" inherits="CustomizeHouseVisibilityText" >
+					<Size>
+						<AbsPoint x="47" y="20" />
+					</Size>
+					<Anchors>
+						<Anchor point="right" relativePoint="left" relativeTo="$parentShowButton">
+							<AbsPoint x="5" y="0" />
+						</Anchor>
+					</Anchors>
+				</Label>
+
+				<Button name="$parentTransparentButton" inherits="CustomizeHouseRadioButton">
+					<Anchors>
+						<Anchor point="right" relativePoint="left" relativeTo="$parentShowLabel">
+							<AbsPoint x="10" y="0" />
+						</Anchor>
+					</Anchors>
+					<EventHandlers>
+						<EventHandler event="OnLButtonUp" function="CustomizeHouseVisibility.HandleVisibilityChange" />
+					</EventHandlers>
+				</Button>
+				<Label name="$parentTransparentLabel" inherits="CustomizeHouseVisibilityText" >
+					<Size>
+						<AbsPoint x="115" y="20" />
+					</Size>
+					<Anchors>
+						<Anchor point="right" relativePoint="left" relativeTo="$parentTransparentButton">
+							<AbsPoint x="5" y="0" />
+						</Anchor>
+					</Anchors>
+				</Label>
+
+				<Button name="$parentHideButton" inherits="CustomizeHouseRadioButton">
+					<Anchors>
+						<Anchor point="right" relativePoint="left" relativeTo="$parentTransparentLabel">
+							<AbsPoint x="10" y="0" />
+						</Anchor>
+					</Anchors>
+					<EventHandlers>
+						<EventHandler event="OnLButtonUp" function="CustomizeHouseVisibility.HandleVisibilityChange" />
+					</EventHandlers>
+				</Button>
+				<Label name="$parentHideLabel" inherits="CustomizeHouseVisibilityText" >
+					<Size>
+						<AbsPoint x="47" y="20" />
+					</Size>
+					<Anchors>
+						<Anchor point="right" relativePoint="left" relativeTo="$parentHideButton">
+							<AbsPoint x="5" y="0" />
+						</Anchor>
+					</Anchors>
+				</Label>
+
+				<Button name="$parentInvalidOnlyButton" inherits="CustomizeHouseRadioButton">
+					<Anchors>
+						<Anchor point="right" relativePoint="left" relativeTo="$parentHideLabel">
+							<AbsPoint x="10" y="0" />
+						</Anchor>
+					</Anchors>
+					<EventHandlers>
+						<EventHandler event="OnLButtonUp" function="CustomizeHouseVisibility.HandleVisibilityChange" />
+					</EventHandlers>
+				</Button>
+				<Label name="$parentInvalidOnlyLabel" inherits="CustomizeHouseVisibilityText" >
+					<Size>
+						<AbsPoint x="125" y="20" />
+					</Size>
+					<Anchors>
+						<Anchor point="right" relativePoint="left" relativeTo="$parentInvalidOnlyButton">
+							<AbsPoint x="5" y="0" />
+						</Anchor>
+					</Anchors>
+				</Label>
+
+			</Windows>
+		</Window>
+		-->
+    <Window name="CustomizeHouseVisibility" movable="true" sticky="true">
+      <Size>
+        <!-- can change size by 88 pixel increments to x 480  -->
+        <!--  <AbsPoint x="656" y="164" /> -->
+        <AbsPoint x="656" y="240" />
+      </Size>
+      <Anchors>
+        <Anchor point="bottomright" relativePoint="bottomright">
+          <AbsPoint x="-35" y="-226" />
+        </Anchor>
+      </Anchors>
+      <EventHandlers>
+        <EventHandler event="OnInitialize" function="CustomizeHouseVisibility.Initialize" />
+        <EventHandler event="OnShutdown" function="CustomizeHouseVisibility.Shutdown" />
+      </EventHandlers>
+      <Windows>
+        <Window name="$parentChrome" inherits="UO_DefaultWindow">
+          <Anchors>
+            <Anchor point="topleft" relativePoint="topleft" />
+            <Anchor point="bottomright" relativePoint="bottomright" />
+          </Anchors>
+        </Window>
+        <ComboBox name="$parentStoryChooser" inherits="UO_Default_ComboBox">
+          <Anchors>
+            <Anchor point="top" relativePoint="top">
+              <AbsPoint x="0" y="55" />
+            </Anchor>
+          </Anchors>
+          <EventHandlers>
+            <EventHandler event="OnSelChanged" function="CustomizeHouseVisibility.HandleStoryChanged" />
+          </EventHandlers>
+        </ComboBox>
+        <Window name="$parentWallsRow" inherits="CustomizeHouseVisibilityRow">
+          <Anchors>
+            <Anchor point="topleft" relativePoint="topleft">
+              <AbsPoint x="20" y="105" />
+            </Anchor>
+          </Anchors>
+        </Window>
+        <Window name="$parentFloorsRow" inherits="CustomizeHouseVisibilityRow">
+          <Anchors>
+            <Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentWallsRow">
+              <AbsPoint x="0" y="23" />
+            </Anchor>
+          </Anchors>
+        </Window>
+        <Window name="$parentRoofsRow" inherits="CustomizeHouseVisibilityRow">
+          <Anchors>
+            <Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentFloorsRow">
+              <AbsPoint x="0" y="23" />
+            </Anchor>
+          </Anchors>
+        </Window>
+      </Windows>
+    </Window>
+  </Windows>
+</Interface>

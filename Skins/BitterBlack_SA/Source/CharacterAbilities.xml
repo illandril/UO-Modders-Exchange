@@ -1,0 +1,267 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Interface xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../Interface.xsd">
+  <Scripts>
+    <Script file="Source/CharacterAbilities.lua" />
+  </Scripts>
+  <Windows>
+    <Button name="CharacterAbilitiesTabButton" inherits="UO_Default_PaperDollTabButton">
+      <Size>
+        <AbsPoint x="100" y="24" />
+      </Size>
+      <TextOffset x="0" y="-5" />
+      <Windows>
+        <HorizontalResizeImage name="$parentTab" texture="UO_Core" inherits="UO_Default_Medium_Tab_Disabled" texturescale="1.0" handleinput="false">
+          <Size>
+            <AbsPoint x="100" y="24" />
+          </Size>
+          <Anchors>
+            <Anchor point="topleft" relativePoint="topleft" />
+            <Anchor point="bottomright" relativePoint="bottomright" />
+          </Anchors>
+        </HorizontalResizeImage>
+        <HorizontalResizeImage name="$parentTabSelected" texture="UO_Core" inherits="UO_Default_Medium_Tab_Enabled" texturescale="1.0" handleinput="false">
+          <Size>
+            <AbsPoint x="100" y="24" />
+          </Size>
+          <Anchors>
+            <Anchor point="topleft" relativePoint="topleft" />
+            <Anchor point="bottomright" relativePoint="bottomright" />
+          </Anchors>
+        </HorizontalResizeImage>
+      </Windows>
+      <EventHandlers>
+        <EventHandler event="OnLButtonUp" function="CharacterAbilities.ToggleTab" />
+      </EventHandlers>
+    </Button>
+    <Window name="CharacterAbilityDef" movable="false">
+      <Size>
+        <AbsPoint x="300" y="50" />
+      </Size>
+      <Windows>
+        <DynamicImage name="$parentSquareIcon" texturescale="0.75" layer="default" popable="false">
+          <Size>
+            <AbsPoint x="48" y="48" />
+          </Size>
+          <Anchors>
+            <Anchor point="topleft" relativePoint="topleft" relativeTo="$parent">
+              <AbsPoint x="2" y="2" />
+            </Anchor>
+          </Anchors>
+          <EventHandlers>
+            <EventHandler event="OnLButtonUp" function="CharacterAbilities.ItemLButtonUp" />
+            <EventHandler event="OnLButtonDown" function="CharacterAbilities.ItemLButtonDown" />
+            <EventHandler event="OnMouseOver" function="CharacterAbilities.ItemMouseOver" />
+            <EventHandler event="OnMouseOverEnd" function="ItemProperties.ClearMouseOverItem" />
+          </EventHandlers>
+        </DynamicImage>
+        <DynamicImage name="$parentDisabled" texture="hud_image" texturescale="1.0" handleinput="false" layer="default">
+          <Size>
+            <AbsPoint x="48" y="48" />
+          </Size>
+          <Anchors>
+            <Anchor point="topleft" relativePoint="topleft" relativeTo="$parent">
+              <AbsPoint x="2" y="2" />
+            </Anchor>
+          </Anchors>
+          <TexCoords x="400" y="548" />
+        </DynamicImage>
+        <Label name="$parentName" font="UO_DefaultText" linespacing="20" maxchars="64" textalign="left" autoresize="false" handleinput="false" wordwrap="true">
+          <Size>
+            <AbsPoint x="240" y="24" />
+          </Size>
+          <Anchors>
+            <Anchor point="topright" relativePoint="topleft" relativeTo="$parentSquareIcon">
+              <AbsPoint x="2" y="3" />
+            </Anchor>
+          </Anchors>
+          <Color r="0" g="0" b="0" a="255" />
+        </Label>
+        <Label name="$parentSubText" font="UO_DefaultText" linespacing="20" maxchars="64" textalign="left" autoresize="false" handleinput="false" wordwrap="true">
+          <Size>
+            <AbsPoint x="240" y="24" />
+          </Size>
+          <Anchors>
+            <Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentName">
+              <AbsPoint x="0" y="-3" />
+            </Anchor>
+          </Anchors>
+          <Color r="75" g="100" b="255" a="255" />
+        </Label>
+      </Windows>
+    </Window>
+    <Window name="CharacterAbilities" movable="true">
+      <Size>
+        <AbsPoint x="310" y="450" />
+      </Size>
+      <Anchors>
+        <Anchor point="topleft" relativePoint="topleft">
+          <AbsPoint x="620" y="0" />
+        </Anchor>
+      </Anchors>
+      <EventHandlers>
+        <EventHandler event="OnInitialize" function="CharacterAbilities.Initialize" />
+        <EventHandler event="OnShutdown" function="CharacterAbilities.Shutdown" />
+        <EventHandler event="OnShown" function="CharacterAbilities.OnShown" />
+        <EventHandler event="OnHidden" function="CharacterAbilities.OnHidden" />
+      </EventHandlers>
+      <Windows>
+        <!-- Default chrome. Alter this at your own peril. -->
+        <Window name="$parentChrome" inherits="UO_DefaultWindow">
+          <Anchors>
+            <Anchor point="topleft" relativePoint="topleft" />
+            <Anchor point="bottomright" relativePoint="bottomright" />
+          </Anchors>
+        </Window>
+        <!-- End of default chrome boilerplate code -->
+        <Button name="$parentTabButton1" inherits="CharacterAbilitiesTabButton" id="1">
+          <Size>
+            <AbsPoint x="100" y="24" />
+          </Size>
+          <Anchors>
+            <Anchor point="topleft" relativePoint="topleft" relativeTo="$parent">
+              <AbsPoint x="5" y="27" />
+            </Anchor>
+          </Anchors>
+        </Button>
+        <Button name="$parentTabButton2" inherits="CharacterAbilitiesTabButton" id="2">
+          <Size>
+            <AbsPoint x="100" y="24" />
+          </Size>
+          <Anchors>
+            <Anchor point="topright" relativePoint="topleft" relativeTo="$parentTabButton1">
+              <AbsPoint x="0" y="0" />
+            </Anchor>
+          </Anchors>
+        </Button>
+        <Window name="$parentTabWindow1" moveable="false" draganddrop="true">
+          <Size>
+            <AbsPoint x="10" y="10" />
+          </Size>
+          <Anchors>
+            <Anchor point="topleft" relativePoint="topleft" relativeTo="$parent">
+              <AbsPoint x="5" y="49" />
+            </Anchor>
+            <Anchor point="bottomright" relativePoint="bottomright" relativeTo="$parent">
+              <AbsPoint x="-5" y="-5" />
+            </Anchor>
+          </Anchors>
+          <Windows>
+            <!-- Inner Frame Boilerplate -->
+            <FullResizeImage name="$parentFrame" inherits="UO_Default_Inner_Window_Frame" handleinput="false">
+              <Anchors>
+                <Anchor point="topleft" relativePoint="topleft" />
+                <Anchor point="bottomright" relativePoint="bottomright" />
+              </Anchors>
+            </FullResizeImage>
+            <!-- End of Inner Frame Boilerplate -->
+            <ScrollWindow name="$parentScrollWindow" childscrollwindow="$parentScrollChild" scrollbar="$parentScrollbar" lineheight="18" autoHideScrollBar="true">
+              <Size>
+                <AbsPoint x="10" y="10" />
+              </Size>
+              <Anchors>
+                <Anchor point="topleft" relativePoint="topleft" relativeTo="$parent">
+                  <AbsPoint x="0" y="2" />
+                </Anchor>
+                <Anchor point="bottomright" relativePoint="bottomright" relativeTo="$parent">
+                  <AbsPoint x="0" y="-2" />
+                </Anchor>
+              </Anchors>
+              <Windows>
+                <VerticalScrollbar name="$parentScrollbar" inherits="StandardVertScroll" />
+                <Window name="$parentScrollChild">
+                  <Size>
+                    <AbsPoint x="280" y="0" />
+                  </Size>
+                  <Anchors>
+                    <Anchor point="topleft" relativePoint="topleft" />
+                  </Anchors>
+                  <Windows>
+                    <Label name="$parentActive" font="UO_DefaultText" linespacing="20" maxchars="64" textalign="center" autoresize="false" handleinput="false" wordwrap="true">
+                      <Size>
+                        <AbsPoint x="280" y="25" />
+                      </Size>
+                      <Anchors>
+                        <Anchor point="topleft" relativePoint="topleft" relativeTo="$parent">
+                          <AbsPoint x="10" y="10" />
+                        </Anchor>
+                      </Anchors>
+                      <Color r="167" g="137" b="92" a="255"></Color>
+                    </Label>
+                    <HorizontalResizeImage name="$parentHR" inherits="UO_Default_Horizontal_Rule">
+                      <Size>
+                        <AbsPoint x="250" y="4" />
+                      </Size>
+                      <Anchors>
+                        <Anchor point="topleft" relativePoint="topleft" relativeTo="$parent">
+                          <AbsPoint x="10" y="145" />
+                        </Anchor>
+                      </Anchors>
+                    </HorizontalResizeImage>
+                    <Label name="$parentIndex" font="UO_DefaultText" linespacing="20" maxchars="64" textalign="center" autoresize="false" handleinput="false" wordwrap="true">
+                      <Size>
+                        <AbsPoint x="280" y="25" />
+                      </Size>
+                      <Anchors>
+                        <Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentHR">
+                          <AbsPoint x="0" y="5" />
+                        </Anchor>
+                      </Anchors>
+                      <Color r="167" g="137" b="92" a="255"></Color>
+                    </Label>
+                  </Windows>
+                </Window>
+              </Windows>
+            </ScrollWindow>
+          </Windows>
+        </Window>
+        <Window name="$parentTabWindow2" moveable="false" draganddrop="true">
+          <Size>
+            <AbsPoint x="10" y="10" />
+          </Size>
+          <Anchors>
+            <Anchor point="topleft" relativePoint="topleft" relativeTo="$parent">
+              <AbsPoint x="5" y="49" />
+            </Anchor>
+            <Anchor point="bottomright" relativePoint="bottomright" relativeTo="$parent">
+              <AbsPoint x="-5" y="-5" />
+            </Anchor>
+          </Anchors>
+          <Windows>
+            <!-- Inner Frame Boilerplate -->
+            <FullResizeImage name="$parentFrame" inherits="UO_Default_Inner_Window_Frame" handleinput="false">
+              <Anchors>
+                <Anchor point="topleft" relativePoint="topleft" />
+                <Anchor point="bottomright" relativePoint="bottomright"></Anchor>
+              </Anchors>
+            </FullResizeImage>
+            <!-- End of Inner Frame Boilerplate -->
+            <ScrollWindow name="$parentScrollWindow" childscrollwindow="$parentScrollChild" scrollbar="$parentScrollbar" lineheight="18" autoHideScrollBar="true">
+              <Size>
+                <AbsPoint x="10" y="10" />
+              </Size>
+              <Anchors>
+                <Anchor point="topleft" relativePoint="topleft" relativeTo="$parent">
+                  <AbsPoint x="0" y="2" />
+                </Anchor>
+                <Anchor point="bottomright" relativePoint="bottomright" relativeTo="$parent">
+                  <AbsPoint x="0" y="-2" />
+                </Anchor>
+              </Anchors>
+              <Windows>
+                <VerticalScrollbar name="$parentScrollbar" inherits="StandardVertScroll" />
+                <Window name="$parentScrollChild">
+                  <Size>
+                    <AbsPoint x="280" y="0" />
+                  </Size>
+                  <Anchors>
+                    <Anchor point="topleft" relativePoint="topleft"></Anchor>
+                  </Anchors>
+                </Window>
+              </Windows>
+            </ScrollWindow>
+          </Windows>
+        </Window>
+      </Windows>
+    </Window>
+  </Windows>
+</Interface>

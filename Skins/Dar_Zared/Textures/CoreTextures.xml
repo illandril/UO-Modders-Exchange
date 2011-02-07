@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Interface xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../Interface.xsd">
+	<Assets>
+	
+		<!--  *************** Examples ( These are defined in the CoreInterface ) ***************  -->
+		<!-- <Texture name="shield_texture" file="Textures/ShieldButton.dds" /> -->
+		<!-- <Texture name="buttons" file="Textures/Buttons.dds" />	-->
+		<!--  *********************************************************************************** -->
+        
+    <Texture name="UO_Background" file="Textures/window_background.dds" />
+    <Texture name="UO_Core" file="Textures/CoreTextures.dds" />
+    <Texture name="CC_Widgets" file="Textures/character_widgets.dds" />
+    <Texture name="UO_Common" file="Textures/UO_Common.dds" />
+    <Texture name="UO_ResizeFrame" file="Textures/ResizeFrame.dds" />
+	<Texture name="UO_Party" file="Textures/Party.dds" />
+        
+	</Assets>
+</Interface>

@@ -1,0 +1,151 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Interface xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../Interface.xsd">
+  <Scripts>
+    <Script file="Source/ActionsWindow.lua" />
+  </Scripts>
+  <Windows>
+    <Window name="ActionItemDef">
+      <Size>
+        <AbsPoint x="250" y="50" />
+      </Size>
+      <Windows>
+        <Button name="$parentButton">
+          <Size>
+            <AbsPoint x="50" y="50" />
+          </Size>
+          <Windows>
+            <DynamicImage name="$parentSquareIcon" texturescale="0.78" handleinput="false" layer="default">
+              <Size>
+                <AbsPoint x="50" y="50" />
+              </Size>
+              <Anchors>
+                <Anchor point="center" relativePoint="center" relativeTo="">
+                  <AbsPoint x="0" y="0" />
+                </Anchor>
+              </Anchors>
+            </DynamicImage>
+            <DynamicImage name="$parentDisabled" texture="hud_image" texturescale="0.78" handleinput="false" layer="default">
+              <Size>
+                <AbsPoint x="50" y="50" />
+              </Size>
+              <Anchors>
+                <Anchor point="center" relativePoint="center" relativeTo="">
+                  <AbsPoint x="0" y="0" />
+                </Anchor>
+              </Anchors>
+              <TexCoords x="112" y="324" />
+            </DynamicImage>
+          </Windows>
+          <TexCoords>
+            <Normal texture="hud_image" x="400" y="548" />
+            <!--<NormalHighlit texture="hud_image" x="344" y="531" />
+						<Disabled texture="hud_image" x="244" y="531" />
+						<Pressed texture="hud_image" x="294" y="531" />
+						<PressedHighlit texture="hud_image" x="294" y="531" />-->
+          </TexCoords>
+          <EventHandlers>
+            <EventHandler event="OnLButtonDown" function="ActionsWindow.ItemLButtonDown" />
+            <EventHandler event="OnMouseOver" function="ActionsWindow.ItemMouseOver" />
+            <EventHandler event="OnMouseOverEnd" function="ItemProperties.ClearMouseOverItem" />
+          </EventHandlers>
+        </Button>
+        <Label name="$parentName" font="UO_DefaultText" linespacing="20" maxchars="64" textalign="left" autoresize="true" handleinput="false" wordwrap="true">
+          <Size>
+            <AbsPoint x="200" y="20" />
+          </Size>
+          <Anchors>
+            <Anchor point="right" relativePoint="left" relativeTo="$parentButton">
+              <AbsPoint x="10" y="0" />
+            </Anchor>
+          </Anchors>
+          <Color r="255" g="255" b="255" a="255" />
+        </Label>
+      </Windows>
+    </Window>
+    <Window name="ActionsWindow" movable="true">
+      <Size>
+        <AbsPoint x="295" y="410" />
+      </Size>
+      <Anchors>
+        <Anchor point="topleft" relativePoint="topleft">
+          <AbsPoint x="820" y="300" />
+        </Anchor>
+      </Anchors>
+      <EventHandlers>
+        <EventHandler event="OnInitialize" function="ActionsWindow.Initialize" />
+        <EventHandler event="OnShutdown" function="ActionsWindow.Shutdown" />
+      </EventHandlers>
+      <Windows>
+        <!-- Default chrome. Alter this at your own peril. -->
+        <Window name="$parentChrome" inherits="UO_DefaultWindow">
+          <Anchors>
+            <Anchor point="topleft" relativePoint="topleft" />
+            <Anchor point="bottomright" relativePoint="bottomright" />
+          </Anchors>
+        </Window>
+        <!-- End of default chrome boilerplate code -->
+        <Window name="$parentTopArrows">
+          <Size>
+            <AbsPoint x="285" y="30" />
+          </Size>
+          <Anchors>
+            <Anchor point="topleft" relativePoint="topleft">
+              <AbsPoint x="0" y="35" />
+            </Anchor>
+          </Anchors>
+          <Windows>
+            <Button name="$parentPrevButton" inherits="UO_Default_SmallPreviousButton">
+              <Anchors>
+                <Anchor point="left" relativePoint="left">
+                  <AbsPoint x="10" y="0" />
+                </Anchor>
+              </Anchors>
+              <EventHandlers>
+                <EventHandler event="OnLButtonUp" function="ActionsWindow.LeftArrowPressed" />
+              </EventHandlers>
+            </Button>
+            <Button name="$parentNextButton" inherits="UO_Default_SmallNextButton">
+              <Anchors>
+                <Anchor point="right" relativePoint="right">
+                  <AbsPoint x="-10" y="0" />
+                </Anchor>
+              </Anchors>
+              <EventHandlers>
+                <EventHandler event="OnLButtonUp" function="ActionsWindow.RightArrowPressed" />
+              </EventHandlers>
+            </Button>
+            <Label name="$parentText" inherits="UO_Default_Label_Color" font="UO_DefaultText" maxchars="2048" textalign="center" autoresize="true" handleinput="false" wordwrap="true">
+              <Size>
+                <AbsPoint x="174" y="0" />
+              </Size>
+              <Anchors>
+                <Anchor point="center" relativePoint="center" />
+              </Anchors>
+            </Label>
+          </Windows>
+        </Window>
+        <ScrollWindow name="$parentList" childscrollwindow="$parentScrollChild" scrollbar="$parentScrollbar" lineheight="60" draganddrop="true" autoHideScrollBar="true">
+          <Size>
+            <AbsPoint x="285" y="330" />
+          </Size>
+          <Anchors>
+            <Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentTopArrows">
+              <AbsPoint x="5" y="5" />
+            </Anchor>
+          </Anchors>
+          <EventHandlers>
+            <EventHandler event="OnLButtonUp" function="ContainerWindow.OnContainerRelease" />
+          </EventHandlers>
+          <Windows>
+            <VerticalScrollbar name="$parentScrollbar" inherits="StandardVertScroll" />
+            <Window name="$parentScrollChild">
+              <Size>
+                <AbsPoint x="200" y="0" />
+              </Size>
+            </Window>
+          </Windows>
+        </ScrollWindow>
+      </Windows>
+    </Window>
+  </Windows>
+</Interface>

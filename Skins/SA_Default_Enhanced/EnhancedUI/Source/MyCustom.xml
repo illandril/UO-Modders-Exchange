@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Interface xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../Interface.xsd">
+  <Scripts>
+    <Script file="MyCustom.lua" />
+  </Scripts>
+  <Windows>
+    <Button name="MyCustom" inherits="CoreWindowResizeButtonBottomRight" handleinput="true" >
+      <Anchors>
+        <Anchor point="topleft" relativePoint="topleft" relativeTo="" />
+      </Anchors>
+      <EventHandlers>
+        <EventHandler event="OnInitialize" function="MyCustom.Initialize" />
+        <EventHandler event="OnShutdown" function="MyCustom.Shutdown" />
+      </EventHandlers>
+    </Button>
+    <Label name="VersionInfoLabel" font="UO_Default_Outline_Text" textalign="left" autoresize="true" handleinput="false" layer="background">
+      <Size>
+        <AbsPoint x="800" y="18"/>
+      </Size>
+      <Anchors>
+        <Anchor point="topright" relativePoint="topleft" relativeTo="MyCustom">
+          <AbsPoint x="10" y="2"/>
+        </Anchor>
+      </Anchors>
+      <Color r="155" g="155" b="155" a="255" />
+    </Label>
+  </Windows>
+</Interface>

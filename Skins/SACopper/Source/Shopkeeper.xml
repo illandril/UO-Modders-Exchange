@@ -1,0 +1,352 @@
+<Interface xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../Interface.xsd">
+	<Scripts>
+		<Script file="Source/Shopkeeper.lua" />
+	</Scripts>
+	<Windows>
+
+		<!-- LIST ITEM -->
+		<Window name="ShopItemTemplate">
+			<Size>
+				<AbsPoint x="480" y="50" />
+			</Size>
+
+			<Windows>
+				<Label name="$parentQuantity" font="UO_DefaultText" maxchars="64" textalign="center" >
+					<Size>
+						<AbsPoint x="40" y="16" />
+					</Size>
+					<Anchors>
+						<Anchor point="left" relativePoint="left">
+							<AbsPoint x="10" y="0" />
+						</Anchor>
+					</Anchors>
+					<Color r="255" g="255" b="255" a="255" />
+				</Label>
+
+				<Window name="$parentIconHolder" >
+					<Size>
+						<AbsPoint x="40" y="40" />
+					</Size>
+					<Anchors>
+						<Anchor point="right" relativePoint="left" relativeTo="$parentQuantity">
+							<AbsPoint x="10" y="0" />
+						</Anchor>
+					</Anchors>
+					<EventHandlers>
+						<EventHandler event="OnMouseOver" function="Shopkeeper.ItemMouseOver"/>
+						<EventHandler event="OnMouseOverEnd" function="ItemProperties.ClearMouseOverItem"/>
+						<EventHandler event="OnLButtonDblClk" function="Shopkeeper.OnBuyOne" />
+					</EventHandlers>
+					<Windows>
+						<DynamicImage name="$parentSquareIcon" texture="UO_Common" handleinput="false">
+							<Size>
+								<AbsPoint x="40" y="40" />
+							</Size>
+							<!-- <TexCoords x="399" y="32"/> -->
+							<Anchors>
+								<Anchor point="center" relativePoint="center" />
+							</Anchors>
+						</DynamicImage>
+					</Windows>
+				</Window>
+
+				<Label name="$parentName" font="UO_DefaultText" maxchars="64" textalign="center" wordwrap="true" autoresize="true">
+					<Size>
+						<AbsPoint x="150" y="26" />
+					</Size>
+					<Anchors>
+						<Anchor point="right" relativePoint="left" relativeTo="$parentIconHolder">
+							<AbsPoint x="10" y="0" />
+						</Anchor>
+					</Anchors>
+					<EventHandlers>
+						<EventHandler event="OnMouseOver" function="Shopkeeper.ItemMouseOver" />
+						<EventHandler event="OnMouseOverEnd" function="ItemProperties.ClearMouseOverItem" />
+					</EventHandlers>
+					<Color r="253" g="210" b="69" a="255" />
+				</Label>
+
+				<Label name="$parentCost" font="UO_DefaultText" maxchars="64" textalign="center" >
+					<Size>
+						<AbsPoint x="75" y="16" />
+					</Size>
+					<Anchors>
+						<Anchor point="right" relativePoint="left" relativeTo="$parentName">
+							<AbsPoint x="10" y="0" />
+						</Anchor>
+					</Anchors>
+					<Color r="255" g="255" b="255" a="255" />
+				</Label>
+
+				<Button name="$parentBuyMore" inherits="UO_Default_Plus_Button">
+					<Anchors>
+						<Anchor point="topright" relativePoint="topleft" relativeTo="$parentCost">
+							<AbsPoint x="10" y="0" />
+						</Anchor>
+					</Anchors>
+					<EventHandlers>
+						<EventHandler event="OnLButtonDown" function="Shopkeeper.OnBuyMore" />
+					</EventHandlers>
+				</Button>
+
+				<Button name="$parentBuyLess" inherits="UO_Default_Minus_Button">
+					<Anchors>
+						<Anchor point="topright" relativePoint="topleft" relativeTo="$parentBuyMore">
+							<AbsPoint x="5" y="0" />
+						</Anchor>
+					</Anchors>
+					<EventHandlers>
+						<EventHandler event="OnLButtonDown" function="Shopkeeper.OnBuyLess" />
+					</EventHandlers>
+				</Button>
+
+				<Button name="$parentBuyAll" inherits="UO_Default_VendorButton">
+					<Anchors>
+						<Anchor point="topright" relativePoint="topleft" relativeTo="$parentBuyLess">
+							<AbsPoint x="3" y="0" />
+						</Anchor>
+					</Anchors>
+					<EventHandlers>
+						<EventHandler event="OnLButtonDown" function="Shopkeeper.OnBuyAll" />
+					</EventHandlers>
+				</Button>
+
+			</Windows>
+		</Window>
+
+		<!-- ITEM LIST HEADER -->
+		<Window name="ItemListHeaderTemplate">
+			<Size>
+				<AbsPoint x="450" y="10" />
+			</Size>
+
+			<Windows>
+
+				<Label name="$parentQuantityHeader" font="UO_DefaultText" maxchars="64" textalign="center" >
+					<Size>
+						<AbsPoint x="100" y="10" />
+					</Size>
+					<Anchors>
+						<Anchor point="topleft" relativePoint="topleft">
+							<AbsPoint x="10" y="0" />
+						</Anchor>
+					</Anchors>
+					<Color r="255" g="255" b="255" a="255" />
+				</Label>
+
+				<Label name="$parentItemNamesHeader" font="UO_DefaultText" maxchars="64" textalign="center" >
+					<Size>
+						<AbsPoint x="100" y="10" />
+					</Size>
+					<Anchors>
+						<Anchor point="topright" relativePoint="topleft" relativeTo="$parentQuantityHeader">
+							<AbsPoint x="30" y="0" />
+						</Anchor>
+					</Anchors>
+					<Color r="255" g="255" b="255" a="255" />
+				</Label>
+
+				<Label name="$parentItemCostsHeader" font="UO_DefaultText" maxchars="64" textalign="center" >
+					<Size>
+						<AbsPoint x="70" y="10" />
+					</Size>
+					<Anchors>
+						<Anchor point="topright" relativePoint="topleft" relativeTo="$parentItemNamesHeader">
+							<AbsPoint x="30" y="0" />
+						</Anchor>
+					</Anchors>
+					<Color r="255" g="255" b="255" a="255" />
+				</Label>
+
+				<Label name="$parentItemPurchaseHeader" font="UO_DefaultText" maxchars="64" textalign="center" >
+					<Size>
+						<AbsPoint x="100" y="10" />
+					</Size>
+					<Anchors>
+						<Anchor point="topright" relativePoint="topleft" relativeTo="$parentItemCostsHeader">
+							<AbsPoint x="10" y="0" />
+						</Anchor>
+					</Anchors>
+					<Color r="255" g="255" b="255" a="255" />
+				</Label>
+
+			</Windows>
+		</Window>
+
+		<!-- ITEM LIST WINDOW -->
+		<Window name="ItemListWindowTemplate">
+			<Size>
+				<AbsPoint x="520" y="420" />
+			</Size>
+
+			<Windows>
+
+				<FullResizeImage name="$parentFrame" inherits="UO_Default_Inner_Window_Frame">
+					<Anchors>
+						<Anchor point="topleft" relativePoint="topleft" />
+						<Anchor point="bottomright" relativePoint="bottomright" />
+					</Anchors>
+				</FullResizeImage>
+
+				<Window name="$parentHeader" inherits="ItemListHeaderTemplate">
+					<Anchors>
+						<Anchor point="topleft" relativePoint="topleft" >
+							<AbsPoint x="5" y="5" />
+						</Anchor>
+					</Anchors>
+				</Window>
+
+				<ScrollWindow name="$parentScrollWindow" childscrollwindow="$parentScrollChild" scrollbar="$parentScrollbar" lineheight="60" autoHideScrollBar="true">
+					<Size>
+						<AbsPoint x="500" y="340" />
+					</Size>
+					<Anchors>
+						<Anchor point="topleft" relativePoint="topleft">
+							<AbsPoint x="5" y="35" />
+						</Anchor>
+					</Anchors>
+
+					<Windows>
+						<Window name="$parentScrollChild">
+							<Size>
+								<AbsPoint x="490" y="340"/>
+							</Size>
+						</Window>
+
+						<VerticalScrollbar name="$parentScrollbar" inherits="StandardVertScroll" />
+
+					</Windows>
+				</ScrollWindow>
+
+			</Windows>
+		</Window>
+
+		<!-- MAIN WINDOW -->
+		<Window name="Shopkeeper" movable="true">
+			<Size>
+				<AbsPoint x="1060" y="515" />
+			</Size>
+			<Anchors>
+				<Anchor point="center" relativePoint="center" >
+					<AbsPoint x="0" y="0"/>
+				</Anchor>
+			</Anchors>
+			<EventHandlers>
+				<EventHandler event="OnInitialize" function="Shopkeeper.Initialize" />
+				<EventHandler event="OnShutdown" function="Shopkeeper.Shutdown" />
+				<EventHandler event="OnUpdate" function="Shopkeeper.OnUpdate" />
+				<EventHandler event="OnLButtonUp" function="Shopkeeper.OnStopUpdating" />
+			</EventHandlers>
+			<Windows>
+				<!-- Default chrome. Alter this at your own peril. -->
+				<Window name="$parentChrome" inherits="UO_DefaultWindow">
+					<Anchors>
+						<Anchor point="topleft" relativePoint="topleft"/>
+						<Anchor point="bottomright" relativePoint="bottomright"/>
+					</Anchors>
+				</Window>
+				<!-- End of default chrome boilerplate code -->
+
+				<Label name="StoreName" font="UO_DefaultText" linespacing="20" maxchars="64" textalign="center" autoresize="true" handleinput="false" wordwrap="true" >
+					<Size>
+						<AbsPoint x="520" y="40" />
+					</Size>
+					<Anchors>
+						<Anchor point="topleft" relativePoint="topleft">
+							<AbsPoint x="10" y="55" />
+						</Anchor>
+					</Anchors>
+					<Color r="255" g="255" b="255" a="255" />
+				</Label>
+
+				<Label name="PurchaseListTitle" font="UO_DefaultText" linespacing="20" maxchars="64" textalign="center" autoresize="true" handleinput="false" wordwrap="true" >
+					<Size>
+						<AbsPoint x="520" y="40" />
+					</Size>
+					<Anchors>
+						<Anchor point="topright" relativePoint="topright">
+							<AbsPoint x="-10" y="55" />
+						</Anchor>
+					</Anchors>
+					<Color r="255" g="255" b="255" a="255" />
+				</Label>
+
+				<!-- Shop Items List -->
+				<Window name="ShopItems" inherits="ItemListWindowTemplate" >
+					<Size>
+						<AbsPoint x="510" y="385" />
+					</Size>
+
+					<Anchors>
+						<Anchor point="bottomleft" relativePoint="topleft" relativeTo="StoreName">
+							<AbsPoint x="0" y="0" />
+						</Anchor>
+					</Anchors>
+
+				</Window>
+
+				<!-- Purchase Items List -->
+				<Window name="PurchasedItems" inherits="ItemListWindowTemplate" >
+					<Size>
+						<AbsPoint x="510" y="385" />
+					</Size>
+
+					<Anchors>
+						<Anchor point="topright" relativePoint="topleft" relativeTo="ShopItems">
+							<AbsPoint x="0" y="0" />
+						</Anchor>
+					</Anchors>
+
+				</Window>
+
+				<Label name="TotalCostText" font="UO_DefaultText" linespacing="20" maxchars="64" textalign="left" autoresize="true" handleinput="false" wordwrap="true" >
+					<Size>
+						<AbsPoint x="120" y="40" />
+					</Size>
+					<Anchors>
+						<Anchor point="bottomleft" relativePoint="topleft" relativeTo="PurchasedItems">
+							<AbsPoint x="0" y="15" />
+						</Anchor>
+					</Anchors>
+					<Color r="255" g="255" b="255" a="255" />
+				</Label>
+
+				<Label name="TotalCostVal" font="UO_DefaultText" linespacing="20" maxchars="64" textalign="left" autoresize="true" handleinput="false" wordwrap="true" >
+					<Size>
+						<AbsPoint x="195" y="40" />
+					</Size>
+					<Anchors>
+						<Anchor point="topright" relativePoint="topleft" relativeTo="TotalCostText">
+							<AbsPoint x="10" y="0" />
+						</Anchor>
+					</Anchors>
+					<Color r="255" g="255" b="255" a="255" />
+				</Label>
+
+				<Button name="PurchaseButton" inherits="UO_Default_GumpButton" >
+					<Anchors>
+						<Anchor point="topright" relativePoint="topleft" relativeTo="TotalCostVal">
+							<AbsPoint x="10" y="-10" />
+						</Anchor>
+					</Anchors>
+					<EventHandlers>
+						<EventHandler event="OnLButtonUp" function="Shopkeeper.PurchaseItems" />
+					</EventHandlers>
+				</Button>
+
+				<Button name="CancelPurchaseButton" inherits="UO_Default_GumpButton" >
+					<Anchors>
+						<Anchor point="topright" relativePoint="topleft" relativeTo="PurchaseButton">
+							<AbsPoint x="10" y="0" />
+						</Anchor>
+					</Anchors>
+					<EventHandlers>
+						<EventHandler event="OnLButtonUp" function="Shopkeeper.CancelPurchase" />
+					</EventHandlers>
+				</Button>
+
+			</Windows>
+		</Window>
+
+	</Windows>
+</Interface>

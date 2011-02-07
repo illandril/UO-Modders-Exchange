@@ -1,0 +1,283 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Interface xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../Interface.xsd">
+  <Windows>
+    <Button name="ActionButtonDef" draganddrop="true">
+      <Size>
+        <AbsPoint x="50" y="50" />
+      </Size>
+      <Windows>
+        <DynamicImage name="$parentSquareIcon" texturescale="0.78" handleinput="false" layer="default">
+          <Size>
+            <AbsPoint x="50" y="50" />
+          </Size>
+          <Anchors>
+            <Anchor point="center" relativePoint="center" relativeTo="">
+              <AbsPoint x="0" y="0" />
+            </Anchor>
+          </Anchors>
+        </DynamicImage>
+        <Label name="$parentHotkey" font="UO_DefaultText_15pt" maxchars="6" textalign="right" layer="popup" handleinput="false">
+          <Size>
+            <AbsPoint x="50" y="15" />
+          </Size>
+          <Anchors>
+            <Anchor point="topright" relativePoint="topright">
+              <AbsPoint x="-6" y="4" />
+            </Anchor>
+          </Anchors>
+          <Color r="75" g="100" b="255" a="255" />
+        </Label>
+        <Label name="$parentQuantity" font="UO_DefaultText_15pt" maxchars="6" textalign="left" autoresize="true" wordwrap="false" layer="popup" handleinput="false">
+          <Size>
+            <AbsPoint x="50" y="15" />
+          </Size>
+          <Anchors>
+            <Anchor point="bottomleft" relativePoint="bottomleft">
+              <AbsPoint x="4" y="-4" />
+            </Anchor>
+          </Anchors>
+          <Color r="255" g="255" b="255" a="255" />
+        </Label>
+        <!--
+                <DynamicImage name="$parentTargetType" texture="hud_image2" texturescale="0.7" handleinput="false" layer="default" alpha="1.0">
+                    <Size>
+                        <AbsPoint x="14" y="14" />                            
+                    </Size>
+                    <Anchors>
+                        <Anchor point="bottomright" relativePoint="bottomright" >
+                            <AbsPoint x="-2" y="-2" />
+                        </Anchor>                            
+                    </Anchors>
+                    <TexCoords x="0" y="174"/>
+                </DynamicImage>
+                -->
+        <DynamicImage name="$parentTargetType" texture="hud_image" texturescale="1.0" handleinput="false" layer="default" alpha="1.0">
+          <Size>
+            <AbsPoint x="15" y="15" />
+          </Size>
+          <Anchors>
+            <Anchor point="bottomright" relativePoint="bottomright">
+              <AbsPoint x="-4" y="-4" />
+            </Anchor>
+          </Anchors>
+          <TexCoords x="2" y="256" />
+        </DynamicImage>
+        <!--Used to display the countdown for the bandage to take effect -->
+        <Label name="$parentBandageTime" font="UO_DefaultText" maxchars="6" textalign="left" autoresize="true" wordwrap="false" layer="popup" handleinput="false">
+          <Size>
+            <AbsPoint x="50" y="15" />
+          </Size>
+          <Anchors>
+            <Anchor point="topleft" relativePoint="topleft">
+              <AbsPoint x="4" y="4" />
+            </Anchor>
+          </Anchors>
+          <Color r="0" g="255" b="100" a="255"></Color>
+        </Label>
+        <!--Used for player stats for normal stats without the divider for 2/13 just a number -->
+        <Label name="$parentStats" font="UO_DefaultText_15pt" maxchars="6" textalign="center" autoresize="true" wordwrap="false" layer="popup" handleinput="false">
+          <Size>
+            <AbsPoint x="40" y="15" />
+          </Size>
+          <Anchors>
+            <Anchor point="bottomright" relativePoint="bottomright">
+              <AbsPoint x="-5" y="-5" />
+            </Anchor>
+          </Anchors>
+          <Color r="255" g="255" b="255" a="255" />
+        </Label>
+        <!--Used for player stats for the top stats in the divider divider for 2/13, will be 2 -->
+        <Label name="$parentStatsTop" font="UO_DefaultText" maxchars="3" textalign="center" autoresize="true" wordwrap="false" layer="popup" handleinput="false">
+          <Size>
+            <AbsPoint x="40" y="15" />
+          </Size>
+          <Anchors>
+            <Anchor point="bottomleft" relativePoint="bottomleft">
+              <AbsPoint x="8" y="-20" />
+            </Anchor>
+          </Anchors>
+          <Color r="255" g="255" b="255" a="255" />
+        </Label>
+        <!--Used for player stats for the top stats in the divider divider for 2/13, will be 13 -->
+        <Label name="$parentStatsBottom" font="UO_DefaultText_15pt" maxchars="3" textalign="center" autoresize="true" wordwrap="false" layer="popup" handleinput="false">
+          <Size>
+            <AbsPoint x="40" y="15" />
+          </Size>
+          <Anchors>
+            <Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentStatsTop">
+              <AbsPoint x="0" y="1" />
+            </Anchor>
+          </Anchors>
+          <Color r="170" g="170" b="170" a="255" />
+        </Label>
+        <DynamicImage name="$parentDisabled" texture="hud_image" texturescale="0.78" handleinput="false" layer="default">
+          <Size>
+            <AbsPoint x="50" y="50" />
+          </Size>
+          <Anchors>
+            <Anchor point="center" relativePoint="center" relativeTo="">
+              <AbsPoint x="0" y="0" />
+            </Anchor>
+          </Anchors>
+          <TexCoords x="112" y="324" />
+        </DynamicImage>
+        <DynamicImage name="$parentDivider" texture="hud_image2" handleinput="false" layer="default" alpha="0.0">
+          <Size>
+            <AbsPoint x="10" y="50" />
+          </Size>
+          <Anchors>
+            <Anchor point="left" relativePoint="left">
+              <AbsPoint x="-5" y="0" />
+            </Anchor>
+          </Anchors>
+          <TexCoords x="346" y="71" />
+        </DynamicImage>
+      </Windows>
+      <TexCoords>
+        <Normal texture="hud_image" x="400" y="548" />
+        <NormalHighlit texture="hud_image" x="454" y="548" />
+        <Disabled texture="hud_image" x="400" y="548" />
+        <Pressed texture="hud_image" x="454" y="548" />
+        <PressedHighlit texture="hud_image" x="454" y="548" />
+      </TexCoords>
+    </Button>
+    <Button name="EquipActionButtonDef" draganddrop="true">
+      <Size>
+        <AbsPoint x="50" y="50" />
+      </Size>
+      <Windows>
+        <DynamicImage name="$parentSquareIcon" texturescale="0.78" handleinput="false" layer="default">
+          <Size>
+            <AbsPoint x="50" y="50" />
+          </Size>
+          <Anchors>
+            <Anchor point="center" relativePoint="center" relativeTo="">
+              <AbsPoint x="0" y="0" />
+            </Anchor>
+          </Anchors>
+        </DynamicImage>
+      </Windows>
+      <TexCoords>
+        <Normal texture="hud_image" x="0" y="754" />
+        <NormalHighlit texture="hud_image" x="50" y="754" />
+        <Disabled texture="hud_image" x="0" y="754" />
+        <Pressed texture="hud_image" x="50" y="754" />
+        <PressedHighlit texture="hud_image" x="50" y="754" />
+      </TexCoords>
+    </Button>
+    <Button name="DefaultButton">
+      <!--
+			<Sounds>
+				<Sound event="OnLButtonDown" script="Sound.Play( Sound.BUTTON_CLICK )" />
+				<Sound event="OnMouseOver" script="Sound.Play( Sound.BUTTON_OVER )" />
+			</Sounds>
+-->
+    </Button>
+    <Label name="DefaultWindowTitle" font="UO_Title" maxchars="64" textalign="center" layer="background">
+      <Size>
+        <AbsPoint x="350" y="30" />
+      </Size>
+      <Anchors>
+        <Anchor point="top" relativePoint="top">
+          <AbsPoint y="8" />
+        </Anchor>
+      </Anchors>
+      <Color r="255" g="255" b="255" a="255" />
+    </Label>
+    <Label name="DefaultWindowSubTitle" font="UO_Subtitle" maxchars="64" textalign="center">
+      <Color r="255" g="255" b="255" a="255" />
+    </Label>
+    <Button name="GreenTextButton" inherits="DefaultButton" font="UO_GoldButtonText">
+      <Size>
+        <AbsPoint x="216" y="32" />
+      </Size>
+      <TextColors>
+        <Normal r="166" g="187" b="120" a="255" />
+        <NormalHighlit r="166" g="187" b="120" a="255" />
+        <Pressed r="166" g="187" b="120" a="255" />
+        <PressedHighlit r="166" g="187" b="120" a="255" />
+        <Disabled r="166" g="187" b="120" a="255" />
+      </TextColors>
+    </Button>
+    <Button name="DefaultTextButton" inherits="DefaultButton" font="UO_GoldButtonText">
+      <Size>
+        <AbsPoint x="200" y="32" />
+      </Size>
+      <TextColors>
+        <Normal r="255" g="255" b="255" a="255" />
+        <NormalHighlit r="250" g="213" b="63" a="255" />
+        <Pressed r="250" g="213" b="63" a="255" />
+        <PressedHighlit r="250" g="213" b="63" a="255" />
+        <Disabled r="92" g="92" b="92" a="255" />
+      </TextColors>
+    </Button>
+    <Button name="IconTextButton" inherits="DefaultButton">
+      <Size>
+        <AbsPoint x="200" y="20" />
+      </Size>
+      <Windows>
+        <DynamicImage name="$parentIcon" handleinput="false" layer="background">
+          <Size>
+            <AbsPoint x="16" y="16" />
+          </Size>
+          <Anchors>
+            <Anchor point="left" relativePoint="left">
+              <AbsPoint x="0" y="0" />
+            </Anchor>
+          </Anchors>
+        </DynamicImage>
+        <Button name="$parentText" font="UO_GoldButtonText" textalign="left" handleinput="false">
+          <Size>
+            <AbsPoint x="160" y="20" />
+          </Size>
+          <Anchors>
+            <Anchor point="left" relativePoint="left">
+              <AbsPoint x="20" y="2" />
+            </Anchor>
+          </Anchors>
+          <TextColors>
+            <Normal r="255" g="255" b="255" a="255" />
+            <NormalHighlit r="250" g="213" b="63" a="255" />
+            <Pressed r="250" g="213" b="63" a="255" />
+            <PressedHighlit r="250" g="213" b="63" a="255" />
+            <Disabled r="92" g="92" b="92" a="255" />
+          </TextColors>
+        </Button>
+      </Windows>
+    </Button>
+    <Button name="IconTextButtonWhite" inherits="DefaultButton">
+      <Size>
+        <AbsPoint x="200" y="25" />
+      </Size>
+      <Windows>
+        <DynamicImage name="$parentIcon" handleinput="false" layer="background">
+          <Size>
+            <AbsPoint x="16" y="16" />
+          </Size>
+          <Anchors>
+            <Anchor point="left" relativePoint="left">
+              <AbsPoint x="0" y="0" />
+            </Anchor>
+          </Anchors>
+        </DynamicImage>
+        <Button name="$parentText" font="UO_GoldButtonText" textalign="left" handleinput="false">
+          <Size>
+            <AbsPoint x="160" y="20" />
+          </Size>
+          <Anchors>
+            <Anchor point="left" relativePoint="left">
+              <AbsPoint x="20" y="2" />
+            </Anchor>
+          </Anchors>
+          <TextColors>
+            <Normal r="255" g="255" b="255" a="255" />
+            <NormalHighlit r="250" g="213" b="63" a="255" />
+            <Pressed r="250" g="213" b="63" a="255" />
+            <PressedHighlit r="250" g="213" b="63" a="255" />
+            <Disabled r="92" g="92" b="92" a="255" />
+          </TextColors>
+        </Button>
+      </Windows>
+    </Button>
+  </Windows>
+</Interface>

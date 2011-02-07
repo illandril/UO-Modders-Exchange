@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Interface xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../Interface.xsd">
+	<Assets>
+        <Texture name="LegacyIIInGameMaceWeaponIconPack_blackstaff" file="Icons/mace_blackstaff.dds" />
+        <Texture name="LegacyIIInGameMaceWeaponIconPack_club" file="Icons/mace_club.dds" />
+        <Texture name="LegacyIIInGameMaceWeaponIconPack_crook" file="Icons/mace_crook.dds" />
+        <Texture name="LegacyIIInGameMaceWeaponIconPack_diamondmace" file="Icons/mace_diamondmace.dds" />
+        <Texture name="LegacyIIInGameMaceWeaponIconPack_discmace" file="Icons/mace_discmace.dds" />
+        <Texture name="LegacyIIInGameMaceWeaponIconPack_glassstaff" file="Icons/mace_glassstaff.dds" />
+        <Texture name="LegacyIIInGameMaceWeaponIconPack_gnarledstaff" file="Icons/mace_gnarledstaff.dds" />
+        <Texture name="LegacyIIInGameMaceWeaponIconPack_hammerpick" file="Icons/mace_hammerpick.dds" />
+        <Texture name="LegacyIIInGameMaceWeaponIconPack_mace" file="Icons/mace_mace.dds" />
+        <Texture name="LegacyIIInGameMaceWeaponIconPack_maul" file="Icons/mace_maul.dds" />
+        <Texture name="LegacyIIInGameMaceWeaponIconPack_nunchaku" file="Icons/mace_nunchaku.dds" />
+        <Texture name="LegacyIIInGameMaceWeaponIconPack_quarterstaff" file="Icons/mace_quarterstaff.dds" />
+        <Texture name="LegacyIIInGameMaceWeaponIconPack_scepter" file="Icons/mace_scepter.dds" />
+        <Texture name="LegacyIIInGameMaceWeaponIconPack_serpentstonestaff" file="Icons/mace_serpentstonestaff.dds" />
+        <Texture name="LegacyIIInGameMaceWeaponIconPack_smithhammer" file="Icons/mace_smithhammer.dds" />
+        <Texture name="LegacyIIInGameMaceWeaponIconPack_sledgehammer" file="Icons/mace_sledgehammer.dds" />
+        <Texture name="LegacyIIInGameMaceWeaponIconPack_tessen" file="Icons/mace_tessen.dds" />
+        <Texture name="LegacyIIInGameMaceWeaponIconPack_tetsubo" file="Icons/mace_tetsubo.dds" />
+        <Texture name="LegacyIIInGameMaceWeaponIconPack_wand1" file="Icons/mace_wand1.dds" />
+        <Texture name="LegacyIIInGameMaceWeaponIconPack_wand2" file="Icons/mace_wand2.dds" />
+        <Texture name="LegacyIIInGameMaceWeaponIconPack_wand3" file="Icons/mace_wand3.dds" />
+        <Texture name="LegacyIIInGameMaceWeaponIconPack_wand4" file="Icons/mace_wand4.dds" />
+        <Texture name="LegacyIIInGameMaceWeaponIconPack_waraxe" file="Icons/mace_waraxe.dds" />
+        <Texture name="LegacyIIInGameMaceWeaponIconPack_warhammer" file="Icons/mace_warhammer.dds" />
+        <Texture name="LegacyIIInGameMaceWeaponIconPack_warmace" file="Icons/mace_warmace.dds" />
+        <Texture name="LegacyIIInGameMaceWeaponIconPack_wildstaff" file="Icons/mace_wildstaff.dds" />
+	</Assets>
+</Interface>

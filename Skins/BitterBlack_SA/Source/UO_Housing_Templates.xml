@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Interface xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../Interface.xsd">
+	<Windows>
+
+		<!-- Default Background for entire window 395,164 middle about 153 to 240, so trying 160 to 235-->
+		<HorizontalResizeImage name="Customized_Housing_Background" texture="housing">
+			<Size>
+				<AbsPoint x="10" y="164" />
+			</Size>
+			<TexCoords>
+				<Left x="0" y="0" />
+				<Middle x="153" y="0" />
+				<Right x="241" y="0" />
+			</TexCoords>
+
+			<Sizes left="153" middle="88" right="239" />
+		</HorizontalResizeImage>
+
+
+	<!-- The 7 Tile Type Buttons + Erase and EyeDropper -->
+
+		<Button name="Housing_Walls_Button" backgroundtexture="housing" highlighttexture="housing">
+			<Size>
+				<AbsPoint x="25" y="25" />
+			</Size>
+			<TexCoords>
+				<Normal x="4" y="250" />
+				<NormalHighlit x="6" y="252" />
+				<Pressed x="6" y="252" />
+				<PressedHighlit x="6" y="252" />
+				<Disabled x="6" y="252" />
+			</TexCoords>
+		</Button>
+
+		<Button name="Housing_Doors_Button" backgroundtexture="housing" highlighttexture="housing">
+			<Size>
+				<AbsPoint x="25" y="25" />
+			</Size>
+			<TexCoords>
+				<Normal x="36" y="250" />
+				<NormalHighlit x="38" y="252" />
+				<Pressed x="38" y="252" />
+				<PressedHighlit x="38" y="252" />
+				<Disabled x="36" y="250" />
+			</TexCoords>
+		</Button>
+
+		<Button name="Housing_Floors_Button" backgroundtexture="housing" highlighttexture="housing">
+			<Size>
+				<AbsPoint x="25" y="25" />
+			</Size>
+			<TexCoords>
+				<Normal x="65" y="250" />
+				<NormalHighlit x="67" y="252" />
+				<Pressed x="67" y="252"  />
+				<PressedHighlit x="67" y="252" />
+				<Disabled x="65" y="250" />
+			</TexCoords>
+		</Button>
+
+
+		<Button name="Housing_Stairs_Button" backgroundtexture="housing" highlighttexture="housing">
+			<Size>
+				<AbsPoint x="25" y="25" />
+			</Size>
+			<TexCoords>
+				<Normal x="4" y="279" />
+				<NormalHighlit x="6" y="281" />
+				<Pressed x="6" y="281" />
+				<PressedHighlit x="6" y="281" />
+				<Disabled x="6" y="279" />
+			</TexCoords>
+		</Button>
+
+
+		<Button name="Housing_Teleporters_Button" backgroundtexture="housing" highlighttexture="housing">
+			<Size>
+				<AbsPoint x="25" y="25" />
+			</Size>
+			<TexCoords>
+				<Normal x="36" y="279" />
+				<NormalHighlit x="38" y="281" />
+				<Pressed x="38" y="281" />
+				<PressedHighlit x="38" y="281" />
+				<Disabled x="36" y="279" />
+			</TexCoords>
+		</Button>
+
+
+		<Button name="Housing_Misc_Button" backgroundtexture="housing" highlighttexture="housing">
+			<Size>
+				<AbsPoint x="25" y="25" />
+			</Size>
+			<TexCoords>
+				<Normal x="65" y="279" />
+				<NormalHighlit x="67" y="281" />
+				<Pressed x="67" y="281" />
+				<PressedHighlit x="67" y="281" />
+				<Disabled x="65" y="279" />
+			</TexCoords>
+		</Button>
+
+			
+		<Button name="Housing_Erase_Button" backgroundtexture="housing" highlighttexture="housing">
+			<Size>
+				<AbsPoint x="25" y="25" />
+			</Size>
+			<TexCoords>
+				<Normal x="4" y="308" />
+				<NormalHighlit x="6" y="310" />
+				<Pressed x="6" y="310" />
+				<PressedHighlit x="6" y="310" />
+				<Disabled x="6" y="308" />
+			</TexCoords>
+		</Button>
+
+		<Button name="Housing_EyeDropper_Button" backgroundtexture="housing" highlighttexture="housing">
+			<Size>
+				<AbsPoint x="25" y="25" />
+			</Size>
+			<TexCoords>
+				<Normal x="36" y="308" />
+				<NormalHighlit x="38" y="310" />
+				<Pressed x="38" y="310" />
+				<PressedHighlit x="38" y="310" />
+				<Disabled x="36" y="308" />
+			</TexCoords>
+		</Button>
+
+		<Button name="Housing_Roofs_Button" backgroundtexture="housing" highlighttexture="housing">
+			<Size>
+				<AbsPoint x="27" y="25" />
+			</Size>
+			<TexCoords>
+				<Normal x="65" y="308" />
+				<NormalHighlit x="67" y="310" />
+				<Pressed x="67" y="310" />
+				<PressedHighlit x="67" y="310" />
+				<Disabled x="65" y="308" />
+			</TexCoords>
+		</Button>
+
+
+	<!-- Previous Category Button -->
+	<Button name="Housing_Previous_Category_Button" backgroundtexture="housing" highlighttexture="housing">
+			<Size>
+				<AbsPoint x="24" y="15" />
+			</Size>
+			<TexCoords>
+				<Normal x="96" y="283" />
+				<NormalHighlit x="96" y="298" />
+				<Pressed x="96" y="298" />
+				<PressedHighlit x="96" y="298" />
+				<Disabled x="96" y="283" />
+			</TexCoords>
+		</Button>
+
+
+	<!-- Change Roof Height Buttons -->
+
+	<Button name="Housing_Roof_Up_Button" backgroundtexture="housing" highlighttexture="housing">
+			<Size>
+				<AbsPoint x="36" y="50" />
+			</Size>
+			<TexCoords>
+				<Normal x="95" y="233" />
+				<NormalHighlit x="95" y="233" />
+				<Pressed x="95" y="233" />
+				<PressedHighlit x="95" y="233" />
+				<Disabled x="95" y="233" />
+			</TexCoords>
+		</Button>
+
+	<Button name="Housing_Roof_Down_Button" backgroundtexture="housing" highlighttexture="housing">
+			<Size>
+				<AbsPoint x="36" y="50" />
+			</Size>
+			<TexCoords>
+				<Normal x="135" y="233" />
+				<NormalHighlit x="135" y="233" />
+				<Pressed x="135" y="233" />
+				<PressedHighlit x="135" y="233" />
+				<Disabled x="135" y="233" />
+			</TexCoords>
+		</Button>
+
+
+
+	<!-- Visibility Icon  -->
+
+
+		<Button name="Housing_Visibility_Button" backgroundtexture="housing" highlighttexture="housing">
+			<Size>
+				<AbsPoint x="44" y="25" />
+			</Size>
+			<TexCoords>
+				<Normal x="180" y="164" />
+				<NormalHighlit x="180" y="189" />
+				<Pressed x="180" y="189" />
+				<PressedHighlit x="180" y="189" />
+				<Disabled x="180" y="164" />
+			</TexCoords>
+		</Button>
+
+
+
+
+	<!-- Change Story Buttons -->
+
+		<Button name="Housing_Bottom_Story_Button" backgroundtexture="housing" highlighttexture="housing">
+			<Size>
+				<AbsPoint x="33" y="25" />
+			</Size>
+			<TexCoords>
+				<Normal x="230" y="211" />
+				<NormalHighlit x="230" y="251" />
+				<Pressed x="230" y="251" />
+				<PressedHighlit x="230" y="251" />
+				<Disabled x="230" y="211" />
+			</TexCoords>
+		</Button>
+
+		<Button name="Housing_Middle_Story_Button" backgroundtexture="housing" highlighttexture="housing">
+			<Size>
+				<AbsPoint x="33" y="25" />
+			</Size>
+			<TexCoords>
+				<Normal x="272" y="216" />
+				<NormalHighlit x="272" y="256" />
+				<Pressed x="272" y="256" />
+				<PressedHighlit x="272" y="256" />
+				<Disabled x="266" y="216" />
+			</TexCoords>
+		</Button>
+
+		<Button name="Housing_Top_Story_Button"  backgroundtexture="housing" highlighttexture="housing">
+			<Size>
+				<AbsPoint x="33" y="25" />
+			</Size>
+			<TexCoords>
+				<Normal x="311" y="216" />
+				<NormalHighlit x="311" y="256" />
+				<Pressed x="311" y="256" />
+				<PressedHighlit x="311" y="256" />
+				<Disabled x="311" y="216" />
+			</TexCoords>
+		</Button>
+
+
+
+		<!-- Arrow Icons for Showing Door Swing Directions  -->
+
+		<DynamicImage name="Housing_Left_Up_Arrow" texturescale="1.43" texture="housing" handleinput="false">
+			<Size>
+				<AbsPoint x="30" y="30" />
+			</Size>
+			<TexCoords x="373" y="166" />
+		</DynamicImage>
+
+		<DynamicImage name="Housing_Right_Up_Arrow" texturescale="1.43" texture="housing" handleinput="false">
+			<Size>
+				<AbsPoint x="30" y="30" />
+			</Size>
+			<TexCoords x="397" y="166" />
+		</DynamicImage>
+
+		<DynamicImage name="Housing_Down_Right_Arrow" texturescale="1.43" texture="housing" handleinput="false">
+			<Size>
+				<AbsPoint x="30" y="30" />
+			</Size>
+			<TexCoords x="421" y="166" />
+		</DynamicImage>
+
+		<DynamicImage name="Housing_Down_Left_Arrow" texturescale="1.43" texture="housing" handleinput="false">
+			<Size>
+				<AbsPoint x="30" y="30" />
+			</Size>
+			<TexCoords x="443" y="166" />
+		</DynamicImage>
+
+		<DynamicImage name="Housing_Left_Down_Arrow" texturescale="1.43" texture="housing" handleinput="false">
+			<Size>
+				<AbsPoint x="30" y="30" />
+			</Size>
+			<TexCoords x="373" y="189" />
+		</DynamicImage>
+
+		<DynamicImage name="Housing_Right_Down_Arrow" texturescale="1.43" texture="housing" handleinput="false">
+			<Size>
+				<AbsPoint x="30" y="30" />
+			</Size>
+			<TexCoords x="397" y="189" />
+		</DynamicImage>
+
+		<DynamicImage name="Housing_Up_Right_Arrow" texturescale="1.43" texture="housing" handleinput="false">
+			<Size>
+				<AbsPoint x="30" y="30" />
+			</Size>
+			<TexCoords x="422" y="188" />
+		</DynamicImage>
+
+		<DynamicImage name="Housing_Up_Left_Arrow" texturescale="1.43" texture="housing" handleinput="false">
+			<Size>
+				<AbsPoint x="30" y="30" />
+			</Size>
+			<TexCoords x="445" y="188" />
+		</DynamicImage>
+
+
+		<!-- Change Story Pointer Buttons -->
+		<!-- 
+		<Button name="Housing_Top_Story_Pointer_Button" backgroundtexture="housing" highlighttexture="housing">
+			<Size>
+				<AbsPoint x="11" y="18" />
+			</Size>
+			<TexCoords>
+				<Normal x="357" y="165" />
+				<NormalHighlit x="346" y="165" />
+				<Pressed x="346" y="165" />
+				<PressedHighlit x="346" y="165" />
+				<Disabled x="357" y="165" />
+			</TexCoords>
+		</Button>
+
+		<Button name="Housing_Middle_Story_Pointer_Button" backgroundtexture="housing" highlighttexture="housing">
+			<Size>
+				<AbsPoint x="11" y="17" />
+			</Size>
+			<TexCoords>
+				<Normal x="357" y="183" />
+				<NormalHighlit x="346" y="183" />
+				<Pressed x="346" y="183" />
+				<PressedHighlit x="346" y="183" />
+				<Disabled x="357" y="183" />
+			</TexCoords>
+		</Button>
+
+		<Button name="Housing_Bottom_Story_Pointer_Button" backgroundtexture="housing" highlighttexture="housing">
+			<Size>
+				<AbsPoint x="11" y="20" />
+			</Size>
+			<TexCoords>
+				<Normal x="357" y="200" />
+				<NormalHighlit x="346" y="200" />
+				<Pressed x="346" y="200" />
+				<PressedHighlit x="346" y="200" />
+				<Disabled x="357" y="200" />
+			</TexCoords>
+		</Button>
+		-->
+	</Windows>
+</Interface>

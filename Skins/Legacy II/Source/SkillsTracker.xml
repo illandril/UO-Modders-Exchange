@@ -1,0 +1,73 @@
+<Interface xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../Interface.xsd">
+  <Scripts>
+    <Script file="Source/SkillsTracker.lua" />
+  </Scripts>
+  <Windows>
+    <Window name="SkillsTrackerSkillTemplate" movable="false">
+      <Size>
+        <AbsPoint x="250" y="16" />
+      </Size>
+      <Windows>
+        <Label name="$parentName" font="nol_UOCR_14" maxchars="64" textalign="left" handleinput="false">
+          <Size>
+            <AbsPoint x="160" y="16" />
+          </Size>
+          <Anchors>
+            <Anchor point="topleft" relativePoint="topleft" />
+          </Anchors>
+					<Color r="199" g="195" b="160" a="255" />
+        </Label>
+        <Label name="$parentValue" font="nol_UOCR_14" maxchars="64" textalign="right" handleinput="false">
+          <Size>
+            <AbsPoint x="100" y="16" />
+          </Size>
+          <Anchors>
+            <Anchor point="topright" relativePoint="topleft" relativeTo="$parentName" />
+          </Anchors>
+					<Color r="199" g="195" b="160" a="255" />
+        </Label>
+      </Windows>
+    </Window>
+
+    <Window name="SkillsTrackerWindow" movable="true">
+      <Size>
+        <AbsPoint x="20" y="20" />
+      </Size>
+      <Anchors>
+        <Anchor point="right" relativePoint="right">
+          <AbsPoint x="-10" y="0" />
+        </Anchor>
+      </Anchors>
+      <EventHandlers>
+        <EventHandler event="OnInitialize" function="SkillsTracker.Initialize" />
+        <EventHandler event="OnShutdown" function="SkillsTracker.Shutdown" />
+      </EventHandlers>
+      <Windows>
+        <Button name="$parentDragHandle" backgroundtexture="UO_Core" highlighttexture="UO_Core" handleinput="false">
+          <Size>
+            <AbsPoint x="20" y="20" />
+          </Size>
+          <Anchors>
+            <Anchor point="topleft" relativePoint="topleft" relativeTo="$parent" />
+          </Anchors>
+          <TexCoords>
+            <Normal x="201" y="390" />
+            <NormalHighlit x="201" y="367" />
+            <Pressed x="201" y="390" />
+            <PressedHighlit x="201" y="367" />
+            <Disabled x="201" y="390" />
+          </TexCoords>
+        </Button>
+        <Label name="$parentInfoText" font="nol_UOCR_14" textalign="left" handleinput="false" wordwrap="true">
+          <Size>
+            <AbsPoint x="250" y="200" />
+          </Size>
+          <Anchors>
+            <Anchor point="bottomright" relativePoint="topright" relativeTo="$parentDragHandle" />
+          </Anchors>
+					<Color r="50" g="50" b="0" a="255" />
+        </Label>
+      </Windows>
+    </Window>
+  </Windows>
+</Interface>

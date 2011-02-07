@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Interface xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../Interface.xsd">
+	<Assets>
+        <Texture name="DefaultInGameArcheryWeaponIconPack_bow" file="Icons/archery_bow.dds" />
+        <Texture name="DefaultInGameArcheryWeaponIconPack_compositebow" file="Icons/archery_compositebow.dds" />
+        <Texture name="DefaultInGameArcheryWeaponIconPack_crossbow" file="Icons/archery_crossbow.dds" />
+        <Texture name="DefaultInGameArcheryWeaponIconPack_heavycrossbow" file="Icons/archery_heavycrossbow.dds" />
+        <Texture name="DefaultInGameArcheryWeaponIconPack_magicalshortbow" file="Icons/archery_magicalshortbow.dds" />
+        <Texture name="DefaultInGameArcheryWeaponIconPack_repeatingcrossbow" file="Icons/archery_repeatingcrossbow.dds" />
+        <Texture name="DefaultInGameArcheryWeaponIconPack_yumi" file="Icons/archery_yumi.dds" />
+	</Assets>
+</Interface>

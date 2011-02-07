@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Interface xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../Interface.xsd">
+    <Windows>
+        <Window name="CustomSettingsTemplatesSpacer">
+            <Size>
+                <AbsPoint x="10" y="15" />
+            </Size>
+        </Window>
+        <ScrollWindow name="CustomSettingsScrollWindow">
+          <Size>
+            <AbsPoint x="710" y="456" />
+          </Size>
+            <Windows>
+              <VerticalScrollbar name="$parentScrollbar" inherits="StandardVertScroll" />
+              <Window name="$parentScrollChild" >
+                <Size>
+                  <AbsPoint x="695" y="456"/>
+                </Size>
+              </Window>
+           </Windows>
+        </ScrollWindow>
+        <Button name="CustomSettingsWindowTabButton" inherits="SettingsWindowTabButton" >
+          <EventHandlers>
+            <EventHandler event="OnLButtonUp" function="CustomSettingsWindow.OpenTab" />
+          </EventHandlers>
+        </Button>
+        <Window name="CustomSettingsTemplatesComboBoxSetting">
+            <Size>
+                <AbsPoint x="500" y="40" />
+            </Size>
+            <Windows>
+                <Label name="$parentLabel" font="UO_DefaultText" textalign="left">
+                    <Size>
+                        <AbsPoint x="295" y="20"/>
+                    </Size>
+                    <Anchors>
+                        <Anchor point="topleft" relativePoint="topleft" relativeTo="$parentCombo">
+                            <AbsPoint x="205" y="10" />
+                        </Anchor>
+                    </Anchors>
+                </Label>
+                <ComboBox name="$parentCombo" inherits="UO_Default_ComboBox" menuitembutton="CustomSettingsTemplatesComboBoxMenuItemButton" layer="popup">
+                    <Anchors>
+                        <Anchor point="topleft" relativePoint="topleft" relativeTo="$parent"/>
+                    </Anchors>
+                </ComboBox>
+            </Windows>
+        </Window>
+
+        <Button name="CustomSettingsTemplatesComboBoxMenuItemButton" font="UO_DefaultText" textalign="left" >
+            <Size>
+                <AbsPoint x="280" y="25" />
+            </Size>
+            <TextColors>
+                <Normal r="255" g="255" b="255" a="255" />
+                <NormalHighlit r="250" g="213" b="63" a="255" />
+                <Pressed r="250" g="213" b="63" a="255" />
+                <PressedHighlit r="250" g="213" b="63" a="255" />
+                <Disabled r="92" g="92" b="92" a="255" />
+            </TextColors>
+            <TextOffset x="10" y="7" />
+        </Button>
+
+        <Window name="CustomSettingsTemplatesToggleSettingsButton">
+          <Size>
+            <AbsPoint x="400" y="32" />
+          </Size>
+          <Windows>
+            <Button name="$parentButton" inherits="UO_Default_Check_Button">
+              <Anchors>
+                <Anchor point="left" relativePoint="left">
+                  <AbsPoint x="5" y="0" />
+                </Anchor>
+              </Anchors>
+            </Button>
+            <Label name="$parentLabel" inherits="ItemTitle">
+              <Size>
+                <AbsPoint x="700" y="16" />
+                <!-- 325 = x -->
+              </Size>
+              <Anchors>
+                <Anchor point="right" relativePoint="left" relativeTo="$parentButton">
+                  <AbsPoint x="5" y="3" />
+                </Anchor>
+              </Anchors>
+              <Color r="255" g="255" b="255" a="255" />
+            </Label>
+          </Windows>
+        </Window>
+        
+        <Window name="CustomSettingsTemplatesSliderSetting">
+            <Size>
+                <AbsPoint x="400" y="30" />
+            </Size>
+            <Windows>
+                <Label name="$parentLabel" font="UO_DefaultText" maxchars="64" textalign="left">
+                    <Size>
+                        <AbsPoint x="700" y="16"/>
+                    </Size>
+                    <Anchors>
+                        <Anchor point="topright" relativePoint="topleft" relativeTo="$parentSliderBar">
+                            <AbsPoint x="25" y="0" />
+                        </Anchor>
+                    </Anchors>
+                    <Color r="255" g="255" b="255" a="255" />
+                </Label>
+                <SliderBar name="$parentSliderBar" inherits="UO_Default_Horizontal_SliderBar">
+                    <Anchors>
+                        <Anchor point="topright" relativePoint="topleft" relativeTo="$parentVal">
+                            <AbsPoint x="25" y="0" />
+                        </Anchor>
+                    </Anchors>
+                    <EventHandlers>
+                        <EventHandler event="OnLButtonUp" function="CustomSettingsWindow.SliderSettingPicked" />
+                    </EventHandlers>
+                </SliderBar>
+                <Label name="$parentVal" font="UO_DefaultText" maxchars="64" textalign="right">
+                    <Size>
+                        <AbsPoint x="35" y="16"/>
+                    </Size>
+                    <Anchors>
+                        <Anchor point="topleft" relativePoint="topleft" relativeTo="$parent">
+                            <AbsPoint x="5" y="5" />
+                        </Anchor>
+                    </Anchors>
+                    <Color r="255" g="255" b="255" a="255" />
+                </Label>
+            </Windows>
+        </Window>
+                
+        <Window name="CustomSettingsTemplatesColorSetting">
+          <Size>
+            <AbsPoint x="355" y="26" />
+          </Size>
+          <Windows>
+            <Button name="$parentColor" sticky="false" backgroundtexture="CC_Widgets" highlighttexture="CC_Widgets">
+                <Size>
+                  <AbsPoint x="22" y="22" />
+                </Size>
+                <Anchors>
+                    <Anchor point="topleft" relativePoint="topleft" relativeTo="$parent"/>
+                </Anchors>
+                <TexCoords>
+                    <Normal x="502" y="306" />
+                    <NormalHighlit x="502" y="125" />
+                    <Pressed x="502" y="306" />
+                    <PressedHighlit x="502" y="306" />
+                    <Disabled x="502" y="306" />
+                </TexCoords>
+                <EventHandlers>
+                    <EventHandler event="OnLButtonUp" function="CustomSettingsWindow.ShowColorPicker" />
+                </EventHandlers>
+            </Button>
+            <Label name="$parentLabel" inherits="ItemTitle">
+              <Size>
+                <AbsPoint x="700" y="16" />
+              </Size>
+              <Anchors>
+                <Anchor point="right" relativePoint="left" relativeTo="$parentColor">
+                  <AbsPoint x="5" y="3" />
+                </Anchor>
+              </Anchors>
+              <Color r="255" g="255" b="255" a="255" />
+            </Label>
+          </Windows>
+        </Window>
+        
+        <Window name="CustomSettingsTemplatesFontSetting">
+            <Size>
+                <AbsPoint x="500" y="60" />
+            </Size>
+            <Windows>
+                <Label name="$parentName" font="UO_DefaultText" textalign="left">
+                    <Size>
+                        <AbsPoint x="400" y="20"/>
+                    </Size>
+                    <Anchors>
+                        <Anchor point="right" relativePoint="left" relativeTo="$parentButton">
+                            <AbsPoint x="10" y="0" />
+                        </Anchor>
+                    </Anchors>
+                </Label>
+                <Label name="$parentPreview" font="UO_DefaultText" textalign="left">
+                    <Size>
+                        <AbsPoint x="500" y="20"/>
+                    </Size>
+                    <Anchors>
+                        <Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentButton">
+                            <AbsPoint x="0" y="0" />
+                        </Anchor>
+                    </Anchors>
+                </Label>
+                <Button name="$parentButton" inherits="UO_Default_Medium_Select_Button">
+                    <Anchors>
+                        <Anchor point="topleft" relativePoint="topleft" relativeTo="$parent"/>
+                    </Anchors>
+                    <EventHandlers>
+                        <EventHandler event="OnLButtonUp" function="CustomSettingsWindow.ShowFontMenu" />
+                    </EventHandlers>
+                </Button>
+            </Windows>
+        </Window>
+    </Windows>
+</Interface>

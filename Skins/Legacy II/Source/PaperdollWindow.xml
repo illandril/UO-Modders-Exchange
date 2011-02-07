@@ -1,0 +1,858 @@
+<Interface xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../Interface.xsd">
+  <Include file="LegacyFiles/Source/PaperdollWindowTemplate.xml" />
+  <Assets>
+   <Texture name="Paperdoll_Textures" file="LegacyFiles/Textures/ClassicPaperdoll.dds" />
+   <Texture name="Legacy_Gumps_01" file="LegacyFiles/Textures/legacy-gumps-01.dds" />
+  </Assets>
+  <Scripts>
+    <Script file="Source/PaperdollWindow.lua" />
+  </Scripts>
+  
+  <Windows>
+    <Button name="PaperDollTabButton" drawchildrenfirst="true" font="Avatar_14" >
+      <Size>
+        <AbsPoint x="100" y="24" />
+      </Size>
+      <TextColors>
+        <Normal r="100" g="100" b="100" a="255"/>
+        <Disabled r="200" g="215" b="239" a="255"/>
+      </TextColors>
+      <TextOffset x="0" y="0"/>
+      <Windows>
+        <HorizontalResizeImage name="$parentTab" texture="Paperdoll_Textures" inherits="UO_Legacy_Paperdoll_Tab_Enabled" texturescale="1.0" handleinput="false">
+          <Size>
+            <AbsPoint x="100" y="24" />
+          </Size>
+          <Anchors>
+            <Anchor point="topleft" relativePoint="topleft"/>
+            <Anchor point="bottomright" relativePoint="bottomright" />
+          </Anchors>
+        </HorizontalResizeImage>
+        <HorizontalResizeImage name="$parentTabSelected" texture="Paperdoll_Textures" inherits="UO_Legacy_Paperdoll_Tab_Disabled" texturescale="1.0" handleinput="false">
+          <Size>
+            <AbsPoint x="100" y="24" />
+          </Size>
+          <Anchors>
+            <Anchor point="topleft" relativePoint="topleft"/>
+            <Anchor point="bottomright" relativePoint="bottomright" />
+          </Anchors>
+        </HorizontalResizeImage>
+      </Windows>
+      <EventHandlers>
+        <EventHandler event="OnLButtonUp" function="PaperdollWindow.ToggleTab" />
+      </EventHandlers>
+    </Button>
+
+<!-- Item slots -->
+    <Button name="ItemSlotButtonDef" draganddrop="true" layer="secondary">
+      <Size>
+        <AbsPoint x="48" y="48" />
+      </Size>
+      <Windows>
+        <DynamicImage name="$parentSquareBg" texture="Paperdoll_Textures" texturescale="1.0" handleinput="false">
+          <Size>
+            <AbsPoint x="48" y="48" />
+          </Size>
+          <Anchors>
+            <Anchor point="center" relativePoint="center" relativeTo="">
+              <AbsPoint x="0" y="0" />
+            </Anchor>
+          </Anchors>
+          <TexCoords x="300" y="774" />
+        </DynamicImage>
+        <DynamicImage name="$parentSquareIcon" texturescale="0.8" handleinput="false" layer="popup">
+          <Size>
+            <AbsPoint x="58" y="58" />
+          </Size>
+          <Anchors>
+            <Anchor point="center" relativePoint="center" relativeTo="">
+              <AbsPoint x="0" y="0" />
+            </Anchor>
+          </Anchors>
+        </DynamicImage>
+      </Windows>
+      <EventHandlers>
+        <EventHandler event="OnLButtonDown" function="PaperdollWindow.SlotLButtonDown" />
+        <EventHandler event="OnLButtonDblClk" function="PaperdollWindow.SlotLButtonDblClk" />
+        <EventHandler event="OnRButtonDown" function="PaperdollWindow.SlotRButtonDown" />
+        <EventHandler event="OnMouseOver" function="PaperdollWindow.ItemMouseOver" />
+        <EventHandler event="OnMouseOverEnd" function="ItemProperties.ClearMouseOverItem" />
+      </EventHandlers>
+    </Button>
+
+    <Window name="PaperdollWindow" movable="true"  >
+      <Size>
+        <AbsPoint x="366" y="615" />
+      </Size>
+      <Anchors>
+        <Anchor point="topleft" relativePoint="topleft">
+          <AbsPoint x="1025" y="0" />
+        </Anchor>
+      </Anchors>
+      <EventHandlers>
+        <EventHandler event="OnInitialize" function="PaperdollWindow.Initialize" />
+        <EventHandler event="OnShutdown" function="PaperdollWindow.Shutdown" />
+        <EventHandler event="OnUpdate" function="PaperdollWindow.OnUpdate" />
+      </EventHandlers>
+      <Windows>
+      
+<!-- Default chrome. Alter this at your own peril. -->
+        <Window name="$parentChrome" inherits="Illandril_PaperdollWindow">
+          <Anchors>
+            <Anchor point="topleft" relativePoint="topleft"/>
+            <Anchor point="bottomright" relativePoint="bottomright"/>
+          </Anchors>
+        </Window>
+<!-- End of default chrome boilerplate code -->
+
+<!-- Tabs -->
+        <Button name="$parentTabButton1" inherits="PaperDollTabButton" id="1">
+          <Size>
+            <AbsPoint x="65" y="24" />  <!-- Set size of tab -->
+          </Size>
+          <Anchors>
+            <Anchor point="topleft" relativePoint="topleft" relativeTo="$parent">
+              <AbsPoint x="80" y="8" />  <!-- Set position for tabs -->
+            </Anchor>
+          </Anchors>
+        </Button>
+        <Button name="$parentTabButton2" inherits="PaperDollTabButton" id="2">
+          <Size>
+            <AbsPoint x="80" y="24" />
+          </Size>
+          <Anchors>
+            <Anchor point="topright" relativePoint="topleft" relativeTo="$parentTabButton1">
+              <AbsPoint x="0" y="0" />
+            </Anchor>
+          </Anchors>
+        </Button>
+        <Button name="$parentTabButton3" inherits="PaperDollTabButton" id="3">
+          <Size>
+            <AbsPoint x="65" y="24" />
+          </Size>
+          <Anchors>
+            <Anchor point="topright" relativePoint="topleft" relativeTo="$parentTabButton2">
+              <AbsPoint x="0" y="0" />
+            </Anchor>
+          </Anchors>
+        </Button>
+
+        <Window name="$parentTabWindow1" moveable="false"  draganddrop="true" >
+          <Size>
+            <AbsPoint x="10" y="10" />
+          </Size>
+          <Anchors>
+            <Anchor point="topleft" relativePoint="topleft" relativeTo="$parent">
+              <AbsPoint x="16" y="74" />
+            </Anchor>
+
+            <Anchor point="bottomright" relativePoint="bottomright" relativeTo="$parent">
+              <AbsPoint x="-20" y="-16" />
+            </Anchor>
+          </Anchors>
+          <EventHandlers>
+            <EventHandler event="OnLButtonUp" function="PaperdollWindow.ItemRelease" />
+          </EventHandlers>
+          <Windows>
+<!-- End Tabs -->
+
+<!--Image of the paperdoll -->
+            <DynamicImage name="$parentTexture" texture="" texturescale="1.00" handleinput="true"  sticky="false" draganddrop="true" popable="false" layer="secondary">
+              <Size>
+                <AbsPoint x="10" y="0" />
+              </Size>
+              <Anchors>
+                <Anchor point="center" relativePoint="center">
+                  <AbsPoint x="0" y="0" />
+                </Anchor>
+              </Anchors>
+              <TexCoords x="0" y="0" />
+              <EventHandlers>
+                <EventHandler event="OnLButtonDown" function="PaperdollWindow.OnPaperdollTextureLButtonDown" />
+                <EventHandler event="OnLButtonUp" function="PaperdollWindow.ItemRelease" />
+                <EventHandler event="OnLButtonDblClk" function="PaperdollWindow.OnPaperdollTextureLButtonDblClk" />
+                <EventHandler event="OnRButtonDown" function="PaperdollWindow.OnPaperdollTextureRButtonDown" />
+                <EventHandler event="OnMouseOver" function="PaperdollWindow.OnPaperdollTextureMouseOver" />
+                <EventHandler event="OnMouseOverEnd" function="PaperdollWindow.OnPaperdollTextureMouseEnd" />
+              </EventHandlers>
+            </DynamicImage>
+
+<!-- Head Slot -->
+            <Button name="$parentItemSlotButton1" inherits="ItemSlotButtonDef" id="1" >
+              <Anchors>
+                <Anchor point="topleft" relativePoint="topleft">
+                  <AbsPoint x="2" y="15" />
+                </Anchor>
+              </Anchors>
+              <TexCoords>
+                <Normal texture="Paperdoll_Textures" x="300" y="630" />
+                <Pressed texture="Paperdoll_Textures" x="300" y="630" />
+                <Disabled texture="Paperdoll_Textures" x="300" y="630" />
+              </TexCoords>
+            </Button>
+
+<!-- Neck Slot -->
+            <Button name="$parentItemSlotButton2" inherits="ItemSlotButtonDef" id="2" >
+              <Anchors>
+                <Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentItemSlotButton1" />
+              </Anchors>
+              <TexCoords>
+                <Normal texture="Paperdoll_Textures" x="300" y="678" />
+                <Pressed texture="Paperdoll_Textures" x="300" y="678" />
+                <Disabled texture="Paperdoll_Textures" x="300" y="678" />
+              </TexCoords>
+            </Button>
+
+<!-- Arms Slot -->
+            <Button name="$parentItemSlotButton3" inherits="ItemSlotButtonDef" id="3" >
+              <Anchors>
+                <Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentItemSlotButton2" />
+              </Anchors>
+              <TexCoords>
+                <Normal texture="Paperdoll_Textures" x="300" y="726" />
+                <Pressed texture="Paperdoll_Textures" x="300" y="726" />
+                <Disabled texture="Paperdoll_Textures" x="300" y="726" />
+              </TexCoords>
+            </Button>
+
+<!-- Right Hand Slot -->
+            <Button name="$parentItemSlotButton4" inherits="ItemSlotButtonDef" id="4" >
+              <Anchors>
+                <Anchor point="bottomleft" relativePoint="bottomleft">
+                  <AbsPoint x="-5" y="-150" />
+                </Anchor>
+              </Anchors>
+              <TexCoords>
+                <Normal texture="Paperdoll_Textures" x="348" y="630" />
+                <Pressed texture="Paperdoll_Textures" x="348" y="630" />
+                <Disabled texture="Paperdoll_Textures" x="348" y="630" />
+              </TexCoords>
+            </Button>
+
+<!-- Ring Slot -->
+            <Button name="$parentItemSlotButton5" inherits="ItemSlotButtonDef" id="5" >
+              <Anchors>
+                <Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentItemSlotButton3" />
+              </Anchors>
+              <TexCoords>
+                <Normal texture="Paperdoll_Textures" x="348" y="678" />
+                <Pressed texture="Paperdoll_Textures" x="348" y="678" />
+                <Disabled texture="Paperdoll_Textures" x="348" y="678" />
+              </TexCoords>
+            </Button>
+
+<!-- Legs Slot -->
+            <Button name="$parentItemSlotButton6" inherits="ItemSlotButtonDef" id="6" >
+              <Anchors>
+                <Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentItemSlotButton11" />
+              </Anchors>
+              <TexCoords>
+                <Normal texture="Paperdoll_Textures" x="348" y="726" />
+                <Pressed texture="Paperdoll_Textures" x="348" y="726" />
+                <Disabled texture="Paperdoll_Textures" x="348" y="726" />
+              </TexCoords>
+            </Button>
+
+<!-- Earrings Slot -->
+            <Button name="$parentItemSlotButton7" inherits="ItemSlotButtonDef" id="7" >
+              <Anchors>
+                <Anchor point="topright" relativePoint="topright">
+                  <AbsPoint x="-3" y="15" />
+                </Anchor>
+              </Anchors>
+              <TexCoords>
+                <Normal texture="Paperdoll_Textures" x="396" y="630" />
+                <Pressed texture="Paperdoll_Textures" x="396" y="630" />
+                <Disabled texture="Paperdoll_Textures" x="396" y="630" />
+              </TexCoords>
+            </Button>
+
+<!-- Chest Slot -->
+            <Button name="$parentItemSlotButton8" inherits="ItemSlotButtonDef" id="8" >
+              <Anchors>
+                <Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentItemSlotButton7" />
+              </Anchors>
+              <TexCoords>
+                <Normal texture="Paperdoll_Textures" x="396" y="678" />
+                <Pressed texture="Paperdoll_Textures" x="396" y="678" />
+                <Disabled texture="Paperdoll_Textures" x="396" y="678" />
+              </TexCoords>
+            </Button>
+
+<!-- Bracelet Slot -->
+            <Button name="$parentItemSlotButton9" inherits="ItemSlotButtonDef" id="9" >
+              <Anchors>
+                <Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentItemSlotButton8" />
+              </Anchors>
+              <TexCoords>
+                <Normal texture="Paperdoll_Textures" x="396" y="726" />
+                <Pressed texture="Paperdoll_Textures" x="396" y="726" />
+                <Disabled texture="Paperdoll_Textures" x="396" y="726" />
+              </TexCoords>
+            </Button>
+
+<!-- Right Weapon Slot -->
+            <Button name="$parentItemSlotButton10" inherits="ItemSlotButtonDef" id="10" >
+              <Anchors>
+                <Anchor point="topright" relativePoint="topleft" relativeTo="$parentItemSlotButton4" />
+              </Anchors>
+              <TexCoords>
+                <Normal texture="Paperdoll_Textures" x="444" y="630" />
+                <Pressed texture="Paperdoll_Textures" x="444" y="630" />
+                <Disabled texture="Paperdoll_Textures" x="444" y="630" />
+              </TexCoords>
+            </Button>
+
+<!-- Gloves Slot -->
+            <Button name="$parentItemSlotButton11" inherits="ItemSlotButtonDef" id="11" >
+              <Anchors>
+                <Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentItemSlotButton5" />
+              </Anchors>
+              <TexCoords>
+                <Normal texture="Paperdoll_Textures" x="444" y="678" />
+                <Pressed texture="Paperdoll_Textures" x="444" y="678" />
+                <Disabled texture="Paperdoll_Textures" x="444" y="678" />
+              </TexCoords>
+            </Button>
+
+<!-- Talisman Slot -->
+            <Button name="$parentItemSlotButton12" inherits="ItemSlotButtonDef" id="12" >
+              <Anchors>
+                <Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentItemSlotButton9" />
+              </Anchors>
+              <TexCoords>
+                <Normal texture="Paperdoll_Textures" x="444" y="726" />
+                <Pressed texture="Paperdoll_Textures" x="444" y="726" />
+                <Disabled texture="Paperdoll_Textures" x="444" y="726" />
+              </TexCoords>
+            </Button>
+          </Windows>
+        </Window>
+
+<!-- **Clothing Tab** -->
+        <Window name="$parentTabWindow2" moveable="false"  draganddrop="true" >
+          <Size>
+            <AbsPoint x="10" y="10" />
+          </Size>
+          <Anchors>
+            <Anchor point="topleft" relativePoint="topleft" relativeTo="$parent">
+              <AbsPoint x="16" y="74" />
+            </Anchor>
+
+            <Anchor point="bottomright" relativePoint="bottomright" relativeTo="$parent">
+              <AbsPoint x="-20" y="-16" />
+            </Anchor>
+          </Anchors>
+          <EventHandlers>
+            <EventHandler event="OnLButtonUp" function="PaperdollWindow.ItemRelease" />
+          </EventHandlers>
+          <Windows>
+
+<!--Image of the paperdoll -->
+            <DynamicImage name="$parentTexture" texture="" handleinput="true"  sticky="false" draganddrop="true" popable="false" layer="secondary">
+              <Size>
+                <AbsPoint x="0" y="0" />
+              </Size>
+              <Anchors>
+                <Anchor point="center" relativePoint="center">
+                  <AbsPoint x="0" y="0" />
+                </Anchor>
+              </Anchors>
+              <TexCoords x="0" y="0" />
+              <EventHandlers>
+                <EventHandler event="OnLButtonDown" function="PaperdollWindow.OnPaperdollTextureLButtonDown" />
+                <EventHandler event="OnLButtonUp" function="PaperdollWindow.ItemRelease" />
+                <EventHandler event="OnLButtonDblClk" function="PaperdollWindow.OnPaperdollTextureLButtonDblClk" />
+                <EventHandler event="OnRButtonDown" function="PaperdollWindow.OnPaperdollTextureRButtonDown" />
+                <EventHandler event="OnMouseOver" function="PaperdollWindow.OnPaperdollTextureMouseOver" />
+                <EventHandler event="OnMouseOverEnd" function="PaperdollWindow.OnPaperdollTextureMouseEnd" />
+              </EventHandlers>
+            </DynamicImage>
+
+<!-- Feet Slot -->
+            <Button name="$parentItemSlotButton13" inherits="ItemSlotButtonDef" id="13" >
+              <Anchors>
+                <Anchor point="topleft" relativePoint="topleft">
+                  <AbsPoint x="2" y="15" />
+                </Anchor>
+              </Anchors>
+              <TexCoords>
+                <Normal texture="Paperdoll_Textures" x="300" y="830" />
+                <Pressed texture="Paperdoll_Textures" x="300" y="830" />
+                <Disabled texture="Paperdoll_Textures" x="300" y="830" />
+              </TexCoords>
+            </Button>
+<!-- Shirt Slot -->
+            <Button name="$parentItemSlotButton14" inherits="ItemSlotButtonDef" id="14" >
+              <Anchors>
+                <Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentItemSlotButton13" />
+              </Anchors>
+              <TexCoords>
+                <Normal texture="Paperdoll_Textures" x="348" y="830" />
+                <Pressed texture="Paperdoll_Textures" x="348" y="830" />
+                <Disabled texture="Paperdoll_Textures" x="348" y="830" />
+              </TexCoords>
+            </Button>
+<!-- Belt Slot -->
+            <Button name="$parentItemSlotButton15" inherits="ItemSlotButtonDef" id="15" >
+              <Anchors>
+                <Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentItemSlotButton14" />
+              </Anchors>
+              <TexCoords>
+                <Normal texture="Paperdoll_Textures" x="396" y="830" />
+                <Pressed texture="Paperdoll_Textures" x="396" y="830" />
+                <Disabled texture="Paperdoll_Textures" x="396" y="830" />
+              </TexCoords>
+            </Button>
+<!-- Overshirt Slot -->
+            <Button name="$parentItemSlotButton16" inherits="ItemSlotButtonDef" id="16" >
+              <Anchors>
+                <Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentItemSlotButton15" />
+              </Anchors>
+              <TexCoords>
+                <Normal texture="Paperdoll_Textures" x="444" y="830" />
+                <Pressed texture="Paperdoll_Textures" x="444" y="830" />
+                <Disabled texture="Paperdoll_Textures" x="444" y="830" />
+              </TexCoords>
+            </Button>
+<!-- Cloak Slot -->
+            <Button name="$parentItemSlotButton17" inherits="ItemSlotButtonDef" id="17" >
+              <Anchors>
+                <Anchor point="topright" relativePoint="topright">
+                  <AbsPoint x="-3" y="15" />
+                </Anchor>
+              </Anchors>
+              <TexCoords>
+                <Normal texture="Paperdoll_Textures" x="300" y="878" />
+                <Pressed texture="Paperdoll_Textures" x="300" y="878" />
+                <Disabled texture="Paperdoll_Textures" x="300" y="878" />
+              </TexCoords>
+            </Button>
+<!-- Robe/Dress Slot -->
+            <Button name="$parentItemSlotButton18" inherits="ItemSlotButtonDef" id="18" >
+              <Anchors>
+                <Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentItemSlotButton17" />
+              </Anchors>
+              <TexCoords>
+                <Normal texture="Paperdoll_Textures" x="348" y="878" />
+                <Pressed texture="Paperdoll_Textures" x="348" y="878" />
+                <Disabled texture="Paperdoll_Textures" x="348" y="878" />
+              </TexCoords>
+            </Button>
+<!-- Skirt Slot -->
+            <Button name="$parentItemSlotButton19" inherits="ItemSlotButtonDef" id="19" >
+              <Anchors>
+                <Anchor point="bottomleft" relativePoint="topleft" relativeTo="$parentItemSlotButton18" />
+              </Anchors>
+              <TexCoords>
+                <Normal texture="Paperdoll_Textures" x="396" y="878" />
+                <Pressed texture="Paperdoll_Textures" x="396" y="878" />
+                <Disabled texture="Paperdoll_Textures" x="396" y="878" />
+              </TexCoords>
+            </Button>
+          </Windows>
+        </Window>
+<!-- End Slots -->
+
+<!-- Profile window -->
+        <Window name="$parentTabWindow3" moveable="false"  draganddrop="true" >
+          <Size>
+            <AbsPoint x="10" y="10" />
+          </Size>
+          <Anchors>
+            <Anchor point="topleft" relativePoint="topleft" relativeTo="$parent">
+              <AbsPoint x="16" y="74" />
+            </Anchor>
+            <Anchor point="bottomright" relativePoint="bottomright" relativeTo="$parent">
+              <AbsPoint x="-20" y="-16" />
+            </Anchor>
+          </Anchors>
+          <Windows>
+
+<!-- Profile Edit -->
+            <Window name="$parentProfileEdit" movable="false" >
+              <Size><!-- Absolute size of box that text/edting sits in.  Positioned in the middle of the scroll -->
+                <AbsPoint x="250" y="280" />
+              </Size>
+              <Anchors>
+                <Anchor point="topleft" relativePoint="topleft">
+                  <AbsPoint x="17" y="-20" />
+                </Anchor>
+              </Anchors>
+              
+              <Windows>
+								<!-- Inner Frame Boilerplate -->
+                <DynamicImage name="$parentFrame" texture="Legacy_Gumps_01" handleinput="false" >
+                  <Size>
+        						<AbsPoint x="300" y="300" />
+      						</Size>
+      						<Anchors>
+										<Anchor point="topleft" relativePoint="topleft" relativeTo="$parentProfileView">
+											<AbsPoint x="0" y="0" />
+										</Anchor>
+									</Anchors>
+      						<TexCoords x="0" y="0"/>
+                </DynamicImage>
+                
+                <EditBox name="$parentText" font="nol_Avatar_16" maxchars="2048" scrolling="vert">
+                  <Size>
+                    <AbsPoint x="200" y="250" />
+                  </Size>
+                  <Anchors>
+<!-- Position of profile text -->
+                    <Anchor point="topleft" relativePoint="topleft">
+                      <AbsPoint x="50" y="40" />  
+                    </Anchor>
+                  </Anchors>
+                </EditBox>
+              </Windows>
+            </Window>
+
+<!-- Profile View -->
+            <Window name="$parentProfileView" movable="false" >
+              <Size>
+                <AbsPoint x="250" y="250" />
+              </Size>
+              <Anchors>
+                <Anchor point="topleft" relativePoint="topleft">
+                  <AbsPoint x="0" y="0" />
+                </Anchor>
+              </Anchors>
+              <Windows>
+								<!-- Inner Frame Boilerplate -->
+                <DynamicImage name="$parentFrame" texture="Legacy_Gumps_01" handleinput="false" >
+                  <Size>
+        						<AbsPoint x="300" y="34" />
+      						</Size>
+      						<Anchors>
+										<Anchor point="topleft" relativePoint="topleft" relativeTo="$parentProfileView">
+											<AbsPoint x="0" y="300" />
+										</Anchor>
+									</Anchors>
+      						<TexCoords x="0" y="300"/>
+                </DynamicImage>
+                
+                <ScrollWindow name="$parentScroll" childscrollwindow="$parentChild" scrollbar="$parentScrollbar" lineheight="60"  draganddrop="true">
+                  <Size>
+                    <AbsPoint x="250" y="250" />
+                  </Size>
+                  <Anchors>
+                    <Anchor point="topleft" relativePoint="topleft">
+                      <AbsPoint x="0" y="0" />
+                    </Anchor>
+                  </Anchors>
+                  <Windows>
+                    <VerticalScrollbar name="$parentScrollbar" inherits="StandardVertScroll" />
+                    <Window name ="$parentChild" handleinput="false">
+                      <Size>
+                        <AbsPoint x="250" y="0"/>
+                      </Size>
+                      <Windows>
+                        <Label name="$parentText" font="Avatar_16" textalign="left" autoresize="true" maxchars="1024" linespacing="10" wordwrap="true" >
+                          <Size>
+                            <AbsPoint x="250" y="0" />
+                          </Size>
+                          <Anchors>
+                            <Anchor point="topleft" relativePoint="topleft">
+                            </Anchor>
+                          </Anchors>
+                          <Color r="155" g="155" b="0" a="255" />
+                        </Label>
+                      </Windows>
+                    </Window>
+                  </Windows>
+                </ScrollWindow>
+                
+              </Windows>
+            </Window>
+            
+<!-- Profile - Age -->
+                <DynamicImage name="$parentFrameBot" texture="Legacy_Gumps_01" handleinput="false" >
+                  <Size>
+        						<AbsPoint x="300" y="34" />
+      						</Size>
+      						<Anchors>
+										<Anchor point="topleft" relativePoint="topleft">
+											<AbsPoint x="17" y="280" />
+										</Anchor>
+									</Anchors>
+      						<TexCoords x="0" y="300"/>
+                </DynamicImage>
+                
+            <Label name="$parentAge" font="nol_Avatar_15" maxchars="128" textalign="center" wordwrap="true">
+              <Size>
+                <AbsPoint x="230" y="70"/>
+              </Size>
+              <Anchors>
+                <Anchor point="bottom" relativePoint="top" relativeTo="$parentProfileEdit" >
+                  <AbsPoint x="5" y="8"/>
+                </Anchor>
+              </Anchors>
+              <Color r="60" g="60" b="0" a="255" />
+            </Label>
+
+						<Label name="$parentProfileLabel" font="nol_Avatar_15" maxchars="128" textalign="center" wordwrap="true">
+              <Size>
+                <AbsPoint x="230" y="10"/>
+              </Size>
+              <Anchors>
+                <Anchor point="top" relativePoint="top" relativeTo="$parentProfileEdit" >
+                  <AbsPoint x="5" y="8"/>
+                </Anchor>
+              </Anchors>
+              <Color r="255" g="255" b="255" a="255" />
+            </Label>
+          </Windows>
+        </Window>
+
+<!-- Menu buttons -->
+        <VerticalResizeImage name="$parent_ButtonAreaBackground" layer="secondary" handleinput="false" texture="Paperdoll_Textures">
+          <Anchors>
+            <Anchor point="bottomright" relativePoint="bottomright">
+              <AbsPoint x="-17" y="-69" />
+            </Anchor>
+          </Anchors>
+          <Size>
+            <AbsPoint x="86" y="270"/>
+          </Size>
+          <Sizes top="64" middle="89" bottom="1" />
+          <TexCoords>
+            <Top x="377" y="403" />
+            <Middle x="377" y="461" />
+            <Bottom x="377" y="462" />
+          </TexCoords>
+        </VerticalResizeImage>
+
+        <Button name="$parentToggleInventory" sticky="false" backgroundtexture="hud_image" highlighttexture="hud_image" layer="secondary" popable="false" draganddrop="true" >
+          <Size>
+            <AbsPoint x="64" y="63" />
+          </Size>
+          <Anchors>
+            <Anchor point="bottomright" relativePoint="bottomright">
+              <AbsPoint x="-25" y="-70" />
+            </Anchor>
+          </Anchors>
+          <TexCoords>
+            <Normal x="330" y="383" />
+            <NormalHighlit x="392" y="383" />
+            <Pressed x="392" y="383" />
+            <PressedHighlit x="392" y="383" />
+          </TexCoords>
+          <EventHandlers>
+            <EventHandler event="OnLButtonUp" function="PaperdollWindow.ToggleInventoryWindow" />
+          </EventHandlers>
+        </Button>
+
+				<Button name="$parentToggleCharacterAbilities" sticky="false" backgroundtexture="Legacy_Buttons" highlighttexture="Legacy_Buttons" layer="secondary" popable="false">
+          <Size>
+            <AbsPoint x="64" y="21" />
+          </Size>
+          <Anchors>
+            <Anchor point="bottomright" relativePoint="bottomright">
+              <AbsPoint x="-25" y="-135" />
+            </Anchor>
+          </Anchors>
+          <TexCoords>
+            <Normal x="0" y="807" />
+            <NormalHighlit x="64" y="807" />
+            <Pressed x="128" y="807" />
+            <PressedHighlit x="128" y="807" />
+          </TexCoords>
+          <EventHandlers>
+            <EventHandler event="OnLButtonUp" function="PaperdollWindow.ToggleCharacterAbilities" />
+            <EventHandler event="OnMouseOver" function="PaperdollWindow.OnMouseOverToggleCharacterAbilities" />
+          </EventHandlers>
+        </Button>
+                
+        <Button name="$parentToggleCharacterSheet" sticky="false" backgroundtexture="Paperdoll_Textures" highlighttexture="Paperdoll_Textures" layer="secondary" popable="false">
+          <Size>
+            <AbsPoint x="64" y="21" />
+          </Size>
+          <Anchors>
+            <Anchor point="topleft" relativePoint="bottomleft" relativeTo="$parentToggleCharacterAbilities">
+              <AbsPoint x="0" y="-1" />
+            </Anchor>
+          </Anchors>
+          <TexCoords>
+            <Normal x="0" y="942" />
+            <NormalHighlit x="64" y="942" />
+            <Pressed x="128" y="942" />
+            <PressedHighlit x="128" y="942" />
+          </TexCoords>
+          <EventHandlers>
+            <EventHandler event="OnLButtonUp" function="PaperdollWindow.ToggleCharacterSheet" />
+            <EventHandler event="OnMouseOver" function="PaperdollWindow.OnMouseOverToggleCharacterSheet" />
+          </EventHandlers>
+        </Button>
+
+        <Button name="$parentToggleGuild" sticky="false" backgroundtexture="Paperdoll_Textures" highlighttexture="Paperdoll_Textures" layer="secondary" popable="false">
+          <Size>
+            <AbsPoint x="64" y="21" />
+          </Size>
+          <Anchors>
+            <Anchor point="topleft" relativePoint="bottomleft" relativeTo="$parentToggleCharacterSheet">
+              <AbsPoint x="0" y="-1" />
+            </Anchor>
+          </Anchors>
+          <TexCoords>
+            <Normal x="0" y="787" />
+            <NormalHighlit x="64" y="787" />
+            <Pressed x="128" y="787" />
+            <PressedHighlit x="128" y="787" />
+          </TexCoords>
+          <EventHandlers>
+            <EventHandler event="OnLButtonUp" function="MenuBarWindow.ToggleGuildWindow" />
+            <EventHandler event="OnMouseOver" function="MenuBarWindow.OnMouseoverMenuBtn" />
+          </EventHandlers>
+        </Button>
+
+        <Button name="$parentToggleSkills" sticky="false" backgroundtexture="Paperdoll_Textures" highlighttexture="Paperdoll_Textures" layer="secondary" popable="false">
+          <Size>
+            <AbsPoint x="64" y="21" />
+          </Size>
+          <Anchors>
+            <Anchor point="topleft" relativePoint="bottomleft" relativeTo="$parentToggleGuild">
+              <AbsPoint x="0" y="-1" />
+            </Anchor>
+          </Anchors>
+          <TexCoords>
+            <Normal x="0" y="809" />
+            <NormalHighlit x="64" y="809" />
+            <Pressed x="128" y="809" />
+            <PressedHighlit x="128" y="809" />
+          </TexCoords>
+          <EventHandlers>
+            <EventHandler event="OnLButtonUp" function="MenuBarWindow.ToggleSkillsWindow" />
+            <EventHandler event="OnMouseOver" function="MenuBarWindow.OnMouseoverMenuBtn" />
+          </EventHandlers>
+        </Button>
+
+        <Button name="$parentToggleQuests" sticky="false" backgroundtexture="Paperdoll_Textures" highlighttexture="Paperdoll_Textures" layer="secondary" popable="false">
+          <Size>
+            <AbsPoint x="64" y="21" />
+          </Size>
+          <Anchors>
+            <Anchor point="topleft" relativePoint="bottomleft" relativeTo="$parentToggleSkills">
+              <AbsPoint x="0" y="-1" />
+            </Anchor>
+          </Anchors>
+          <TexCoords>
+            <Normal x="0" y="831" />
+            <NormalHighlit x="64" y="831" />
+            <Pressed x="128" y="831" />
+            <PressedHighlit x="128" y="831" />
+          </TexCoords>
+          <EventHandlers>
+            <EventHandler event="OnLButtonUp" function="MenuBarWindow.ToggleQuestWindow" />
+            <EventHandler event="OnMouseOver" function="MenuBarWindow.OnMouseoverMenuBtn" />
+          </EventHandlers>
+        </Button>
+
+        <Button name="$parentToggleMap" sticky="false" backgroundtexture="Paperdoll_Textures" highlighttexture="Paperdoll_Textures" layer="secondary" popable="false">
+          <Size>
+            <AbsPoint x="64" y="21" />
+          </Size>
+          <Anchors>
+            <Anchor point="topleft" relativePoint="bottomleft" relativeTo="$parentToggleQuests">
+              <AbsPoint x="0" y="-1" />
+            </Anchor>
+          </Anchors>
+          <TexCoords>
+            <Normal x="0" y="919" />
+            <NormalHighlit x="64" y="919" />
+            <Pressed x="128" y="919" />
+            <PressedHighlit x="128" y="919" />
+          </TexCoords>
+          <EventHandlers>
+            <EventHandler event="OnLButtonUp" function="MenuBarWindow.ToggleMapWindow" />
+            <EventHandler event="OnMouseOver" function="MenuBarWindow.OnMouseoverMenuBtn" />
+          </EventHandlers>
+        </Button>
+        
+        <Button name="$parentToggleVirtues" sticky="false" backgroundtexture="Paperdoll_Textures" highlighttexture="Paperdoll_Textures" layer="secondary" popable="false">
+          <Size>
+            <AbsPoint x="64" y="21" />
+          </Size>
+          <Anchors>
+            <Anchor point="topleft" relativePoint="bottomleft" relativeTo="$parentToggleMap">
+              <AbsPoint x="0" y="-1" />
+            </Anchor>
+          </Anchors>
+          <TexCoords>
+            <Normal x="0" y="853" />
+            <NormalHighlit x="64" y="853" />
+            <Pressed x="128" y="853" />
+            <PressedHighlit x="128" y="853" />
+          </TexCoords>
+          <EventHandlers>
+            <EventHandler event="OnLButtonUp" function="MenuBarWindow.ToggleVirtuesWindow" />
+            <EventHandler event="OnMouseOver" function="MenuBarWindow.OnMouseoverMenuBtn" />
+          </EventHandlers>
+        </Button>
+        <Button name="$parentToggleMacros" sticky="false" backgroundtexture="Paperdoll_Textures" highlighttexture="Paperdoll_Textures" layer="secondary" popable="false">
+          <Size>
+            <AbsPoint x="64" y="21" />
+          </Size>
+          <Anchors>
+            <Anchor point="topleft" relativePoint="bottomleft" relativeTo="$parentToggleVirtues">
+              <AbsPoint x="0" y="-1" />
+            </Anchor>
+          </Anchors>
+          <TexCoords>
+            <Normal x="0" y="964" />
+            <NormalHighlit x="64" y="964" />
+            <Pressed x="128" y="964" />
+            <PressedHighlit x="128" y="964" />
+          </TexCoords>
+          <EventHandlers>
+          			  <EventHandler event="OnLButtonUp" function="MainMenuWindow.OnOpenMacros" />
+          </EventHandlers>
+        </Button>
+        
+        <Button name="$parentToggleHelp" sticky="false" backgroundtexture="Paperdoll_Textures" highlighttexture="Paperdoll_Textures" layer="secondary" popable="false">
+          <Size>
+            <AbsPoint x="64" y="21" />
+          </Size>
+          <Anchors>
+            <Anchor point="topleft" relativePoint="bottomleft" relativeTo="$parentToggleMacros">
+              <AbsPoint x="0" y="-1" />
+            </Anchor>
+          </Anchors>
+          <TexCoords>
+            <Normal x="0" y="765" />
+            <NormalHighlit x="64" y="765" />
+            <Pressed x="128" y="765" />
+            <PressedHighlit x="128" y="765" />
+          </TexCoords>
+          <EventHandlers>
+            <EventHandler event="OnLButtonUp" function="MenuBarWindow.ToggleHelpWindow" />
+            <EventHandler event="OnMouseOver" function="MenuBarWindow.OnMouseoverMenuBtn" />
+          </EventHandlers>
+        </Button>
+
+<!-- Character Title -->
+        <Window name="$parentTitle" movable="false" layer="secondary">
+          <Size>
+            <AbsPoint x="347" y="70"/>
+          </Size>
+          <Anchors>
+            <Anchor point="bottom" relativePoint="bottom" >
+              <AbsPoint x="-2" y="-4"/>
+            </Anchor>
+          </Anchors>
+          <Windows>
+            <Label name="$parentName" font="UOCR_18" maxchars="128" textalign="center" wordwrap="true">
+              <Size>
+                <AbsPoint x="347" y="70"/>
+              </Size>
+              <Anchors>
+                <Anchor point="center" relativePoint="center" />
+              </Anchors>
+              <Color r="255" g="255" b="255" a="255"/>
+            </Label>
+          </Windows>
+        </Window>
+      </Windows>
+    </Window>
+  </Windows>
+</Interface>
