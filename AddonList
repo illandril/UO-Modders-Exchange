@@ -1,0 +1,5 @@
+#NAME|SOURCE_DIR|SCREENSHOT|PRIMARY AUTHOR(S)|DEPENDENCIES|DESCRIPTION
+Custom Settings|Mods/CustomSettings||Illandril||A framework for saving and loading custom settings.
+Custom Settings Window|Mods/CustomSettingsWindow||Illandril|Custom Settings, Custom Localizations|An addition to the Settings Window to display Custom Settings
+Hide Own Object Handle|Mods/HideOwnObjectHandle||Illandril|Custom Settings Window|Allows people to not show their own object handle
+Small Atlas|Mods/SmallAtlas||Illandril|Custom Settings Window|Allows for a smaller atlas, and the hiding of some typically unneeded elements on the UI (command "script SmallAtlas.ToggleFacetDisplay()" to toggle)
